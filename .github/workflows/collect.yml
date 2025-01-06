@@ -1,0 +1,35 @@
+name: collect
+on: 
+  push:
+    branches: 
+    - main
+  schedule:
+    - cron:  '0 * * * *'
+  workflow_dispatch:
+jobs:
+  collect:
+    permissions:                   
+      contents: write              
+      pull-requests: write          
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+        cache: 'pip'
+    - run: pip install -r python/requirements.txt
+    - name: Run Collect
+      run: |
+        cd python && python collect.py 
+    - name: Commit
+      run: |
+         git config --local user.email "github-actions[bot]@users.noreply.github.com"
+         git config --local user.name "github-actions[bot]"
+         git add output
+         git diff-index --quiet HEAD output || git commit -m "feat: update collect"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+         branch: main
