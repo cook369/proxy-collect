@@ -3,6 +3,7 @@ import os
 import urllib.parse
 import sys
 import logging
+import re
 
 import requests
 from Crypto.Cipher import AES
@@ -61,7 +62,9 @@ def brute_force_password(encrypted_data):
     """Attempts to brute-force the password to decrypt the data."""
     for pwd in range(1000, 10000):
         try:
-            return decrypt(encrypted_data, str(pwd))
+            decoded_data = decrypt(encrypted_data, str(pwd))
+            decrypted_data = urllib.parse.unquote(decoded_data)
+            return decrypted_data
         except ValueError:
             continue
     raise ValueError("Failed to brute-force the encryption password.")
@@ -69,12 +72,8 @@ def brute_force_password(encrypted_data):
 
 def parse_urls(decrypted_data):
     """Parses URLs from the decrypted data."""
-    urls = []
-    decoded_data = urllib.parse.unquote(decrypted_data)
-    parsed_html = etree.HTML(decoded_data)
-    for br in parsed_html.xpath("//br"):
-        if br.tail and br.tail.startswith("http"):
-            urls.append(br.tail)
+    matches = re.finditer(r"http.*\.(txt|yaml)", decrypted_data)
+    urls = [match.group(0) for match in matches]
     if not urls:
         raise ValueError("No URLs found in the decrypted data.")
     return urls
