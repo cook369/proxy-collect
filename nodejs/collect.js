@@ -2,64 +2,115 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 const axios = require('axios');
 const CryptoJS = require('crypto-js');
+const path = require('path');
 
-const homeUrl = 'https://www.yudou66.com/';
+const HOME_URL = 'https://www.yudou66.com/';
+const OUTPUT_DIR = path.resolve(__dirname, '../output');
 
-async function scrapeData() {
-  const response = await axios.get(homeUrl);
-  let $ = cheerio.load(response.data);
+// Ensure output directory exists
+if (!fs.existsSync(OUTPUT_DIR)) {
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+}
 
-  const link = $('#main article:first-child div.entry-header a').attr('href');
+async function fetchHtml(url) {
+  try {
+    const response = await axios.get(url);
+    return cheerio.load(response.data);
+  } catch (error) {
+    console.error(`Failed to fetch URL: ${url}`, error);
+    throw error;
+  }
+}
 
-  const response2 = await axios.get(link);
-  $ = cheerio.load(response2.data);
-
+function extractEncryptionScript($) {
   let encryption = '';
   $('script:not([src])').each((index, element) => {
-    let script_data = $(element).get()[0].children[0].data;
-    let match = script_data.match(/encryption = (\[.*?\])/s);
-    if (match == null) {
-      return;
+    const scriptData = $(element).html();
+    const match = scriptData && scriptData.match(/encryption = \[.*?\]/s);
+    if (match) {
+      encryption = match[0].split('"')[1];
+      return false;
     }
-    encryption = match[1].split('"')[1];
   });
-  console.log(encryption);
+  return encryption;
+}
 
-  let data = '';
-
-  for (let i = 1000; i < 10000; i++) {
+function bruteForceDecrypt(encryption) {
+  for (let password = 1000; password < 10000; password++) {
     try {
-      data = CryptoJS.AES.decrypt(encryption, i.toString()).toString(
-        CryptoJS.enc.Utf8,
-      );
-      break;
-    } catch (e) {}
-  }
-
-  if (data == '') {
-    return;
-  }
-  let resp_data = decodeURIComponent(data);
-  $ = cheerio.load(resp_data);
-
-  let urls = [];
-
-  $('br').each((index, element) => {
-    let data = $(element).get()[0].next.data;
-    if (data != undefined && data.substring(0, 4) === 'http') {
-      urls.push(data);
+      const decrypted = CryptoJS.AES.decrypt(encryption, password.toString()).toString(CryptoJS.enc.Utf8);
+      
+      if (decrypted) {
+        console.info(`Password found: ${password}`);
+        return decodeURIComponent(decrypted);
+      }
+    } catch (error) {
+      // Continue trying next password
     }
-  });
-  console.log(urls);
+  }
+  throw new Error('Failed to decrypt the encryption data');
+}
 
-  urls.forEach(async (url, inedx) => {
-    const response = await axios.get(url);
-    if (url.substring(url.length - 3, url.length) === 'txt') {
-      fs.writeFileSync('../output/v2rat.txt', response.data);
-    } else if (url.substring(url.length - 4, url.length) === 'yaml') {
-      fs.writeFileSync('../output/clash.yaml', response.data);
+function parseUrlsFromData() {
+  const urls = data.match(/http.*\.(txt|yaml)/g);
+  if (urls.length === 0) {
+    throw new Error('No URLs found in decrypted data');
+  }
+  return urls;
+}
+
+async function downloadAndSaveFiles(urls) {
+  for (const url of urls) {
+    try {
+      console.info(`Downloading from ${url}`);
+      const response = await axios.get(url);
+      let outputFile = '';
+
+      if (url.endsWith('.txt')) {
+        outputFile = path.join(OUTPUT_DIR, 'v2ray.txt');
+      } else if (url.endsWith('.yaml')) {
+        outputFile = path.join(OUTPUT_DIR, 'clash.yaml');
+      }
+
+      if (outputFile) {
+        fs.writeFileSync(outputFile, response.data, 'utf8');
+        console.info(`Saved file: ${outputFile}`);
+      }
+    } catch (error) {
+      console.error(`Failed to download or save file from URL: ${url}`, error);
     }
-  });
+  }
+}
+
+async function scrapeData() {
+  try {
+    // Step 1: Fetch homepage and extract the first link
+    const $home = await fetchHtml(HOME_URL);
+    const articleLink = $home('#main article:first-child div.entry-header a').attr('href');
+    if (!articleLink) throw new Error('Failed to find article link on homepage');
+    console.info(`Found article link: ${articleLink}`);
+
+    // Step 2: Fetch article page and extract encryption data
+    const $article = await fetchHtml(articleLink);
+    const encryption = extractEncryptionScript($article);
+    if (!encryption) throw new Error('Failed to extract encryption data');
+    console.info('Encryption data extracted successfully');
+
+    // Step 3: Decrypt the data
+    const decryptedData = bruteForceDecrypt(encryption);
+    console.info('Decryption successful');
+
+    // Step 4: Parse URLs from decrypted data
+    const urls = parseUrlsFromData(decryptedData);
+    console.info('URLs parsed successfully:', urls);
+
+    // Step 5: Download and save files
+    await downloadAndSaveFiles(urls);
+    console.info('All files downloaded successfully');
+
+  } catch (error) {
+    console.error('An error occurred:', error);
+  }
 }
 
 scrapeData();
