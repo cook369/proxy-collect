@@ -12,7 +12,9 @@ from Crypto.Util.Padding import unpad
 from lxml import etree
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 YUDOU_HOME = "https://www.yudou66.com/"
 OUTPUT_DIR = "../output/"
@@ -42,7 +44,7 @@ def decrypt(ciphertext, password):
 
 def fetch_html(url):
     """Fetches and parses HTML content from the given URL."""
-    response = requests.get(url)
+    response = requests.get(url, verify=False)
     response.raise_for_status()
     return etree.HTML(response.text)
 
@@ -84,11 +86,15 @@ def download_files(urls):
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     for url in urls:
         logging.info(f"Downloading from {url}")
-        response = requests.get(url)
+        response = requests.get(url, verify=False)
         response.raise_for_status()
 
         # Determine output file name
-        file_name = "v2ray.txt" if url.endswith("txt") else "clash.yaml" if url.endswith("yaml") else None
+        file_name = (
+            "v2ray.txt"
+            if url.endswith("txt")
+            else "clash.yaml" if url.endswith("yaml") else None
+        )
         if file_name:
             output_path = os.path.join(OUTPUT_DIR, file_name)
             logging.info(f"Saving to {output_path}")
