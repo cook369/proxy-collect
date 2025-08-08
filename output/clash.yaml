@@ -5,89 +5,87 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: 美国(yudou123.top 玉豆免费节点), server: 216.205.52.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 2, server: 45.67.215.95, port: 443, type: trojan, password: tg-fq521free, skip-cert-verify: true, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 3, server: 141.11.203.26, port: 8880, type: vmess, uuid: 1fcb582e-7ffb-3708-8a0f-96c2a070e40d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 加拿大(yudou123.top 玉豆免费节点), server: test.flha.ru, port: 80, type: vmess, uuid: 2bab6b8f-8d6e-463a-8331-b9de3d56921d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /2bab6b8f-8d6e-463a-8331-b9de3d56921d-vmess, ws-headers: {Host: test.flha.ru}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 4, server: test.flha.ru, port: 80, type: vmess, uuid: 2bab6b8f-8d6e-463a-8331-b9de3d56921d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /2bab6b8f-8d6e-463a-8331-b9de3d56921d-vmess, ws-headers: {Host: test.flha.ru}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 5, server: test.flha.ru, port: 80, type: vmess, uuid: 2bab6b8f-8d6e-463a-8331-b9de3d56921d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /2bab6b8f-8d6e-463a-8331-b9de3d56921d-vmess, ws-headers: {Host: test.flha.ru}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 6, server: awes35lesl.blhao0o.dpdns.org, port: 12005, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 7, server: awes35lesl.blhao0o.dpdns.org, port: 12034, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 8, server: 199.34.228.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 9, server: awes35lesl.blhao0o.dpdns.org, port: 12020, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 10, server: awes35lesl.blhao0o.dpdns.org, port: 12029, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 11, server: awes35lesl.blhao0o.dpdns.org, port: 12031, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 12, server: awes35lesl.blhao0o.dpdns.org, port: 12032, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 13, server: awes35lesl.blhao0o.dpdns.org, port: 12030, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 14, server: 172.67.214.21, port: 443, type: trojan, password: 7248e825-887c-48b9-83bc-c26bc6392bf8, skip-cert-verify: true, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 15, server: awes35lesl.blhao0o.dpdns.org, port: 12017, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 16, server: awes35lesl.blhao0o.dpdns.org, port: 12012, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 17, server: 104.21.63.135, port: 443, type: trojan, password: fa050497-fc2a-45ee-89c0-96670c4ecb65, skip-cert-verify: true, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 18, server: dDdDdDdddDDDDyUUUIO.4444926.XyZ, port: 80, type: vmess, uuid: dc50eb1d-244d-4711-b168-a101a5e6fb1b, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /awmqq79B17rfnpXiNaWb, ws-headers: {Host: dddddddddddddyuuuio.4444926.xyz}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 19, server: manager.gghbjnjbff.shop, port: 10001, type: vmess, uuid: e44d95b9-f2bf-49f8-80ac-c57e6664f96c, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /sg_1, ws-headers: {Host: manager.gghbjnjbff.shop}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 20, server: codepen.io, port: 443, type: vmess, uuid: de94cc0a-0592-4969-b1fc-97ea8f0ea0b3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /us.kkp.me.eu.org/aa, ws-headers: {Host: farid.1.berozha.ir}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 21, server: aio.zipzap.biz.id, port: 443, type: trojan, password: f282b878-8711-45a1-8c69-5564172123c1, sni: aio.zipzap.biz.id, skip-cert-verify: true, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 22, server: cloudgetservice.mcloudservice.site, port: 443, type: vmess, uuid: 37f464cb-b826-4278-9bf8-11bdf1ec892b, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-path: /linvkws, ws-headers: {Host: Fra-Vp-123.BLaZECLOUD.Site}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 23, server: 141.193.27.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 24, server: awes35lesl.blhao0o.dpdns.org, port: 12028, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 25, server: 45.194.11.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 26, server: 103.245.229.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 27, server: awes35lesl.blhao0o.dpdns.org, port: 12027, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 28, server: 89.116.46.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 29, server: 188.244.122.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 30, server: 25.129.196.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 31, server: 156.243.246.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 32, server: 154.194.12.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 33, server: 185.176.26.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 34, server: 185.207.197.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 35, server: 45.202.113.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 36, server: 156.225.72.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 37, server: 14.102.229.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 38, server: 188.42.89.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 39, server: 194.36.55.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 40, server: 45.159.218.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 41, server: 94.140.0.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 42, server: 141.11.203.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 43, server: 45.130.125.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 44, server: 45.192.224.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 45, server: 185.148.106.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 46, server: 45.192.222.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 47, server: 154.206.12.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 48, server: 45.159.217.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 49, server: 185.238.228.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 50, server: 103.116.7.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 51, server: 77.37.33.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 52, server: 5.10.214.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 53, server: awes35lesl.blhao0o.dpdns.org, port: 12008, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 54, server: 141.11.202.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 55, server: 154.219.5.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 56, server: 188.164.159.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 57, server: 188.42.145.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 58, server: 5.182.34.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 59, server: 88.216.66.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 60, server: 154.85.99.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 61, server: 27.50.49.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 新加坡(yudou123.top 玉豆免费节点), server: 114.129.43.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 62, server: 176.124.223.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 63, server: 195.13.45.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 64, server: 199.181.197.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 65, server: 5.182.84.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 66, server: 170.114.46.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 67, server: 46.254.92.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 68, server: 104.129.167.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 69, server: 198.202.211.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 70, server: 92.243.74.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 71, server: fastcup.net, port: 80, type: vmess, uuid: 76414574-71e0-4706-89cc-c5b09c13445d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /profile/telegram@ssrsub, ws-headers: {Host: cdn-node-oss-99.paofu.de}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 72, server: 185.221.160.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 73, server: 213.219.247.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 74, server: 92.53.189.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 75, server: 45.196.29.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 76, server: 198.177.56.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 77, server: 159.242.242.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 78, server: 185.59.218.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 79, server: www.visa.com.sg, port: 2053, type: trojan, password: 0F22D008-24D4-4DFE-947B-8D2FD64CD24C, sni: www.visa.com.sg, skip-cert-verify: true, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 80, server: 193.233.21.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
-  - {name: 美国(yudou123.top 玉豆免费节点) 81, server: 159.246.55.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点), server: 181.214.1.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 德国(yudou123.top 玉豆免费节点), server: 185.135.9.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 2, server: 213.219.247.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 3, server: 209.46.30.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 4, server: 45.67.215.95, port: 443, type: trojan, password: tg-fq521free, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 5, server: 159.246.55.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 6, server: test.flha.ru, port: 80, type: vmess, uuid: 2bab6b8f-8d6e-463a-8331-b9de3d56921d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /2bab6b8f-8d6e-463a-8331-b9de3d56921d-vmess, ws-headers: {Host: test.flha.ru}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 7, server: 213.219.247.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 8, server: switcher-nick-croquet.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 9tqhMdIrTkgQ46PvhyAtMH, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 9, server: 154.85.99.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 10, server: 103.245.229.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 11, server: 198.177.57.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 12, server: 88.216.67.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 13, server: 45.85.118.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 14, server: 92.53.189.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 15, server: 45.202.113.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 16, server: 185.193.29.88, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 17, server: 199.34.228.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 18, server: 167.68.4.88, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 19, server: 183.109.131.75, port: 20086, type: vmess, uuid: b26c4803-0bca-467c-a245-c9a80bdd72ec, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 183.109.131.75}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 20, server: 45.80.111.88, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 21, server: 185.59.218.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 22, server: 185.176.26.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 23, server: 199.34.229.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 24, server: 89.116.161.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 25, server: 156.225.72.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 26, server: 195.85.59.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 27, server: 23.184.200.69, port: 20086, type: vmess, uuid: ed715e84-81a0-40c5-bb6a-4d8d341e5cfa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /, ws-headers: {Host: 23.184.200.69}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 28, server: 92.53.189.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 29, server: 45.131.5.88, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 30, server: 45.130.125.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 31, server: www.visa.com.sg, port: 2053, type: trojan, password: 0F22D008-24D4-4DFE-947B-8D2FD64CD24C, sni: www.visa.com.sg, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 32, server: 45.80.111.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 33, server: 45.80.110.88, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 34, server: 216.205.52.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 35, server: 45.159.217.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 36, server: 45.131.6.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 37, server: 104.129.167.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 38, server: 91.209.253.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 39, server: 141.11.202.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 40, server: 103.160.204.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 41, server: 45.80.108.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 42, server: 94.247.142.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 43, server: 102.177.176.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 44, server: 88.216.66.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 45, server: 45.131.7.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 46, server: 45.131.5.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 47, server: 170.114.46.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 48, server: 91.124.127.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 49, server: fastcup.net, port: 80, type: vmess, uuid: 76414574-71e0-4706-89cc-c5b09c13445d, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: /profile/telegram@ssrsub, ws-headers: {Host: cdn-node-oss-99.paofu.de}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 50, server: 172.67.214.21, port: 443, type: trojan, password: 7248e825-887c-48b9-83bc-c26bc6392bf8, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 51, server: 103.116.7.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 新加坡(yudou123.top 玉豆免费节点), server: 185.18.184.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 52, server: 5.182.34.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 53, server: 159.242.242.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 54, server: 188.42.89.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 55, server: 45.67.215.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 56, server: 185.148.106.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 57, server: 166.62.115.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 58, server: 31.43.179.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 59, server: aio.zipzap.biz.id, port: 443, type: trojan, password: f282b878-8711-45a1-8c69-5564172123c1, sni: aio.zipzap.biz.id, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 60, server: 198.12.145.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 61, server: 45.196.29.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 62, server: awes35lesl.blhao0o.dpdns.org, port: 12014, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 63, server: 213.241.198.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 香港(yudou123.top 玉豆免费节点), server: 103.116.7.103, port: 2083, type: trojan, password: Aimer, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 64, server: 107.174.88.251, port: 443, type: trojan, password: Aimer, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 65, server: 167.68.11.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 66, server: 92.53.191.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 67, server: 77.37.33.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 68, server: awes35lesl.blhao0o.dpdns.org, port: 12027, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 69, server: 46.254.92.226, port: 8880, type: vmess, uuid: 5d5c957f-b0e7-3e4e-9db6-65a5fec7e080, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 70, server: 167.68.5.248, port: 2087, type: trojan, password: Aimer, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 71, server: 108.165.152.93, port: 2083, type: trojan, password: Aimer, skip-cert-verify: true, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 72, server: awes35lesl.blhao0o.dpdns.org, port: 12028, type: ss, cipher: aes-128-gcm, password: 01721e43-5389-4f97-b21c-900abb2bda9e, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 73, server: 195.13.55.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 74, server: hackney-latest-strike.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: XUMTygEM1jVYIvysXKqA5T, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 75, server: 195.26.229.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 76, server: 92.243.75.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 77, server: 89.116.250.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
+  - {name: 美国(yudou123.top 玉豆免费节点) 78, server: 72.167.243.66, port: 8880, type: vmess, uuid: cc0926df-54a8-3df7-934c-fd3ead64f6aa, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-path: "/dabai&Telegram🇨🇳@WangCai2/?ed=2560", ws-headers: {Host: TG.WangCai2.s2.cn-db.top}, udp: true}
 proxy-groups:
   - name: 🔰 节点选择
     type: select
@@ -95,9 +93,9 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -146,6 +144,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -156,9 +155,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -174,18 +173,15 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     proxies:
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -234,6 +230,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -244,9 +241,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -262,9 +259,6 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: 🎥 NETFLIX
     type: select
     proxies:
@@ -272,9 +266,9 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -323,6 +317,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -333,9 +328,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -351,9 +346,6 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: ⛔️ 广告拦截
     type: select
     proxies:
@@ -373,9 +365,9 @@ proxy-groups:
       - ♻️ 自动选择
       - 🎯 全球直连
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -424,6 +416,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -434,9 +427,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -452,13 +445,11 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: 🌏 国内媒体
     type: select
     proxies:
       - 🎯 全球直连
+      - 香港(yudou123.top 玉豆免费节点)
       - 🔰 节点选择
   - name: Ⓜ️ 微软服务
     type: select
@@ -466,9 +457,9 @@ proxy-groups:
       - 🎯 全球直连
       - 🔰 节点选择
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -517,6 +508,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -527,9 +519,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -545,18 +537,15 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: 📲 电报信息
     type: select
     proxies:
       - 🔰 节点选择
       - 🎯 全球直连
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -605,6 +594,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -615,9 +605,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -633,9 +623,6 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: 🍎 苹果服务
     type: select
     proxies:
@@ -643,9 +630,9 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -694,6 +681,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -704,9 +692,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -722,9 +710,6 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -741,9 +726,9 @@ proxy-groups:
       - 🎯 全球直连
       - ♻️ 自动选择
       - 美国(yudou123.top 玉豆免费节点)
+      - 德国(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 2
       - 美国(yudou123.top 玉豆免费节点) 3
-      - 加拿大(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 4
       - 美国(yudou123.top 玉豆免费节点) 5
       - 美国(yudou123.top 玉豆免费节点) 6
@@ -792,6 +777,7 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 49
       - 美国(yudou123.top 玉豆免费节点) 50
       - 美国(yudou123.top 玉豆免费节点) 51
+      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 52
       - 美国(yudou123.top 玉豆免费节点) 53
       - 美国(yudou123.top 玉豆免费节点) 54
@@ -802,9 +788,9 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 59
       - 美国(yudou123.top 玉豆免费节点) 60
       - 美国(yudou123.top 玉豆免费节点) 61
-      - 新加坡(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 62
       - 美国(yudou123.top 玉豆免费节点) 63
+      - 香港(yudou123.top 玉豆免费节点)
       - 美国(yudou123.top 玉豆免费节点) 64
       - 美国(yudou123.top 玉豆免费节点) 65
       - 美国(yudou123.top 玉豆免费节点) 66
@@ -820,9 +806,6 @@ proxy-groups:
       - 美国(yudou123.top 玉豆免费节点) 76
       - 美国(yudou123.top 玉豆免费节点) 77
       - 美国(yudou123.top 玉豆免费节点) 78
-      - 美国(yudou123.top 玉豆免费节点) 79
-      - 美国(yudou123.top 玉豆免费节点) 80
-      - 美国(yudou123.top 玉豆免费节点) 81
 rules:
  - DOMAIN-SUFFIX,local,🎯 全球直连
  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
