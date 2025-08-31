@@ -1,5 +1,7 @@
 import base64
 import os
+import random
+import time
 import urllib.parse
 import urllib3
 
@@ -8,6 +10,7 @@ import logging
 import re
 
 import requests
+from requests.adapters import HTTPAdapter
 from Crypto.Cipher import AES
 from Crypto.Hash import MD5
 from Crypto.Util.Padding import unpad
@@ -26,6 +29,8 @@ OUTPUT_DIR = "../output/"
 
 session = requests.Session()
 session.verify = False  # 禁用证书验证
+retries = urllib3.Retry(total=5, backoff_factor=1, status_forcelist=[429, 500, 502, 503, 504])
+session.mount('https://', HTTPAdapter(max_retries=retries))
 
 
 def decrypt(ciphertext: str, password: str) -> str:
@@ -53,6 +58,7 @@ def decrypt(ciphertext: str, password: str) -> str:
 def fetch_html(url: str) -> etree._Element:
     """Fetch and parse HTML from a URL."""
     try:
+        time.sleep(random.uniform(2, 5))
         response = session.get(url)
         response.raise_for_status()
         return etree.HTML(response.text)

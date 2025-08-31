@@ -30,7 +30,7 @@ jobs:
 
       - name: Collect
         run: |
-          cd python && python collect.py
+          cd python && uv run python collect.py
       - name: Commit && Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
