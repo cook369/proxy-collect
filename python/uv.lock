@@ -155,6 +155,7 @@ dependencies = [
     { name = "lxml" },
     { name = "pycryptodome" },
     { name = "requests" },
+    { name = "urllib3" },
 ]
 
 [package.dev-dependencies]
@@ -167,6 +168,7 @@ requires-dist = [
     { name = "lxml", specifier = "==6.0.1" },
     { name = "pycryptodome", specifier = "==3.23.0" },
     { name = "requests", specifier = "==2.32.5" },
+    { name = "urllib3", specifier = ">=2.5.0" },
 ]
 
 [package.metadata.requires-dev]
