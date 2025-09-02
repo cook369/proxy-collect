@@ -23,7 +23,7 @@ logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
-YUDOU_HOME = "https://www.yudou123.top/"
+YUDOU_HOME = "https://yudou.cook369.xyz/"
 AES_PATTERN = r"U2FsdGVkX1[0-9A-Za-z+/=]+"
 OUTPUT_DIR = "../output/"
 
