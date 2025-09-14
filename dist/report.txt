@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-14 02:25:43
+# Collect Time: 2025-09-14 03:32:54
 
 
 ## Site: jichangx
@@ -41,12 +41,12 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
+## Site: 85la
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.13Clah4sh.yaml | No      | Yes       |
-| https://yy.yudou66.top/202509/20250913bass4e.txt    | No      | Yes       |
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/09/202509145608zguGlw.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/09/202509145582p4H9Yo.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -61,11 +61,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: yudou
 
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/09/202509145608zguGlw.yaml | Yes     | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/09/202509145582p4H9Yo.txt  | Yes     | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://yy.yudou66.top/202509/2025.9.14Clah5sh.yaml | Yes     | Yes       |
+| https://yy.yudou66.top/202509/20250914baf2se.txt    | Yes     | Yes       |
 
 采集成功: 2 / 采集失败: 0
