@@ -1,5 +1,15 @@
 
-# Collect Time: 2025-09-17 08:33:44
+# Collect Time: 2025-09-17 10:26:57
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20250917-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20250917-v2ray.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: jichangx
@@ -31,26 +41,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20250912/pygtogg5wr.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20250912/exfzsccvq6.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20250917-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20250917-v2ray.txt  | Yes     | Yes       |
-
-采集成功: 1 / 采集失败: 0
-
-
 ## Site: yudou
 
 | URL                                                 | Tried   | Success   |
@@ -67,5 +57,15 @@
 |-------------------------------------------------------------------------|---------|-----------|
 | https://www.85la.com/wp-content/uploads/2025/09/202509172893gwb2jW.yaml | No      | Yes       |
 | https://www.85la.com/wp-content/uploads/2025/09/202509172869tUoSTZ.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20250912/pygtogg5wr.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20250912/exfzsccvq6.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
