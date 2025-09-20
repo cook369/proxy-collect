@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-20 20:24:16
+# Collect Time: 2025-09-20 22:21:34
 
 
 ## Site: jichangx
@@ -33,30 +33,8 @@
 
 ## Site: 85la
 
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/09/202509182918iWvVOo.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/09/202509182893LHy15a.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.20Clasj6h.yaml | No      | Yes       |
-| https://yy.yudou66.top/202509/20250920bd2ase.txt    | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20250920/0sdqxkp3gn.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20250920/acg29nelog.txt  | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -69,3 +47,19 @@
 | https://free.datiya.com/uploads/20250920-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
