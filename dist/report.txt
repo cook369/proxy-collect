@@ -1,5 +1,15 @@
 
-# Collect Time: 2025-09-21 03:38:19
+# Collect Time: 2025-09-21 04:29:12
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20250921-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20250921-v2ray.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: jichangx
@@ -55,17 +65,7 @@
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.21Clj8ash.yaml | Yes     | Yes       |
-| https://yy.yudou66.top/202509/20250921basf3e.txt    | Yes     | Yes       |
+| https://yy.yudou66.top/202509/2025.9.21Clj8ash.yaml | No      | Yes       |
+| https://yy.yudou66.top/202509/20250921basf3e.txt    | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20250921-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20250921-v2ray.txt  | Yes     | Yes       |
-
-采集成功: 1 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
