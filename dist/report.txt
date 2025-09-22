@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-22 04:30:34
+# Collect Time: 2025-09-22 06:40:01
 
 
 ## Site: datiya
@@ -12,21 +12,21 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20250922-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: nodefree
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/09/20250922.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/09/20250922.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20250922-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -51,21 +51,21 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/09/202509226058HPf2Nj.yaml | Yes     | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/09/202509226031SwcQhu.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
+
+
 ## Site: cfmeme
 
 | URL                                                   | Tried   | Success   |
 |-------------------------------------------------------|---------|-----------|
 | https://fs.v2rayse.com/share/20250922/9buzrdiuqj.yaml | No      | Yes       |
 | https://fs.v2rayse.com/share/20250922/bq65d9lju1.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/09/202509212141QA7S5V.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/09/202509212113JAgm1T.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
