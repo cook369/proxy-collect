@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-22 02:39:26
+# Collect Time: 2025-09-22 03:39:03
 
 
 ## Site: datiya
@@ -21,16 +21,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: nodefree
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/09/20250922.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2025/09/20250922.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: oneclash
 
 | URL                                                         | Tried   | Success   |
@@ -41,12 +31,22 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: nodefree
 
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20250922/9buzrdiuqj.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20250922/bq65d9lju1.txt  | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/09/20250922.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2025/09/20250922.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://yy.yudou66.top/202509/2025.9.22Class7h.yaml | No      | Yes       |
+| https://yy.yudou66.top/202509/20250922y4base.txt    | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -61,11 +61,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.22Class7h.yaml | Yes     | Yes       |
-| https://yy.yudou66.top/202509/20250922y4base.txt    | Yes     | Yes       |
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20250922/9buzrdiuqj.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20250922/bq65d9lju1.txt  | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
