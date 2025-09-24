@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-24 16:33:16
+# Collect Time: 2025-09-24 18:35:12
 
 
 ## Site: datiya
@@ -12,21 +12,21 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20250924-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: nodefree
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/09/20250924.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/09/20250924.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20250924-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -49,7 +49,7 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: cfmeme
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -57,7 +57,7 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
