@@ -1,54 +1,24 @@
 
-# Collect Time: 2025-09-25 22:23:05
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20250925-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20250925-v2ray.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-09-26 01:56:06
 
 
 ## Site: jichangx
 
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20250925-01 | No      | Yes       |
+| https://jichangx.com/nodes/v2ray-20250926-01 | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 0
-
-
-## Site: oneclash
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/09/20250925.yaml | No      | Yes       |
-| https://oneclash.githubrowcontent.com/2025/09/20250925.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+采集成功: 1 / 采集失败: 0
 
 
-## Site: nodefree
+## Site: cfmeme
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/09/20250925.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2025/09/20250925.txt  | No      | Yes       |
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20250926/6ruvukd7am.yaml | Yes     | Yes       |
+| https://fs.v2rayse.com/share/20250926/k32vxhoo5u.txt  | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.25Clah6sh.yaml | No      | Yes       |
-| https://yy.yudou66.top/202509/20250925bad3se.txt    | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+采集成功: 2 / 采集失败: 0
 
 
 ## Site: 85la
@@ -61,11 +31,41 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: datiya
 
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20250925/xumhapvcmb.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20250925/b0s2l8kdii.txt  | No      | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20250926-clash.yaml | Yes     | Yes       |
+| https://free.datiya.com/uploads/20250926-v2ray.txt  | Yes     | No        |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 1 / 采集失败: 1
+
+
+## Site: nodefree
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/09/20250926.yaml | Yes     | Yes       |
+| https://nodefree.githubrowcontent.com/2025/09/20250926.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
+
+
+## Site: oneclash
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2025/09/20250926.yaml | Yes     | Yes       |
+| https://oneclash.githubrowcontent.com/2025/09/20250926.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://yy.yudou66.top/202509/2025.9.26Clag5sh.yaml | Yes     | Yes       |
+| https://yy.yudou66.top/202509/20250926bd4ase.txt    | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
