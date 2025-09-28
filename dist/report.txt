@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-09-28 03:38:51
+# Collect Time: 2025-09-28 04:29:29
 
 
 ## Site: datiya
@@ -21,16 +21,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: nodefree
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/09/20250928.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2025/09/20250928.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: oneclash
 
 | URL                                                         | Tried   | Success   |
@@ -41,12 +31,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: nodefree
 
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20250928/4rgczryttd.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20250928/fpzuhksv3o.txt  | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/09/20250928.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2025/09/20250928.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -61,11 +51,21 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: cfmeme
+
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20250928/4rgczryttd.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20250928/fpzuhksv3o.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: yudou
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202509/2025.9.28Clasj7h.yaml | Yes     | Yes       |
-| https://yy.yudou66.top/202509/20250928bad2se.txt    | Yes     | Yes       |
+| https://yy.yudou66.top/202509/2025.9.28Clasj7h.yaml | No      | Yes       |
+| https://yy.yudou66.top/202509/20250928bad2se.txt    | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
