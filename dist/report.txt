@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-05 02:39:07
+# Collect Time: 2025-10-05 03:35:18
 
 
 ## Site: datiya
@@ -41,14 +41,24 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/09/202509226058HPf2Nj.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/09/202509226031SwcQhu.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: yudou
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202510/2025.10.4Clk5ash.yaml | No      | Yes       |
-| https://yy.yudou66.top/202510/20251004bf3ase.txt    | No      | Yes       |
+| https://yy.yudou66.top/202510/2025.10.5Cg5lash.yaml | Yes     | Yes       |
+| https://yy.yudou66.top/202510/20251005bas2se.txt    | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 2 / 采集失败: 0
 
 
 ## Site: cfmeme
@@ -57,15 +67,5 @@
 |-------------------------------------------------------|---------|-----------|
 | https://fs.v2rayse.com/share/20251005/4yle16qe1q.yaml | No      | Yes       |
 | https://fs.v2rayse.com/share/20251005/mn6x9zwowv.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/09/202509226058HPf2Nj.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/09/202509226031SwcQhu.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
