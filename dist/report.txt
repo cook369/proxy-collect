@@ -1,5 +1,14 @@
 
-# Collect Time: 2025-10-06 10:29:06
+# Collect Time: 2025-10-06 12:54:32
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251006-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: datiya
@@ -8,15 +17,6 @@
 |-----------------------------------------------------|---------|-----------|
 | https://free.datiya.com/uploads/20251006-clash.yaml | No      | Yes       |
 | https://free.datiya.com/uploads/20251006-v2ray.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251006-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -41,16 +41,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251006/m60x2g5mn8.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251006/gojorl3zqp.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: 85la
 
 | URL                                                                     | Tried   | Success   |
@@ -67,5 +57,15 @@
 |-----------------------------------------------------|---------|-----------|
 | https://yy.yudou66.top/202510/2025.10.6Clg3ash.yaml | No      | Yes       |
 | https://yy.yudou66.top/202510/20251006bad2se.txt    | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251006/m60x2g5mn8.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251006/gojorl3zqp.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
