@@ -1,11 +1,1 @@
-REMOTE_ADDR = 43.208.121.205
-REMOTE_PORT = 61093
-REQUEST_METHOD = GET
-REQUEST_URI = /
-REQUEST_TIME_FLOAT = 1759715841.6892235
-REQUEST_TIME = 1759715841
-HTTP_HOST = free.datiya.com
-HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-HTTP_ACCEPT-ENCODING = gzip, deflate
-HTTP_ACCEPT = */*
-HTTP_CONNECTION = keep-alive
+<html><head><title>DVR Remote Management System</title></head><body></body></html>
