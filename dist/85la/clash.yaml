@@ -55,86 +55,222 @@ tun:
     - 1.1.1.1
     - 1.0.0.1
 proxies:
-  - name: www.85la.com🇺🇸US_173|1.4MB/s
+  - name: 🇺🇸 www.85la.com 美国_4
     port: 443
-    server: 104.21.14.54
-    type: trojan
-    network: ws
-    udp: true
-    sni: 6666YHjU.777159.xYz
-    password: e4cbe8b8-37db-4aaa-8469-b84f34c51ebc
-    skip-cert-verify: true
-    ws-opts:
-      path: /dilyfCPEmLvYr5hYXD
-    client-fingerprint: chrome
-  - name: www.85la.com🇺🇸US_11|1.6MB/s
-    port: 443
-    server: 172.67.157.220
-    type: trojan
-    network: ws
-    udp: true
-    sni: 6666YHjU.777159.xYz
-    password: e4cbe8b8-37db-4aaa-8469-b84f34c51ebc
-    skip-cert-verify: true
-    ws-opts:
-      path: /dilyfCPEmLvYr5hYXD
-      headers:
-        host: 6666YHjU.777159.xYz
-    alpn:
-      - http/1.1
-  - name: www.85la.com🇱🇰LK_1|1.1MB/s
-    port: 8443
-    server: ebc.zoom.us
+    server: ef7c2383-03bb-fec2-327b-34f6b2ace7cb.freevpnatm2025.dpdns.org
     type: vmess
     network: ws
     tls: true
     udp: true
     version: "2"
-    servername: node4.rtxconfigz.com
+    servername: ""
     skip-cert-verify: true
     ws-opts:
-      path: /@Malinda6104
+      path: /e7JS5ETJeA85VyjPCYXwETL
       headers:
         host: ""
     cipher: auto
-    uuid: 44e57485-eccc-46ef-808f-cd17ac810018
+    uuid: 34a7da0c-a43a-49b8-a8d0-64b43100090e
     alterId: 0
-  - name: www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
+  - name: 🇫🇷 www.85la.com 法国_4
     port: 443
-    server: 172.232.50.230
+    server: "2001:41d0:70e:c100::"
     type: vmess
     network: ws
     tls: true
     udp: true
     version: "2"
-    servername: glweidf.sbs
+    servername: serkat.org
     skip-cert-verify: true
     ws-opts:
-      path: /linkws
+      path: /linkvws
       headers:
-        host: ""
+        host: serkat.org
     cipher: auto
-    uuid: 76221bfb-e92f-4e80-81c5-6fe48f50ac0b
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
     alterId: 0
-  - name: 🇺🇸 www.85la.com 美国_1
-    port: 22223
-    server: 3.65.9.84
-    type: trojan
+  - name: 🇨🇳 www.85la.com 中国_1
+    port: 47081
+    server: entrance04.qqa678.cc
+    type: vmess
     network: tcp
+    tls: false
     udp: true
-    sni: trojan.burgerip.co.uk
-    password: telegram-id-directvpn
+    version: "2"
+    servername: ""
     skip-cert-verify: true
-  - name: 🇫🇷 www.85la.com 法国_1
-    port: 22222
-    server: 15.237.33.236
-    type: trojan
+    cipher: auto
+    uuid: a6560b60-5122-40d7-bcb6-650c98c88ea5
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_2
+    port: 59501
+    server: olej.ffymanuscript.top
+    type: vmess
     network: tcp
+    tls: false
     udp: true
-    sni: trojan.burgerip.co.uk
-    password: telegram-id-privatevpns
+    version: "2"
+    servername: ""
     skip-cert-verify: true
-  - name: 🇫🇷 www.85la.com 法国_39
+    cipher: auto
+    uuid: 3ad82ea4-894b-4cfc-9719-fd650871aefd
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_3
+    port: 59501
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: a9fae341-8d02-484a-a303-44ebe67739fe
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_4
+    port: 59503
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: 6cb802ce-34c4-4d57-9639-1f050ad23e1a
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_5
+    port: 59503
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: 09bad03c-9b70-4586-9ca1-866074e7c30e
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_6
+    port: 59503
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: 46371b0f-0126-4a57-8906-3b7f49ae7299
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_7
+    port: 47083
+    server: entrance02.qqa678.cc
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: a6560b60-5122-40d7-bcb6-650c98c88ea5
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_8
+    port: 47084
+    server: entrance04.qqa678.cc
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: a6560b60-5122-40d7-bcb6-650c98c88ea5
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_9
+    port: 59504
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: b67a8d4a-9d04-4f89-937f-a7265f239c05
+    alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_10
+    port: 59504
+    server: olej.ffymanuscript.top
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: e444a35f-8e59-431c-a215-b5c981b0c82c
+    alterId: 0
+  - name: 🇺🇸 www.85la.com 美国_190
+    port: 2082
+    server: 162.159.45.156
+    type: vmess
+    network: ws
+    tls: false
+    udp: true
+    version: "2"
+    servername: us4.bgp.cf.wcloud.store
+    skip-cert-verify: true
+    ws-opts:
+      path: /www555
+      headers:
+        host: us4.bgp.cf.wcloud.store
+    cipher: auto
+    uuid: a3e07d98-d227-4798-94e7-457bc2a654ae
+    alterId: 0
+  - name: 🇺🇸 www.85la.com 美国_193
+    port: 2082
+    server: 162.159.45.156
+    type: vmess
+    network: ws
+    tls: false
+    udp: true
+    version: "2"
+    servername: us8.bgp.cf.wcloud.store
+    skip-cert-verify: true
+    ws-opts:
+      path: /1w56df
+      headers:
+        host: us8.bgp.cf.wcloud.store
+    cipher: auto
+    uuid: a3e07d98-d227-4798-94e7-457bc2a654ae
+    alterId: 0
+  - name: 🇫🇷 www.85la.com 法国_7
+    port: 443
+    server: 91.134.8.101
+    type: vmess
+    network: ws
+    tls: true
+    udp: true
+    version: "2"
+    servername: fapeng.org
+    skip-cert-verify: true
+    ws-opts:
+      path: linkvws
+      headers:
+        host: fapeng.org
+    cipher: auto
+    uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
+    alterId: 0
+  - name: 🇫🇷 www.85la.com 法国_22
     port: 44579
     server: 2001:bc8:32d7:302::10
     type: vmess
@@ -151,81 +287,154 @@ proxies:
     cipher: auto
     uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
     alterId: 0
+  - name: 🇨🇳 www.85la.com 中国_13
+    port: 47084
+    server: entrance01.qqa678.cc
+    type: vmess
+    network: tcp
+    tls: false
+    udp: true
+    version: "2"
+    servername: ""
+    skip-cert-verify: true
+    cipher: auto
+    uuid: 8e94ed0e-3717-4c46-aa13-6757a89b392e
+    alterId: 0
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: 🌍 国外媒体
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: 📲 电报信息
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -248,13 +457,23 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - www.85la.com🇺🇸US_173|1.4MB/s
-      - www.85la.com🇺🇸US_11|1.6MB/s
-      - www.85la.com🇱🇰LK_1|1.1MB/s
-      - www.85la.com🇫🇷FR_4|4.9MB/s|0%|TK-FR|YT-FR|NF|GPT⁺
-      - 🇺🇸 www.85la.com 美国_1
-      - 🇫🇷 www.85la.com 法国_1
-      - 🇫🇷 www.85la.com 法国_39
+      - 🇺🇸 www.85la.com 美国_4
+      - 🇫🇷 www.85la.com 法国_4
+      - 🇨🇳 www.85la.com 中国_1
+      - 🇨🇳 www.85la.com 中国_2
+      - 🇨🇳 www.85la.com 中国_3
+      - 🇨🇳 www.85la.com 中国_4
+      - 🇨🇳 www.85la.com 中国_5
+      - 🇨🇳 www.85la.com 中国_6
+      - 🇨🇳 www.85la.com 中国_7
+      - 🇨🇳 www.85la.com 中国_8
+      - 🇨🇳 www.85la.com 中国_9
+      - 🇨🇳 www.85la.com 中国_10
+      - 🇺🇸 www.85la.com 美国_190
+      - 🇺🇸 www.85la.com 美国_193
+      - 🇫🇷 www.85la.com 法国_7
+      - 🇫🇷 www.85la.com 法国_22
+      - 🇨🇳 www.85la.com 中国_13
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
