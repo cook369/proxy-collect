@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-14 04:30:10
+# Collect Time: 2025-10-14 06:38:03
 
 
 ## Site: jichangx
@@ -31,22 +31,10 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251014-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251014-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251014/4uy3a3y0h6.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251014/hyox2mmxln.txt  | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -61,9 +49,21 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251014/4uy3a3y0h6.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251014/hyox2mmxln.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251014-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251014-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
