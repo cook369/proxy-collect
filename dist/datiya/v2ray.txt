@@ -1,1 +1,11 @@
-<html><head><title>JumpServer</title></head><body></body></html>
+REMOTE_ADDR = 54.226.156.148
+REMOTE_PORT = 53202
+REQUEST_METHOD = GET
+REQUEST_URI = /uploads/20251014-v2ray.txt
+REQUEST_TIME_FLOAT = 1760430728.3172488
+REQUEST_TIME = 1760430728
+HTTP_HOST = free.datiya.com
+HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+HTTP_ACCEPT-ENCODING = gzip, deflate
+HTTP_ACCEPT = */*
+HTTP_CONNECTION = keep-alive
