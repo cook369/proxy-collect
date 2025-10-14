@@ -1,54 +1,24 @@
 
-# Collect Time: 2025-10-13 22:23:54
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251013-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251013-v2ray.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-10-14 01:57:00
 
 
 ## Site: jichangx
 
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251013-01 | No      | Yes       |
+| https://jichangx.com/nodes/v2ray-20251014-01 | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 0
-
-
-## Site: nodefree
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/10/20251013.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2025/10/20251013.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: oneclash
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/10/20251013.yaml | No      | Yes       |
-| https://oneclash.githubrowcontent.com/2025/10/20251013.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+采集成功: 1 / 采集失败: 0
 
 
 ## Site: cfmeme
 
 | URL                                                   | Tried   | Success   |
 |-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251013/xni01hblb5.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251013/qy7ikpa5h9.txt  | No      | Yes       |
+| https://fs.v2rayse.com/share/20251014/4uy3a3y0h6.yaml | Yes     | Yes       |
+| https://fs.v2rayse.com/share/20251014/hyox2mmxln.txt  | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 2 / 采集失败: 0
 
 
 ## Site: 85la
@@ -61,9 +31,39 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: nodefree
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/10/20251014.yaml | Yes     | Yes       |
+| https://nodefree.githubrowcontent.com/2025/10/20251014.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251014-clash.yaml | Yes     | Yes       |
+| https://free.datiya.com/uploads/20251014-v2ray.txt  | Yes     | No        |
+
+采集成功: 1 / 采集失败: 1
+
+
 ## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: oneclash
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2025/10/20251014.yaml | Yes     | Yes       |
+| https://oneclash.githubrowcontent.com/2025/10/20251014.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
