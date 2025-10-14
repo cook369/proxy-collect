@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-10-14 02:23:36
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251014-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-10-14 03:07:06
 
 
 ## Site: nodefree
@@ -17,6 +8,15 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/10/20251014.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/10/20251014.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251014-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -31,10 +31,22 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: 85la
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/10/202510133452dG6Lm1.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/20251013342091tpw2.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251014/4uy3a3y0h6.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251014/hyox2mmxln.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -49,15 +61,7 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
