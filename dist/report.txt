@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-15 03:36:54
+# Collect Time: 2025-10-15 04:30:05
 
 
 ## Site: jichangx
@@ -41,6 +41,16 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251015-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251015-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
+
+
 ## Site: 85la
 
 | URL                                                                     | Tried   | Success   |
@@ -57,13 +67,3 @@
 |-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251015-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251015-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
