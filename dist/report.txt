@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-16 02:24:47
+# Collect Time: 2025-10-16 03:09:21
 
 
 ## Site: jichangx
@@ -31,12 +31,10 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: yudou
 
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251016/col5ak2wn4.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251016/it43evvhgc.txt  | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -51,10 +49,12 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251016/col5ak2wn4.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251016/it43evvhgc.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
