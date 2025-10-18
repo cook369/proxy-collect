@@ -1,5 +1,14 @@
 
-# Collect Time: 2025-10-18 10:24:57
+# Collect Time: 2025-10-18 12:48:26
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251018-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -8,15 +17,6 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/10/20251018.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/10/20251018.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251018-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -31,20 +31,20 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251018-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251018-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
+
+
 ## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251018/f0k39i809c.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251018/13xomrrwmm.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -59,11 +59,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: cfmeme
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251018-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251018-v2ray.txt  | Yes     | No        |
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251018/f0k39i809c.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251018/13xomrrwmm.txt  | No      | Yes       |
 
-采集成功: 0 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
