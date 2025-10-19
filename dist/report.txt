@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-10-19 10:24:56
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251019-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-10-19 12:48:25
 
 
 ## Site: nodefree
@@ -21,12 +12,37 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251019-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: oneclash
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
 | https://oneclash.githubrowcontent.com/2025/10/20251019.yaml | No      | Yes       |
 | https://oneclash.githubrowcontent.com/2025/10/20251019.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -47,19 +63,3 @@
 | https://free.datiya.com/uploads/20251019-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
