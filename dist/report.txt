@@ -1,32 +1,22 @@
 
-# Collect Time: 2025-10-20 02:07:33
+# Collect Time: 2025-10-20 02:44:37
 
 
 ## Site: jichangx
 
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251020-01 | Yes     | Yes       |
+| https://jichangx.com/nodes/v2ray-20251020-01 | No      | Yes       |
 
-采集成功: 1 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251020/k7mnhfi2e1.yaml | Yes     | Yes       |
-| https://fs.v2rayse.com/share/20251020/qf2b7xpbn0.txt  | Yes     | Yes       |
-
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: nodefree
 
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/10/202510194189cDfWih.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/10/202510197040dnYyMo.txt  | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/10/20251020.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2025/10/20251020.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -35,20 +25,20 @@
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/10/20251020.yaml | Yes     | Yes       |
-| https://oneclash.githubrowcontent.com/2025/10/20251020.txt  | Yes     | Yes       |
+| https://oneclash.githubrowcontent.com/2025/10/20251020.yaml | No      | Yes       |
+| https://oneclash.githubrowcontent.com/2025/10/20251020.txt  | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
 
 
-## Site: nodefree
+## Site: datiya
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/10/20251020.yaml | Yes     | Yes       |
-| https://nodefree.githubrowcontent.com/2025/10/20251020.txt  | Yes     | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251020-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251020-v2ray.txt  | Yes     | No        |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: yudou
@@ -59,11 +49,21 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: cfmeme
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251020-clash.yaml | Yes     | Yes       |
-| https://free.datiya.com/uploads/20251020-v2ray.txt  | Yes     | No        |
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251020/k7mnhfi2e1.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251020/qf2b7xpbn0.txt  | No      | Yes       |
 
-采集成功: 1 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/10/202510194189cDfWih.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/202510197040dnYyMo.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
