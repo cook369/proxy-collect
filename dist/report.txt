@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-25 18:34:11
+# Collect Time: 2025-10-25 20:26:14
 
 
 ## Site: jichangx
@@ -41,14 +41,6 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: cfmeme
 
 | URL                                                   | Tried   | Success   |
@@ -63,7 +55,15 @@
 
 | URL                                                                     | Tried   | Success   |
 |-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/10/2025102529317DIwbs.yaml | Yes     | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/10/202510253087INzREf.txt  | Yes     | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/2025102529317DIwbs.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/202510253087INzREf.txt  | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
