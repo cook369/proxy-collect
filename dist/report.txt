@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-26 18:34:28
+# Collect Time: 2025-10-26 20:28:04
 
 
 ## Site: jichangx
@@ -7,6 +7,16 @@
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
 | https://jichangx.com/nodes/v2ray-20251026-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: nodefree
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/10/20251026.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2025/10/20251026.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -21,12 +31,22 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: nodefree
+## Site: 85la
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/10/20251026.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2025/10/20251026.txt  | No      | Yes       |
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/10/2025102529317DIwbs.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/202510253087INzREf.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                   | Tried   | Success   |
+|-------------------------------------------------------|---------|-----------|
+| https://fs.v2rayse.com/share/20251022/9m1gbuirfy.yaml | No      | Yes       |
+| https://fs.v2rayse.com/share/20251022/ip9hv7cp52.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -47,23 +67,3 @@
 | https://free.datiya.com/uploads/20251026-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL                                                   | Tried   | Success   |
-|-------------------------------------------------------|---------|-----------|
-| https://fs.v2rayse.com/share/20251022/9m1gbuirfy.yaml | No      | Yes       |
-| https://fs.v2rayse.com/share/20251022/ip9hv7cp52.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/10/2025102529317DIwbs.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/10/202510253087INzREf.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
