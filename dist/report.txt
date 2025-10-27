@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-10-27 12:56:58
+# Collect Time: 2025-10-27 14:28:36
 
 
 ## Site: datiya
@@ -41,18 +41,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: 85la
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/10/202510260241N9mgvh.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/10/202510260211rymJPF.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -63,5 +57,13 @@
 |-------------------------------------------------------|---------|-----------|
 | https://fs.v2rayse.com/share/20251022/9m1gbuirfy.yaml | No      | Yes       |
 | https://fs.v2rayse.com/share/20251022/ip9hv7cp52.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
