@@ -1,6 +1,6 @@
 {
   "jichangx": {
-    "https://jichangx.com/nodes/v2ray-20251030-01": false
+    "https://jichangx.com/nodes/v2ray-20251030-01": true
   },
   "cfmeme": {
     "https://fs.v2rayse.com/share/20251022/9m1gbuirfy.yaml": true,
@@ -23,7 +23,7 @@
     "https://yy.yudou66.top/202510/20251012bas2se.txt": true
   },
   "datiya": {
-    "https://free.datiya.com/uploads/20251030-clash.yaml": false,
-    "https://free.datiya.com/uploads/20251030-v2ray.txt": false
+    "https://free.datiya.com/uploads/20251030-clash.yaml": true,
+    "https://free.datiya.com/uploads/20251030-v2ray.txt": true
   }
 }
