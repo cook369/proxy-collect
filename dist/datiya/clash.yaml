@@ -18,20 +18,19 @@ proxies:
   - {name: tg频道:@freenodedaily, server: 3.9.17.198, port: 443, client-fingerprint: chrome, type: ss, cipher: aes-256-cfb, password: amazonskr05, tfo: false}
   - {name: 🇭🇰 香港, server: v9.heduian.link, port: 30809, client-fingerprint: chrome, type: vmess, uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484, alterId: 2, cipher: auto, tls: false, tfo: false, skip-cert-verify: false, network: ws, ws-opts: {path: /oooo, headers: {Host: baidu.com}}}
   - {name: 🇭🇰 香港2, server: 103.103.245.158, port: 443, client-fingerprint: chrome, type: ss, cipher: aes-256-gcm, password: ccf426f1fe78, tfo: false, plugin: v2ray-plugin, plugin-opts: {mode: websocket, host: newroot2v1.dsjsapp.com, path: /zksuapgx, tls: true, mux: true, skip-cert-verify: false}}
-  - {name: 🇭🇰 香港3, server: 221.128.195.7, port: 5135, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
-  - {name: 🇭🇰 香港4, server: 36.156.102.72, port: 4451, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
-  - {name: 🇭🇰 香港5, server: 58.152.53.3, port: 443, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
-  - {name: 🇹🇼 台湾, server: hxfz940e90d9.nfwzdm.com, port: 42765, client-fingerprint: chrome, type: trojan, password: b00abf05-5768-4ac9-8d20-6b1bd605bcf6, sni: v1-dy.ixigua.com, skip-cert-verify: false}
+  - {name: 🇭🇰 香港3, server: 221.128.195.9, port: 22581, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
+  - {name: 🇭🇰 香港4, server: 36.156.102.74, port: 4861, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
+  - {name: 🇭🇰 香港5, server: 36.151.192.242, port: 194, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
   - {name: 🇯🇵 日本, server: 36.150.215.236, port: 487, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
-  - {name: 🇯🇵 日本2, server: 160.16.214.6, port: 1332, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
-  - {name: 🇯🇵 日本3, server: 160.16.214.6, port: 3161, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
-  - {name: 🇸🇬 新加坡, server: 160.16.229.223, port: 5041, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
-  - {name: 🇸🇬 新加坡2, server: 160.16.229.223, port: 5321, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
+  - {name: 🇭🇰 香港6, server: 36.133.73.36, port: 11819, client-fingerprint: chrome, type: vmess, uuid: de32752c-0661-467e-82d3-35bc740a787f, alterId: 0, cipher: auto, tls: false, tfo: false, skip-cert-verify: false}
+  - {name: 🇯🇵 日本2, server: 160.16.236.32, port: 4452, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.baidu.com, skip-cert-verify: true}
+  - {name: 🇯🇵 日本3, server: 160.16.236.32, port: 3161, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.baidu.com, skip-cert-verify: true}
+  - {name: 🇸🇬 新加坡, server: 117.172.176.24, port: 5041, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
+  - {name: 🇸🇬 新加坡2, server: 117.172.176.24, port: 5321, client-fingerprint: chrome, type: trojan, password: bca467b8c15211d189008a93c7519d3b, sni: www.nintendogames.net, skip-cert-verify: false}
   - {name: 🇸🇬 新加坡3, server: 36.150.215.197, port: 9713, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
-  - {name: 🇺🇸 美国, server: 160.16.107.37, port: 2467, client-fingerprint: chrome, type: trojan, password: ea39fa94f1ee00999337ea1fd3318e69, sni: www.nintendogames.net, skip-cert-verify: false}
-  - {name: 🇺🇸 美国2, server: 160.16.107.37, port: 2381, client-fingerprint: chrome, type: trojan, password: ea39fa94f1ee00999337ea1fd3318e69, sni: www.nintendogames.net, skip-cert-verify: false}
+  - {name: 🇺🇸 美国, server: 117.172.176.24, port: 2467, client-fingerprint: chrome, type: trojan, password: ea39fa94f1ee00999337ea1fd3318e69, sni: www.nintendogames.net, skip-cert-verify: false}
+  - {name: 🇺🇸 美国2, server: 117.172.176.24, port: 2381, client-fingerprint: chrome, type: trojan, password: ea39fa94f1ee00999337ea1fd3318e69, sni: www.nintendogames.net, skip-cert-verify: false}
   - {name: 🇺🇸 美国3, server: 36.156.102.74, port: 43567, client-fingerprint: chrome, type: trojan, password: BxceQaOe, skip-cert-verify: true}
-  - {name: 🇻🇳 越南, server: 103.186.155.238, port: 38388, client-fingerprint: chrome, type: ss, cipher: aes-256-cfb, password: Xn8jKdmDM00IeO%#$#fJAMtsEAEUOpH/YWYtYqDFnT0SV, tfo: false}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -44,8 +43,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -54,7 +53,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -67,8 +65,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -77,7 +75,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -90,8 +87,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -100,7 +97,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: 📲 电报信息
     type: select
     proxies:
@@ -112,8 +108,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -122,7 +118,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
@@ -134,8 +129,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -144,7 +139,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: 🍎 苹果服务
     type: select
     proxies:
@@ -156,8 +150,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -166,7 +160,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: 📢 谷歌FCM
     type: select
     proxies:
@@ -179,8 +172,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -189,7 +182,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -218,8 +210,8 @@ proxy-groups:
       - 🇭🇰 香港3
       - 🇭🇰 香港4
       - 🇭🇰 香港5
-      - 🇹🇼 台湾
       - 🇯🇵 日本
+      - 🇭🇰 香港6
       - 🇯🇵 日本2
       - 🇯🇵 日本3
       - 🇸🇬 新加坡
@@ -228,7 +220,6 @@ proxy-groups:
       - 🇺🇸 美国
       - 🇺🇸 美国2
       - 🇺🇸 美国3
-      - 🇻🇳 越南
 rules:
   - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
   - DOMAIN-SUFFIX,ip6-localhost,🎯 全球直连
