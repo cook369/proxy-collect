@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-11-02 12:48:13
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251102-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-02 14:21:53
 
 
 ## Site: nodefree
@@ -31,11 +22,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: jichangx
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251102/bme3chkk.txt | No      | Yes       |
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251102-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -50,19 +41,28 @@
 采集成功: 0 / 采集失败: 1
 
 
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251102/bme3chkk.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: 85la
 
 | URL                                                                     | Tried   | Success   |
 |-------------------------------------------------------------------------|---------|-----------|
 | https://www.85la.com/wp-content/uploads/2025/11/202511018344Go6eSZ.yaml | No      | Yes       |
 | https://www.85la.com/wp-content/uploads/2025/11/202511018190RwchQP.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
