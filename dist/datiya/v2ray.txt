@@ -1,11 +1,1 @@
-REMOTE_ADDR = 18.60.222.217
-REMOTE_PORT = 51888
-REQUEST_METHOD = GET
-REQUEST_URI = /
-REQUEST_TIME_FLOAT = 1761915281.420123
-REQUEST_TIME = 1761915281
-HTTP_HOST = free.datiya.com
-HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-HTTP_ACCEPT-ENCODING = gzip, deflate
-HTTP_ACCEPT = */*
-HTTP_CONNECTION = keep-alive
+<html><head><title>frps dashboard</title></head><body></body></html>
