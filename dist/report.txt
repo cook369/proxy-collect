@@ -1,15 +1,5 @@
 
-# Collect Time: 2025-11-04 10:31:56
-
-
-## Site: oneclash
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/11/20251104.yaml | No      | Yes       |
-| https://oneclash.githubrowcontent.com/2025/11/20251104.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-04 12:59:28
 
 
 ## Site: jichangx
@@ -31,20 +21,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: oneclash
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251104-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251104-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
-
-
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2025/11/20251104.yaml | No      | Yes       |
+| https://oneclash.githubrowcontent.com/2025/11/20251104.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -58,11 +40,29 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251104-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251104-v2ray.txt  | Yes     | Yes       |
+
+采集成功: 1 / 采集失败: 0
+
+
 ## Site: 85la
 
 | URL                                                                     | Tried   | Success   |
 |-------------------------------------------------------------------------|---------|-----------|
 | https://www.85la.com/wp-content/uploads/2025/11/202511018344Go6eSZ.yaml | No      | Yes       |
 | https://www.85la.com/wp-content/uploads/2025/11/202511018190RwchQP.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
