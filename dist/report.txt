@@ -1,41 +1,32 @@
 
-# Collect Time: 2025-11-05 02:05:01
+# Collect Time: 2025-11-05 02:42:19
 
 
 ## Site: jichangx
 
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251105-01 | Yes     | Yes       |
+| https://jichangx.com/nodes/v2ray-20251105-01 | No      | Yes       |
 
-采集成功: 1 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251105-clash.yaml | Yes     | Yes       |
-| https://free.datiya.com/uploads/20251105-v2ray.txt  | Yes     | No        |
-
-采集成功: 1 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: nodefree
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251105/u37rp39g.txt | Yes     | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2025/11/20251105.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2025/11/20251105.txt  | No      | Yes       |
 
-采集成功: 1 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: oneclash
 
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/11/202511018344Go6eSZ.yaml | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/11/202511018190RwchQP.txt  | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2025/11/20251105.yaml | No      | Yes       |
+| https://oneclash.githubrowcontent.com/2025/11/20251105.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -48,21 +39,30 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: oneclash
+## Site: datiya
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/11/20251105.yaml | Yes     | Yes       |
-| https://oneclash.githubrowcontent.com/2025/11/20251105.txt  | Yes     | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251105-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251105-v2ray.txt  | Yes     | No        |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
 
 
-## Site: nodefree
+## Site: cfmeme
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2025/11/20251105.yaml | Yes     | Yes       |
-| https://nodefree.githubrowcontent.com/2025/11/20251105.txt  | Yes     | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251105/u37rp39g.txt | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/11/202511018344Go6eSZ.yaml | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/11/202511018190RwchQP.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
