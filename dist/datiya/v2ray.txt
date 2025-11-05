@@ -1,1 +1,11 @@
-<html><head><title>Login | Nexu Voice</title></head><body></body></html>
+REMOTE_ADDR = 157.175.152.104
+REMOTE_PORT = 50976
+REQUEST_METHOD = GET
+REQUEST_URI = /
+REQUEST_TIME_FLOAT = 1762331762.42134
+REQUEST_TIME = 1762331762
+HTTP_HOST = free.datiya.com
+HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+HTTP_ACCEPT-ENCODING = gzip, deflate, zstd
+HTTP_ACCEPT = */*
+HTTP_CONNECTION = keep-alive
