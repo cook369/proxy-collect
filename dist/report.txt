@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-08 18:34:31
+# Collect Time: 2025-11-08 20:25:48
 
 
 ## Site: jichangx
@@ -31,10 +31,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251108/u7gzip7f.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -49,11 +50,10 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251108/u7gzip7f.txt | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
