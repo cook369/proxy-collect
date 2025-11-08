@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-08 03:35:35
+# Collect Time: 2025-11-08 04:29:52
 
 
 ## Site: jichangx
@@ -41,14 +41,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251108-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251108-v2ray.txt  | Yes     | No        |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
-采集成功: 0 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: cfmeme
@@ -60,9 +58,11 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: datiya
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251108-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251108-v2ray.txt  | Yes     | No        |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
