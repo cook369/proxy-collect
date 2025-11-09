@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-09 02:43:14
+# Collect Time: 2025-11-09 03:43:39
 
 
 ## Site: nodefree
@@ -31,22 +31,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -57,9 +41,28 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251109/j7g5nkdr.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/11/2025110948485dAiMh.yaml | Yes     | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/11/202511094821bD8GXY.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
