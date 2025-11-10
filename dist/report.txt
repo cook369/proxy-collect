@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-11-10 06:41:20
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251110-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-10 08:37:31
 
 
 ## Site: nodefree
@@ -21,21 +12,21 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251110-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: oneclash
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
 | https://oneclash.githubrowcontent.com/2025/11/20251110.yaml | No      | Yes       |
 | https://oneclash.githubrowcontent.com/2025/11/20251110.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251110/ephl5wd7.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -56,6 +47,15 @@
 | https://free.datiya.com/uploads/20251110-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251110/ephl5wd7.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: 85la
