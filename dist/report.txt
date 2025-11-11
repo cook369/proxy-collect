@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-11-11 18:37:34
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251111-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-11 20:29:05
 
 
 ## Site: nodefree
@@ -17,6 +8,15 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/11/20251111.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/11/20251111.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251111-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -49,20 +49,20 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251111/gbks8l10.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: 85la
 
 | URL                                                                     | Tried   | Success   |
 |-------------------------------------------------------------------------|---------|-----------|
 | https://www.85la.com/wp-content/uploads/2025/11/202511104841VCzRm1.yaml | No      | Yes       |
 | https://www.85la.com/wp-content/uploads/2025/11/202511094821bD8GXY.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251111/gbks8l10.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
