@@ -1,15 +1,5 @@
 
-# Collect Time: 2025-11-18 12:56:09
-
-
-## Site: oneclash
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2025/11/20251118.yaml | No      | Yes       |
-| https://oneclash.githubrowcontent.com/2025/11/20251118.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-18 14:29:39
 
 
 ## Site: jichangx
@@ -31,25 +21,17 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: oneclash
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2025/11/20251118.yaml | No      | Yes       |
+| https://oneclash.githubrowcontent.com/2025/11/20251118.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251118-clash.yaml | Yes     | No        |
-| https://free.datiya.com/uploads/20251118-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 2
-
-
-## Site: 85la
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -64,3 +46,23 @@
 | https://s3.v2rayse.com/public/20251118/0bype414.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                     | Tried   | Success   |
+|-------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/11/202511186252y73Szc.yaml | Yes     | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/11/202511186159mv5LCf.txt  | No      | Yes       |
+
+采集成功: 1 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251118-clash.yaml | Yes     | No        |
+| https://free.datiya.com/uploads/20251118-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 2
