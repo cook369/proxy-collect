@@ -1,14 +1,5 @@
 
-# Collect Time: 2025-11-18 14:29:39
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251118-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2025-11-18 16:38:09
 
 
 ## Site: nodefree
@@ -21,20 +12,21 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251118-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: oneclash
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
 | https://oneclash.githubrowcontent.com/2025/11/20251118.yaml | No      | Yes       |
 | https://oneclash.githubrowcontent.com/2025/11/20251118.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -50,12 +42,18 @@
 
 ## Site: 85la
 
-| URL                                                                     | Tried   | Success   |
-|-------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/11/202511186252y73Szc.yaml | Yes     | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/11/202511186159mv5LCf.txt  | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
-采集成功: 1 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: datiya
