@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-21 10:29:06
+# Collect Time: 2025-11-21 12:54:19
 
 
 ## Site: nodefree
@@ -31,14 +31,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: cfmeme
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251121-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251121-v2ray.txt  | Yes     | No        |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
-采集成功: 0 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: yudou
@@ -49,15 +47,17 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251121-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251121-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
+
+
 ## Site: 85la
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
