@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-23 14:23:24
+# Collect Time: 2025-11-23 16:31:04
 
 
 ## Site: jichangx
@@ -39,13 +39,14 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: datiya
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251123/0ef8lpmo.txt | No      | Yes       |
+| https://free.datiya.com/uploads/20251123-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251123-v2ray.txt  | Yes     | No        |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: yudou
@@ -56,11 +57,10 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
+## Site: cfmeme
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251123-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251123-v2ray.txt  | Yes     | No        |
+| https://s3.v2rayse.com/public/20251123/0ef8lpmo.txt | No      | Yes       |
 
-采集成功: 0 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
