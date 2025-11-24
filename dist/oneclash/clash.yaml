@@ -1,11 +1,321 @@
-REMOTE_ADDR = 40.192.27.104
-REMOTE_PORT = 51673
-REQUEST_METHOD = GET
-REQUEST_URI = /2025/11/20251123.yaml
-REQUEST_TIME_FLOAT = 1763864662.533888
-REQUEST_TIME = 1763864662
-HTTP_HOST = oneclash.githubrowcontent.com
-HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-HTTP_ACCEPT-ENCODING = gzip, deflate, zstd
-HTTP_ACCEPT = */*
-HTTP_CONNECTION = keep-alive
+mixed-port: 7890
+allow-lan: false
+mode: rule
+ipv6: false
+log-level: info
+external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: false
+  default-nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+  nameserver:
+    - 223.5.5.5
+    - 114.114.114.114
+    - 119.29.29.29
+    - 180.76.76.76
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - router.asus.com
+    - localhost.sec.qq.com
+    - localhost.ptlogin2.qq.com
+    - +.msftconnecttest.com
+tun:
+  enable: true
+  stack: system
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - 114.114.114.114
+    - 180.76.76.76
+    - 119.29.29.29
+    - 223.5.5.5
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+
+
+proxies:
+  - type: vmess
+    name: 🇭🇰HK²_5|0.6MB/s|2%|YT|NF|D+|X|KeepHistory
+    server: 32c57d76-t66sg0-t7n4ch-1rfon.hk3.p5pv.com
+    port: 80
+    uuid: aed1cc24-351d-11ef-ba52-f23c9164ca5d
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: 32c57d76-t66sg0-t7n4ch-1rfon.hk3.p5pv.com
+    ws-opts:
+      path: /
+      headers:
+        Host: 32c57d76-t66sg0-t7n4ch-1rfon.hk3.p5pv.com
+  - type: vmess
+    name: 🇭🇰 HK_66
+    server: dfed4efb-t4n8g0-t636g9-luwe.hk3.p5pv.com
+    port: 80
+    uuid: a2b0fd2b-716f-0df8-d4e2-03a1c00e5f1a
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: broadcastlv.chat.bilibili.com
+    ws-opts:
+      path: /
+      headers:
+        Host: broadcastlv.chat.bilibili.com
+  - type: vmess
+    name: 🇳🇱 IT²_1|2.6MB/s|27%|GPT⁺|TK-NL|NF|X|KeepHistory
+    server: v5.heduian.link
+    port: 30805
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    network: tcp
+    cipher: auto
+    servername: v5.heduian.link
+  - type: trojan
+    name: 🇺🇸_US_美国
+    server: 94.131.123.74
+    port: 443
+    password: 94a81dc7-e8e6-46e5-838d-84ca142b88b2
+    network: ws
+    sni: joss.gpj1.web.id
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/94.131.123.74=443
+      headers:
+        Host: joss.gpj1.web.id
+  - type: trojan
+    name: 🇫🇷_FR_法国
+    server: 178.33.161.196
+    port: 2053
+    password: be94cd60-8e91-4cd6-9c53-26ee1314edfd
+    network: ws
+    sni: joss.gpj1.web.id
+    fingerprint: randomized
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/178.33.161.196=2053
+      headers:
+        Host: joss.gpj1.web.id
+  - type: vmess
+    name: 🇭🇰HK²_6|4.4MB/s|2%|GPT|YT|NF|D+|X
+    server: hkt.gotochinatown.net
+    port: 80
+    uuid: aed1cc24-351d-11ef-ba52-f23c9164ca5d
+    alterId: 2
+    network: ws
+    cipher: auto
+    servername: hkt.gotochinatown.net
+    ws-opts:
+      path: /
+      headers:
+        Host: hkt.gotochinatown.net
+  - type: trojan
+    name: 🇷🇺_RU_俄罗斯
+    server: 193.233.114.58
+    port: 8443
+    password: d78d48df-b788-4a95-9e9f-77c9b2f69822
+    network: ws
+    sni: joss.gpj1.web.id
+    fingerprint: randomized
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/193.233.114.58=8443
+      headers:
+        Host: joss.gpj1.web.id
+  - type: trojan
+    name: 🇨🇳_CN_中国
+    server: psg2-ag.t.sgateway.link
+    port: 5223
+    password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
+    network: tcp
+    sni: pod-kr-g1.psusercontent.com
+    tls: true
+  - type: ss
+    name: 🇨🇳_CN_中国_1
+    server: wangcai.singdns.com
+    port: 21712
+    cipher: aes-128-gcm
+    password: 79ad2852-eb76-4c3e-ba4d-3668ee5ece74
+  - type: trojan
+    name: 🇨🇳_CN_中国_2
+    server: hk3.t.sgateway.link
+    port: 5223
+    password: Q9gofGxinwLv0TfDfdKmdttdPGxrhKQS
+    network: tcp
+    sni: pod-hk-z1.psusercontent.com
+    tls: true
+  - type: ss
+    name: 🇷🇺_RU_俄罗斯_1
+    server: 45.14.245.2
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: 17ZDORWIliQHuO6WRGHChXYMzdRtAYVP
+  - type: trojan
+    name: 🇨🇳_CN_中国_3
+    server: 58.152.18.98
+    port: 443
+    password: dd2f25b4c70689de8bc0f7fa9d6591cb
+    network: tcp
+    sni: www.nintendogames.net
+  - type: trojan
+    name: 🇨🇳_CN_中国_4
+    server: 58.152.18.95
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+    skip-cert-verify: true
+  - type: ss
+    name: 🏳️_unKnow_未知
+    server: 213.176.16.71
+    port: 4966
+    cipher: chacha20-ietf-poly1305
+    password: lXOVjEMsx00jeOQzHsQrkL
+  - type: trojan
+    name: 🇺🇸_US_美国_4
+    server: 158.178.206.197
+    port: 8443
+    password: c2de1269-17cb-41f6-ab97-f8c11a6f0f4f
+    network: ws
+    sni: joss.gpj1.web.id
+    tls: true
+    ws-opts:
+      path: /Free-VPN-CF-Geo-Project/158.178.206.197=8443
+      headers:
+        Host: joss.gpj1.web.id
+  - type: ss
+    name: 🇫🇷_FR_法国_1
+    server: 146.19.49.251
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: ODfxioK0VkKxTdpVQJ4rv8HglAu0vzv6
+  - type: trojan
+    name: 🇺🇸_US_美国_5
+    server: 3.76.168.69
+    port: 22223
+    password: telegram-id-directvpn
+    network: tcp
+    sni: trojan.burgerip.co.uk
+    skip-cert-verify: true
+  - type: trojan
+    name: 🇩🇪_DE_德国
+    server: 3.127.91.148
+    port: 22222
+    password: telegram-id-privatevpns
+    network: tcp
+    sni: 3.127.91.148
+    skip-cert-verify: true
+  - type: ss
+    name: 🇺🇸_US_美国_6
+    server: 23.95.75.146
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: NDRySIABARbErNIVsCNVkyYAHiBzhveT
+  - type: trojan
+    name: 🇩🇪_DE_德国_1
+    server: 3.127.91.148
+    port: 22223
+    password: telegram-id-directvpn
+    network: tcp
+    sni: trojan.burgerip.co.uk
+    skip-cert-verify: true
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇭🇰HK²_5|0.6MB/s|2%|YT|NF|D+|X|KeepHistory
+      - 🇭🇰 HK_66
+      - 🇳🇱 IT²_1|2.6MB/s|27%|GPT⁺|TK-NL|NF|X|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_6|4.4MB/s|2%|GPT|YT|NF|D+|X
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_4
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_6
+      - 🇩🇪_DE_德国_1
+  - name: ♻️ 自动选择
+    type: url-test
+    proxies:
+      - 🇭🇰HK²_5|0.6MB/s|2%|YT|NF|D+|X|KeepHistory
+      - 🇭🇰 HK_66
+      - 🇳🇱 IT²_1|2.6MB/s|27%|GPT⁺|TK-NL|NF|X|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_6|4.4MB/s|2%|GPT|YT|NF|D+|X
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_4
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_6
+      - 🇩🇪_DE_德国_1
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🚀 节点选择
+      - ♻️ 自动选择
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+      - ♻️ 自动选择
+      - 🇭🇰HK²_5|0.6MB/s|2%|YT|NF|D+|X|KeepHistory
+      - 🇭🇰 HK_66
+      - 🇳🇱 IT²_1|2.6MB/s|27%|GPT⁺|TK-NL|NF|X|KeepHistory
+      - 🇺🇸_US_美国
+      - 🇫🇷_FR_法国
+      - 🇭🇰HK²_6|4.4MB/s|2%|GPT|YT|NF|D+|X
+      - 🇷🇺_RU_俄罗斯
+      - 🇨🇳_CN_中国
+      - 🇨🇳_CN_中国_1
+      - 🇨🇳_CN_中国_2
+      - 🇷🇺_RU_俄罗斯_1
+      - 🇨🇳_CN_中国_3
+      - 🇨🇳_CN_中国_4
+      - 🏳️_unKnow_未知
+      - 🇺🇸_US_美国_4
+      - 🇫🇷_FR_法国_1
+      - 🇺🇸_US_美国_5
+      - 🇩🇪_DE_德国
+      - 🇺🇸_US_美国_6
+      - 🇩🇪_DE_德国_1
