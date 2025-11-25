@@ -1,5 +1,14 @@
 
-# Collect Time: 2025-11-25 16:38:13
+# Collect Time: 2025-11-25 18:40:53
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251125-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -22,16 +31,16 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
+## Site: cfmeme
 
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251125-01 | No      | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251125/x8n8ww1b.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: 85la
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -39,7 +48,7 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -55,12 +64,3 @@
 | https://free.datiya.com/uploads/20251125-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251125/x8n8ww1b.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
