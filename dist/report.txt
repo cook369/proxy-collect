@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-11-27 20:27:43
+# Collect Time: 2025-11-27 22:26:17
 
 
 ## Site: nodefree
@@ -31,14 +31,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -47,6 +39,14 @@
 | https://free.datiya.com/uploads/20251127-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
+
+
+## Site: 85la
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: yudou
