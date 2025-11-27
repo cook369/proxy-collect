@@ -1,5 +1,14 @@
 
-# Collect Time: 2025-11-27 08:37:11
+# Collect Time: 2025-11-27 10:31:53
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251127-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -8,15 +17,6 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/11/20251127.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/11/20251127.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251127-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -31,14 +31,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -49,11 +41,10 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251127/kbm32gdi.txt | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -62,5 +53,14 @@
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251127/kbm32gdi.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
