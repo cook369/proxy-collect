@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-12-04 04:37:09
+# Collect Time: 2025-12-04 06:42:05
 
 
 ## Site: jichangx
@@ -31,6 +31,14 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: cfmeme
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -39,15 +47,6 @@
 | https://free.datiya.com/uploads/20251204-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251204/btzj8e14.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
 
 
 ## Site: 85la
