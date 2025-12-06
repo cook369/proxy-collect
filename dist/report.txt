@@ -1,5 +1,14 @@
 
-# Collect Time: 2025-12-06 20:28:53
+# Collect Time: 2025-12-06 22:25:53
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20251206-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -8,15 +17,6 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2025/12/20251206.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2025/12/20251206.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20251206-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -31,7 +31,16 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251206/rokprbhn.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -49,18 +58,9 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
+## Site: 85la
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251206/rokprbhn.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
