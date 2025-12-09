@@ -1,1 +1,11 @@
-<html><head><title>皓峰防火墙系统登录</title></head><body></body></html>
+REMOTE_ADDR = 51.44.182.158
+REMOTE_PORT = 60232
+REQUEST_METHOD = GET
+REQUEST_URI = /uploads/20251209-v2ray.txt
+REQUEST_TIME_FLOAT = 1765246079.6831481
+REQUEST_TIME = 1765246079
+HTTP_HOST = free.datiya.com
+HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+HTTP_ACCEPT-ENCODING = gzip, deflate, zstd
+HTTP_ACCEPT = */*
+HTTP_CONNECTION = keep-alive
