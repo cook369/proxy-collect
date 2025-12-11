@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-12-11 13:02:10
+# Collect Time: 2025-12-11 14:30:16
 
 
 ## Site: jichangx
@@ -39,7 +39,7 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: cfmeme
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -57,10 +57,9 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: cfmeme
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20251211/fdiw7a50.txt | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
