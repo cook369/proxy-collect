@@ -12,7 +12,7 @@ from .base import BaseCollector, register_collector
 @register_collector
 class CollectorYudou(BaseCollector):
     name = "yudou"
-    home_page = "https://www.yudou123.top/"
+    home_page = "https://www.yudou6677.top"
     AES_PATTERN = r"U2FsdGVkX1[0-9A-Za-z+/=]+"
     PASSWORD_RANGE = (1000, 9999)
 
