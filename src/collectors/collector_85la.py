@@ -13,7 +13,7 @@ class Collector85la(BaseCollector):
     def get_today_url(self, home_page: str) -> str:
         home_etree = etree.HTML(home_page)
         links = home_etree.xpath(
-            '(//div[contains(@class,"title-article")])[1]//a/@href'
+            '//a[text()[contains(., "免费节点")] and text()[contains(., "高速节点")]]/@href'
         )
         if not links:
             raise ValueError("No links found on homepage.")
@@ -22,8 +22,8 @@ class Collector85la(BaseCollector):
     def parse_urls(self, today_page: str) -> list[tuple[str, str]]:
         page_etree = etree.HTML(today_page)
         rules = {
-            "clash.yaml": '//*[@id="md_content_2"]/div/div[5]/div[4]/p/a/@href',
-            "v2ray.txt": '//*[@id="md_content_2"]/div/div[5]/div[2]/p/a/@href',
+            "v2ray.txt": '(//h3[contains(., "V2ray 订阅地址")]/following-sibling::a)/@href',
+            "clash.yaml": '(//h3[contains(., "Clash.meta 订阅地址")]/following-sibling::a)/@href',
         }
         urls: list[tuple[str, str]] = []
         for filename, xpath_expr in rules.items():

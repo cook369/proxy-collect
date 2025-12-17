@@ -1,1 +1,11 @@
-<html><head><title>Mahindra Comviva</title></head><body></body></html>
+REMOTE_ADDR = 51.16.209.246
+REMOTE_PORT = 55203
+REQUEST_METHOD = GET
+REQUEST_URI = /
+REQUEST_TIME_FLOAT = 1767709863.3631804
+REQUEST_TIME = 1767709863
+HTTP_HOST = free.datiya.com
+HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+HTTP_ACCEPT-ENCODING = gzip, deflate, zstd
+HTTP_ACCEPT = */*
+HTTP_CONNECTION = keep-alive
