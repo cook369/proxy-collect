@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-12-17 04:49:22
+# Collect Time: 2025-12-17 06:44:46
 
 
 ## Site: jichangx
@@ -31,14 +31,14 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
+## Site: datiya
 
-| URL                                                                    | Tried   | Success   |
-|------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/12/2274de63de17909-3.txt  | Yes     | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/12/2274de63de17909-1.yaml | Yes     | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251217-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251217-v2ray.txt  | Yes     | No        |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: cfmeme
@@ -50,20 +50,20 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251217-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251217-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
-
-
 ## Site: yudou
 
 | URL                                              | Tried   | Success   |
 |--------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202512/20251217basr3e.txt | Yes     | Yes       |
+| https://yy.yudou66.top/202512/20251217basr3e.txt | No      | Yes       |
 
-采集成功: 1 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                    | Tried   | Success   |
+|------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/12/2274de63de17909-3.txt  | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/12/2274de63de17909-1.yaml | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
