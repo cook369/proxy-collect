@@ -59,254 +59,674 @@ tun:
 
 proxies:
   - type: vmess
-    name: www.85la.com🇭🇰HK²_11|0.3MB/s|GM|YT
+    name: 🇺🇸 www.85la.com🇺🇸US²_91|0.1MB/s|D+|X
+    server: 14.17.71.237
+    port: 41317
+    uuid: 82539eb7-18c8-48d0-bb9c-55d1b6e47f59
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: img14.360buyimg.com
+    ws-opts:
+      path: /obj
+      headers:
+        Host: img14.360buyimg.com
+  - type: vmess
+    name: 🇺🇸 www.85la.com🇺🇸US²_64|0.2MB/s|7%|GPT⁺|GM|TK|NF|D+|X
+    server: 46.3.24.202
+    port: 20020
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇺🇸 www.85la.com🇺🇸US²_597|0.7MB/s|7%|GPT⁺|GM|YT|TK|NF|D+|X
+    server: 46.3.24.138
+    port: 20020
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: trojan
+    name: 🇺🇸 www.85la.com🇺🇸US²_549|0.2MB/s|14%|GPT⁺|TK|NF|D+|X
+    server: 104.11.86.252
+    port: 443
+    password: hSA6YXe15O
+    network: tcp
+    sni: Telegram🇨🇳+@freecodes
+  - type: trojan
+    name: 🇺🇸 www.85la.com🇺🇸US²_471|0.2MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+    server: 104.11.86.252
+    port: 443
+    password: hSA6YXe15O
+    network: tcp
+    sni: Telegram🇨🇳+@WangCai2
+  - type: trojan
+    name: 🇺🇸 www.85la.com🇺🇸US²_47|0.4MB/s|14%|GPT|YT|TK|NF|D+|X
+    server: 104.11.86.252
+    port: 443
+    password: hSA6YXe15O
+    network: tcp
+    sni: Telegram������������ @WangCai2
+  - type: vmess
+    name: 🇺🇸 www.85la.com🇺🇸US²_3|0.1MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+  - type: trojan
+    name: 🇺🇸 www.85la.com🇺🇸US²_190|0.6MB/s|14%|YT|TK|D+|X
+    server: 104.11.86.252
+    port: 443
+    password: hSA6YXe15O
+    network: tcp
+    sni: Telegram🇨🇳+@WangCai2
+  - type: trojan
+    name: 🇺🇸 www.85la.com🇺🇸US²_168|0.3MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+    server: 104.11.86.252
+    port: 443
+    password: hSA6YXe15O
+    network: tcp
+    sni: Telegram🇨🇳 @WangCai2
+  - type: trojan
+    name: 🇺🇸
+      www.85la.com🇺🇸US¹-DE⁰_17|4.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|KeepSucceed
+    server: do-itforyou.pages.dev
+    port: 2083
+    password: $_qP4V4U26sb{04A
+    network: ws
+    sni: do-itfORYOU.PAGEs.deV
+    ws-opts:
+      path: /trdFPAI0ljLLOygN2y?ed=2560
+      headers:
+        Host: do-itfORYOU.PAGEs.deV
+  - type: vmess
+    name: 🇨🇳 www.85la.com🇹🇼TW²_2|0.5MB/s
+    server: hxa.dashuai.help
+    port: 45078
+    uuid: fb0181db-4b06-4699-9e0d-3492b085c5e2
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: www.85la.com🇹🇭TH²_1|3.2MB/s|2%|GPT⁺|YT|NF|X
+    server: m.modzard.com
+    port: 8080
+    uuid: f2e17b4d-22fd-44a4-90db-40649717be8e
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇸🇬 www.85la.com🇸🇬SG²_2|5.0MB/s|YT-US|TK-US
     server: hxb.dashuai.help
-    port: 45051
-    uuid: 70b1f9c3-cb15-425b-8772-8837adb0db15
+    port: 45053
+    uuid: fb0181db-4b06-4699-9e0d-3492b085c5e2
     alterId: 0
-    network: tcp
     cipher: auto
-  - type: trojan
-    name: www.85la.com🇭🇰HK¹-US⁰_1|3.3MB/s|3%|D+|X|💦 BPB Normal
-    server: 104.18.93.164
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bPBg.aNguSWEN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidWxzMDR3dnh3a04iLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_2|9.0MB/s|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: www.speedtest.net
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpbG.anguswen.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiTVZsUGNIakhiIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇭🇰HK¹-NL⁰_1|0.8MB/s|3%|YT|NF|D+|💦 BPB Normal
-    server: www.speedtest.net
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpbg.angUswen.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiUGNRN2hnaldSIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
   - type: vmess
-    name: www.85la.com🇭🇰HK²_8|23.7MB/s|X
-    server: 8.218.105.196
-    port: 52752
-    uuid: 925bdbf5-72be-4437-bebf-441c61089f6b
+    name: 🇵🇱 www.85la.com🇵🇱PL²_68|0.6MB/s|0%|GPT⁺|TK|NF|D+|X
+    server: 46.3.24.138
+    port: 20106
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
     alterId: 0
-    network: tcp
     cipher: auto
-  - type: trojan
-    name: www.85la.com🇭🇰HK⁻¹_1|0.4MB/s|3%|💦 BPB Normal
-    server: 104.18.93.164
-    port: 443
-    password: "123456"
-    network: ws
-    sni: bPBg.anGuSwEN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiVFgyZVNBTzB2U1VORzlobCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
   - type: vmess
-    name: www.85la.com🇺🇸US²_1|0.2MB/s|0%|TK|NF|D+|X
-    server: 156.233.232.192
-    port: 24004
-    uuid: 582fcb35-20a0-452c-e179-4c759c62c494
+    name: 🇳🇱 www.85la.com🇳🇱NL²_13|0.3MB/s|D+|KeepHistory
+    server: v30.hdacd.com
+    port: 30830
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
-    network: tcp
+    cipher: auto
+  - type: vmess
+    name: 🇰🇷 www.85la.com🇰🇷KR²_1|8.2MB/s|37%|GM|NF
+    server: hxb.dashuai.help
+    port: 45075
+    uuid: fb0181db-4b06-4699-9e0d-3492b085c5e2
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇰🇷 www.85la.com🇰🇷KR²_1|4.2MB/s|25%|GPT⁺|GM|TK|NF|X
+    server: 46.3.24.202
+    port: 20033
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇯🇵 www.85la.com🇯🇵JP²_16|0.9MB/s|0%|GPT⁺|GM|YT|TK|NF|D+|X
+    server: 46.3.24.138
+    port: 20002
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇯🇵 www.85la.com🇯🇵JP²_10|4.8MB/s|GPT|GM|YT|TK|X
+    server: 46.3.47.250
+    port: 20004
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇯🇵 www.85la.com🇯🇵JP²_1|4.9MB/s|0%|GPT⁺|TK|NF|D+|X
+    server: 46.3.47.250
+    port: 20002
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇨🇦 www.85la.com🇮🇳IN²_6|2.8MB/s|GPT⁺|GM|YT-CA|NF|X
+    server: 103.97.203.220
+    port: 550
+    uuid: 9e0e83ca-0fbc-44b1-8024-0eb8f9414156
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇮🇳 www.85la.com🇮🇳IN²_4|3.8MB/s|GPT|GM|YT|NF|X
+    server: hxa.dashuai.help
+    port: 45074
+    uuid: aa6f3ba8-8728-4e0f-b8e1-93c70a36e356
+    alterId: 0
     cipher: auto
   - type: trojan
-    name: www.85la.com🇭🇰HK²_2|0.2MB/s|YT-CN|NF|D+|X
-    server: 58.152.25.242
+    name: 🇮🇳 www.85la.com🇮🇳IN²_29|0.2MB/s|GPT⁺|GM|YT|NF|X|KeepSucceed
+    server: tttyder.wsone.icu
+    port: 443
+    password: M7v%w11Se*
+    network: tcp
+    sni: tttyder.wsone.icu
+  - type: vmess
+    name: 🇮🇳 www.85la.com🇮🇳IN²_1|0.7MB/s|GM|YT
+    server: hxb.dashuai.help
+    port: 45073
+    uuid: fb0181db-4b06-4699-9e0d-3492b085c5e2
+    alterId: 0
+    cipher: auto
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_9|1.0MB/s|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " [By EbraSha] b2n.ir/v2ray-configs | 41 "
-    skip-cert-verify: true
-    tls: true
+    sni: t.me%25252Fripaojiedian
   - type: trojan
-    name: www.85la.com🇭🇰HK²_14|1.4MB/s|NF|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_9|0.6MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 41 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: t.me%252Fripaojiedian
   - type: trojan
-    name: www.85la.com🇭🇰HK²_2|0.3MB/s|YT-CN|D+|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|YT|D+|X
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 338 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 739 "
   - type: trojan
-    name: www.85la.com🇭🇰HK²_18|0.4MB/s|2%|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|2%|NF|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: 58.152.25.242
-    skip-cert-verify: true
-    tls: true
+    sni: 219.79.214.159
   - type: trojan
-    name: www.85la.com🇭🇰HK²_84|3.4MB/s|X|KeepHistory
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_83|0.2MB/s|YT|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 141 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_78|0.8MB/s|YT|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 141 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_77|0.4MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 946 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_76|0.2MB/s|2%|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: 58.152.30.31
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_7|1.3MB/s|D+|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
     sni: t.me%2Fripaojiedian
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
   - type: trojan
-    name: www.85la.com🇭🇰HK²_8|0.2MB/s|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_7|0.2MB/s|D+
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " [By EbraSha] b2n.ir/v2ray-configs | 462 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: "🔒 [By DukeMehdi] "
   - type: trojan
-    name: www.85la.com🇭🇰HK²_4|0.6MB/s|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_68|0.3MB/s|2%|YT|NF|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " [By EbraSha] b2n.ir/v2ray-configs "
-    skip-cert-verify: true
-    tls: true
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 108 "
   - type: trojan
-    name: www.85la.com🇭🇰HK²_4|0.2MB/s|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_61|0.2MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " [By EbraSha] "
-    skip-cert-verify: true
-    tls: true
+    sni: t.me/ripaojiedian
   - type: trojan
-    name: www.85la.com🇭🇰HK²_3|0.9MB/s|2%|YT-CN|NF|D+|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_60|0.8MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: +[By+EbraSha]+b2n.ir/v2ray-configs+
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: t.me/ripaojiedian
   - type: trojan
-    name: www.85la.com🇭🇰HK²_6|0.4MB/s|NF|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_6|5.0MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: +[By+EbraSha]+b2n.ir/v2ray-configs+|+41+
-    skip-cert-verify: true
-    tls: true
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 744 "
   - type: trojan
-    name: www.85la.com🇭🇰HK²_3|0.3MB/s|2%|KeepSucceed
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_6|0.6MB/s|2%|X
+    server: 112.118.116.8
+    port: 443
+    password: e2722c0fb503f8a592436c12bce0509a
+    network: tcp
+    sni: www.nintendogames.net
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_59|0.6MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] trojan-HK "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_5|4.3MB/s|2%|YT|NF
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me%2Fripaojiedian
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_5|0.1MB/s|NF|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 246 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_48|1.1MB/s|2%|YT|NF|D+|X
+    server: 112.118.116.8
+    port: 443
+    password: e2722c0fb503f8a592436c12bce0509a
+    network: tcp
+    sni: www.nintendogames.net
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_46|0.2MB/s|2%|NF|D+
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 201 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_42|0.2MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 896 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_41|1.4MB/s|2%|YT|NF|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 248 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_39|0.6MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: t.me/ripaojiedian
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_30|0.2MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 896 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_3|0.2MB/s|2%|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 445 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_29|0.5MB/s|2%|YT|D+
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_28|0.1MB/s|2%|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: 58.152.30.31
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_23|0.6MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: 219.79.214.159
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_21|0.2MB/s|2%|YT|NF|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_20|0.4MB/s|2%|YT|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 431 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_2|0.2MB/s|2%|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] trojan-HK "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_18|2.9MB/s|2%|D+
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
     sni: 🔒
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
   - type: trojan
-    name: www.85la.com🇭🇰HK²_4|1.7MB/s|2%|D+|X|KeepHistory
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|YT|NF|D+|X
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 242 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 901 "
   - type: trojan
-    name: www.85la.com🇭🇰HK²_2|0.6MB/s|2%|NF|D+|KeepSucceed
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|NF|D+
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " "
-    skip-cert-verify: true
-    tls: true
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 25 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_14|0.8MB/s|2%|NF|D+|X|KeepHistory
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 246 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_13|0.4MB/s|2%|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] trojan-HK "
   - type: vmess
-    name: www.85la.com🇯🇵JP²_1|0.8MB/s|37%|YT|TK
-    server: hxb.dashuai.help
-    port: 45057
-    uuid: e7a09a7c-4435-4967-8aad-2a0db2b9f1b1
+    name: 🇭🇰 www.85la.com🇭🇰HK²_129|0.9MB/s|2%|YT|D+|X
+    server: 46.3.24.202
+    port: 20025
+    uuid: e5ce425e-0b84-435c-aee5-9f9ecbe2cb16
     alterId: 0
-    network: tcp
     cipher: auto
   - type: trojan
-    name: www.85la.com🇭🇰HK²_10|0.9MB/s|2%|NF|D+|X
-    server: 58.152.25.242
+    name: 🇭🇰 www.85la.com🇭🇰HK²_12|0.7MB/s|2%|YT|X
+    server: 58.152.30.31
     port: 443
     password: BxceQaOe
     network: tcp
-    sni: " +[By+EbraSha]+b2n.ir/v2ray-configs+|+41+"
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 901 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_113|0.2MB/s|2%|NF|D+|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 625 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|NF|D+|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: 🔒
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|2%|X
+    server: 219.79.214.159
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 194 "
+  - type: trojan
+    name: 🇭🇰 www.85la.com🇭🇰HK²_1|0.2MB/s|2%|YT|NF|X
+    server: 58.152.30.31
+    port: 443
+    password: BxceQaOe
+    network: tcp
+    sni: "🔒 [By DukeMehdi] b2n.ir/v2ray-configs | 676 "
   - type: vmess
-    name: www.85la.com🇰🇷KR²_1|0.8MB/s|GPT⁺|GM|YT|NF|X
-    server: hxb.dashuai.help
-    port: 45075
-    uuid: e7a09a7c-4435-4967-8aad-2a0db2b9f1b1
+    name: 🇬🇧 www.85la.com🇬🇧GB²_2|1.0MB/s|37%|X
+    server: hxa.dashuai.help
+    port: 45066
+    uuid: aa6f3ba8-8728-4e0f-b8e1-93c70a36e356
     alterId: 0
-    network: tcp
     cipher: auto
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_1|0.1MB/s|2%|D+|X
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: 🔒+[By+EbraSha]+
-    skip-cert-verify: true
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_9|0.1MB/s
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: " [By EbraSha] b2n.ir/v2ray-configs | 41 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
+    server: 2001:bc8:32d7:2013::8
+    port: 62211
+    uuid: e1786d49-ccba-466b-a0dd-e1ab59bd83bb
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: www.bing.com
+    ws-opts:
+      path: /github.com/Alvin9999
+      headers:
+        Host: www.bing.com
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: AZERB.NET
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
+      headers:
+        Host: AZERB.NET
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: TURK1.NET.NET
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      headers:
+        Host: TURK1.NET.NET
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: 2001:bc8:32d7:302::10
+    ws-opts:
+      path: /
+      headers:
+        Host: 2001:bc8:32d7:302::10
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: 2001:bc8:32d7:302::10
+    ws-opts:
+      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
+      headers:
+        Host: 2001:bc8:32d7:302::10
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_23|1.8MB/s|25%|GPT|TK|X
+    server: hxa.dashuai.help
+    port: 45072
+    uuid: fb0181db-4b06-4699-9e0d-3492b085c5e2
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: AZERB.NET
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      headers:
+        Host: AZERB.NET
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /?ed=2048
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_101|0.8MB/s|69%|GPT⁺|YT-CN|TK|NF|X
+    server: m.cnmjin.net
+    port: 16645
+    uuid: dc875b7c-c954-40e0-9007-73a4422e25c8
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: 53bcf48886181e0dd5bd8dea7ab9d4a2.mobgslb.tbcache.com
+    ws-opts:
+      path: /
+      headers:
+        Host: 53bcf48886181e0dd5bd8dea7ab9d4a2.mobgslb.tbcache.com
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    ws-opts:
+      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
+  - type: vmess
+    name: 🇫🇷 www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    network: ws
+    cipher: auto
+    servername: 2001:bc8:32d7:302::10
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: 2001:bc8:32d7:302::10
+  - type: vmess
+    name: 🇺🇸 www.85la.com🇩🇪DE²_6|0.7MB/s|GPT⁺|YT-US|TK|NF|X|sinspired/subs-check
+    server: radhan.configraybot.sbs
+    port: 11559
+    uuid: 12fc652a-92a2-427a-9dd4-1086e557f485
+    alterId: 0
+    cipher: auto
+  - type: vmess
+    name: 🇨🇦 www.85la.com🇨🇦CA²_2|5.2MB/s|37%|GPT|X
+    server: hxb.dashuai.help
+    port: 45065
+    uuid: aa6f3ba8-8728-4e0f-b8e1-93c70a36e356
+    alterId: 0
+    cipher: auto
   - type: vmess
     name: 🇫🇷 www.85.com 法国
     server: "2001:41d0:70e:c100::"
@@ -320,9 +740,8 @@ proxies:
       path: /linkvws
       headers:
         Host: serkat.org
-    tls: true
   - type: vmess
-    name: 🇫🇷 www.85.com 法国_1
+    name: 🇫🇷 www.85.com 法国 2
     server: "2001:41d0:70e:c100::"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
@@ -334,9 +753,8 @@ proxies:
       path: /linkvws
       headers:
         Host: serkat.org
-    tls: true
   - type: vmess
-    name: 🇫🇷 www.85.com 法国_2
+    name: 🇫🇷 www.85.com 法国 3
     server: "2001:41d0:70e:c100::"
     port: 443
     uuid: 03fcc618-b93d-6796-6aed-8a38c975d581
@@ -348,1101 +766,8 @@ proxies:
       path: /linkvws
       headers:
         Host: serkat.org
-    tls: true
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_4|3.5MB/s|NF|X|💦 BPB Normal
-    server: 172.67.216.61
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BpBG.ANgUSweN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiQ3l1UGFMOHg0dll6VjciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_11|0.4MB/s|3%|GPT|GM|YT|TK|X|💦 BPB Normal
-    server: 172.67.216.61
-    port: 443
-    password: "123456"
-    network: ws
-    sni: Bpbg.ANgUSWEn.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiTHczcVJyNmJWIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPBG.aNgusWeN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoibFh3UjR1S3RYNWQ5ZyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_11|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: BpBg.ANGusWeN.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiTUp4VFNoMTRLbSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_5|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPbG.ANGUsWEn.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiYm1uWDFRdzUiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_22|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPbG.angUSWEn.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiMGl6MUhQcXBBIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: BPbG.AnguSWEN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNDhOYUJ4WFhzc0EiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|1.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 443
-    password: "123456"
-    network: ws
-    sni: bPbg.aNGUSWeN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiUzNoaFZ2Q3hRIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_7|5.4MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-    server: 104.19.170.137
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BPBG.aNGUSwen.TOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoid21pM1RsR1N6YUczeGFmIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_2|0.1MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPBG.aNguSweN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiMTIyS254U3pDNSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
   - type: vmess
-    name: www.85la.com🇰🇷KR²_6|12.4MB/s|TK|NF|X|KeepHistory
-    server: 103.181.165.243
-    port: 26074
-    uuid: e3539c1c-e32d-305e-96b2-3c184b644a90
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal_1
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPBg.aNGUsWEN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoickpZNGVxRGdETjJsdHZJIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_8|1.0MB/s|NF|D+|💦 BPB Normal
-    server: 104.19.220.93
-    port: 443
-    password: "123456"
-    network: ws
-    sni: Bpbg.ANguSwEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoienhXVXVUeUVwSGRRZjZZZiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_5|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: Bpbg.aNGuSweN.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiYWJZUDZ0Z2RMTSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_6|0.5MB/s|3%|GPT|YT|NF|D+|X|💦 BPB Normal
-    server: 104.19.191.204
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpbG.AngUswEN.TOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiV2R6bFpRVjlsIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bpbG.anGUsWen.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiWERMWUdCZTFnRmJEYmwiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_13|0.3MB/s|3%|GPT|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 443
-    password: "123456"
-    network: ws
-    sni: Bpbg.ANGuswen.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiQ3U4MmVDZ3JnUzRLTjdnIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bpbg.ANgusWeN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiU3hiSEZzcm93Z2VaMSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_1|0.2MB/s|3%|GPT⁺|GM|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpBG.anGusWen.TOp
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZkdPanhyQWgiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_8|0.8MB/s|3%|GPT⁺|GM|X|💦 BPB Normal
-    server: 104.19.170.137
-    port: 443
-    password: "123456"
-    network: ws
-    sni: BPbG.AngUSwEN.tOp
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiSnU5WmRSRFp3WElkcXQwIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_9|2.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BpBG.AnGUSWeN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoid011T2d1UHdyNEZ5bkpaNiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_12|3.8MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bpbg.ANgusWEN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiUmhOenVzS0ciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_5|3.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPBG.aNGUswEn.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidkZuTnFJeEZrS2FESCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal
-    server: 104.21.16.217
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bpbg.aNGUSwen.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidkhlZTV3TTdyTyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=
-  - type: trojan
-    name: www.85la.com🇺🇸US¹⁺_2|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPBG.aNguSWen.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNmJBcnMwQW9nV1JybiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_15|0.2MB/s|3%|YT|NF|D+|💦 BPB Normal
-    server: 104.21.16.217
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bpbg.aNgUSWEn.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiRTRMWFk5dlVmMGRmIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_1|9.9MB/s|GM|YT|TK|NF|D+|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bpBG.aNgusweN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoibG95ejBwdzlQTyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPbg.aNGUSWen.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiU0pWbXBWY3Bkb1hGYSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-    server: 104.21.16.217
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpbg.anguSwen.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiSmFaRHViYUhOIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|9.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: 104.19.191.204
-    port: 443
-    password: "123456"
-    network: ws
-    sni: bpBG.AnGuswEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiaHpiZzU3QXU2IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_7|0.2MB/s|X|💦 BPB Normal
-    server: 104.19.191.204
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BPBg.ANGuSWeN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiQWh5SDFMWTZWRlpoQiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_6|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: bpbg.anguswen.top
-    port: 443
-    password: "123456"
-    network: ws
-    sni: bPbG.ANguswen.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidmNzMWVlWHpNTVh4M2siLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_24|5.0MB/s|3%|💦 BPB Normal
-    server: 104.19.220.93
-    port: 443
-    password: "123456"
-    network: ws
-    sni: bPBG.aNguSWEN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoieWJaUktFTk9rdE14IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal_1
-    server: 104.21.16.217
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpbg.anguSwen.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiSmFaRHViYUhOIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_4|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BpbG.anGuswen.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiREZSWWc5MWNIIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal_1
-    server: 104.21.16.217
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bpbg.aNGUSwen.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidkhlZTV3TTdyTyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_11|4.9MB/s|YT|X|💦 BPB Normal
-    server: 104.21.16.217
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bPbg.AnguswEn.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiMDdTb3VBMXREdWVPUEFUIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹⁺_3|5.4MB/s|GM|YT|TK|NF|💦 BPB Normal
-    server: 104.21.16.217
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: Bpbg.AngusweN.TOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiV1VsY0IxQTRNIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: vmess
-    name: www.85la.com🇺🇸US²_1|0.1MB/s|X|KeepHistory
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal_2
-    server: bpbg.anguswen.top
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: BPbG.AnguSWEN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNDhOYUJ4WFhzc0EiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_6|0.2MB/s|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPBg.ANGuswEN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiWW5uSmNVb1ciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_10|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPBG.ANgUsweN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoidEtwSjdIdWtHc0ciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal
-    server: 104.19.170.137
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bPbg.ANguSWEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZWhqZENRSWQwZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_10|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPBG.angusWEN.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiY1RsQ1BRRldwRnVRbyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US⁻¹_1|5.0MB/s|YT|NF|X|💦 BPB Normal
-    server: 104.19.191.204
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BPbg.AnGusweN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiTWNZb3ZLY0g4bWRZRyIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_7|0.1MB/s|3%|GPT|GM|YT|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPbG.anguSweN.top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoicFNlVTlOc0hJQlFYejIiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_3|0.3MB/s|YT|TK|💦 BPB Normal
-    server: 104.19.220.93
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BPBG.AnGUSWeN.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiRXducE11TkYiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_1|0.4MB/s|GPT|TK|D+|X|💦 BPB Normal
-    server: 104.19.220.93
-    port: 443
-    password: "123456"
-    network: ws
-    sni: BPBG.AnGUswEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiQ0RBYnhNaVEiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_5|5.0MB/s|GPT|GM|D+|X|💦 BPB Normal
-    server: 104.19.220.93
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bPbG.aNgusWEn.TOp
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoielVHSE9neHR5Mk1qNWsiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_15|5.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPbG.AnGUSwEN.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiS2poaTNldFRkMlF6IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_14|5.0MB/s|3%|YT|D+|X|💦 BPB Normal
-    server: 172.67.216.61
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bpbg.aNgUsWen.tOp
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiVDFMNHhMQXlmYWNZV2VzMiIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US⁻¹_4|1.4MB/s|💦 BPB Normal
-    server: 172.67.216.61
-    port: 443
-    password: "123456"
-    network: ws
-    sni: BPbG.AngusWen.TOp
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiejBIQnpPWm0iLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_7|0.2MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: Bpbg.aNGUSwEn.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZFRVZjk1NFRJOCIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-DE⁰_7|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bPbG.anGUSWEn.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNXlNbTlZeU5MNGE5IiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal_1
-    server: 104.19.170.137
-    port: 8443
-    password: "123456"
-    network: ws
-    sni: bPbg.ANguSWEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZWhqZENRSWQwZSIsInByb3RvY29sIjoidHIiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbImJwYi55b3VzZWYuaXNlZ2Fyby5jb20iXX0=?ed=2560
-  - type: vmess
-    name: www.85la.com🇦🇺AU²_1|0.7MB/s|37%|GPT⁺|GM|YT|X
-    server: hxa.dashuai.help
-    port: 45062
-    uuid: e7a09a7c-4435-4967-8aad-2a0db2b9f1b1
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_12|4.9MB/s|GPT⁺|NF|D+|X|💦 BPB Normal
-    server: 172.67.216.61
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: bpBg.angUSwEn.toP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNGdNN3JYZUhyd0NIIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOlsiYnBiLnlvdXNlZi5pc2VnYXJvLmNvbSJdfQ==?ed=2560
-  - type: vmess
-    name: www.85la.com🇦🇺AU²_2|3.4MB/s|37%|GPT⁺|GM|YT|X
-    server: hxb.dashuai.help
-    port: 45063
-    uuid: 70b1f9c3-cb15-425b-8772-8837adb0db15
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_6|5.0MB/s|3%|GM|YT|TK|NF|D+|KeepSucceed
-    server: 172.67.216.61
-    port: 2053
-    password: "123456"
-    network: ws
-    sni: BpBG.ANgUSweN.ToP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiQ3l1UGFMOHg0dll6VjciLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: BPBg.aNGUsWEN.tOP
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZkd6SnZkOFNZaVV5NUkiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: vmess
-    name: www.85la.com🇨🇦CA²_3|3.8MB/s|YT|NF
-    server: hxb.dashuai.help
-    port: 45065
-    uuid: e7a09a7c-4435-4967-8aad-2a0db2b9f1b1
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
-    server: 2001:bc8:32d7:2013::8
-    port: 62211
-    uuid: e1786d49-ccba-466b-a0dd-e1ab59bd83bb
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: www.bing.com
-    ws-opts:
-      path: /github.com/Alvin9999
-      headers:
-        Host: www.bing.com
-  - type: trojan
-    name: www.85la.com🇺🇸US¹-IE⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-    server: "[2606"
-    port: 4700
-    password: "123456"
-    network: ws
-    sni: bpBG.ANgUSwen.Top
-    alpn:
-      - http/1.1
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiZUlWa2Q3NlR6SE9GaHQiLCJwcm90b2NvbCI6InRyIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyJicGIueW91c2VmLmlzZWdhcm8uY29tIl19?ed=2560
-  - type: vmess
-    name: www.85la.com🇩🇪DE²_4|2.1MB/s|17%|GPT⁺|YT|TK|NF|X
-    server: 45.80.188.48
-    port: 50255
-    uuid: bc140c02-25a9-4feb-96bb-7d772b17fd17
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇸🇬SG²_2|1.0MB/s|X|KeepHistory
-    server: v12.hdacd.com
-    port: 30812
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_14|4.7MB/s|GPT⁺|YT|TK|X|KeepHistory
-    server: 4bb6-b667-f88608d19fd5.664.qzz.io
-    port: 443
-    uuid: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 4bb6-b667-f88608D19fd5.664.qzZ.Io
-    ws-opts:
-      path: /pyyY4ZVTyJV3vr9noOhn
-      headers:
-        Host: 4bb6-b667-f88608D19fd5.664.qzZ.Io
-    tls: true
-  - type: trojan
-    name: www.85la.com🇺🇸US²_11|0.8MB/s|GPT⁺|YT|X
-    server: 54d-bd0d-c3f111d0b879.664.qzz.io
-    port: 443
-    password: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    network: ws
-    sni: 54D-bD0D-c3F111D0b879.664.Qzz.Io
-    skip-cert-verify: true
-    tls: true
-    ws-opts:
-      path: /E2JXJM5geneWfr9noOhn
-  - type: vmess
-    name: www.85la.com🇺🇸US²_9|1.5MB/s|GPT⁺|YT|NF|D+|X|KeepHistory
-    server: 4bB6-B667-F88608D19FD5.664.qZz.io
-    port: 443
-    uuid: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 4bb6-B667-F88608d19FD5.664.QZz.IO
-    ws-opts:
-      path: /pyyY4ZVTyJV3vr9noOhn
-      headers:
-        Host: 4bb6-B667-F88608d19FD5.664.QZz.IO
-    tls: true
-  - type: vmess
-    name: www.85la.com🇺🇸US²_23|1.0MB/s|YT|NF|X|KeepHistory
-    server: 6b-4F68-8D87-7C4AADD12Ab9.664.QzZ.io
-    port: 443
-    uuid: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 6B-4F68-8D87-7c4aaDd12ab9.664.QZz.iO
-    ws-opts:
-      path: /pyyY4ZVTyJV3vr9noOhn
-      headers:
-        Host: 6B-4F68-8D87-7c4aaDd12ab9.664.QZz.iO
-    tls: true
-  - type: trojan
-    name: www.85la.com🇺🇸US²_7|4.4MB/s|GPT|YT|TK|NF|X|KeepHistory
-    server: 54d-bd0d-c3f111d0b879.664.qzz.io
-    port: 443
-    password: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    network: ws
-    sni: 54D-bD0D-c3F111D0b879.664.Qzz.Io
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-    ws-opts:
-      path: /E2JXJM5geneWfr9noOhn
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_12|1.4MB/s|X|KeepHistory
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: "🔒 [By EbraSha] "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_6|0.3MB/s|2%|X
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: " [By EbraSha] "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_1|3.4MB/s|2%|YT-CN|NF|D+|KeepHistory
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: t.me/ripaojiedian
-    skip-cert-verify: true
-    tls: true
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    ws-opts:
-      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_42|0.7MB/s|KeepHistory
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: t.me/ripaojiedian
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: vmess
-    name: www.85la.com🇺🇸US²_12|2.6MB/s|GPT⁺|YT|TK|NF|D+|X|KeepSucceed
-    server: 54d-bD0D-C3F111D0b879.664.QzZ.io
-    port: 443
-    uuid: 0507fbcd-b983-43a7-8e1d-2c561960ad4f
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 54D-bd0D-c3f111D0b879.664.QZZ.iO
-    ws-opts:
-      path: /pyyY4ZVTyJV3vr9noOhn
-      headers:
-        Host: 54D-bd0D-c3f111D0b879.664.QZZ.iO
-    tls: true
-  - type: vmess
-    name: www.85la.com🇳🇬NG²_1|1.3MB/s|TK|X
-    server: 176.97.192.4
-    port: 22700
-    uuid: 9f698736-b5d2-4acc-81c3-8b96e1aeb772
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_14|0.2MB/s|D+|X
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: "🔒 [By EbraSha] trojan-HK "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_1|0.4MB/s|YT-CN|NF|D+|X
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: " +[By+EbraSha]+b2n.ir/v2ray-configs+|+462+"
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_204|1.5MB/s|YT|NF|X
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 462 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    ws-opts:
-      path: /?ed=2048
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 2001:bc8:32d7:302::10
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        Host: 2001:bc8:32d7:302::10
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    ws-opts:
-      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: AZERB.NET
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-      headers:
-        Host: AZERB.NET
-  - type: vmess
-    name: 🇫🇷 www.85.com 法国_3
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
+    name: 🇫🇷 www.85.com 法国 4
     server: 2001:bc8:32d7:302::10
     port: 44579
     uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
@@ -1455,46 +780,7 @@ proxies:
       headers:
         Host: 2001:bc8:32d7:302::10
   - type: vmess
-    name: www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 2001:bc8:32d7:302::10
-    ws-opts:
-      path: /
-      headers:
-        Host: 2001:bc8:32d7:302::10
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: AZERB.NET
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
-      headers:
-        Host: AZERB.NET
-  - type: vmess
-    name: 🇫🇷 www.85.com 法国_4
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: 2001:bc8:32d7:302::10
-    ws-opts:
-      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-      headers:
-        Host: 2001:bc8:32d7:302::10
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+    name: 🇫🇷 www.85.com 法国 5
     server: 2001:bc8:32d7:302::10
     port: 44579
     uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
@@ -1503,707 +789,199 @@ proxies:
     cipher: auto
     ws-opts:
       path: /
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: TURK1.NET.NET
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-      headers:
-        Host: TURK1.NET.NET
-  - type: trojan
-    name: www.85la.com|🇭🇰HK²_3|0.3MB/s|2%|NF|D+|KeepHistory
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: "🔒 [By EbraSha] b2n.ir/v2ray-configs | 282 "
-    skip-cert-verify: true
-    fingerprint: chrome
-    tls: true
-  - type: trojan
-    name: www.85la.com🇭🇰HK²_18|3.2MB/s|X|KeepHistory
-    server: 58.152.25.242
-    port: 443
-    password: BxceQaOe
-    network: tcp
-    sni: t.me/ripaojiedian
-    skip-cert-verify: true
-    tls: true
-  - type: vmess
-    name: www.85la.com🇳🇱NL²_18|0.4MB/s|GPT|X|KeepHistory
-    server: v30.hdacd.com
-    port: 30830
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_3|0.2MB/s|GPT⁺|GM|YT|TK|NF|X|KeepHistory
-    server: v24.hdacd.com
-    port: 30824
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_1|5.8MB/s|37%|GPT⁺|TK|X
-    server: hxa.dashuai.help
-    port: 45066
-    uuid: 03ca2b03-9d09-4ad8-b4de-f50c0c8885be
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇰🇷KR²_1|8.5MB/s|37%|GPT|YT|NF|X
-    server: hxa.dashuai.help
-    port: 45076
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇨🇦CA²_1|3.4MB/s|37%|GPT⁺|YT|TK|NF|X
-    server: hxb.dashuai.help
-    port: 45065
-    uuid: d9f9db82-fa5d-40ee-a7c1-d02690b86bbe
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_12|5.5MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
-    server: v29.hdacd.com
-    port: 30829
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇦🇺AU²_1|5.1MB/s|37%|GM|YT|TK|NF
-    server: hxb.dashuai.help
-    port: 45063
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇰🇷KR²_2|6.2MB/s|GM|NF|X
-    server: hxb.dashuai.help
-    port: 45075
-    uuid: 9f2df3b4-dd02-4119-a7f7-cfc50bc0c996
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇮🇳IN²_1|4.4MB/s|X
-    server: hxb.dashuai.help
-    port: 45073
-    uuid: bcbe9d86-6939-4bec-9292-4b546388ce47
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇯🇵JP²_2|10.2MB/s|YT|NF|X
-    server: hxa.dashuai.help
-    port: 45056
-    uuid: 03ca2b03-9d09-4ad8-b4de-f50c0c8885be
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇮🇳IN²_2|7.2MB/s|YT|X
-    server: hxa.dashuai.help
-    port: 45074
-    uuid: 12327f4a-c75c-4de3-893e-04ce2b48a0a9
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_22|4.9MB/s|50%|GPT|GM|YT|NF|X
-    server: hxb.dashuai.help
-    port: 45053
-    uuid: 03ca2b03-9d09-4ad8-b4de-f50c0c8885be
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_5|1.2MB/s|25%|TK|NF|X
-    server: hxa.dashuai.help
-    port: 45072
-    uuid: 9f2df3b4-dd02-4119-a7f7-cfc50bc0c996
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇹🇼TW²_1|7.8MB/s|3%|GM|YT|TK
-    server: hxa.dashuai.help
-    port: 45078
-    uuid: 12327f4a-c75c-4de3-893e-04ce2b48a0a9
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇯🇵JP²_4|9.7MB/s|GPT|TK|X
-    server: hxa.dashuai.help
-    port: 45056
-    uuid: 12327f4a-c75c-4de3-893e-04ce2b48a0a9
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_4|5.1MB/s
-    server: hxb.dashuai.help
-    port: 45067
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_38|9.5MB/s|52%|GPT⁺|YT|TK|NF|X|KeepSucceed
-    server: v8.hdacd.com
-    port: 30808
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇯🇵JP²_5|9.6MB/s|NF|X
-    server: hxa.dashuai.help
-    port: 45056
-    uuid: 0e38b12c-ab85-4781-bbc7-cc770d3e385e
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_5|5.3MB/s
-    server: hxb.dashuai.help
-    port: 45067
-    uuid: bcbe9d86-6939-4bec-9292-4b546388ce47
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_6|9.1MB/s|37%|GPT⁺|X
-    server: hxa.dashuai.help
-    port: 45066
-    uuid: 84326cf4-1fb7-4078-b614-2334547266d6
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇫🇷FR²_16|3.1MB/s|0%|GPT|YT-RU|X
-    server: 185.248.33.173
-    port: 16495
-    uuid: b2da9920-b0a7-4354-9e26-3833ab8d00d0
-    alterId: 0
-    network: ws
-    cipher: auto
-    servername: imafake.locker
-    ws-opts:
-      path: /speedtest
-      headers:
-        Host: imafake.locker
-    tls: true
-  - type: vmess
-    name: www.85la.com🇹🇼TW²_2|5.9MB/s
-    server: hxa.dashuai.help
-    port: 45078
-    uuid: 0e38b12c-ab85-4781-bbc7-cc770d3e385e
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇨🇦CA²_3|5.9MB/s|37%|GPT|GM|YT|TK|NF|X
-    server: hxb.dashuai.help
-    port: 45065
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇰🇷KR²_5|9.9MB/s|37%|GPT⁺|GM|YT|X
-    server: hxb.dashuai.help
-    port: 45075
-    uuid: 0e38b12c-ab85-4781-bbc7-cc770d3e385e
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇮🇳IN²_3|20.8MB/s|GPT⁺|GM|YT|X
-    server: hxb.dashuai.help
-    port: 45073
-    uuid: 9f2df3b4-dd02-4119-a7f7-cfc50bc0c996
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇭🇰HK²_6|10.5MB/s|0%|GM|YT|NF|D+|X
-    server: hxb.dashuai.help
-    port: 45051
-    uuid: d9f9db82-fa5d-40ee-a7c1-d02690b86bbe
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_7|3.4MB/s|37%
-    server: hxb.dashuai.help
-    port: 45067
-    uuid: 03ca2b03-9d09-4ad8-b4de-f50c0c8885be
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇯🇵JP²_6|9.2MB/s|37%|GPT⁺|GM|NF|X
-    server: hxa.dashuai.help
-    port: 45056
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇨🇦CA²_4|5.5MB/s|37%|YT|NF
-    server: hxb.dashuai.help
-    port: 45065
-    uuid: 0e38b12c-ab85-4781-bbc7-cc770d3e385e
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_67|0.9MB/s|50%|GPT|YT|NF|X
-    server: hxb.dashuai.help
-    port: 45053
-    uuid: 84326cf4-1fb7-4078-b614-2334547266d6
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇺🇸US²_70|2.6MB/s|50%|YT|X
-    server: hxa.dashuai.help
-    port: 45052
-    uuid: ef95c7a3-94b1-4a84-92fa-2e647998326b
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_8|5.4MB/s|37%|X
-    server: hxb.dashuai.help
-    port: 45067
-    uuid: d9f9db82-fa5d-40ee-a7c1-d02690b86bbe
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇹🇼TW²_3|5.3MB/s|3%|YT|TK|X
-    server: hxa.dashuai.help
-    port: 45078
-    uuid: 03ca2b03-9d09-4ad8-b4de-f50c0c8885be
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_9|8.0MB/s|37%|YT|TK|NF
-    server: hxb.dashuai.help
-    port: 45067
-    uuid: 0e38b12c-ab85-4781-bbc7-cc770d3e385e
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇦🇺AU²_3|5.2MB/s|GM
-    server: hxa.dashuai.help
-    port: 45062
-    uuid: d9f9db82-fa5d-40ee-a7c1-d02690b86bbe
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇯🇵JP²_10|10.4MB/s|GPT|YT|X
-    server: hxb.dashuai.help
-    port: 45057
-    uuid: 7c69be6f-00e2-4bc4-a17a-90c725c3d6d8
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇭🇰HK²_10|0.1MB/s|17%|YT-US|D+|X
-    server: 149.88.95.94
-    port: 18937
-    uuid: ebaa1ae1-fa4d-40d8-958f-d4524d551218
-    alterId: 0
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇸🇬SG²_1|2.5MB/s|0%|GPT⁺|GM|YT-US|TK|NF|X|KeepHistory
-    server: vc.fly.dev
-    port: 443
-    uuid: 35379219-6535-4f2e-a4fe-3e44f61e0eee
-    alterId: 32
-    network: ws
-    cipher: auto
-    servername: vc.fly.dev
-    ws-opts:
-      path: /vc
-      headers:
-        Host: vc.fly.dev
-    tls: true
-  - type: vmess
-    name: www.85la.com🇬🇧GB²_10|0.4MB/s|GPT⁺|NF|X|KeepHistory
-    server: v36.hdacd.com
-    port: 30836
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    network: tcp
-    cipher: auto
-  - type: vmess
-    name: www.85la.com🇭🇰HK²_12|0.2MB/s
-    server: v9.hdacd.com
-    port: 30809
-    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
-    alterId: 2
-    network: tcp
-    cipher: auto
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - www.85la.com🇭🇰HK²_11|0.3MB/s|GM|YT
-      - www.85la.com🇭🇰HK¹-US⁰_1|3.3MB/s|3%|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|9.0MB/s|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇭🇰HK¹-NL⁰_1|0.8MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇭🇰HK²_8|23.7MB/s|X
-      - www.85la.com🇭🇰HK⁻¹_1|0.4MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.2MB/s|0%|TK|NF|D+|X
-      - www.85la.com🇭🇰HK²_2|0.2MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_14|1.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_2|0.3MB/s|YT-CN|D+|X
-      - www.85la.com🇭🇰HK²_18|0.4MB/s|2%|X
-      - www.85la.com🇭🇰HK²_84|3.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_8|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.6MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_3|0.9MB/s|2%|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_6|0.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_3|0.3MB/s|2%|KeepSucceed
-      - www.85la.com🇭🇰HK²_4|1.7MB/s|2%|D+|X|KeepHistory
-      - www.85la.com🇭🇰HK²_2|0.6MB/s|2%|NF|D+|KeepSucceed
-      - www.85la.com🇯🇵JP²_1|0.8MB/s|37%|YT|TK
-      - www.85la.com🇭🇰HK²_10|0.9MB/s|2%|NF|D+|X
-      - www.85la.com🇰🇷KR²_1|0.8MB/s|GPT⁺|GM|YT|NF|X
-      - www.85la.com🇭🇰HK²_1|0.1MB/s|2%|D+|X
-      - www.85la.com🇭🇰HK²_9|0.1MB/s
+      - 🇺🇸 www.85la.com🇺🇸US²_91|0.1MB/s|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_64|0.2MB/s|7%|GPT⁺|GM|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_597|0.7MB/s|7%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_549|0.2MB/s|14%|GPT⁺|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_471|0.2MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_47|0.4MB/s|14%|GPT|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_3|0.1MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
+      - 🇺🇸 www.85la.com🇺🇸US²_190|0.6MB/s|14%|YT|TK|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_168|0.3MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸
+        www.85la.com🇺🇸US¹-DE⁰_17|4.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|KeepSucceed
+      - 🇨🇳 www.85la.com🇹🇼TW²_2|0.5MB/s
+      - www.85la.com🇹🇭TH²_1|3.2MB/s|2%|GPT⁺|YT|NF|X
+      - 🇸🇬 www.85la.com🇸🇬SG²_2|5.0MB/s|YT-US|TK-US
+      - 🇵🇱 www.85la.com🇵🇱PL²_68|0.6MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇳🇱 www.85la.com🇳🇱NL²_13|0.3MB/s|D+|KeepHistory
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|8.2MB/s|37%|GM|NF
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|4.2MB/s|25%|GPT⁺|GM|TK|NF|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_16|0.9MB/s|0%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_10|4.8MB/s|GPT|GM|YT|TK|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_1|4.9MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇨🇦 www.85la.com🇮🇳IN²_6|2.8MB/s|GPT⁺|GM|YT-CA|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_4|3.8MB/s|GPT|GM|YT|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_29|0.2MB/s|GPT⁺|GM|YT|NF|X|KeepSucceed
+      - 🇮🇳 www.85la.com🇮🇳IN²_1|0.7MB/s|GM|YT
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|1.0MB/s|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|2%|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_83|0.2MB/s|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_78|0.8MB/s|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_77|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_76|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|1.3MB/s|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|0.2MB/s|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_68|0.3MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_61|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_60|0.8MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|5.0MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|0.6MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_59|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|4.3MB/s|2%|YT|NF
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.1MB/s|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_48|1.1MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_46|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_42|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_41|1.4MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_39|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_30|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_3|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_29|0.5MB/s|2%|YT|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_28|0.1MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_23|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_21|0.2MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_20|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_2|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_18|2.9MB/s|2%|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_14|0.8MB/s|2%|NF|D+|X|KeepHistory
+      - 🇭🇰 www.85la.com🇭🇰HK²_13|0.4MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_129|0.9MB/s|2%|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_12|0.7MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_113|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_1|0.2MB/s|2%|YT|NF|X
+      - 🇬🇧 www.85la.com🇬🇧GB²_2|1.0MB/s|37%|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_23|1.8MB/s|25%|GPT|TK|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_101|0.8MB/s|69%|GPT⁺|YT-CN|TK|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
+      - 🇺🇸
+        www.85la.com🇩🇪DE²_6|0.7MB/s|GPT⁺|YT-US|TK|NF|X|sinspired/subs-check
+      - 🇨🇦 www.85la.com🇨🇦CA²_2|5.2MB/s|37%|GPT|X
       - 🇫🇷 www.85.com 法国
-      - 🇫🇷 www.85.com 法国_1
-      - 🇫🇷 www.85.com 法国_2
-      - www.85la.com🇺🇸US¹-DE⁰_4|3.5MB/s|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.4MB/s|3%|GPT|GM|YT|TK|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_22|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|1.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|5.4MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|0.1MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇰🇷KR²_6|12.4MB/s|TK|NF|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_8|1.0MB/s|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.5MB/s|3%|GPT|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_13|0.3MB/s|3%|GPT|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|0.2MB/s|3%|GPT⁺|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_8|0.8MB/s|3%|GPT⁺|GM|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_9|2.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_12|3.8MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|3.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_2|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_15|0.2MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|9.9MB/s|GM|YT|TK|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|9.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|0.2MB/s|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_24|5.0MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_4|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_11|4.9MB/s|YT|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_3|5.4MB/s|GM|YT|TK|NF|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.1MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_2
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.2MB/s|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_1|5.0MB/s|YT|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.1MB/s|3%|GPT|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|0.3MB/s|YT|TK|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.4MB/s|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|5.0MB/s|GPT|GM|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_15|5.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_14|5.0MB/s|3%|YT|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_4|1.4MB/s|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.2MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇦🇺AU²_1|0.7MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_12|4.9MB/s|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇦🇺AU²_2|3.4MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_6|5.0MB/s|3%|GM|YT|TK|NF|D+|KeepSucceed
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇨🇦CA²_3|3.8MB/s|YT|NF
-      - www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
-      - www.85la.com🇺🇸US¹-IE⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇩🇪DE²_4|2.1MB/s|17%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇸🇬SG²_2|1.0MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US²_14|4.7MB/s|GPT⁺|YT|TK|X|KeepHistory
-      - www.85la.com🇺🇸US²_11|0.8MB/s|GPT⁺|YT|X
-      - www.85la.com🇺🇸US²_9|1.5MB/s|GPT⁺|YT|NF|D+|X|KeepHistory
-      - www.85la.com🇺🇸US²_23|1.0MB/s|YT|NF|X|KeepHistory
-      - www.85la.com🇺🇸US²_7|4.4MB/s|GPT|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|1.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_6|0.3MB/s|2%|X
-      - www.85la.com🇭🇰HK²_1|3.4MB/s|2%|YT-CN|NF|D+|KeepHistory
-      - www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇭🇰HK²_42|0.7MB/s|KeepHistory
-      - www.85la.com🇺🇸US²_12|2.6MB/s|GPT⁺|YT|TK|NF|D+|X|KeepSucceed
-      - www.85la.com🇳🇬NG²_1|1.3MB/s|TK|X
-      - www.85la.com🇭🇰HK²_14|0.2MB/s|D+|X
-      - www.85la.com🇭🇰HK²_1|0.4MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_204|1.5MB/s|YT|NF|X
-      - www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_3
-      - www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_4
-      - www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
-      - www.85la.com|🇭🇰HK²_3|0.3MB/s|2%|NF|D+|KeepHistory
-      - www.85la.com🇭🇰HK²_18|3.2MB/s|X|KeepHistory
-      - www.85la.com🇳🇱NL²_18|0.4MB/s|GPT|X|KeepHistory
-      - www.85la.com🇺🇸US²_3|0.2MB/s|GPT⁺|GM|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_1|5.8MB/s|37%|GPT⁺|TK|X
-      - www.85la.com🇰🇷KR²_1|8.5MB/s|37%|GPT|YT|NF|X
-      - www.85la.com🇨🇦CA²_1|3.4MB/s|37%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇺🇸US²_12|5.5MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
-      - www.85la.com🇦🇺AU²_1|5.1MB/s|37%|GM|YT|TK|NF
-      - www.85la.com🇰🇷KR²_2|6.2MB/s|GM|NF|X
-      - www.85la.com🇮🇳IN²_1|4.4MB/s|X
-      - www.85la.com🇯🇵JP²_2|10.2MB/s|YT|NF|X
-      - www.85la.com🇮🇳IN²_2|7.2MB/s|YT|X
-      - www.85la.com🇺🇸US²_22|4.9MB/s|50%|GPT|GM|YT|NF|X
-      - www.85la.com🇫🇷FR²_5|1.2MB/s|25%|TK|NF|X
-      - www.85la.com🇹🇼TW²_1|7.8MB/s|3%|GM|YT|TK
-      - www.85la.com🇯🇵JP²_4|9.7MB/s|GPT|TK|X
-      - www.85la.com🇬🇧GB²_4|5.1MB/s
-      - www.85la.com🇺🇸US²_38|9.5MB/s|52%|GPT⁺|YT|TK|NF|X|KeepSucceed
-      - www.85la.com🇯🇵JP²_5|9.6MB/s|NF|X
-      - www.85la.com🇬🇧GB²_5|5.3MB/s
-      - www.85la.com🇬🇧GB²_6|9.1MB/s|37%|GPT⁺|X
-      - www.85la.com🇫🇷FR²_16|3.1MB/s|0%|GPT|YT-RU|X
-      - www.85la.com🇹🇼TW²_2|5.9MB/s
-      - www.85la.com🇨🇦CA²_3|5.9MB/s|37%|GPT|GM|YT|TK|NF|X
-      - www.85la.com🇰🇷KR²_5|9.9MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇮🇳IN²_3|20.8MB/s|GPT⁺|GM|YT|X
-      - www.85la.com🇭🇰HK²_6|10.5MB/s|0%|GM|YT|NF|D+|X
-      - www.85la.com🇬🇧GB²_7|3.4MB/s|37%
-      - www.85la.com🇯🇵JP²_6|9.2MB/s|37%|GPT⁺|GM|NF|X
-      - www.85la.com🇨🇦CA²_4|5.5MB/s|37%|YT|NF
-      - www.85la.com🇺🇸US²_67|0.9MB/s|50%|GPT|YT|NF|X
-      - www.85la.com🇺🇸US²_70|2.6MB/s|50%|YT|X
-      - www.85la.com🇬🇧GB²_8|5.4MB/s|37%|X
-      - www.85la.com🇹🇼TW²_3|5.3MB/s|3%|YT|TK|X
-      - www.85la.com🇬🇧GB²_9|8.0MB/s|37%|YT|TK|NF
-      - www.85la.com🇦🇺AU²_3|5.2MB/s|GM
-      - www.85la.com🇯🇵JP²_10|10.4MB/s|GPT|YT|X
-      - www.85la.com🇭🇰HK²_10|0.1MB/s|17%|YT-US|D+|X
-      - www.85la.com🇸🇬SG²_1|2.5MB/s|0%|GPT⁺|GM|YT-US|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_10|0.4MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|0.2MB/s
+      - 🇫🇷 www.85.com 法国 2
+      - 🇫🇷 www.85.com 法国 3
+      - 🇫🇷 www.85.com 法国 4
+      - 🇫🇷 www.85.com 法国 5
   - name: ♻️ 自动选择
     type: url-test
     proxies:
-      - www.85la.com🇭🇰HK²_11|0.3MB/s|GM|YT
-      - www.85la.com🇭🇰HK¹-US⁰_1|3.3MB/s|3%|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|9.0MB/s|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇭🇰HK¹-NL⁰_1|0.8MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇭🇰HK²_8|23.7MB/s|X
-      - www.85la.com🇭🇰HK⁻¹_1|0.4MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.2MB/s|0%|TK|NF|D+|X
-      - www.85la.com🇭🇰HK²_2|0.2MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_14|1.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_2|0.3MB/s|YT-CN|D+|X
-      - www.85la.com🇭🇰HK²_18|0.4MB/s|2%|X
-      - www.85la.com🇭🇰HK²_84|3.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_8|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.6MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_3|0.9MB/s|2%|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_6|0.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_3|0.3MB/s|2%|KeepSucceed
-      - www.85la.com🇭🇰HK²_4|1.7MB/s|2%|D+|X|KeepHistory
-      - www.85la.com🇭🇰HK²_2|0.6MB/s|2%|NF|D+|KeepSucceed
-      - www.85la.com🇯🇵JP²_1|0.8MB/s|37%|YT|TK
-      - www.85la.com🇭🇰HK²_10|0.9MB/s|2%|NF|D+|X
-      - www.85la.com🇰🇷KR²_1|0.8MB/s|GPT⁺|GM|YT|NF|X
-      - www.85la.com🇭🇰HK²_1|0.1MB/s|2%|D+|X
-      - www.85la.com🇭🇰HK²_9|0.1MB/s
+      - 🇺🇸 www.85la.com🇺🇸US²_91|0.1MB/s|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_64|0.2MB/s|7%|GPT⁺|GM|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_597|0.7MB/s|7%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_549|0.2MB/s|14%|GPT⁺|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_471|0.2MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_47|0.4MB/s|14%|GPT|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_3|0.1MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
+      - 🇺🇸 www.85la.com🇺🇸US²_190|0.6MB/s|14%|YT|TK|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_168|0.3MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸
+        www.85la.com🇺🇸US¹-DE⁰_17|4.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|KeepSucceed
+      - 🇨🇳 www.85la.com🇹🇼TW²_2|0.5MB/s
+      - www.85la.com🇹🇭TH²_1|3.2MB/s|2%|GPT⁺|YT|NF|X
+      - 🇸🇬 www.85la.com🇸🇬SG²_2|5.0MB/s|YT-US|TK-US
+      - 🇵🇱 www.85la.com🇵🇱PL²_68|0.6MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇳🇱 www.85la.com🇳🇱NL²_13|0.3MB/s|D+|KeepHistory
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|8.2MB/s|37%|GM|NF
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|4.2MB/s|25%|GPT⁺|GM|TK|NF|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_16|0.9MB/s|0%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_10|4.8MB/s|GPT|GM|YT|TK|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_1|4.9MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇨🇦 www.85la.com🇮🇳IN²_6|2.8MB/s|GPT⁺|GM|YT-CA|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_4|3.8MB/s|GPT|GM|YT|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_29|0.2MB/s|GPT⁺|GM|YT|NF|X|KeepSucceed
+      - 🇮🇳 www.85la.com🇮🇳IN²_1|0.7MB/s|GM|YT
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|1.0MB/s|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|2%|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_83|0.2MB/s|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_78|0.8MB/s|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_77|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_76|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|1.3MB/s|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|0.2MB/s|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_68|0.3MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_61|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_60|0.8MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|5.0MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|0.6MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_59|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|4.3MB/s|2%|YT|NF
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.1MB/s|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_48|1.1MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_46|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_42|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_41|1.4MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_39|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_30|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_3|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_29|0.5MB/s|2%|YT|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_28|0.1MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_23|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_21|0.2MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_20|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_2|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_18|2.9MB/s|2%|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_14|0.8MB/s|2%|NF|D+|X|KeepHistory
+      - 🇭🇰 www.85la.com🇭🇰HK²_13|0.4MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_129|0.9MB/s|2%|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_12|0.7MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_113|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_1|0.2MB/s|2%|YT|NF|X
+      - 🇬🇧 www.85la.com🇬🇧GB²_2|1.0MB/s|37%|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_23|1.8MB/s|25%|GPT|TK|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_101|0.8MB/s|69%|GPT⁺|YT-CN|TK|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
+      - 🇺🇸
+        www.85la.com🇩🇪DE²_6|0.7MB/s|GPT⁺|YT-US|TK|NF|X|sinspired/subs-check
+      - 🇨🇦 www.85la.com🇨🇦CA²_2|5.2MB/s|37%|GPT|X
       - 🇫🇷 www.85.com 法国
-      - 🇫🇷 www.85.com 法国_1
-      - 🇫🇷 www.85.com 法国_2
-      - www.85la.com🇺🇸US¹-DE⁰_4|3.5MB/s|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.4MB/s|3%|GPT|GM|YT|TK|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_22|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|1.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|5.4MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|0.1MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇰🇷KR²_6|12.4MB/s|TK|NF|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_8|1.0MB/s|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.5MB/s|3%|GPT|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_13|0.3MB/s|3%|GPT|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|0.2MB/s|3%|GPT⁺|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_8|0.8MB/s|3%|GPT⁺|GM|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_9|2.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_12|3.8MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|3.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_2|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_15|0.2MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|9.9MB/s|GM|YT|TK|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|9.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|0.2MB/s|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_24|5.0MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_4|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_11|4.9MB/s|YT|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_3|5.4MB/s|GM|YT|TK|NF|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.1MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_2
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.2MB/s|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_1|5.0MB/s|YT|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.1MB/s|3%|GPT|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|0.3MB/s|YT|TK|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.4MB/s|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|5.0MB/s|GPT|GM|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_15|5.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_14|5.0MB/s|3%|YT|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_4|1.4MB/s|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.2MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇦🇺AU²_1|0.7MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_12|4.9MB/s|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇦🇺AU²_2|3.4MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_6|5.0MB/s|3%|GM|YT|TK|NF|D+|KeepSucceed
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇨🇦CA²_3|3.8MB/s|YT|NF
-      - www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
-      - www.85la.com🇺🇸US¹-IE⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇩🇪DE²_4|2.1MB/s|17%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇸🇬SG²_2|1.0MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US²_14|4.7MB/s|GPT⁺|YT|TK|X|KeepHistory
-      - www.85la.com🇺🇸US²_11|0.8MB/s|GPT⁺|YT|X
-      - www.85la.com🇺🇸US²_9|1.5MB/s|GPT⁺|YT|NF|D+|X|KeepHistory
-      - www.85la.com🇺🇸US²_23|1.0MB/s|YT|NF|X|KeepHistory
-      - www.85la.com🇺🇸US²_7|4.4MB/s|GPT|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|1.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_6|0.3MB/s|2%|X
-      - www.85la.com🇭🇰HK²_1|3.4MB/s|2%|YT-CN|NF|D+|KeepHistory
-      - www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇭🇰HK²_42|0.7MB/s|KeepHistory
-      - www.85la.com🇺🇸US²_12|2.6MB/s|GPT⁺|YT|TK|NF|D+|X|KeepSucceed
-      - www.85la.com🇳🇬NG²_1|1.3MB/s|TK|X
-      - www.85la.com🇭🇰HK²_14|0.2MB/s|D+|X
-      - www.85la.com🇭🇰HK²_1|0.4MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_204|1.5MB/s|YT|NF|X
-      - www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_3
-      - www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_4
-      - www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
-      - www.85la.com|🇭🇰HK²_3|0.3MB/s|2%|NF|D+|KeepHistory
-      - www.85la.com🇭🇰HK²_18|3.2MB/s|X|KeepHistory
-      - www.85la.com🇳🇱NL²_18|0.4MB/s|GPT|X|KeepHistory
-      - www.85la.com🇺🇸US²_3|0.2MB/s|GPT⁺|GM|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_1|5.8MB/s|37%|GPT⁺|TK|X
-      - www.85la.com🇰🇷KR²_1|8.5MB/s|37%|GPT|YT|NF|X
-      - www.85la.com🇨🇦CA²_1|3.4MB/s|37%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇺🇸US²_12|5.5MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
-      - www.85la.com🇦🇺AU²_1|5.1MB/s|37%|GM|YT|TK|NF
-      - www.85la.com🇰🇷KR²_2|6.2MB/s|GM|NF|X
-      - www.85la.com🇮🇳IN²_1|4.4MB/s|X
-      - www.85la.com🇯🇵JP²_2|10.2MB/s|YT|NF|X
-      - www.85la.com🇮🇳IN²_2|7.2MB/s|YT|X
-      - www.85la.com🇺🇸US²_22|4.9MB/s|50%|GPT|GM|YT|NF|X
-      - www.85la.com🇫🇷FR²_5|1.2MB/s|25%|TK|NF|X
-      - www.85la.com🇹🇼TW²_1|7.8MB/s|3%|GM|YT|TK
-      - www.85la.com🇯🇵JP²_4|9.7MB/s|GPT|TK|X
-      - www.85la.com🇬🇧GB²_4|5.1MB/s
-      - www.85la.com🇺🇸US²_38|9.5MB/s|52%|GPT⁺|YT|TK|NF|X|KeepSucceed
-      - www.85la.com🇯🇵JP²_5|9.6MB/s|NF|X
-      - www.85la.com🇬🇧GB²_5|5.3MB/s
-      - www.85la.com🇬🇧GB²_6|9.1MB/s|37%|GPT⁺|X
-      - www.85la.com🇫🇷FR²_16|3.1MB/s|0%|GPT|YT-RU|X
-      - www.85la.com🇹🇼TW²_2|5.9MB/s
-      - www.85la.com🇨🇦CA²_3|5.9MB/s|37%|GPT|GM|YT|TK|NF|X
-      - www.85la.com🇰🇷KR²_5|9.9MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇮🇳IN²_3|20.8MB/s|GPT⁺|GM|YT|X
-      - www.85la.com🇭🇰HK²_6|10.5MB/s|0%|GM|YT|NF|D+|X
-      - www.85la.com🇬🇧GB²_7|3.4MB/s|37%
-      - www.85la.com🇯🇵JP²_6|9.2MB/s|37%|GPT⁺|GM|NF|X
-      - www.85la.com🇨🇦CA²_4|5.5MB/s|37%|YT|NF
-      - www.85la.com🇺🇸US²_67|0.9MB/s|50%|GPT|YT|NF|X
-      - www.85la.com🇺🇸US²_70|2.6MB/s|50%|YT|X
-      - www.85la.com🇬🇧GB²_8|5.4MB/s|37%|X
-      - www.85la.com🇹🇼TW²_3|5.3MB/s|3%|YT|TK|X
-      - www.85la.com🇬🇧GB²_9|8.0MB/s|37%|YT|TK|NF
-      - www.85la.com🇦🇺AU²_3|5.2MB/s|GM
-      - www.85la.com🇯🇵JP²_10|10.4MB/s|GPT|YT|X
-      - www.85la.com🇭🇰HK²_10|0.1MB/s|17%|YT-US|D+|X
-      - www.85la.com🇸🇬SG²_1|2.5MB/s|0%|GPT⁺|GM|YT-US|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_10|0.4MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|0.2MB/s
+      - 🇫🇷 www.85.com 法国 2
+      - 🇫🇷 www.85.com 法国 3
+      - 🇫🇷 www.85.com 法国 4
+      - 🇫🇷 www.85.com 法国 5
     url: http://www.gstatic.com/generate_204
     interval: 300
   - name: 🎯 全球直连
@@ -2223,170 +1001,98 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - www.85la.com🇭🇰HK²_11|0.3MB/s|GM|YT
-      - www.85la.com🇭🇰HK¹-US⁰_1|3.3MB/s|3%|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|9.0MB/s|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇭🇰HK¹-NL⁰_1|0.8MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇭🇰HK²_8|23.7MB/s|X
-      - www.85la.com🇭🇰HK⁻¹_1|0.4MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.2MB/s|0%|TK|NF|D+|X
-      - www.85la.com🇭🇰HK²_2|0.2MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_14|1.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_2|0.3MB/s|YT-CN|D+|X
-      - www.85la.com🇭🇰HK²_18|0.4MB/s|2%|X
-      - www.85la.com🇭🇰HK²_84|3.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_8|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.6MB/s|X
-      - www.85la.com🇭🇰HK²_4|0.2MB/s|X
-      - www.85la.com🇭🇰HK²_3|0.9MB/s|2%|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_6|0.4MB/s|NF|X
-      - www.85la.com🇭🇰HK²_3|0.3MB/s|2%|KeepSucceed
-      - www.85la.com🇭🇰HK²_4|1.7MB/s|2%|D+|X|KeepHistory
-      - www.85la.com🇭🇰HK²_2|0.6MB/s|2%|NF|D+|KeepSucceed
-      - www.85la.com🇯🇵JP²_1|0.8MB/s|37%|YT|TK
-      - www.85la.com🇭🇰HK²_10|0.9MB/s|2%|NF|D+|X
-      - www.85la.com🇰🇷KR²_1|0.8MB/s|GPT⁺|GM|YT|NF|X
-      - www.85la.com🇭🇰HK²_1|0.1MB/s|2%|D+|X
-      - www.85la.com🇭🇰HK²_9|0.1MB/s
+      - 🇺🇸 www.85la.com🇺🇸US²_91|0.1MB/s|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_64|0.2MB/s|7%|GPT⁺|GM|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_597|0.7MB/s|7%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_549|0.2MB/s|14%|GPT⁺|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_471|0.2MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_47|0.4MB/s|14%|GPT|YT|TK|NF|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_3|0.1MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
+      - 🇺🇸 www.85la.com🇺🇸US²_190|0.6MB/s|14%|YT|TK|D+|X
+      - 🇺🇸 www.85la.com🇺🇸US²_168|0.3MB/s|14%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇺🇸
+        www.85la.com🇺🇸US¹-DE⁰_17|4.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|KeepSucceed
+      - 🇨🇳 www.85la.com🇹🇼TW²_2|0.5MB/s
+      - www.85la.com🇹🇭TH²_1|3.2MB/s|2%|GPT⁺|YT|NF|X
+      - 🇸🇬 www.85la.com🇸🇬SG²_2|5.0MB/s|YT-US|TK-US
+      - 🇵🇱 www.85la.com🇵🇱PL²_68|0.6MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇳🇱 www.85la.com🇳🇱NL²_13|0.3MB/s|D+|KeepHistory
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|8.2MB/s|37%|GM|NF
+      - 🇰🇷 www.85la.com🇰🇷KR²_1|4.2MB/s|25%|GPT⁺|GM|TK|NF|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_16|0.9MB/s|0%|GPT⁺|GM|YT|TK|NF|D+|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_10|4.8MB/s|GPT|GM|YT|TK|X
+      - 🇯🇵 www.85la.com🇯🇵JP²_1|4.9MB/s|0%|GPT⁺|TK|NF|D+|X
+      - 🇨🇦 www.85la.com🇮🇳IN²_6|2.8MB/s|GPT⁺|GM|YT-CA|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_4|3.8MB/s|GPT|GM|YT|NF|X
+      - 🇮🇳 www.85la.com🇮🇳IN²_29|0.2MB/s|GPT⁺|GM|YT|NF|X|KeepSucceed
+      - 🇮🇳 www.85la.com🇮🇳IN²_1|0.7MB/s|GM|YT
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|1.0MB/s|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_9|0.2MB/s|2%|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_83|0.2MB/s|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_78|0.8MB/s|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_77|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_76|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|1.3MB/s|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_7|0.2MB/s|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_68|0.3MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_61|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_60|0.8MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|5.0MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_6|0.6MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_59|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|4.3MB/s|2%|YT|NF
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_5|0.1MB/s|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_48|1.1MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_46|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_42|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_41|1.4MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_39|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_30|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_3|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_29|0.5MB/s|2%|YT|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_28|0.1MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_23|0.6MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_21|0.2MB/s|2%|YT|NF|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_20|0.4MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_2|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_18|2.9MB/s|2%|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|YT|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_17|0.2MB/s|2%|NF|D+
+      - 🇭🇰 www.85la.com🇭🇰HK²_14|0.8MB/s|2%|NF|D+|X|KeepHistory
+      - 🇭🇰 www.85la.com🇭🇰HK²_13|0.4MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_129|0.9MB/s|2%|YT|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_12|0.7MB/s|2%|YT|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_113|0.2MB/s|2%|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|NF|D+|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_10|0.2MB/s|2%|X
+      - 🇭🇰 www.85la.com🇭🇰HK²_1|0.2MB/s|2%|YT|NF|X
+      - 🇬🇧 www.85la.com🇬🇧GB²_2|1.0MB/s|37%|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_23|1.8MB/s|25%|GPT|TK|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
+      - 🇫🇷 www.85la.com🇫🇷FR²_101|0.8MB/s|69%|GPT⁺|YT-CN|TK|NF|X
+      - 🇫🇷 www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
+      - 🇫🇷 www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
+      - 🇺🇸
+        www.85la.com🇩🇪DE²_6|0.7MB/s|GPT⁺|YT-US|TK|NF|X|sinspired/subs-check
+      - 🇨🇦 www.85la.com🇨🇦CA²_2|5.2MB/s|37%|GPT|X
       - 🇫🇷 www.85.com 法国
-      - 🇫🇷 www.85.com 法国_1
-      - 🇫🇷 www.85.com 法国_2
-      - www.85la.com🇺🇸US¹-DE⁰_4|3.5MB/s|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.4MB/s|3%|GPT|GM|YT|TK|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_11|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_22|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|1.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|5.4MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|0.1MB/s|3%|GPT|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇰🇷KR²_6|12.4MB/s|TK|NF|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_8|1.0MB/s|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|4.9MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.5MB/s|3%|GPT|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_6|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_13|0.3MB/s|3%|GPT|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|0.2MB/s|3%|GPT⁺|GM|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_8|0.8MB/s|3%|GPT⁺|GM|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_9|2.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_12|3.8MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_5|3.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_2|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_15|0.2MB/s|3%|YT|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_1|9.9MB/s|GM|YT|TK|NF|D+|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|9.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|0.2MB/s|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_24|5.0MB/s|3%|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|2.6MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_4|4.6MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.3MB/s|3%|GPT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇺🇸US¹-NL⁰_11|4.9MB/s|YT|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹⁺_3|5.4MB/s|GM|YT|TK|NF|💦 BPB Normal
-      - www.85la.com🇺🇸US²_1|0.1MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US¹-DE⁰_1|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB
-        Normal_2
-      - www.85la.com🇺🇸US¹-DE⁰_6|0.2MB/s|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|0.2MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_10|3.7MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_1|5.0MB/s|YT|NF|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.1MB/s|3%|GPT|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_3|0.3MB/s|YT|TK|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_1|0.4MB/s|GPT|TK|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_5|5.0MB/s|GPT|GM|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_15|5.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_14|5.0MB/s|3%|YT|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US⁻¹_4|1.4MB/s|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_7|0.2MB/s|3%|GPT⁺|GM|YT|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-DE⁰_7|1.0MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇺🇸US¹-NL⁰_2|5.0MB/s|3%|GPT⁺|YT|TK|D+|X|💦 BPB Normal_1
-      - www.85la.com🇦🇺AU²_1|0.7MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_12|4.9MB/s|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇦🇺AU²_2|3.4MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇺🇸US¹-NL⁰_6|5.0MB/s|3%|GM|YT|TK|NF|D+|KeepSucceed
-      - www.85la.com🇺🇸US¹-NL⁰_6|0.2MB/s|3%|GPT⁺|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇨🇦CA²_3|3.8MB/s|YT|NF
-      - www.85la.com🇫🇷FR²_6|0.2MB/s|GPT|NF|X
-      - www.85la.com🇺🇸US¹-IE⁰_1|0.3MB/s|3%|GPT⁺|GM|YT|TK|NF|D+|X|💦 BPB Normal
-      - www.85la.com🇩🇪DE²_4|2.1MB/s|17%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇸🇬SG²_2|1.0MB/s|X|KeepHistory
-      - www.85la.com🇺🇸US²_14|4.7MB/s|GPT⁺|YT|TK|X|KeepHistory
-      - www.85la.com🇺🇸US²_11|0.8MB/s|GPT⁺|YT|X
-      - www.85la.com🇺🇸US²_9|1.5MB/s|GPT⁺|YT|NF|D+|X|KeepHistory
-      - www.85la.com🇺🇸US²_23|1.0MB/s|YT|NF|X|KeepHistory
-      - www.85la.com🇺🇸US²_7|4.4MB/s|GPT|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|1.4MB/s|X|KeepHistory
-      - www.85la.com🇭🇰HK²_6|0.3MB/s|2%|X
-      - www.85la.com🇭🇰HK²_1|3.4MB/s|2%|YT-CN|NF|D+|KeepHistory
-      - www.85la.com🇫🇷FR²_10|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇭🇰HK²_42|0.7MB/s|KeepHistory
-      - www.85la.com🇺🇸US²_12|2.6MB/s|GPT⁺|YT|TK|NF|D+|X|KeepSucceed
-      - www.85la.com🇳🇬NG²_1|1.3MB/s|TK|X
-      - www.85la.com🇭🇰HK²_14|0.2MB/s|D+|X
-      - www.85la.com🇭🇰HK²_1|0.4MB/s|YT-CN|NF|D+|X
-      - www.85la.com🇭🇰HK²_204|1.5MB/s|YT|NF|X
-      - www.85la.com🇫🇷FR²_18|0.2MB/s|GPT|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_1|0.2MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_29|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_22|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_21|0.2MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_3
-      - www.85la.com🇫🇷FR²_25|0.6MB/s|GPT⁺|YT|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_4|0.1MB/s|GPT⁺|TK|NF|X|KeepHistory
-      - www.85la.com🇫🇷FR²_6|0.1MB/s|GPT⁺|X|KeepHistory
-      - 🇫🇷 www.85.com 法国_4
-      - www.85la.com🇫🇷FR²_7|0.2MB/s|GPT⁺|TK|NF|X|KeepSucceed
-      - www.85la.com🇫🇷FR²_41|0.2MB/s|GPT⁺|YT|TK|NF|X|KeepHistory
-      - www.85la.com|🇭🇰HK²_3|0.3MB/s|2%|NF|D+|KeepHistory
-      - www.85la.com🇭🇰HK²_18|3.2MB/s|X|KeepHistory
-      - www.85la.com🇳🇱NL²_18|0.4MB/s|GPT|X|KeepHistory
-      - www.85la.com🇺🇸US²_3|0.2MB/s|GPT⁺|GM|YT|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_1|5.8MB/s|37%|GPT⁺|TK|X
-      - www.85la.com🇰🇷KR²_1|8.5MB/s|37%|GPT|YT|NF|X
-      - www.85la.com🇨🇦CA²_1|3.4MB/s|37%|GPT⁺|YT|TK|NF|X
-      - www.85la.com🇺🇸US²_12|5.5MB/s|GPT⁺|YT-CN|TK|NF|X|KeepHistory
-      - www.85la.com🇦🇺AU²_1|5.1MB/s|37%|GM|YT|TK|NF
-      - www.85la.com🇰🇷KR²_2|6.2MB/s|GM|NF|X
-      - www.85la.com🇮🇳IN²_1|4.4MB/s|X
-      - www.85la.com🇯🇵JP²_2|10.2MB/s|YT|NF|X
-      - www.85la.com🇮🇳IN²_2|7.2MB/s|YT|X
-      - www.85la.com🇺🇸US²_22|4.9MB/s|50%|GPT|GM|YT|NF|X
-      - www.85la.com🇫🇷FR²_5|1.2MB/s|25%|TK|NF|X
-      - www.85la.com🇹🇼TW²_1|7.8MB/s|3%|GM|YT|TK
-      - www.85la.com🇯🇵JP²_4|9.7MB/s|GPT|TK|X
-      - www.85la.com🇬🇧GB²_4|5.1MB/s
-      - www.85la.com🇺🇸US²_38|9.5MB/s|52%|GPT⁺|YT|TK|NF|X|KeepSucceed
-      - www.85la.com🇯🇵JP²_5|9.6MB/s|NF|X
-      - www.85la.com🇬🇧GB²_5|5.3MB/s
-      - www.85la.com🇬🇧GB²_6|9.1MB/s|37%|GPT⁺|X
-      - www.85la.com🇫🇷FR²_16|3.1MB/s|0%|GPT|YT-RU|X
-      - www.85la.com🇹🇼TW²_2|5.9MB/s
-      - www.85la.com🇨🇦CA²_3|5.9MB/s|37%|GPT|GM|YT|TK|NF|X
-      - www.85la.com🇰🇷KR²_5|9.9MB/s|37%|GPT⁺|GM|YT|X
-      - www.85la.com🇮🇳IN²_3|20.8MB/s|GPT⁺|GM|YT|X
-      - www.85la.com🇭🇰HK²_6|10.5MB/s|0%|GM|YT|NF|D+|X
-      - www.85la.com🇬🇧GB²_7|3.4MB/s|37%
-      - www.85la.com🇯🇵JP²_6|9.2MB/s|37%|GPT⁺|GM|NF|X
-      - www.85la.com🇨🇦CA²_4|5.5MB/s|37%|YT|NF
-      - www.85la.com🇺🇸US²_67|0.9MB/s|50%|GPT|YT|NF|X
-      - www.85la.com🇺🇸US²_70|2.6MB/s|50%|YT|X
-      - www.85la.com🇬🇧GB²_8|5.4MB/s|37%|X
-      - www.85la.com🇹🇼TW²_3|5.3MB/s|3%|YT|TK|X
-      - www.85la.com🇬🇧GB²_9|8.0MB/s|37%|YT|TK|NF
-      - www.85la.com🇦🇺AU²_3|5.2MB/s|GM
-      - www.85la.com🇯🇵JP²_10|10.4MB/s|GPT|YT|X
-      - www.85la.com🇭🇰HK²_10|0.1MB/s|17%|YT-US|D+|X
-      - www.85la.com🇸🇬SG²_1|2.5MB/s|0%|GPT⁺|GM|YT-US|TK|NF|X|KeepHistory
-      - www.85la.com🇬🇧GB²_10|0.4MB/s|GPT⁺|NF|X|KeepHistory
-      - www.85la.com🇭🇰HK²_12|0.2MB/s
+      - 🇫🇷 www.85.com 法国 2
+      - 🇫🇷 www.85.com 法国 3
+      - 🇫🇷 www.85.com 法国 4
+      - 🇫🇷 www.85.com 法国 5
 rule-providers:
   LocalAreaNetwork:
     type: http
