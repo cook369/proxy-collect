@@ -1,14 +1,17 @@
 {
   "jichangx": {
-    "https://jichangx.com/nodes/v2ray-20251220-01": false
+    "https://jichangx.com/nodes/v2ray-20251220-01": true
   },
   "cfmeme": {
     "https://s3.v2rayse.com/public/20251219/gy6w9agj.txt": true
   },
-  "85la": {},
+  "85la": {
+    "https://www.85la.com/wp-content/uploads/2025/12/07b2f837e70aacb-3.txt": true,
+    "https://www.85la.com/wp-content/uploads/2025/12/c21f969b5f03d33-4.yaml": true
+  },
   "nodefree": {
-    "https://nodefree.githubrowcontent.com/2025/12/20251220.yaml": false,
-    "https://nodefree.githubrowcontent.com/2025/12/20251220.txt": false
+    "https://nodefree.githubrowcontent.com/2025/12/20251220.yaml": true,
+    "https://nodefree.githubrowcontent.com/2025/12/20251220.txt": true
   },
   "oneclash": {
     "https://oneclash.githubrowcontent.com/2025/12/20251220.yaml": true,
