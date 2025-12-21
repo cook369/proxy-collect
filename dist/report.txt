@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-12-21 10:29:10
+# Collect Time: 2025-12-21 12:53:57
 
 
 ## Site: jichangx
@@ -40,24 +40,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL                                                                    | Tried   | Success   |
-|------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2025/12/2274de63de17909-5.txt  | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2025/12/c21f969b5f03d33-5.yaml | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -66,3 +48,19 @@
 | https://free.datiya.com/uploads/20251221-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
+
+
+## Site: 85la
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
