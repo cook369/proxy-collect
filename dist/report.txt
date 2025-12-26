@@ -1,5 +1,5 @@
 
-# Collect Time: 2025-12-26 16:34:01
+# Collect Time: 2025-12-26 18:39:22
 
 
 ## Site: jichangx
@@ -31,17 +31,7 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20251226-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20251226-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
-
-
-## Site: 85la
+## Site: yudou
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -51,15 +41,28 @@
 
 ## Site: cfmeme
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20251226/4gq8bw7m.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: 85la
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                                    | Tried   | Success   |
+|------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2025/12/403b6553022d778-8.txt  | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2025/12/c21f969b5f03d33-8.yaml | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20251226-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20251226-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
