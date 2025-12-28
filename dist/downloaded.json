@@ -1,25 +1,25 @@
 {
   "jichangx": {
-    "https://jichangx.com/nodes/v2ray-20251228-01": false
+    "https://jichangx.com/nodes/v2ray-20251228-01": true
   },
   "cfmeme": {
-    "https://s3.v2rayse.com/public/20251227/s0b15wqj.txt": true
+    "https://s3.v2rayse.com/public/20251228/d3mtdi1e.txt": true
   },
   "85la": {
     "https://www.85la.com/wp-content/uploads/2025/12/95f85cf6467e528.txt": true,
     "https://www.85la.com/wp-content/uploads/2025/12/c21f969b5f03d33-9.yaml": true
   },
   "nodefree": {
-    "https://nodefree.githubrowcontent.com/2025/12/20251228.yaml": false,
-    "https://nodefree.githubrowcontent.com/2025/12/20251228.txt": false
+    "https://nodefree.githubrowcontent.com/2025/12/20251228.yaml": true,
+    "https://nodefree.githubrowcontent.com/2025/12/20251228.txt": true
   },
   "oneclash": {
-    "https://oneclash.githubrowcontent.com/2025/12/20251228.yaml": false,
-    "https://oneclash.githubrowcontent.com/2025/12/20251228.txt": false
+    "https://oneclash.githubrowcontent.com/2025/12/20251228.yaml": true,
+    "https://oneclash.githubrowcontent.com/2025/12/20251228.txt": true
   },
   "yudou": {},
   "datiya": {
-    "https://free.datiya.com/uploads/20251228-clash.yaml": false,
+    "https://free.datiya.com/uploads/20251228-clash.yaml": true,
     "https://free.datiya.com/uploads/20251228-v2ray.txt": false
   }
 }
