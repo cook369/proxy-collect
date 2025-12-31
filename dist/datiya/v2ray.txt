@@ -1,1 +1,11 @@
-<html><head><title>Wispro | Bmu</title></head><body></body></html>
+REMOTE_ADDR = 35.182.97.107
+REMOTE_PORT = 63902
+REQUEST_METHOD = GET
+REQUEST_URI = /uploads/20251231-v2ray.txt
+REQUEST_TIME_FLOAT = 1767153573.2768798
+REQUEST_TIME = 1767153573
+HTTP_HOST = free.datiya.com
+HTTP_USER-AGENT = Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+HTTP_ACCEPT-ENCODING = gzip, deflate, zstd
+HTTP_ACCEPT = */*
+HTTP_CONNECTION = keep-alive
