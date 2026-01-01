@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-01 08:38:52
+# Collect Time: 2026-01-01 10:32:04
 
 
 ## Site: jichangx
@@ -31,14 +31,23 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260101/o756geou.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
 | https://free.datiya.com/uploads/20260101-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20260101-v2ray.txt  | Yes     | No        |
+| https://free.datiya.com/uploads/20260101-v2ray.txt  | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 1
+采集成功: 1 / 采集失败: 0
 
 
 ## Site: 85la
@@ -55,14 +64,5 @@
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260101/o756geou.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
