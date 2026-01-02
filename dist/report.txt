@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-02 06:44:54
+# Collect Time: 2026-01-02 08:38:29
 
 
 ## Site: jichangx
@@ -31,6 +31,15 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260102/ibm2j3zp.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -39,15 +48,6 @@
 | https://free.datiya.com/uploads/20260102-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260102/ibm2j3zp.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
 
 
 ## Site: yudou
