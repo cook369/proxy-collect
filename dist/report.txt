@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-02 20:31:26
+# Collect Time: 2026-01-02 22:28:37
 
 
 ## Site: jichangx
@@ -31,14 +31,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -54,6 +46,14 @@
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
 | https://s3.v2rayse.com/public/20260102/ibm2j3zp.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
