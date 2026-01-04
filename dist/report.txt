@@ -1,13 +1,32 @@
 
-# Collect Time: 2026-01-04 02:33:24
+# Collect Time: 2026-01-04 03:08:27
 
 
-## Site: 85la
+## Site: jichangx
 
-| URL                                                                 | Tried   | Success   |
-|---------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2026/01/75f0b26b286651a.txt | No      | Yes       |
-| https://link.988958.xyz/skve                                        | No      | Yes       |
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260104-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: nodefree
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2026/01/20260104.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2026/01/20260104.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: oneclash
+
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://oneclash.githubrowcontent.com/2026/01/20260104.yaml | No      | Yes       |
+| https://oneclash.githubrowcontent.com/2026/01/20260104.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -21,43 +40,24 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
+## Site: 85la
 
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260104-01 | Yes     | Yes       |
+| URL                                                                 | Tried   | Success   |
+|---------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2026/01/75f0b26b286651a.txt | No      | Yes       |
+| https://link.988958.xyz/skve                                        | No      | Yes       |
 
-采集成功: 1 / 采集失败: 0
-
-
-## Site: nodefree
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2026/01/20260104.yaml | Yes     | Yes       |
-| https://nodefree.githubrowcontent.com/2026/01/20260104.txt  | Yes     | Yes       |
-
-采集成功: 2 / 采集失败: 0
-
-
-## Site: oneclash
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2026/01/20260104.yaml | Yes     | Yes       |
-| https://oneclash.githubrowcontent.com/2026/01/20260104.txt  | Yes     | Yes       |
-
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260104-clash.yaml | Yes     | Yes       |
+| https://free.datiya.com/uploads/20260104-clash.yaml | No      | Yes       |
 | https://free.datiya.com/uploads/20260104-v2ray.txt  | Yes     | No        |
 
-采集成功: 1 / 采集失败: 1
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: yudou
