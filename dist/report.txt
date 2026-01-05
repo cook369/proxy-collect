@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-05 16:36:46
+# Collect Time: 2026-01-05 18:43:49
 
 
 ## Site: jichangx
@@ -41,10 +41,11 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260105/2tylt48a.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -59,10 +60,9 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260105/2tylt48a.txt | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
