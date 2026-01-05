@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-05 06:51:29
+# Collect Time: 2026-01-05 08:44:58
 
 
 ## Site: jichangx
@@ -40,10 +40,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: yudou
+## Site: 85la
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                                    | Tried   | Success   |
+|------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2026/01/642fadba12696aa-2.txt  | No      | Yes       |
+| https://www.85la.com/wp-content/uploads/2026/01/8a68dc3e925eacf-1.yaml | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -58,11 +60,9 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: 85la
+## Site: yudou
 
-| URL                                                                    | Tried   | Success   |
-|------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2026/01/642fadba12696aa-2.txt  | No      | Yes       |
-| https://www.85la.com/wp-content/uploads/2026/01/8a68dc3e925eacf-1.yaml | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
