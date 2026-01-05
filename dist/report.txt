@@ -1,14 +1,5 @@
 
-# Collect Time: 2026-01-05 10:35:17
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260105-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
+# Collect Time: 2026-01-05 13:03:27
 
 
 ## Site: nodefree
@@ -17,6 +8,15 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2026/01/20260105.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2026/01/20260105.txt  | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260105-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -31,21 +31,21 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260105/2tylt48a.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: 85la
 
 | URL                                                                    | Tried   | Success   |
 |------------------------------------------------------------------------|---------|-----------|
 | https://www.85la.com/wp-content/uploads/2026/01/642fadba12696aa-2.txt  | No      | Yes       |
 | https://www.85la.com/wp-content/uploads/2026/01/8a68dc3e925eacf-1.yaml | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260105/2tylt48a.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
