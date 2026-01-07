@@ -48,12 +48,14 @@ class CollectorYudou(BaseCollector):
 
     def get_today_url(self, home_page: str) -> str:
         home_etree = etree.HTML(home_page)
-        links = home_etree.xpath('//*[@id="main"]//a/@href')
+        links = home_etree.xpath(
+            '//a[text()[contains(., "免费精选节点")]]/@href'
+        )
         if not links:
             raise ValueError("No links found on homepage.")
         return links[0]
 
-    def parse_urls(self, today_page: str) -> list[tuple[str, str]]:
+    def parse_urls_old(self, today_page: str) -> list[tuple[str, str]]:
         page_etree = etree.HTML(today_page)
         scripts = page_etree.xpath("//script[contains(text(), 'U2FsdGVkX1')]/text()")
         if not scripts:
@@ -70,6 +72,24 @@ class CollectorYudou(BaseCollector):
         urls: list[tuple[str, str]] = []
         for filename, regex_expr in rules.items():
             hrefs = re.findall(regex_expr, decrypted_data)
+            if hrefs:
+                urls.append((filename, str(hrefs[0])))
+        return urls
+    
+    def parse_urls(self, today_page: str) -> list[tuple[str, str]]:
+        page_etree = etree.HTML(today_page)
+        elements = page_etree.xpath('//div[p[contains(., "免费节点订阅链接")]]')
+        if not elements:
+            raise ValueError("No elements found.")
+
+        sub_content_data = elements[0].xpath('string(.)')
+        rules = {
+            "clash.yaml": r"https?://[^\s'\"<>]+?\.(?:yaml)",
+            "v2ray.txt": r"https?://[^\s'\"<>]+?\.(?:txt)",
+        }
+        urls: list[tuple[str, str]] = []
+        for filename, regex_expr in rules.items():
+            hrefs = re.findall(regex_expr, sub_content_data)
             if hrefs:
                 urls.append((filename, str(hrefs[0])))
         return urls
