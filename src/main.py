@@ -199,6 +199,12 @@ def main():
         default=4,
         help="Number of threads for concurrent collectors",
     )
+    parser.add_argument(
+        "--proxy",
+        action="store_true",
+        help="Use proxy collect",
+    )
+    
     record = DownloadRecord(RECORD_FILE)
     args = parser.parse_args()
     if args.list:
@@ -214,8 +220,11 @@ def main():
         collectors_to_run = list_collectors()
 
     logging.info(f"Collectors to run: {collectors_to_run}")
-
-    proxy_list = get_proxy_list()
+    
+    if args.proxy:
+        proxy_list = get_proxy_list()
+    else:
+        proxy_list = [None]
 
     logging.info(f"Get avaliable proxy: {len(proxy_list)}")
 
