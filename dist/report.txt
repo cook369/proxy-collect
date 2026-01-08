@@ -1,5 +1,14 @@
 
-# Collect Time: 2026-01-08 13:03:00
+# Collect Time: 2026-01-08 14:33:55
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260108-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: datiya
@@ -12,11 +21,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
+## Site: nodefree
 
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260108-01 | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2026/01/20260108.yaml | No      | Yes       |
+| https://nodefree.githubrowcontent.com/2026/01/20260108.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -27,16 +37,6 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://oneclash.githubrowcontent.com/2026/01/20260108.yaml | No      | Yes       |
 | https://oneclash.githubrowcontent.com/2026/01/20260108.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: nodefree
-
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2026/01/20260108.yaml | No      | Yes       |
-| https://nodefree.githubrowcontent.com/2026/01/20260108.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
