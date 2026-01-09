@@ -1,5 +1,14 @@
 
-# Collect Time: 2026-01-09 13:02:01
+# Collect Time: 2026-01-09 14:32:31
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260109-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -22,29 +31,12 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
+## Site: yudou
 
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260109-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL                                                                   | Tried   | Success   |
-|-----------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2026/01/95a1446a7120e4a-8.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260109/9x34q07j.txt | No      | Yes       |
+| URL                                               | Tried   | Success   |
+|---------------------------------------------------|---------|-----------|
+| https://yy.yudou66.top/202601/20260109mk5eta.yaml | No      | Yes       |
+| https://yy.yudou66.top/202601/20260109bd3ase.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -59,11 +51,19 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: yudou
+## Site: cfmeme
 
-| URL                                               | Tried   | Success   |
-|---------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202601/20260109mk5eta.yaml | No      | Yes       |
-| https://yy.yudou66.top/202601/20260109bd3ase.txt  | No      | Yes       |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260109/9x34q07j.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                   | Tried   | Success   |
+|-----------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2026/01/95a1446a7120e4a-8.txt | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
