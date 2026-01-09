@@ -1,5 +1,14 @@
 
-# Collect Time: 2026-01-09 02:57:34
+# Collect Time: 2026-01-09 04:04:19
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260109-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -8,15 +17,6 @@
 |-------------------------------------------------------------|---------|-----------|
 | https://nodefree.githubrowcontent.com/2026/01/20260109.yaml | No      | Yes       |
 | https://nodefree.githubrowcontent.com/2026/01/20260109.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: jichangx
-
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260109-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -63,7 +63,7 @@
 
 | URL                                               | Tried   | Success   |
 |---------------------------------------------------|---------|-----------|
-| https://yy.yudou66.top/202601/20260109mk5eta.yaml | Yes     | Yes       |
-| https://yy.yudou66.top/202601/20260109bd3ase.txt  | Yes     | Yes       |
+| https://yy.yudou66.top/202601/20260109mk5eta.yaml | No      | Yes       |
+| https://yy.yudou66.top/202601/20260109bd3ase.txt  | No      | Yes       |
 
-采集成功: 2 / 采集失败: 0
+采集成功: 0 / 采集失败: 0
