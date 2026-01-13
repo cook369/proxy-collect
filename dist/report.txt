@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-13 13:04:08
+# Collect Time: 2026-01-13 14:34:11
 
 
 ## Site: jichangx
@@ -31,6 +31,25 @@
 采集成功: 0 / 采集失败: 0
 
 
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20260113-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20260113-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
+
+
+## Site: cfmeme
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260113/up9vja7w.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
 ## Site: 85la
 
 | URL                                                                    | Tried   | Success   |
@@ -48,22 +67,3 @@
 | https://yy.yudou66.top/202601/20260113bb4ase.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260113/up9vja7w.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260113-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20260113-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
