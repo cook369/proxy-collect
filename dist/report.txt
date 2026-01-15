@@ -1,5 +1,14 @@
 
-# Collect Time: 2026-01-15 14:33:32
+# Collect Time: 2026-01-15 16:45:11
+
+
+## Site: jichangx
+
+| URL                                          | Tried   | Success   |
+|----------------------------------------------|---------|-----------|
+| https://jichangx.com/nodes/v2ray-20260115-01 | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -22,11 +31,21 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: jichangx
+## Site: 85la
 
-| URL                                          | Tried   | Success   |
-|----------------------------------------------|---------|-----------|
-| https://jichangx.com/nodes/v2ray-20260115-01 | No      | Yes       |
+| URL                                                                    | Tried   | Success   |
+|------------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2026/01/95a1446a7120e4a-16.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://yy.yudou6677.top/202601/20260115mets2a.yaml | No      | Yes       |
+| https://yy.yudou6677.top/202601/20260115baj5se.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
 
@@ -40,15 +59,6 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: 85la
-
-| URL                                                                    | Tried   | Success   |
-|------------------------------------------------------------------------|---------|-----------|
-| https://www.85la.com/wp-content/uploads/2026/01/95a1446a7120e4a-16.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
 ## Site: datiya
 
 | URL                                                 | Tried   | Success   |
@@ -57,13 +67,3 @@
 | https://free.datiya.com/uploads/20260115-v2ray.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 1
-
-
-## Site: yudou
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://yy.yudou6677.top/202601/20260115mets2a.yaml | No      | Yes       |
-| https://yy.yudou6677.top/202601/20260115baj5se.txt  | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
