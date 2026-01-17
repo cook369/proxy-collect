@@ -1,16 +1,18 @@
 
-# Collect Time: 2026-01-17 02:09:53
+# Collect Time: 2026-01-17 02:50:11
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20260117-clash.yaml | Yes     | Yes       |
+| https://free.datiya.com/uploads/20260117-v2ray.txt  | Yes     | No        |
+
+采集成功: 1 / 采集失败: 1
 
 
 ## Site: 85la
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: cfmeme
 
 | URL   | Tried   | Success   |
 |-------|---------|-----------|
@@ -27,14 +29,12 @@
 采集成功: 0 / 采集失败: 1
 
 
-## Site: datiya
+## Site: cfmeme
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260117-clash.yaml | Yes     | No        |
-| https://free.datiya.com/uploads/20260117-v2ray.txt  | Yes     | No        |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
-采集成功: 0 / 采集失败: 2
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: nodefree
