@@ -46,32 +46,26 @@ tun:
     - 1.1.1.1
     - 1.0.0.1
 proxies:
-  - name: 美国(yudou789.top 玉豆免费节点)
-    type: vmess
-    server: 125.77.160.219
-    port: 16648
-    uuid: a436dc22-e2e4-4d0a-ae38-e86dcab039c5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
+  - name: 德国(yudou789.top 玉豆免费节点)
+    type: vless
+    server: 5.10.214.5
+    port: 443
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
+    servername: GfV5t2331T.sMaRtTeChZaAl.InFo
+    tls: true
     ws-opts:
       path: /
       headers:
-        Host: b26eb8c48143c11db65be2203a3f2892.mobgslb.tbcache.com
-  - name: 美国(yudou789.top 玉豆免费节点)_1
-    type: vless
-    server: 104.160.47.72
-    port: 18888
-    uuid: 00000000-0000-4000-8000-000000000000
-    network: ws
-    servername: ennyfe.zipgd3vx91o.ddns-ip.net
+        Host: GfV5t2331T.sMaRtTeChZaAl.InFo
+  - name: 日本(yudou789.top 玉豆免费节点)
+    type: trojan
+    server: tuntro003.instconn.com
+    port: 443
+    password: 30077070-596e-48ea-9400-14c8ed07bd97
+    sni: login-staticjpc.jasmine-douyin.top
+    skip-cert-verify: false
     tls: true
-    ws-opts:
-      path: /@Marisa_kristi
-      headers:
-        Host: ennyfe.zipgd3vx91o.ddns-ip.net
   - name: 英国(yudou789.top 玉豆免费节点)
     type: vless
     server: 25.129.197.138
@@ -84,18 +78,15 @@ proxies:
       path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
       headers:
         Host: khamenei.dpdns.org
-  - name: 德国(yudou789.top 玉豆免费节点)
-    type: vless
-    server: api.dark-coffe.com
-    port: 443
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: GfV5t2331T.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: GfV5t2331T.sMaRtTeChZaAl.InFo
+  - name: 美国(yudou789.top 玉豆免费节点)
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
   - name: 英国(yudou789.top 玉豆免费节点)_1
     type: vless
     server: 25.129.197.138
@@ -108,119 +99,7 @@ proxies:
       path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
       headers:
         Host: khamenei.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_2
-    type: trojan
-    server: mfa.gov.ua
-    port: 443
-    password: 87d1bfd4-574e-4c96-ad42-0426f27461ff
-    sni: _acme-challenge.2go.cloudns.be
-    skip-cert-verify: false
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: _acme-challenge.2go.cloudns.be
-  - name: 英国(yudou789.top 玉豆免费节点)_2
-    type: vless
-    server: 25.129.197.138
-    port: 2053
-    uuid: 8a07740f-b932-4372-a3a2-ed91f184cd33
-    network: ws
-    servername: KhAmeneI.DPdNs.OrG
-    tls: true
-    ws-opts:
-      path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
-      headers:
-        Host: KhAmeneI.DPdNs.OrG
-  - name: 美国(yudou789.top 玉豆免费节点)_3
-    type: vless
-    server: 146.75.119.82
-    port: 80
-    uuid: 74542945-0d84-4797-a56e-e7f31b84c5be
-    network: ws
-    tls: false
-    ws-opts:
-      path: /ws/?ed=2048/@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz/?2048
-      headers:
-        Host: welcomtofreeboarders.com
-  - name: 德国(yudou789.top 玉豆免费节点)_1
-    type: vless
-    server: api.dark-coffe.com
-    port: 2087
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-    tls: true
-    ws-opts:
-      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-      headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-  - name: 美国(yudou789.top 玉豆免费节点)_4
-    type: vless
-    server: 45.131.4.246
-    port: 2082
-    uuid: 65a1e22c-d37e-4b92-b6ca-1d09dcd1d441
-    network: ws
-    tls: false
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        Host: GER.SODOGODPING.IR
-  - name: 美国(yudou789.top 玉豆免费节点)_5
-    type: vless
-    server: vermilion.qzz.io
-    port: 443
-    uuid: d77d036a-99b9-48a0-9f43-9cae43ab91e5
-    network: ws
-    servername: vermilion.qzz.io
-    tls: true
-    ws-opts:
-      path: /168.138.185.234:443
-      headers:
-        Host: vermilion.qzz.io
-  - name: 美国(yudou789.top 玉豆免费节点)_6
-    type: vless
-    server: 146.75.119.82
-    port: 80
-    uuid: 74542945-0d84-4797-a56e-e7f31b84c5be
-    network: ws
-    servername: welcomtofreeboarders.com
-    tls: false
-    ws-opts:
-      path: /ws/?ed=2048/@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz@AzadMarz/?2048
-      headers:
-        Host: welcomtofreeboarders.com
-  - name: 德国(yudou789.top 玉豆免费节点)_2
-    type: vless
-    server: api.dark-coffe.com
-    port: 2096
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-      headers:
-        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
-  - name: 德国(yudou789.top 玉豆免费节点)_3
-    type: vless
-    server: 5.10.214.0
-    port: 443
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: GfV5t2331T.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: GfV5t2331T.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_7
-    type: ss
-    server: 223.95.183.132
-    port: 31091
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_8
+  - name: 美国(yudou789.top 玉豆免费节点)_1
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -229,17 +108,68 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_9
+  - name: 美国(yudou789.top 玉豆免费节点)_2
+    type: vless
+    server: 92.60.70.36
+    port: 2053
+    uuid: 08c7f096-d057-4d53-82fd-c739d372887b
+    tls: false
+  - name: 美国(yudou789.top 玉豆免费节点)_3
     type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31101
-    password: a92e4cd1-b1d0-48a7-925d-401835299026
-    sni: green2.cdntencentmusic.com
+    server: 167.68.4.199
+    port: 2053
+    password: Aimer
+    sni: epge.muarua.filegear-sg.me
     skip-cert-verify: false
     tls: true
-  - name: 德国(yudou789.top 玉豆免费节点)_4
+    ws-opts:
+      path: /
+      headers:
+        Host: epge.muarua.filegear-sg.me
+  - name: 美国(yudou789.top 玉豆免费节点)_4
+    type: vmess
+    server: v33.hdacd.com
+    port: 30833
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_5
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_6
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: 2001:bc8:32d7:302::10
+  - name: 美国(yudou789.top 玉豆免费节点)_7
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 德国(yudou789.top 玉豆免费节点)_1
     type: vless
-    server: 5.10.214.5
+    server: api.dark-coffe.com
     port: 443
     uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
@@ -249,27 +179,45 @@ proxies:
       path: /
       headers:
         Host: GfV5t2331T.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_10
+  - name: 英国(yudou789.top 玉豆免费节点)_2
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_3
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_8
+    type: vless
+    server: blog.646474.xyz
+    port: 443
+    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
+    network: ws
+    servername: 2new.ssdxz.cn
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: 2new.ssdxz.cn
+  - name: 美国(yudou789.top 玉豆免费节点)_9
     type: trojan
     server: green2.cdntencentmusic.com
-    port: 31102
-    password: 0e55a9cb-4116-408e-895b-3653ad8b5392
+    port: 35501
+    password: 48f3f8f1-8b1c-42d6-8e8e-fb9c14ebb550
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 德国(yudou789.top 玉豆免费节点)_5
-    type: vless
-    server: api.dark-coffe.com
-    port: 8443
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-  - name: 德国(yudou789.top 玉豆免费节点)_6
+  - name: 德国(yudou789.top 玉豆免费节点)_2
     type: vless
     server: 5.10.214.5
     port: 2087
@@ -280,18 +228,126 @@ proxies:
     ws-opts:
       path: /
       headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_11
-    type: vless
-    server: 25.25.25.0
-    port: 8880
-    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
-    network: ws
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+  - name: 美国(yudou789.top 玉豆免费节点)_10
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
     tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_11
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_12
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_13
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31103
+    password: 401a7257-66ad-4b7d-84b0-4745651f4701
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_14
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_4
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_15
+    type: vmess
+    server: v9.hdacd.com
+    port: 30809
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_16
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 德国(yudou789.top 玉豆免费节点)_3
+    type: vless
+    server: api.dark-coffe.com
+    port: 2096
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
+    tls: true
     ws-opts:
-      path: /?ed=8880
+      path: /
       headers:
-        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
+  - name: 德国(yudou789.top 玉豆免费节点)_4
+    type: vless
+    server: api.dark-coffe.com
+    port: 2087
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
+  - name: 德国(yudou789.top 玉豆免费节点)_5
+    type: vless
+    server: 5.10.214.0
+    port: 2096
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
+  - name: 德国(yudou789.top 玉豆免费节点)_6
+    type: vless
+    server: 5.10.214.0
+    port: 8443
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
   - name: 德国(yudou789.top 玉豆免费节点)_7
     type: vless
     server: api.dark-coffe.com
@@ -306,82 +362,17 @@ proxies:
         Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
   - name: 德国(yudou789.top 玉豆免费节点)_8
     type: vless
-    server: 5.10.214.0
+    server: api.dark-coffe.com
     port: 2087
     uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
     tls: true
     ws-opts:
       path: /
       headers:
         Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
   - name: 德国(yudou789.top 玉豆免费节点)_9
-    type: vless
-    server: api.dark-coffe.com
-    port: 2087
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
-  - name: 德国(yudou789.top 玉豆免费节点)_10
-    type: vless
-    server: api.dark-coffe.com
-    port: 2087
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-  - name: 德国(yudou789.top 玉豆免费节点)_11
-    type: vless
-    server: 5.10.214.5
-    port: 2087
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-  - name: 英国(yudou789.top 玉豆免费节点)_3
-    type: vless
-    server: clean.photoggenic.ir
-    port: 8880
-    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
-    network: ws
-    tls: false
-    ws-opts:
-      path: /?ed=8880
-      headers:
-        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-  - name: 德国(yudou789.top 玉豆免费节点)_12
-    type: vless
-    server: 5.10.214.0
-    port: 8443
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_12
-    type: ss
-    server: 223.95.183.132
-    port: 53596
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 德国(yudou789.top 玉豆免费节点)_13
     type: vless
     server: 5.10.214.5
     port: 2096
@@ -393,42 +384,63 @@ proxies:
       path: /
       headers:
         Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_13
-    type: ss
-    server: hk13.network-cdn-gw-yd.net
-    port: 32061
-    cipher: chacha20-ietf-poly1305
-    password: aed6e687-58a9-4836-ba62-7d8184c94df4
-  - name: 美国(yudou789.top 玉豆免费节点)_14
-    type: ss
-    server: 223.95.183.132
-    port: 47116
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_15
-    type: ss
-    server: 45.250.183.43
-    port: 13037
-    cipher: chacha20-ietf-poly1305
-    password: bdd108a0-bbda-4950-bd34-e5d30df94d0e
-  - name: 德国(yudou789.top 玉豆免费节点)_14
+  - name: 德国(yudou789.top 玉豆免费节点)_10
     type: vless
-    server: oon.visaups.ir
+    server: 5.10.214.0
+    port: 443
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: GfV5t2331T.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: GfV5t2331T.sMaRtTeChZaAl.InFo
+  - name: 英国(yudou789.top 玉豆免费节点)_5
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_17
+    type: vmess
+    server: v36.hdacd.com
+    port: 30836
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 台湾(yudou789.top 玉豆免费节点)
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31103
+    password: 53494ce0-1a00-4e91-a073-2bd4e4770cfc
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_18
+    type: ss
+    server: 15.204.28.84
+    port: 11201
+    cipher: chacha20-ietf-poly1305
+    password: f96d6b42e30595dc
+  - name: 德国(yudou789.top 玉豆免费节点)_11
+    type: vless
+    server: 185.143.233.235
     port: 80
     uuid: 087d8602-503b-4091-9f05-44c20792083c
     network: ws
+    servername: oon.visaups.ir
     tls: false
     ws-opts:
       path: /
       headers:
         Host: oon.visaups.ir
-  - name: 美国(yudou789.top 玉豆免费节点)_16
-    type: ss
-    server: switcher-nick-croquet.freesocks.work
-    port: 443
-    cipher: chacha20-ietf-poly1305
-    password: wwzVn2ZnHfqYa6l8EWh3eY
-  - name: 英国(yudou789.top 玉豆免费节点)_4
+  - name: 德国(yudou789.top 玉豆免费节点)_12
     type: vless
     server: 185.143.233.235
     port: 80
@@ -439,7 +451,7 @@ proxies:
       path: /
       headers:
         Host: oon.visaups.ir
-  - name: 美国(yudou789.top 玉豆免费节点)_17
+  - name: 美国(yudou789.top 玉豆免费节点)_19
     type: vless
     server: oon.visaups.ir
     port: 80
@@ -449,31 +461,135 @@ proxies:
     tls: false
     ws-opts:
       path: /
-  - name: 美国(yudou789.top 玉豆免费节点)_18
-    type: ss
-    server: 223.95.183.132
-    port: 39398
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_19
-    type: trojan
-    server: 220.130.58.136
-    port: 35501
-    password: 0e55a9cb-4116-408e-895b-3653ad8b5392
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
   - name: 美国(yudou789.top 玉豆免费节点)_20
+    type: vless
+    server: 188.253.23.98
+    port: 443
+    uuid: 5aba5b77-48eb-4ae2-b60d-5bfee7ac169e
+    network: ws
+    servername: kuangbao.xiejiang.dpdns.org
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: kuangbao.xiejiang.dpdns.org
+  - name: 美国(yudou789.top 玉豆免费节点)_21
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_22
+    type: vless
+    server: oon.visaups.ir
+    port: 80
+    uuid: 087d8602-503b-4091-9f05-44c20792083c
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: oon.visaups.ir
+  - name: 美国(yudou789.top 玉豆免费节点)_23
     type: trojan
-    server: 220.130.58.136
-    port: 31103
-    password: 114461ce-789a-4564-a056-caf89b53e964
+    server: green2.cdntencentmusic.com
+    port: 35501
+    password: 761a3023-9c06-4197-a0d5-1f0c96337d8c
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_21
+  - name: 台湾(yudou789.top 玉豆免费节点)_1
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31102
+    password: 48f3f8f1-8b1c-42d6-8e8e-fb9c14ebb550
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_24
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 新加坡(yudou789.top 玉豆免费节点)
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 台湾(yudou789.top 玉豆免费节点)_2
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31102
+    password: c67bf403-83b9-417b-81f1-e1f37017746f
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 英国(yudou789.top 玉豆免费节点)_6
     type: vless
-    server: v2.dabache.top
+    server: 43.161.254.121
+    port: 443
+    uuid: e258977b-e413-4718-a3af-02d75492c349
+    network: ws
+    servername: ww3.xaniujp1.qzz.io
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ww3.xaniujp1.qzz.io
+  - name: 美国(yudou789.top 玉豆免费节点)_25
+    type: vless
+    server: 158.178.247.237
+    port: 11586
+    uuid: 00000000-0000-4000-8000-000000000000
+    network: ws
+    servername: mot.morisi.ggff.net
+    tls: true
+    ws-opts:
+      path: /@Marisa_kristi
+      headers:
+        Host: mot.morisi.ggff.net
+  - name: 美国(yudou789.top 玉豆免费节点)_26
+    type: vless
+    server: clean.photoggenic.ir
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
+    network: ws
+    tls: false
+    ws-opts:
+      path: /?ed=8880
+      headers:
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 美国(yudou789.top 玉豆免费节点)_27
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31101
+    password: 7a75e482-0c41-4407-ad4d-d519944e5dd7
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_28
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 香港(yudou789.top 玉豆免费节点)
+    type: vless
+    server: 43.161.222.233
     port: 443
     uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
     network: ws
@@ -483,254 +599,43 @@ proxies:
       path: /?ed=2560
       headers:
         Host: sni.meibidi.pp.ua
-  - name: 美国(yudou789.top 玉豆免费节点)_22
-    type: vless
-    server: 104.17.162.3
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_23
-    type: vless
-    server: 104.19.148.121
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_24
-    type: vless
-    server: 104.17.167.134
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_25
-    type: vless
-    server: 104.16.250.22
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_26
-    type: vless
-    server: 104.17.25.173
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_27
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31102
-    password: a92e4cd1-b1d0-48a7-925d-401835299026
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_28
-    type: vless
-    server: 104.17.165.43
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
   - name: 美国(yudou789.top 玉豆免费节点)_29
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
-  - name: 美国(yudou789.top 玉豆免费节点)_30
     type: vless
-    server: 92.60.70.36
-    port: 2053
-    uuid: 08c7f096-d057-4d53-82fd-c739d372887b
-    tls: false
-  - name: 美国(yudou789.top 玉豆免费节点)_31
-    type: vless
-    server: 104.19.62.33
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 新加坡(yudou789.top 玉豆免费节点)
-    type: vless
-    server: 8.223.63.150
+    server: 38.55.198.52
     port: 443
     uuid: e258977b-e413-4718-a3af-02d75492c349
     network: ws
-    servername: www.sgxaniu.qzz.io
+    servername: ww3.xaniujp1.qzz.io
     tls: true
     ws-opts:
       path: /?ed=2560
       headers:
-        Host: www.sgxaniu.qzz.io
-  - name: 德国(yudou789.top 玉豆免费节点)_15
-    type: vless
-    server: 185.143.233.235
-    port: 80
-    uuid: 087d8602-503b-4091-9f05-44c20792083c
-    network: ws
-    servername: oon.visaups.ir
+        Host: ww3.xaniujp1.qzz.io
+  - name: 美国(yudou789.top 玉豆免费节点)_30
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
     tls: false
-    ws-opts:
-      path: /
-      headers:
-        Host: oon.visaups.ir
-  - name: 台湾(yudou789.top 玉豆免费节点)
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 5e03e749-4b46-41b5-badd-49a1ae4a46db
-    sni: green2.cdntencentmusic.com
     skip-cert-verify: false
-    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_31
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
   - name: 美国(yudou789.top 玉豆免费节点)_32
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: f6f681ad-44d0-441b-aff4-1e09adc08763
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_33
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 9c5431c3-f2cc-469a-895d-f571c0b8d00b
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_34
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31101
-    password: b99f17f7-38f7-48e7-af00-b260a65d007d
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_35
-    type: trojan
-    server: 220.130.58.136
-    port: 31101
-    password: a1049ee8-c121-42ed-8e3f-cdd48aa2bb77
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_36
     type: ss
     server: switcher-nick-croquet.freesocks.work
     port: 443
     cipher: chacha20-ietf-poly1305
     password: 9tqhMdIrTkgQ46PvhyAtMH
-  - name: 美国(yudou789.top 玉豆免费节点)_37
-    type: ss
-    server: 223.95.183.132
-    port: 45295
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_38
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31101
-    password: f308b3c2-40c2-4c06-b304-ce9cb2823a54
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_39
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 5d531627-3b7c-4e13-b5e3-067e2d054efb
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_40
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 761a3023-9c06-4197-a0d5-1f0c96337d8c
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_41
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 401a7257-66ad-4b7d-84b0-4745651f4701
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_42
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 12ff2435-3fd8-4b95-9530-871f517a5ae8
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_43
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: a0194cb9-ee34-4f75-b620-6d4d72ab1cb0
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_44
-    type: vless
-    server: 151.101.3.8
-    port: 80
-    uuid: dd0cfef0-fda9-47ec-8a65-49d7bc004f82
-    network: ws
-    tls: false
-    ws-opts:
-      path: /---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN/---@MiTiVPN
-      headers:
-        Host: mitivpn.global.ssl.fastly.net
-  - name: 西班牙(yudou789.top 玉豆免费节点)
+  - name: 美国(yudou789.top 玉豆免费节点)_33
     type: trojan
     server: 109.234.211.66
     port: 8443
@@ -742,64 +647,96 @@ proxies:
       path: /
       headers:
         Host: store.timimi.dpdns.org
-  - name: 西班牙(yudou789.top 玉豆免费节点)_1
-    type: trojan
-    server: 109.234.211.66
-    port: 2087
-    password: trojan
-    sni: store.timimi.dpdns.org
-    skip-cert-verify: false
-    tls: true
-    ws-opts:
-      path: /?BIA_TELEGRAM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)
-      headers:
-        Host: store.timimi.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_45
+  - name: 美国(yudou789.top 玉豆免费节点)_34
     type: vmess
-    server: faq1.lieerr222.cn
-    port: 43525
-    uuid: 8e245bc0-219d-4415-8222-398fb091fbd2
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 荷兰(yudou789.top 玉豆免费节点)
-    type: vless
-    server: 45.131.4.246
-    port: 2082
-    uuid: 65a1e22c-d37e-4b92-b6ca-1d09dcd1d441
-    network: ws
-    tls: false
-    ws-opts:
-      path: /
-      headers:
-        Host: GER.SODOGODPING.IR
-  - name: 美国(yudou789.top 玉豆免费节点)_46
-    type: vmess
-    server: 125.77.160.219
-    port: 16632
-    uuid: a436dc22-e2e4-4d0a-ae38-e86dcab039c5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: b26eb8c48143c11db65be2203a3f2892.mobgslb.tbcache.com
-  - name: 英国(yudou789.top 玉豆免费节点)_5
+  - name: 美国(yudou789.top 玉豆免费节点)_35
     type: vless
     server: clean.photoggenic.ir
     port: 8880
     uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
     network: ws
+    servername: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
     tls: false
     ws-opts:
       path: /
       headers:
         Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-  - name: 美国(yudou789.top 玉豆免费节点)_47
+  - name: 美国(yudou789.top 玉豆免费节点)_36
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_37
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 香港(yudou789.top 玉豆免费节点)_1
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_38
+    type: vless
+    server: 68.64.176.135
+    port: 443
+    uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
+    network: ws
+    servername: sni.meibidi.pp.ua
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.meibidi.pp.ua
+  - name: 美国(yudou789.top 玉豆免费节点)_39
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 伊朗(mibei77.com 米贝节点分享)
+    type: vless
+    server: clean.photoggenic.ir
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
+    network: ws
+    servername: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 美国(yudou789.top 玉豆免费节点)_40
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31102
+    password: f363c8b4-45cc-463b-959d-9ff613cbe2cd
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 香港(yudou789.top 玉豆免费节点)_2
     type: vless
     server: 43.165.190.11
     port: 42841
@@ -811,38 +748,7 @@ proxies:
       path: /@Marisa_kristi
       headers:
         Host: mot.luyuju.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_48
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49317
-    uuid: 8fb3683c-effb-41f3-a713-67ebf9598a3b
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_49
-    type: ss
-    server: 223.95.183.132
-    port: 25819
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_50
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: abf12a24-e9ca-4c2a-b640-81ab77453919
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 台湾(yudou789.top 玉豆免费节点)_1
-    type: trojan
-    server: tuntro011.instconn.com
-    port: 40130
-    password: 30077070-596e-48ea-9400-14c8ed07bd97
-    sni: cntwbta.686911.xyz
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_51
+  - name: 日本(yudou789.top 玉豆免费节点)_1
     type: vless
     server: 43.165.190.11
     port: 42841
@@ -854,121 +760,96 @@ proxies:
       path: /@Marisa_kristi
       headers:
         Host: mot.morisi.ggff.net
-  - name: 德国(yudou789.top 玉豆免费节点)_16
+  - name: 美国(yudou789.top 玉豆免费节点)_41
+    type: trojan
+    server: 109.234.211.66
+    port: 2087
+    password: trojan
+    sni: store.timimi.dpdns.org
+    skip-cert-verify: false
+    tls: true
+    ws-opts:
+      path: /?BIA_TELEGRAM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)TM(@AZARBAYJAB1)
+      headers:
+        Host: store.timimi.dpdns.org
+  - name: 美国(yudou789.top 玉豆免费节点)_42
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 35502
+    password: 48f3f8f1-8b1c-42d6-8e8e-fb9c14ebb550
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 香港(yudou789.top 玉豆免费节点)_3
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_43
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_44
     type: vless
-    server: 5.10.214.5
+    server: 25.25.25.0
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
+    network: ws
+    tls: false
+    ws-opts:
+      path: /?ed=8880
+      headers:
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 台湾(yudou789.top 玉豆免费节点)_3
+    type: trojan
+    server: tuntro011.instconn.com
+    port: 40130
+    password: 30077070-596e-48ea-9400-14c8ed07bd97
+    sni: cntwbta.686911.xyz
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_45
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_46
+    type: ss
+    server: liubu9.singdns.com
+    port: 17459
+    cipher: aes-128-gcm
+    password: 57bc0c04-8184-48f5-906b-897d095ed445
+  - name: 德国(yudou789.top 玉豆免费节点)_13
+    type: vless
+    server: api.dark-coffe.com
     port: 2087
     uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
     servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
     tls: true
     ws-opts:
-      path: /
+      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
       headers:
         Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-  - name: 英国(yudou789.top 玉豆免费节点)_6
-    type: vless
-    server: 25.25.25.0
-    port: 8880
-    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
-    network: ws
-    servername: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-    tls: false
-    ws-opts:
-      path: /
-      headers:
-        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-  - name: 美国(yudou789.top 玉豆免费节点)_52
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 35501
-    password: 48f3f8f1-8b1c-42d6-8e8e-fb9c14ebb550
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 英国(yudou789.top 玉豆免费节点)_7
-    type: vless
-    server: 25.25.25.0
-    port: 8880
-    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
-    network: ws
-    tls: false
-    ws-opts:
-      path: /
-      headers:
-        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-  - name: 德国(yudou789.top 玉豆免费节点)_17
-    type: vless
-    server: 5.10.214.5
-    port: 8443
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_53
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 35502
-    password: a0194cb9-ee34-4f75-b620-6d4d72ab1cb0
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_54
-    type: vless
-    server: clean.photoggenic.ir
-    port: 8880
-    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
-    network: ws
-    servername: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-    tls: false
-    ws-opts:
-      path: /
-      headers:
-        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
-  - name: 美国(yudou789.top 玉豆免费节点)_55
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 114461ce-789a-4564-a056-caf89b53e964
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 德国(yudou789.top 玉豆免费节点)_18
-    type: vless
-    server: 5.10.214.0
-    port: 2096
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
-  - name: 美国(yudou789.top 玉豆免费节点)_56
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31102
-    password: a0194cb9-ee34-4f75-b620-6d4d72ab1cb0
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 德国(yudou789.top 玉豆免费节点)_19
-    type: vless
-    server: api.dark-coffe.com
-    port: 2096
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
-    tls: true
-    ws-opts:
-      path: /
-      headers:
-        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
+  - name: 香港(yudou789.top 玉豆免费节点)_4
+    type: ss
+    server: hk13.network-cdn-gw-yd.net
+    port: 32061
+    cipher: chacha20-ietf-poly1305
+    password: aed6e687-58a9-4836-ba62-7d8184c94df4
   - name: 法国(yudou789.top 玉豆免费节点)
     type: vmess
     server: 2001:bc8:32d7:302::10
@@ -980,45 +861,7 @@ proxies:
     skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /?ed=2048
-  - name: 美国(yudou789.top 玉豆免费节点)_57
-    type: vless
-    server: cloudflare.182682.xyz
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_58
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        Host: 2001:bc8:32d7:302::10
-  - name: 美国(yudou789.top 玉豆免费节点)_59
-    type: vless
-    server: cloudflare.182682.xyz
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /x-aniu/?ed=2560
-      headers:
-        Host: l.ayovo.netlib.re
+      path: ?ed=2048
   - name: 法国(yudou789.top 玉豆免费节点)_1
     type: vmess
     server: 2001:bc8:32d7:302::10
@@ -1030,56 +873,97 @@ proxies:
     skip-cert-verify: false
     network: ws
     ws-opts:
-      path: ?ed=2048
-  - name: 英国(yudou789.top 玉豆免费节点)_8
+      path: /?ed=2048
+  - name: 美国(yudou789.top 玉豆免费节点)_47
     type: vmess
-    server: 85.211.252.203
-    port: 16618
-    uuid: a436dc22-e2e4-4d0a-ae38-e86dcab039c5
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
+  - name: 新加坡(yudou789.top 玉豆免费节点)_1
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_7
+    type: vless
+    server: 25.25.25.0
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
     network: ws
+    servername: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+    tls: false
     ws-opts:
       path: /
       headers:
-        Host: b26eb8c48143c11db65be2203a3f2892.mobgslb.tbcache.com
-  - name: 美国(yudou789.top 玉豆免费节点)_60
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 德国(yudou789.top 玉豆免费节点)_14
     type: vless
-    server: www.visa.com.sg
-    port: 2052
-    uuid: cdec8542-a21f-4377-9da3-ea60bb6d3a30
+    server: api.dark-coffe.com
+    port: 2096
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TzS7v35LfD.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
+      headers:
+        Host: TzS7v35LfD.sMaRtTeChZaAl.InFo
+  - name: 美国(yudou789.top 玉豆免费节点)_48
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_8
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_49
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_50
+    type: vmess
+    server: cees.owwoedu.com
+    port: 49303
+    uuid: 531ba7a2-84b5-4966-8833-1b775aae84e7
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_51
+    type: vless
+    server: cdn.tzpro.xyz
+    port: 80
+    uuid: f2083aa4-f27d-43da-81cf-8bab31730400
     network: ws
     tls: false
     ws-opts:
-      path: /?ed=2560
+      path: /?ed=2048
       headers:
-        Host: chosenflyesqt-q3y28ipf-v2.chosen-fly-esqt.workers.dev
-  - name: 美国(yudou789.top 玉豆免费节点)_61
-    type: ss
-    server: 183.232.163.208
-    port: 32061
-    cipher: chacha20-ietf-poly1305
-    password: aed6e687-58a9-4836-ba62-7d8184c94df4
-  - name: 美国(yudou789.top 玉豆免费节点)_62
-    type: vmess
-    server: ffiw.owwoedu.com
-    port: 59503
-    uuid: bbc42c70-c9d9-4746-be21-b3b7daae7aeb
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_63
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 47f867f8-45bb-43be-aa13-b99ed8f55c7d
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_64
+        Host: germany.vipserver14.workers.dev
+  - name: 美国(yudou789.top 玉豆免费节点)_52
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1088,30 +972,43 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_65
+  - name: 美国(yudou789.top 玉豆免费节点)_53
     type: vmess
     server: 82.198.246.97
     port: 180
     uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_54
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_55
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
   - name: 英国(yudou789.top 玉豆免费节点)_9
     type: vmess
-    server: 85.211.252.203
-    port: 16616
-    uuid: a436dc22-e2e4-4d0a-ae38-e86dcab039c5
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: b26eb8c48143c11db65be2203a3f2892.mobgslb.tbcache.com
-  - name: 美国(yudou789.top 玉豆免费节点)_66
+  - name: 美国(yudou789.top 玉豆免费节点)_56
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1120,7 +1017,7 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_67
+  - name: 美国(yudou789.top 玉豆免费节点)_57
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1129,7 +1026,7 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_68
+  - name: 美国(yudou789.top 玉豆免费节点)_58
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1138,109 +1035,11 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_69
+  - name: 美国(yudou789.top 玉豆免费节点)_59
     type: vmess
     server: 82.198.246.97
     port: 180
     uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_70
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_71
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_72
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_73
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_74
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31102
-    password: a1049ee8-c121-42ed-8e3f-cdd48aa2bb77
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_75
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: cf4226be-c750-4edd-9542-d96339c92298
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_76
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_77
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 5cff43bd-0c77-4358-8dab-d06d37bc2eb6
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_78
-    type: vmess
-    server: pub.ap20251212.com
-    port: 64016
-    uuid: 35cda637-b169-359b-8b53-8f61539dbf75
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_79
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_80
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 3100e3dc-4204-4e57-b3e3-20c2a9f81859
     alterId: 0
     cipher: auto
     tls: false
@@ -1254,7 +1053,7 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_81
+  - name: 英国(yudou789.top 玉豆免费节点)_11
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1263,7 +1062,7 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_82
+  - name: 英国(yudou789.top 玉豆免费节点)_12
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1272,7 +1071,7 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_83
+  - name: 英国(yudou789.top 玉豆免费节点)_13
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1281,18 +1080,151 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_84
+  - name: 英国(yudou789.top 玉豆免费节点)_14
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_60
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_15
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_61
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_62
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_16
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_63
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_17
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_64
     type: vless
-    server: www.visa.com
-    port: 80
-    uuid: 363a6072-05d7-48d5-8f19-312b05fdd9cd
+    server: xn--b6gac.eu.org
+    port: 8080
+    uuid: d6ff33a6-03bf-4338-8a63-62ab284a9466
+    network: ws
+    servername: feng4.l1ut8bi9.workers.dev
+    tls: false
+    ws-opts:
+      path: /?ed=2048
+      headers:
+        Host: feng4.l1ut8bi9.workers.dev
+  - name: 美国(yudou789.top 玉豆免费节点)_65
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_66
+    type: vless
+    server: clean.photoggenic.ir
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
     network: ws
     tls: false
     ws-opts:
+      path: /
+      headers:
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 台湾(yudou789.top 玉豆免费节点)_4
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31103
+    password: c67bf403-83b9-417b-81f1-e1f37017746f
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 英国(yudou789.top 玉豆免费节点)_18
+    type: vmess
+    server: 82.198.246.97
+    port: 180
+    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_67
+    type: vless
+    server: 154.17.227.191
+    port: 443
+    uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
+    network: ws
+    servername: sni.meibidi.pp.ua
+    tls: true
+    ws-opts:
       path: /?ed=2560
       headers:
-        Host: chosenflyesqt-q3y28ipf-v3.chosen-fly-esqt.workers.dev
-  - name: 美国(yudou789.top 玉豆免费节点)_85
+        Host: sni.meibidi.pp.ua
+  - name: 英国(yudou789.top 玉豆免费节点)_19
+    type: vless
+    server: 25.25.25.0
+    port: 8880
+    uuid: 8e997404-cb62-4fa1-a8c9-c77a32f10153
+    network: ws
+    tls: false
+    ws-opts:
+      path: /
+      headers:
+        Host: rightel.IRANCEELL.mci.it.www.speedtest.net.zula.ir.focusontrade.ir
+  - name: 美国(yudou789.top 玉豆免费节点)_68
     type: vmess
     server: 82.198.246.97
     port: 180
@@ -1301,34 +1233,103 @@ proxies:
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_86
+  - name: 美国(yudou789.top 玉豆免费节点)_69
+    type: ss
+    server: switcher-nick-croquet.freesocks.work
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: RFK38Cg7APneSB5cWDcpbm
+  - name: 美国(yudou789.top 玉豆免费节点)_70
     type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_87
+  - name: 美国(yudou789.top 玉豆免费节点)_71
+    type: vless
+    server: 192.243.113.108
+    port: 443
+    uuid: e258977b-e413-4718-a3af-02d75492c349
+    network: ws
+    servername: ww29.allxniu.qzz.io
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ww29.allxniu.qzz.io
+  - name: 美国(yudou789.top 玉豆免费节点)_72
+    type: vless
+    server: 154.17.10.237
+    port: 443
+    uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
+    network: ws
+    servername: sni.meibidi.pp.ua
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.meibidi.pp.ua
+  - name: 美国(yudou789.top 玉豆免费节点)_73
+    type: vless
+    server: 154.17.13.69
+    port: 443
+    uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
+    network: ws
+    servername: sni.meibidi.pp.ua
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.meibidi.pp.ua
+  - name: 美国(yudou789.top 玉豆免费节点)_74
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: f3e8255f-4edd-472f-975e-4be43a4f03d8
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_88
+  - name: 美国(yudou789.top 玉豆免费节点)_75
     type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 西班牙(yudou789.top 玉豆免费节点)_2
+  - name: 美国(yudou789.top 玉豆免费节点)_76
+    type: vless
+    server: 38.207.189.188
+    port: 443
+    uuid: 55d9ec38-1b8a-454b-981a-6acfe8f56d8c
+    network: ws
+    servername: sni.meibidi.pp.ua
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: sni.meibidi.pp.ua
+  - name: 美国(yudou789.top 玉豆免费节点)_77
+    type: vless
+    server: 185.221.222.202
+    port: 31779
+    uuid: 052df1a5-f53f-46dc-8aeb-7ed893310551
+    tls: false
+  - name: 香港(yudou789.top 玉豆免费节点)_5
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_78
     type: trojan
     server: 109.234.211.66
     port: 2087
@@ -1340,228 +1341,34 @@ proxies:
       path: /
       headers:
         Host: store.timimi.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_89
-    type: ss
-    server: 223.95.183.132
-    port: 28217
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_90
+  - name: 美国(yudou789.top 玉豆免费节点)_79
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 35b100f5-17b5-4916-a1e7-433b4da23be7
-    alterId: 0
+    server: v8.hdacd.com
+    port: 30808
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 2
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_91
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: f90deda8-8178-4383-921a-c6b72cecceef
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_92
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: d0b1a130-3907-4de4-a0b1-a513bb6e8a2c
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_93
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 01e4d3f4-24db-4f96-be42-b4a75b0f9fa5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_94
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 35501
-    password: a1049ee8-c121-42ed-8e3f-cdd48aa2bb77
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_95
+  - name: 德国(yudou789.top 玉豆免费节点)_15
     type: vless
-    server: 104.18.114.89
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
+    server: 5.10.214.0
+    port: 2087
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
-    servername: 2new.ssdxz.cn
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
     tls: true
     ws-opts:
-      path: /?ed=2560
+      path: /
       headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_96
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 35502
-    password: 48f3f8f1-8b1c-42d6-8e8e-fb9c14ebb550
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_97
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: e607a242-485e-4db8-8265-785f26a8a8e6
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_98
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: f625cc00-39b7-4a0b-8681-db5cb62c4b23
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_99
-    type: vmess
-    server: tunnel1.qqa678.com
-    port: 47084
-    uuid: 3fc3310d-fd84-4933-b370-8cb2d565fab9
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_100
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 3f533d60-7ab6-4ed7-b817-4606784062db
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_101
-    type: vless
-    server: 162.159.137.204
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_102
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+  - name: 美国(yudou789.top 玉豆免费节点)_80
     type: ss
     server: switcher-nick-croquet.freesocks.work
     port: 443
     cipher: chacha20-ietf-poly1305
-    password: RFK38Cg7APneSB5cWDcpbm
-  - name: 美国(yudou789.top 玉豆免费节点)_103
-    type: vmess
-    server: 82.198.246.97
-    port: 180
-    uuid: d13fc2f5-3e05-4795-81eb-44143a09e552
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_104
-    type: vless
-    server: fenliu.072103.xyz
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_105
-    type: ss
-    server: 223.95.183.132
-    port: 19279
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_106
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 6303fc90-ec17-40b5-be08-068131a7d630
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_107
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31101
-    password: 7a75e482-0c41-4407-ad4d-d519944e5dd7
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_108
-    type: trojan
-    server: 220.130.58.136
-    port: 31101
-    password: a0194cb9-ee34-4f75-b620-6d4d72ab1cb0
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_109
-    type: vmess
-    server: ffiw.owwoedu.com
-    port: 59503
-    uuid: a42a99c9-4632-4b89-b3b3-573f3f20de1f
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 日本(yudou789.top 玉豆免费节点)
-    type: trojan
-    server: tuntro003.instconn.com
-    port: 443
-    password: 30077070-596e-48ea-9400-14c8ed07bd97
-    sni: login-staticjpc.jasmine-douyin.top
-    skip-cert-verify: false
-    tls: true
-  - name: 俄罗斯(yudou789.top 玉豆免费节点)
-    type: ss
-    server: 81.28.13.223
-    port: 11201
-    cipher: chacha20-ietf-poly1305
-    password: ed78b7ec3662e43a
-  - name: 美国(yudou789.top 玉豆免费节点)_110
-    type: vmess
-    server: 2001:bc8:32d7:302::17
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-      headers:
-        Host: AZERB.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_111
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31103
-    password: 40c9fcce-3881-4ce6-a02a-3e28a82793d6
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 法国(yudou789.top 玉豆免费节点)_2
+    password: wwzVn2ZnHfqYa6l8EWh3eY
+  - name: 美国(yudou789.top 玉豆免费节点)_81
     type: vmess
     server: 2001:bc8:32d7:302::10
     port: 44579
@@ -1572,22 +1379,20 @@ proxies:
     skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-      headers:
-        Host: AZERB.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_112
+      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
+  - name: 德国(yudou789.top 玉豆免费节点)_16
     type: vless
-    server: 104.21.224.5
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+    server: api.dark-coffe.com
+    port: 2087
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
     network: ws
-    servername: l.ayovo.netlib.re
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
     tls: true
     ws-opts:
-      path: /?ed=2560
+      path: /?ed=2048
       headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_113
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+  - name: 法国(yudou789.top 玉豆免费节点)_2
     type: vmess
     server: 2001:bc8:32d7:302::10
     port: 44579
@@ -1600,34 +1405,20 @@ proxies:
     ws-opts:
       path: /
       headers:
-        Host: AZERB.NET
-  - name: 德国(yudou789.top 玉豆免费节点)_20
-    type: vless
-    server: api.dark-coffe.com
-    port: 2087
-    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
-    network: ws
-    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-    tls: true
-    ws-opts:
-      path: /?ed=2048
-      headers:
-        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
-  - name: 美国(yudou789.top 玉豆免费节点)_114
-    type: trojan
-    server: new.ssdxz.cn
-    port: 443
-    password: "666"
-    sni: 2new.ssdxz.cn
-    alpn:
-      - http/1.1
+        Host: 2001:bc8:32d7:302::10
+  - name: 美国(yudou789.top 玉豆免费节点)_82
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
     skip-cert-verify: false
-    tls: true
+    network: ws
     ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_115
+      path: /
+  - name: 美国(yudou789.top 玉豆免费节点)_83
     type: vmess
     server: 2001:bc8:32d7:302::10
     port: 44579
@@ -1639,47 +1430,7 @@ proxies:
     network: ws
     ws-opts:
       path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-  - name: 美国(yudou789.top 玉豆免费节点)_116
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 7983e983-4f1b-4f27-95c3-45e2a4bef1b5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_117
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-  - name: 美国(yudou789.top 玉豆免费节点)_118
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
-  - name: 美国(yudou789.top 玉豆免费节点)_119
-    type: vmess
-    server: ffiw.owwoedu.com
-    port: 59503
-    uuid: 1e705436-2b9c-4f7a-8e39-5316dd320372
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_120
+  - name: 美国(yudou789.top 玉豆免费节点)_84
     type: vmess
     server: 2001:bc8:32d7:302::11
     port: 44579
@@ -1693,21 +1444,63 @@ proxies:
       path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
       headers:
         Host: TABRIZ.NET
-  - name: 英国(yudou789.top 玉豆免费节点)_11
+  - name: 美国(yudou789.top 玉豆免费节点)_85
     type: vless
-    server: 25.129.197.138
-    port: 2053
-    uuid: 8a07740f-b932-4372-a3a2-ed91f184cd33
+    server: 104.21.31.4
+    port: 8880
+    uuid: 0a5ab719-2407-4398-b507-8437ef365023
     network: ws
-    servername: KhAmeneI.DPdNs.OrG
-    tls: true
+    tls: false
     ws-opts:
-      path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+      path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
       headers:
-        Host: khamenei.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_121
+        Host: underthegun.cfd.
+  - name: 美国(yudou789.top 玉豆免费节点)_86
     type: vmess
-    server: 2001:bc8:32d7:302::16
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_87
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?ed=2048@V2Ray_hiddify10--https://t.me/V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--V2Ray_hiddify10--https://t.me/V2Ray_hiddify10
+  - name: 美国(yudou789.top 玉豆免费节点)_88
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+  - name: 美国(yudou789.top 玉豆免费节点)_89
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+  - name: 美国(yudou789.top 玉豆免费节点)_90
+    type: vmess
+    server: 2001:bc8:32d7:302::10
     port: 44579
     uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
     alterId: 0
@@ -1718,57 +1511,8 @@ proxies:
     ws-opts:
       path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
       headers:
-        Host: AZERB.NET
-  - name: 法国(yudou789.top 玉豆免费节点)_3
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
-      headers:
-        Host: AZERB.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_122
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 1418b985-0036-4c93-b1ba-ad5d36dcb4e4
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_123
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-  - name: 法国(yudou789.top 玉豆免费节点)_4
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
-      headers:
-        Host: 2001:bc8:32d7:302::10
-  - name: 美国(yudou789.top 玉豆免费节点)_124
+        Host: TURK1.NET.NET
+  - name: 美国(yudou789.top 玉豆免费节点)_91
     type: vmess
     server: 2001:bc8:32d7:302::14
     port: 44579
@@ -1782,7 +1526,21 @@ proxies:
       path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
       headers:
         Host: TABRIZ.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_125
+  - name: 美国(yudou789.top 玉豆免费节点)_92
+    type: vmess
+    server: 2001:bc8:32d7:302::11
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
+      headers:
+        Host: Azerb.NET
+  - name: 法国(yudou789.top 玉豆免费节点)_3
     type: vmess
     server: 2001:bc8:32d7:302::10
     port: 44579
@@ -1793,37 +1551,61 @@ proxies:
     skip-cert-verify: false
     network: ws
     ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-  - name: 美国(yudou789.top 玉豆免费节点)_126
-    type: vless
-    server: 104.18.185.26
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /?ed=2560
+      path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
       headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_127
+        Host: 2001:bc8:32d7:302::10
+  - name: 美国(yudou789.top 玉豆免费节点)_93
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 37c2c381-44ba-4263-9ebb-abe86ae88c20
+    server: 2001:bc8:32d7:302::16
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 香港(yudou789.top 玉豆免费节点)
-    type: trojan
-    server: tuntro000.instconn.com
-    port: 443
-    password: 30077070-596e-48ea-9400-14c8ed07bd97
-    sni: hkip5.686911.xyz
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      headers:
+        Host: AZERB.NET
+  - name: 香港(yudou789.top 玉豆免费节点)_6
+    type: vmess
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
+    alterId: 0
+    cipher: auto
+    tls: false
     skip-cert-verify: false
-    tls: true
-  - name: 法国(yudou789.top 玉豆免费节点)_5
+  - name: 美国(yudou789.top 玉豆免费节点)_94
+    type: vmess
+    server: 2001:bc8:32d7:302::15
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      headers:
+        Host: TURK.NET
+  - name: 法国(yudou789.top 玉豆免费节点)_4
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
+      headers:
+        Host: AZERB.NET
+  - name: 美国(yudou789.top 玉豆免费节点)_95
     type: vmess
     server: 2001:bc8:32d7:302::10
     port: 44579
@@ -1836,45 +1618,43 @@ proxies:
     ws-opts:
       path: /
       headers:
-        Host: 2001:bc8:32d7:302::10
-  - name: 美国(yudou789.top 玉豆免费节点)_128
+        Host: AZERB.NET
+  - name: 美国(yudou789.top 玉豆免费节点)_96
     type: trojan
     server: green2.cdntencentmusic.com
-    port: 31102
-    password: 970f06f2-d76f-4a23-9014-381776f8a68e
+    port: 31103
+    password: 761a3023-9c06-4197-a0d5-1f0c96337d8c
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_129
+  - name: 美国(yudou789.top 玉豆免费节点)_97
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 201a64ad-3e8c-4d90-8a72-a56b0319d81c
+    server: 2001:bc8:32d7:302::17
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_130
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 0deb1b32-1c69-4e8c-9e85-1b6d08dc312f
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_131
-    type: vless
-    server: new.ssdxz.cn
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
     network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
     ws-opts:
-      path: /?ed=2560
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
       headers:
-        Host: 2new.ssdxz.cn
+        Host: AZERB.NET
+  - name: 法国(yudou789.top 玉豆免费节点)_5
+    type: vmess
+    server: 2001:bc8:32d7:302::10
+    port: 44579
+    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+    network: ws
+    ws-opts:
+      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      headers:
+        Host: AZERB.NET
   - name: 法国(yudou789.top 玉豆免费节点)_6
     type: vmess
     server: 2001:bc8:32d7:302::10
@@ -1890,49 +1670,70 @@ proxies:
       path: /?ed=2048HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN--HiByeVPNN
       headers:
         Host: 2001:bc8:32d7:302::10
-  - name: 美国(yudou789.top 玉豆免费节点)_132
+  - name: 德国(yudou789.top 玉豆免费节点)_17
+    type: vless
+    server: 5.10.214.5
+    port: 8443
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
+  - name: 美国(yudou789.top 玉豆免费节点)_98
+    type: ss
+    server: 185.193.48.157
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: zwBLM6bBE5YxvwvnKgxAq3ErXpqMYv20
+  - name: 美国(yudou789.top 玉豆免费节点)_99
+    type: vless
+    server: cloudflare.182682.xyz
+    port: 443
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+    network: ws
+    servername: l.ayovo.netlib.re
+    tls: true
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: l.ayovo.netlib.re
+  - name: 美国(yudou789.top 玉豆免费节点)_100
     type: vmess
-    server: 2001:bc8:32d7:302::11
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
+    server: v12.hdacd.com
+    port: 30812
+    uuid: cbb3f877-d1fb-344c-87a9-d153bffd5484
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
+  - name: 美国(yudou789.top 玉豆免费节点)_101
+    type: vless
+    server: cloudflare.182682.xyz
+    port: 443
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
     network: ws
+    servername: l.ayovo.netlib.re
+    tls: true
     ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1?ed=2560
+      path: /x-aniu/?ed=2560
       headers:
-        Host: Azerb.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_133
-    type: vmess
-    server: 2001:bc8:32d7:302::10
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
+        Host: l.ayovo.netlib.re
+  - name: 美国(yudou789.top 玉豆免费节点)_102
+    type: trojan
+    server: 167.68.4.199
+    port: 2053
+    password: Aimer
+    sni: epge.muarua.filegear-sg.me
     skip-cert-verify: false
-    network: ws
+    tls: true
     ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
+      path: /?ed=2560&proxyip=ts.hpc.tw
       headers:
-        Host: TURK1.NET.NET
-  - name: 美国(yudou789.top 玉豆免费节点)_134
-    type: vmess
-    server: 2001:bc8:32d7:302::15
-    port: 44579
-    uuid: 8e34e170-13ae-4892-9d20-05962acc9f84
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /?BIA_TELEGRAM@AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1_AZARBAYJAB1
-      headers:
-        Host: TURK.NET
-  - name: 英国(yudou789.top 玉豆免费节点)_12
+        Host: epge.muarua.filegear-sg.me
+  - name: 英国(yudou789.top 玉豆免费节点)_20
     type: vless
     server: 25.129.197.138
     port: 2053
@@ -1944,167 +1745,77 @@ proxies:
       path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
       headers:
         Host: KhAmeneI.DPdNs.OrG
-  - name: 美国(yudou789.top 玉豆免费节点)_135
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: e6ff9485-e4c0-4853-8bba-a819cc50c724
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_136
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 0992060e-b4ce-4b54-a963-2292efeb3993
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_137
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 769012c6-a4df-4615-b80c-40ad3e897de0
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_138
-    type: vmess
-    server: ffiw.owwoedu.com
-    port: 59503
-    uuid: 4880d915-5419-44a1-9a12-309e6bb2c89a
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_139
-    type: ss
-    server: 27.150.129.87
-    port: 20008
-    cipher: chacha20-ietf-poly1305
-    password: aed6e687-58a9-4836-ba62-7d8184c94df4
-  - name: 美国(yudou789.top 玉豆免费节点)_140
-    type: ss
-    server: liubu9.singdns.com
-    port: 17459
-    cipher: aes-128-gcm
-    password: 57bc0c04-8184-48f5-906b-897d095ed445
-  - name: 美国(yudou789.top 玉豆免费节点)_141
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 7bb3c02e-7349-4f06-9f54-7c180982fea8
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_142
+  - name: 美国(yudou789.top 玉豆免费节点)_103
     type: vless
-    server: blog.646474.xyz
+    server: 45.85.93.204
+    port: 2345
+    uuid: 8a92875e-2a19-43c8-8834-c38dc44e4ba7
+    tls: false
+  - name: 美国(yudou789.top 玉豆免费节点)_104
+    type: vless
+    server: 162.159.44.142
     port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
     network: ws
-    servername: 2new.ssdxz.cn
+    servername: l.ayovo.netlib.re
     tls: true
     ws-opts:
       path: /?ed=2560
       headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_143
+        Host: l.ayovo.netlib.re
+  - name: 美国(yudou789.top 玉豆免费节点)_105
     type: vless
-    server: www.visa.com.sg
-    port: 2052
-    uuid: cdec8542-a21f-4377-9da3-ea60bb6d3a30
+    server: 162.159.45.232
+    port: 443
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
     network: ws
-    tls: false
+    servername: l.ayovo.netlib.re
+    tls: true
     ws-opts:
-      path: /🔒
+      path: /?ed=2560
       headers:
-        Host: chosenflyesqt-q3y28ipf-v2.chosen-fly-esqt.workers.dev
-  - name: 美国(yudou789.top 玉豆免费节点)_144
+        Host: l.ayovo.netlib.re
+  - name: 英国(yudou789.top 玉豆免费节点)_21
+    type: vless
+    server: 25.129.197.138
+    port: 2053
+    uuid: 8a07740f-b932-4372-a3a2-ed91f184cd33
+    network: ws
+    servername: KhAmeneI.DPdNs.OrG
+    tls: true
+    ws-opts:
+      path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
+      headers:
+        Host: khamenei.dpdns.org
+  - name: 台湾(yudou789.top 玉豆免费节点)_5
     type: trojan
     server: green2.cdntencentmusic.com
-    port: 31103
-    password: 0e55a9cb-4116-408e-895b-3653ad8b5392
+    port: 31102
+    password: 7a75e482-0c41-4407-ad4d-d519944e5dd7
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_145
-    type: vmess
-    server: 125.77.160.219
-    port: 16622
-    uuid: a436dc22-e2e4-4d0a-ae38-e86dcab039c5
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-    network: ws
-    ws-opts:
-      path: /
-      headers:
-        Host: b26eb8c48143c11db65be2203a3f2892.mobgslb.tbcache.com
-  - name: 美国(yudou789.top 玉豆免费节点)_146
-    type: vmess
-    server: 120.198.71.161
-    port: 47084
-    uuid: 3fc3310d-fd84-4933-b370-8cb2d565fab9
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_147
-    type: vless
-    server: 104.16.105.166
+  - name: 香港(yudou789.top 玉豆免费节点)_7
+    type: trojan
+    server: 58.152.18.147
     port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
+    password: 4843e94d205f3893f588255a591abe94
+    sni: www.nintendogames.net
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_106
+    type: vless
+    server: 162.159.16.63
+    port: 443
+    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
     network: ws
-    servername: 2new.ssdxz.cn
+    servername: l.ayovo.netlib.re
     tls: true
     ws-opts:
       path: /?ed=2560
       headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_148
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: f8695ae8-f9e3-48f2-8168-a66244ddc1c1
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_149
-    type: vless
-    server: cf.tvtv.de5.net
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_150
-    type: trojan
-    server: 220.130.58.136
-    port: 35501
-    password: 970f06f2-d76f-4a23-9014-381776f8a68e
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_151
-    type: trojan
-    server: 220.130.58.136
-    port: 35501
-    password: abf12a24-e9ca-4c2a-b640-81ab77453919
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 英国(yudou789.top 玉豆免费节点)_13
+        Host: l.ayovo.netlib.re
+  - name: 美国(yudou789.top 玉豆免费节点)_107
     type: vless
     server: 25.129.197.138
     port: 2053
@@ -2116,113 +1827,16 @@ proxies:
       path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119?ed=2560
       headers:
         Host: khamenei.dpdns.org
-  - name: 美国(yudou789.top 玉豆免费节点)_152
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31102
-    password: f308b3c2-40c2-4c06-b304-ce9cb2823a54
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_153
-    type: vless
-    server: 104.17.142.212
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_154
+  - name: 美国(yudou789.top 玉豆免费节点)_108
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 29a93836-68dc-4e18-95d7-ce669e1290a5
+    server: pub.ap20251212.com
+    port: 64016
+    uuid: 35cda637-b169-359b-8b53-8f61539dbf75
     alterId: 0
     cipher: auto
     tls: false
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_155
-    type: vless
-    server: 104.16.65.1
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_156
-    type: vless
-    server: 104.21.227.134
-    port: 443
-    uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-    network: ws
-    servername: l.ayovo.netlib.re
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: l.ayovo.netlib.re
-  - name: 美国(yudou789.top 玉豆免费节点)_157
-    type: vless
-    server: 104.19.220.22
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_158
-    type: vless
-    server: 104.16.168.243
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_159
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: aa77079a-49ff-4d0f-94f9-1ff5ac48c341
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_160
-    type: vless
-    server: 104.18.132.2
-    port: 443
-    uuid: 29ff2954-dfea-4d20-8089-059cfa861453
-    network: ws
-    servername: 2new.ssdxz.cn
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: 2new.ssdxz.cn
-  - name: 美国(yudou789.top 玉豆免费节点)_161
-    type: trojan
-    server: green2.cdntencentmusic.com
-    port: 31102
-    password: abf12a24-e9ca-4c2a-b640-81ab77453919
-    sni: green2.cdntencentmusic.com
-    skip-cert-verify: false
-    tls: true
-  - name: 西班牙(yudou789.top 玉豆免费节点)_3
+  - name: 韩国(yudou789.top 玉豆免费节点)
     type: vless
     server: 62.60.156.158
     port: 8082
@@ -2234,45 +1848,103 @@ proxies:
       path: /@Marisa_kristi
       headers:
         Host: ennyfe.zipgd3vx91o.ddns-ip.net
-  - name: 美国(yudou789.top 玉豆免费节点)_162
+  - name: 新加坡(yudou789.top 玉豆免费节点)_2
     type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 6017576a-2c59-43ac-b963-fad117e3be44
-    alterId: 0
+    server: vc.fly.dev
+    port: 443
+    uuid: 35379219-6535-4f2e-a4fe-3e44f61e0eee
+    alterId: 32
     cipher: auto
-    tls: false
+    tls: true
     skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_163
-    type: ss
-    server: 45.251.1.45
-    port: 11020
-    cipher: chacha20-ietf-poly1305
-    password: bdd108a0-bbda-4950-bd34-e5d30df94d0e
-  - name: 美国(yudou789.top 玉豆免费节点)_164
-    type: ss
-    server: 223.95.183.132
-    port: 26334
-    cipher: aes-128-gcm
-    password: b637f2e47b7827b308ebf399008075d2
-  - name: 美国(yudou789.top 玉豆免费节点)_165
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 4bc23206-9e7b-496f-aee4-b1586f04fddf
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_166
+    servername: vc.fly.dev
+    network: ws
+    ws-opts:
+      path: /vc
+      headers:
+        Host: vc.fly.dev
+  - name: 美国(yudou789.top 玉豆免费节点)_109
+    type: vless
+    server: 5.10.214.5
+    port: 2087
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.iNfO
+  - name: 德国(yudou789.top 玉豆免费节点)_18
+    type: vless
+    server: api.dark-coffe.com
+    port: 8443
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: TjLwH7cTdH.sMaRtTeChZaAl.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: TjLwH7cTdH.sMaRtTeChZaAl.InFo
+  - name: 德国(yudou789.top 玉豆免费节点)_19
+    type: vless
+    server: 5.10.214.5
+    port: 2087
+    uuid: 7e58699f-1d5d-4f6b-b181-cb74f0ad9509
+    network: ws
+    servername: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
+    tls: true
+    ws-opts:
+      path: /
+      headers:
+        Host: 5JxGp6VrFh.SmArTtEcHzAaL.InFo
+  - name: 台湾(yudou789.top 玉豆免费节点)_6
     type: trojan
     server: green2.cdntencentmusic.com
-    port: 35501
-    password: 761a3023-9c06-4197-a0d5-1f0c96337d8c
+    port: 31102
+    password: 53494ce0-1a00-4e91-a073-2bd4e4770cfc
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_167
+  - name: 美国(yudou789.top 玉豆免费节点)_110
+    type: trojan
+    server: green2.cdntencentmusic.com
+    port: 31103
+    password: 47f867f8-45bb-43be-aa13-b99ed8f55c7d
+    sni: green2.cdntencentmusic.com
+    skip-cert-verify: false
+    tls: true
+  - name: 香港(yudou789.top 玉豆免费节点)_8
+    type: trojan
+    server: tuntro000.instconn.com
+    port: 443
+    password: 30077070-596e-48ea-9400-14c8ed07bd97
+    sni: hkip5.686911.xyz
+    skip-cert-verify: false
+    tls: true
+  - name: 美国(yudou789.top 玉豆免费节点)_111
+    type: vmess
+    server: 23.138.148.47
+    port: 42507
+    uuid: 4db07b13-6524-49d2-b432-1f312c0e9c7c
+    alterId: 0
+    cipher: auto
+    tls: false
+    skip-cert-verify: false
+  - name: 英国(yudou789.top 玉豆免费节点)_22
+    type: vless
+    server: 25.129.197.138
+    port: 2053
+    uuid: 8a07740f-b932-4372-a3a2-ed91f184cd33
+    network: ws
+    servername: KhAmeneI.DPdNs.OrG
+    tls: true
+    ws-opts:
+      path: /eyJqdW5rIjoiNDBNWGY3Z0NPd0loZ2YiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
+      headers:
+        Host: KhAmeneI.DPdNs.OrG
+  - name: 美国(yudou789.top 玉豆免费节点)_112
     type: trojan
     server: green2.cdntencentmusic.com
     port: 35501
@@ -2280,157 +1952,132 @@ proxies:
     sni: green2.cdntencentmusic.com
     skip-cert-verify: false
     tls: true
-  - name: 美国(yudou789.top 玉豆免费节点)_168
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: 0a646d1d-afc2-4d6a-953e-08e517dec091
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_169
-    type: vless
-    server: 38.180.243.168
-    port: 443
-    uuid: e258977b-e413-4718-a3af-02d75492c349
-    network: ws
-    servername: all.aniuge.qzz.io
-    tls: true
-    ws-opts:
-      path: /?ed=2560
-      headers:
-        Host: all.aniuge.qzz.io
-  - name: 美国(yudou789.top 玉豆免费节点)_170
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49303
-    uuid: a97d726d-fb9c-4cef-802a-f3ffdd136980
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
-  - name: 美国(yudou789.top 玉豆免费节点)_171
-    type: vmess
-    server: cees.owwoedu.com
-    port: 49312
-    uuid: 11d7fa7f-5211-4bcc-b10b-e6e7d322fce1
-    alterId: 0
-    cipher: auto
-    tls: false
-    skip-cert-verify: false
 proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
       - ♻️ 自动选择
       - DIRECT
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -2441,11 +2088,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -2453,212 +2103,170 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
   - name: ♻️ 自动选择
     type: url-test
     proxies:
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -2669,11 +2277,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -2681,103 +2292,47 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -2787,112 +2342,126 @@ proxy-groups:
       - 🚀 节点选择
       - ♻️ 自动选择
       - 🎯 全球直连
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -2903,11 +2472,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -2915,214 +2487,172 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
   - name: 📲 电报信息
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -3133,11 +2663,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -3145,214 +2678,172 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -3363,11 +2854,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -3375,214 +2869,172 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
   - name: 🍎 苹果服务
     type: select
     proxies:
       - 🚀 节点选择
       - 🎯 全球直连
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -3593,11 +3045,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -3605,103 +3060,47 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -3724,112 +3123,126 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
-      - 美国(yudou789.top 玉豆免费节点)
-      - 美国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)
       - 德国(yudou789.top 玉豆免费节点)
+      - 日本(yudou789.top 玉豆免费节点)
+      - 英国(yudou789.top 玉豆免费节点)
+      - 美国(yudou789.top 玉豆免费节点)
       - 英国(yudou789.top 玉豆免费节点)_1
+      - 美国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_2
-      - 英国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_6
-      - 德国(yudou789.top 玉豆免费节点)_2
-      - 德国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_9
-      - 德国(yudou789.top 玉豆免费节点)_4
+      - 德国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_10
+      - 美国(yudou789.top 玉豆免费节点)_11
+      - 美国(yudou789.top 玉豆免费节点)_12
+      - 美国(yudou789.top 玉豆免费节点)_13
+      - 美国(yudou789.top 玉豆免费节点)_14
+      - 英国(yudou789.top 玉豆免费节点)_4
+      - 美国(yudou789.top 玉豆免费节点)_15
+      - 美国(yudou789.top 玉豆免费节点)_16
+      - 德国(yudou789.top 玉豆免费节点)_3
+      - 德国(yudou789.top 玉豆免费节点)_4
       - 德国(yudou789.top 玉豆免费节点)_5
       - 德国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_11
       - 德国(yudou789.top 玉豆免费节点)_7
       - 德国(yudou789.top 玉豆免费节点)_8
       - 德国(yudou789.top 玉豆免费节点)_9
       - 德国(yudou789.top 玉豆免费节点)_10
-      - 德国(yudou789.top 玉豆免费节点)_11
-      - 英国(yudou789.top 玉豆免费节点)_3
-      - 德国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_12
-      - 德国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_15
-      - 德国(yudou789.top 玉豆免费节点)_14
-      - 美国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_17
+      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_11
+      - 德国(yudou789.top 玉豆免费节点)_12
       - 美国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_21
       - 美国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_23
+      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_24
+      - 新加坡(yudou789.top 玉豆免费节点)
+      - 台湾(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_25
       - 美国(yudou789.top 玉豆免费节点)_26
       - 美国(yudou789.top 玉豆免费节点)_27
       - 美国(yudou789.top 玉豆免费节点)_28
+      - 香港(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_29
       - 美国(yudou789.top 玉豆免费节点)_30
       - 美国(yudou789.top 玉豆免费节点)_31
-      - 新加坡(yudou789.top 玉豆免费节点)
-      - 德国(yudou789.top 玉豆免费节点)_15
-      - 台湾(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_32
       - 美国(yudou789.top 玉豆免费节点)_33
       - 美国(yudou789.top 玉豆免费节点)_34
       - 美国(yudou789.top 玉豆免费节点)_35
       - 美国(yudou789.top 玉豆免费节点)_36
       - 美国(yudou789.top 玉豆免费节点)_37
+      - 香港(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_38
       - 美国(yudou789.top 玉豆免费节点)_39
+      - 伊朗(mibei77.com 米贝节点分享)
       - 美国(yudou789.top 玉豆免费节点)_40
+      - 香港(yudou789.top 玉豆免费节点)_2
+      - 日本(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_41
       - 美国(yudou789.top 玉豆免费节点)_42
+      - 香港(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_43
       - 美国(yudou789.top 玉豆免费节点)_44
-      - 西班牙(yudou789.top 玉豆免费节点)
-      - 西班牙(yudou789.top 玉豆免费节点)_1
+      - 台湾(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_45
-      - 荷兰(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_46
-      - 英国(yudou789.top 玉豆免费节点)_5
+      - 德国(yudou789.top 玉豆免费节点)_13
+      - 香港(yudou789.top 玉豆免费节点)_4
+      - 法国(yudou789.top 玉豆免费节点)
+      - 法国(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_47
+      - 新加坡(yudou789.top 玉豆免费节点)_1
+      - 英国(yudou789.top 玉豆免费节点)_7
+      - 德国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_48
+      - 英国(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_49
       - 美国(yudou789.top 玉豆免费节点)_50
-      - 台湾(yudou789.top 玉豆免费节点)_1
       - 美国(yudou789.top 玉豆免费节点)_51
-      - 德国(yudou789.top 玉豆免费节点)_16
-      - 英国(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_52
-      - 英国(yudou789.top 玉豆免费节点)_7
-      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_53
       - 美国(yudou789.top 玉豆免费节点)_54
       - 美国(yudou789.top 玉豆免费节点)_55
-      - 德国(yudou789.top 玉豆免费节点)_18
+      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_56
-      - 德国(yudou789.top 玉豆免费节点)_19
-      - 法国(yudou789.top 玉豆免费节点)
       - 美国(yudou789.top 玉豆免费节点)_57
       - 美国(yudou789.top 玉豆免费节点)_58
       - 美国(yudou789.top 玉豆免费节点)_59
-      - 法国(yudou789.top 玉豆免费节点)_1
-      - 英国(yudou789.top 玉豆免费节点)_8
+      - 英国(yudou789.top 玉豆免费节点)_10
+      - 英国(yudou789.top 玉豆免费节点)_11
+      - 英国(yudou789.top 玉豆免费节点)_12
+      - 英国(yudou789.top 玉豆免费节点)_13
+      - 英国(yudou789.top 玉豆免费节点)_14
       - 美国(yudou789.top 玉豆免费节点)_60
+      - 英国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_61
       - 美国(yudou789.top 玉豆免费节点)_62
+      - 英国(yudou789.top 玉豆免费节点)_16
       - 美国(yudou789.top 玉豆免费节点)_63
+      - 英国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_64
       - 美国(yudou789.top 玉豆免费节点)_65
-      - 英国(yudou789.top 玉豆免费节点)_9
       - 美国(yudou789.top 玉豆免费节点)_66
+      - 台湾(yudou789.top 玉豆免费节点)_4
+      - 英国(yudou789.top 玉豆免费节点)_18
       - 美国(yudou789.top 玉豆免费节点)_67
+      - 英国(yudou789.top 玉豆免费节点)_19
       - 美国(yudou789.top 玉豆免费节点)_68
       - 美国(yudou789.top 玉豆免费节点)_69
       - 美国(yudou789.top 玉豆免费节点)_70
@@ -3840,11 +3253,14 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_75
       - 美国(yudou789.top 玉豆免费节点)_76
       - 美国(yudou789.top 玉豆免费节点)_77
+      - 香港(yudou789.top 玉豆免费节点)_5
       - 美国(yudou789.top 玉豆免费节点)_78
       - 美国(yudou789.top 玉豆免费节点)_79
+      - 德国(yudou789.top 玉豆免费节点)_15
       - 美国(yudou789.top 玉豆免费节点)_80
-      - 英国(yudou789.top 玉豆免费节点)_10
       - 美国(yudou789.top 玉豆免费节点)_81
+      - 德国(yudou789.top 玉豆免费节点)_16
+      - 法国(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_82
       - 美国(yudou789.top 玉豆免费节点)_83
       - 美国(yudou789.top 玉豆免费节点)_84
@@ -3852,103 +3268,47 @@ proxy-groups:
       - 美国(yudou789.top 玉豆免费节点)_86
       - 美国(yudou789.top 玉豆免费节点)_87
       - 美国(yudou789.top 玉豆免费节点)_88
-      - 西班牙(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_89
       - 美国(yudou789.top 玉豆免费节点)_90
       - 美国(yudou789.top 玉豆免费节点)_91
       - 美国(yudou789.top 玉豆免费节点)_92
+      - 法国(yudou789.top 玉豆免费节点)_3
       - 美国(yudou789.top 玉豆免费节点)_93
+      - 香港(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_94
+      - 法国(yudou789.top 玉豆免费节点)_4
       - 美国(yudou789.top 玉豆免费节点)_95
       - 美国(yudou789.top 玉豆免费节点)_96
       - 美国(yudou789.top 玉豆免费节点)_97
+      - 法国(yudou789.top 玉豆免费节点)_5
+      - 法国(yudou789.top 玉豆免费节点)_6
+      - 德国(yudou789.top 玉豆免费节点)_17
       - 美国(yudou789.top 玉豆免费节点)_98
       - 美国(yudou789.top 玉豆免费节点)_99
       - 美国(yudou789.top 玉豆免费节点)_100
       - 美国(yudou789.top 玉豆免费节点)_101
       - 美国(yudou789.top 玉豆免费节点)_102
+      - 英国(yudou789.top 玉豆免费节点)_20
       - 美国(yudou789.top 玉豆免费节点)_103
       - 美国(yudou789.top 玉豆免费节点)_104
       - 美国(yudou789.top 玉豆免费节点)_105
+      - 英国(yudou789.top 玉豆免费节点)_21
+      - 台湾(yudou789.top 玉豆免费节点)_5
+      - 香港(yudou789.top 玉豆免费节点)_7
       - 美国(yudou789.top 玉豆免费节点)_106
       - 美国(yudou789.top 玉豆免费节点)_107
       - 美国(yudou789.top 玉豆免费节点)_108
+      - 韩国(yudou789.top 玉豆免费节点)
+      - 新加坡(yudou789.top 玉豆免费节点)_2
       - 美国(yudou789.top 玉豆免费节点)_109
-      - 日本(yudou789.top 玉豆免费节点)
-      - 俄罗斯(yudou789.top 玉豆免费节点)
+      - 德国(yudou789.top 玉豆免费节点)_18
+      - 德国(yudou789.top 玉豆免费节点)_19
+      - 台湾(yudou789.top 玉豆免费节点)_6
       - 美国(yudou789.top 玉豆免费节点)_110
+      - 香港(yudou789.top 玉豆免费节点)_8
       - 美国(yudou789.top 玉豆免费节点)_111
-      - 法国(yudou789.top 玉豆免费节点)_2
+      - 英国(yudou789.top 玉豆免费节点)_22
       - 美国(yudou789.top 玉豆免费节点)_112
-      - 美国(yudou789.top 玉豆免费节点)_113
-      - 德国(yudou789.top 玉豆免费节点)_20
-      - 美国(yudou789.top 玉豆免费节点)_114
-      - 美国(yudou789.top 玉豆免费节点)_115
-      - 美国(yudou789.top 玉豆免费节点)_116
-      - 美国(yudou789.top 玉豆免费节点)_117
-      - 美国(yudou789.top 玉豆免费节点)_118
-      - 美国(yudou789.top 玉豆免费节点)_119
-      - 美国(yudou789.top 玉豆免费节点)_120
-      - 英国(yudou789.top 玉豆免费节点)_11
-      - 美国(yudou789.top 玉豆免费节点)_121
-      - 法国(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_122
-      - 美国(yudou789.top 玉豆免费节点)_123
-      - 法国(yudou789.top 玉豆免费节点)_4
-      - 美国(yudou789.top 玉豆免费节点)_124
-      - 美国(yudou789.top 玉豆免费节点)_125
-      - 美国(yudou789.top 玉豆免费节点)_126
-      - 美国(yudou789.top 玉豆免费节点)_127
-      - 香港(yudou789.top 玉豆免费节点)
-      - 法国(yudou789.top 玉豆免费节点)_5
-      - 美国(yudou789.top 玉豆免费节点)_128
-      - 美国(yudou789.top 玉豆免费节点)_129
-      - 美国(yudou789.top 玉豆免费节点)_130
-      - 美国(yudou789.top 玉豆免费节点)_131
-      - 法国(yudou789.top 玉豆免费节点)_6
-      - 美国(yudou789.top 玉豆免费节点)_132
-      - 美国(yudou789.top 玉豆免费节点)_133
-      - 美国(yudou789.top 玉豆免费节点)_134
-      - 英国(yudou789.top 玉豆免费节点)_12
-      - 美国(yudou789.top 玉豆免费节点)_135
-      - 美国(yudou789.top 玉豆免费节点)_136
-      - 美国(yudou789.top 玉豆免费节点)_137
-      - 美国(yudou789.top 玉豆免费节点)_138
-      - 美国(yudou789.top 玉豆免费节点)_139
-      - 美国(yudou789.top 玉豆免费节点)_140
-      - 美国(yudou789.top 玉豆免费节点)_141
-      - 美国(yudou789.top 玉豆免费节点)_142
-      - 美国(yudou789.top 玉豆免费节点)_143
-      - 美国(yudou789.top 玉豆免费节点)_144
-      - 美国(yudou789.top 玉豆免费节点)_145
-      - 美国(yudou789.top 玉豆免费节点)_146
-      - 美国(yudou789.top 玉豆免费节点)_147
-      - 美国(yudou789.top 玉豆免费节点)_148
-      - 美国(yudou789.top 玉豆免费节点)_149
-      - 美国(yudou789.top 玉豆免费节点)_150
-      - 美国(yudou789.top 玉豆免费节点)_151
-      - 英国(yudou789.top 玉豆免费节点)_13
-      - 美国(yudou789.top 玉豆免费节点)_152
-      - 美国(yudou789.top 玉豆免费节点)_153
-      - 美国(yudou789.top 玉豆免费节点)_154
-      - 美国(yudou789.top 玉豆免费节点)_155
-      - 美国(yudou789.top 玉豆免费节点)_156
-      - 美国(yudou789.top 玉豆免费节点)_157
-      - 美国(yudou789.top 玉豆免费节点)_158
-      - 美国(yudou789.top 玉豆免费节点)_159
-      - 美国(yudou789.top 玉豆免费节点)_160
-      - 美国(yudou789.top 玉豆免费节点)_161
-      - 西班牙(yudou789.top 玉豆免费节点)_3
-      - 美国(yudou789.top 玉豆免费节点)_162
-      - 美国(yudou789.top 玉豆免费节点)_163
-      - 美国(yudou789.top 玉豆免费节点)_164
-      - 美国(yudou789.top 玉豆免费节点)_165
-      - 美国(yudou789.top 玉豆免费节点)_166
-      - 美国(yudou789.top 玉豆免费节点)_167
-      - 美国(yudou789.top 玉豆免费节点)_168
-      - 美国(yudou789.top 玉豆免费节点)_169
-      - 美国(yudou789.top 玉豆免费节点)_170
-      - 美国(yudou789.top 玉豆免费节点)_171
 rule-providers:
   LocalAreaNetwork:
     type: http
