@@ -1,6 +1,6 @@
 {
   "jichangx": {
-    "https://jichangx.com/nodes/v2ray-20260123-01": false
+    "https://jichangx.com/nodes/v2ray-20260123-01": true
   },
   "cfmeme": {
     "https://s3.v2rayse.com/public/20260122/7chbztej.txt": true
@@ -10,18 +10,18 @@
   },
   "nodefree": {
     "https://nodefree.githubrowcontent.com/2026/01/20260123.yaml": false,
-    "https://nodefree.githubrowcontent.com/2026/01/20260123.txt": false
+    "https://nodefree.githubrowcontent.com/2026/01/20260123.txt": true
   },
   "oneclash": {
-    "https://oneclash.githubrowcontent.com/2026/01/20260123.yaml": false,
-    "https://oneclash.githubrowcontent.com/2026/01/20260123.txt": false
+    "https://oneclash.githubrowcontent.com/2026/01/20260123.yaml": true,
+    "https://oneclash.githubrowcontent.com/2026/01/20260123.txt": true
   },
   "yudou": {
     "https://yy.yudou6677.top/202601/20260122mg4eta.yaml": true,
     "https://yy.yudou6677.top/202601/20260122bas2se.txt": true
   },
   "datiya": {
-    "https://free.datiya.com/uploads/20260123-clash.yaml": false,
+    "https://free.datiya.com/uploads/20260123-clash.yaml": true,
     "https://free.datiya.com/uploads/20260123-v2ray.txt": false
   }
 }
