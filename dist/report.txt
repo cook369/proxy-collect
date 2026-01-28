@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-28 18:48:24
+# Collect Time: 2026-01-28 20:41:28
 
 
 ## Site: jichangx
@@ -31,14 +31,13 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: nodefree
+## Site: cfmeme
 
-| URL                                                         | Tried   | Success   |
-|-------------------------------------------------------------|---------|-----------|
-| https://nodefree.githubrowcontent.com/2026/01/20260128.yaml | Yes     | No        |
-| https://nodefree.githubrowcontent.com/2026/01/20260128.txt  | Yes     | No        |
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://s3.v2rayse.com/public/20260128/ed7atlr6.txt | No      | Yes       |
 
-采集成功: 0 / 采集失败: 2
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: 85la
@@ -50,20 +49,19 @@
 采集成功: 0 / 采集失败: 0
 
 
-## Site: cfmeme
+## Site: nodefree
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://s3.v2rayse.com/public/20260128/ed7atlr6.txt | No      | Yes       |
+| URL                                                         | Tried   | Success   |
+|-------------------------------------------------------------|---------|-----------|
+| https://nodefree.githubrowcontent.com/2026/01/20260128.yaml | Yes     | No        |
+| https://nodefree.githubrowcontent.com/2026/01/20260128.txt  | Yes     | No        |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 0 / 采集失败: 2
 
 
 ## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://dd.yudou6677.top/202601/20260127mj5eta.yaml | No      | Yes       |
-| https://dd.yudou6677.top/202601/20260127bh4ase.txt  | No      | Yes       |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
