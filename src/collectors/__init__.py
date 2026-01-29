@@ -1,6 +1,7 @@
 import pkgutil
 import importlib
-import collectors
+import collectors.sites
 
-for _, modname, _ in pkgutil.iter_modules(collectors.__path__):
-    importlib.import_module(f"collectors.{modname}")
+# 自动导入 sites 目录下的所有采集器
+for _, modname, _ in pkgutil.iter_modules(collectors.sites.__path__):
+    importlib.import_module(f"collectors.sites.{modname}")
