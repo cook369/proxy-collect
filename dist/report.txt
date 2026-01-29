@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-29 03:26:05
+# Collect Time: 2026-01-29 04:52:42
 
 
 ## Site: jichangx
@@ -9,6 +9,16 @@
 | https://jichangx.com/nodes/v2ray-20260129-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20260129-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20260129-v2ray.txt  | Yes     | Yes       |
+
+采集成功: 1 / 采集失败: 0
 
 
 ## Site: nodefree
@@ -25,20 +35,18 @@
 
 | URL                                                         | Tried   | Success   |
 |-------------------------------------------------------------|---------|-----------|
-| https://oneclash.githubrowcontent.com/2026/01/20260129.yaml | Yes     | No        |
-| https://oneclash.githubrowcontent.com/2026/01/20260129.txt  | Yes     | No        |
+| https://oneclash.githubrowcontent.com/2026/01/20260129.yaml | Yes     | Yes       |
+| https://oneclash.githubrowcontent.com/2026/01/20260129.txt  | Yes     | Yes       |
 
-采集成功: 0 / 采集失败: 2
+采集成功: 2 / 采集失败: 0
 
 
-## Site: datiya
+## Site: yudou
 
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260129-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20260129-v2ray.txt  | Yes     | No        |
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
 
-采集成功: 0 / 采集失败: 1
+采集成功: 0 / 采集失败: 0
 
 
 ## Site: 85la
@@ -55,15 +63,5 @@
 | URL                                                 | Tried   | Success   |
 |-----------------------------------------------------|---------|-----------|
 | https://s3.v2rayse.com/public/20260129/mdxkxsnm.txt | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: yudou
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://dd.yudou6677.top/202601/20260129mj6eta.yaml | No      | Yes       |
-| https://dd.yudou6677.top/202601/20260129bas2se.txt  | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
