@@ -1,143 +1,56 @@
+"""主入口 - 简化版本
+
+使用服务层和配置模块，保持命令行接口不变。
+"""
 import argparse
-import datetime
 import logging
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import random
-import requests
-from tabulate import tabulate
-from tqdm import tqdm
+
+# 导入配置
+from config.settings import Config
+
+# 导入核心模型
+from core.models import CollectorResult
+
+# 导入服务
+from services.http_service import HttpService, ProxyPool, ProxyHttpService
+from services.proxy_service import ProxyValidator, ProxyService
+from services.record_service import RecordService
+from services.report_service import ReportService
+
+# 导入采集器
+from collectors.base import get_collector, list_collectors
 
 
-from collectors.base import (
-    CollectorResult,
-    DownloadRecord,
-    get_collector,
-    list_collectors,
-)
+# 初始化配置
+config = Config()
 
-OUTPUT_DIR = Path("../dist/")
-RECORD_FILE = OUTPUT_DIR / "downloaded.json"
-REPORT_FILE = OUTPUT_DIR / "report.txt"
-README_FILE = Path("../README.md")
-GITHUB_PROXY = "https://ghproxy.net"
-PROXY_URLS = [
-    "https://raw.githubusercontent.com/hookzof/socks5_list/refs/heads/master/proxy.txt",
-    "https://raw.githubusercontent.com/proxifly/free-proxy-list/refs/heads/main/proxies/protocols/socks5/data.txt",
-    "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/SOCKS5_RAW.txt",
-    "https://raw.githubusercontent.com/sunny9577/proxy-scraper/refs/heads/master/generated/socks5_proxies.txt",
-    "https://raw.githubusercontent.com/zloi-user/hideip.me/refs/heads/master/socks5.txt",
-    "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/refs/heads/master/socks5.txt",
-]
-TEST_URL = "http://httpbin.org/ip"
-MAX_AVAILABLE_PROXIES = 50
-
-
+# 配置日志
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
 )
-
-
-def test_proxy_head(url: str, proxy: str, timeout: int = 5) -> bool:
-    session = requests.Session()
-    session.verify = False
-    proxies = {"http": proxy, "https": proxy}
-    try:
-        resp = session.head(url, proxies=proxies, timeout=timeout)
-        resp.raise_for_status()
-        return True
-    except Exception:
-        return False
-
-
-def check_proxy(proxies: list[str]) -> list[str]:
-    available_proxies: list[str] = []
-    total = len(proxies)
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        futures = {executor.submit(test_proxy_head, TEST_URL, p): p for p in proxies}
-        with tqdm(
-            total=total,
-            desc="Proxy Checking",
-            unit="proxy",
-        ) as pbar:
-            for future in as_completed(futures):
-                proxy = futures[future]
-                try:
-                    future.result()
-                    available_proxies.append(proxy)
-                    if len(available_proxies) >= MAX_AVAILABLE_PROXIES:
-                        for f in futures:
-                            if not f.done():
-                                f.cancel()
-                        break
-                except Exception:
-                    logging.debug(f"Proxy failed: {proxy}")
-                pbar.update(1)
-                pbar.set_postfix(
-                    {
-                        "Available": len(available_proxies),
-                        "Checked": f"{pbar.n}/{total}",
-                    }
-                )
-
-    logging.info(f"Get avaliable Proxy: {len(available_proxies)}")
-    return available_proxies
-
-
-def get_proxy_list() -> list[str]:
-    proxies = []
-    for PROXY_URL in PROXY_URLS:
-        PROXY_URL = f"{GITHUB_PROXY}/{PROXY_URL}"
-        resp = requests.get(PROXY_URL, timeout=30)
-        resp.raise_for_status()
-        proxy = [
-            f"socks5h://{line.strip()}"
-            for line in resp.text.splitlines()
-            if line.strip()
-        ]
-        logging.info(f"Fetching proxies from: {PROXY_URL}, {len(proxy)}")
-        proxies.extend(random.sample(proxy, min(500, len(proxy))))
-    proxies = list(set(proxies))
-    logging.info(f"Get All Proxy: {len(proxies)}")
-    return check_proxy(proxies)
 
 
 def run_collector(
-    collector_name: str, proxy_list: list[str], output_dir: Path, record: DownloadRecord
-):
+    collector_name: str,
+    proxy_list: list[str],
+    output_dir: Path,
+    record: RecordService
+) -> CollectorResult:
     """运行单个采集器"""
     collector_cls = get_collector(collector_name)
-    collector = collector_cls(proxy_list)
-    return collector.run(output_dir, record)
-
-
-def write_download_report(results: list[CollectorResult], report_file: Path):
-    report_lines = []
-    now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    report_lines.append(f"\n# Collect Time: {now}\n")
-    for r in results:
-        report_lines.append(f"\n## Site: {r.site}\n")
-        table = []
-        for url in r.all_urls:
-            status = r.url_status.get(url)
-            tried = "Yes" if url in r.tried_urls else "No"
-            success = "Yes" if status else "No"
-            table.append([url, tried, success])
-        headers = ["URL", "Tried", "Success"]
-        report_lines.append(tabulate(table, headers, tablefmt="github"))
-        report_lines.append(
-            f"\n采集成功: {len(r.success_urls)} / 采集失败: {len(r.failed_urls)}\n"
-        )
-    report_file.write_text("\n".join(report_lines), encoding="utf-8")
-    print("\n".join(report_lines))
+    collector = collector_cls(proxy_list, record_storage=record)
+    return collector.run(output_dir)
 
 
 def update_readme(
-    output_dir: Path, readme_file: Path, github_prefix: str = GITHUB_PROXY
+    output_dir: Path,
+    readme_file: Path,
+    github_prefix: str
 ):
-    """
-    更新 README.md 中每日更新订阅部分
-    """
+    """更新 README.md 中每日更新订阅部分"""
     sites = [d.name for d in output_dir.iterdir() if d.is_dir()]
 
     # 构建每日更新订阅内容
@@ -181,6 +94,7 @@ def update_readme(
 
 
 def main():
+    """主入口函数"""
     parser = argparse.ArgumentParser(description="Run a collector")
     parser.add_argument(
         "--site",
@@ -204,9 +118,10 @@ def main():
         action="store_true",
         help="Use proxy collect",
     )
-    
-    record = DownloadRecord(RECORD_FILE)
+
     args = parser.parse_args()
+
+    # 列出采集器
     if args.list:
         print("Supported collectors:")
         for name in list_collectors():
@@ -220,38 +135,58 @@ def main():
         collectors_to_run = list_collectors()
 
     logging.info(f"Collectors to run: {collectors_to_run}")
-    
+
+    # 初始化服务
+    record = RecordService(config.app.record_file)
+    report_service = ReportService()
+
+    # 获取代理列表
     if args.proxy:
-        proxy_list = get_proxy_list()
+        http_service = HttpService()
+        validator = ProxyValidator(http_service, config.proxy)
+        proxy_service = ProxyService(http_service, validator, config.proxy)
+        proxy_list = proxy_service.get_validated_proxies()
     else:
         proxy_list = [None]
 
-    logging.info(f"Get avaliable proxy: {len(proxy_list)}")
+    logging.info(f"Get available proxy: {len(proxy_list)}")
 
     # 使用 ThreadPoolExecutor 并发运行采集器
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
-            executor.submit(run_collector, name, proxy_list, OUTPUT_DIR, record): name
+            executor.submit(run_collector, name, proxy_list, config.app.output_dir, record): name
             for name in collectors_to_run
         }
         for future in as_completed(futures):
             name = futures[future]
             try:
-                result = future.result()  # 返回 run_collector 的字典
+                result = future.result()
                 results.append(result)
-            except Exception:
+            except Exception as e:
+                logging.error(f"Collector {name} failed: {e}")
+                # 创建失败结果
                 results.append(
-                    {
-                        "site": name,
-                        "total_urls": 0,
-                        "new_urls": [],
-                        "result": "failed",
-                    }
+                    CollectorResult(
+                        site=name,
+                        all_urls=[],
+                        tried_urls=[],
+                        success_urls=[],
+                        failed_urls=[],
+                        url_status={},
+                        result="failed"
+                    )
                 )
-    write_download_report(results, REPORT_FILE)
-    update_readme(OUTPUT_DIR, README_FILE, GITHUB_PROXY)
+
+    # 生成报告
+    report_content = report_service.generate(results)
+    report_service.save(report_content, config.app.report_file)
+    report_service.print_report(report_content)
+
+    # 更新 README
+    update_readme(config.app.output_dir, config.app.readme_file, config.proxy.github_proxy)
 
 
 if __name__ == "__main__":
     main()
+
