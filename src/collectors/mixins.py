@@ -7,7 +7,7 @@ from lxml import etree
 import logging
 from typing import Optional
 
-from core.models import DownloadTask
+from core.exceptions import ParseError
 
 
 class TwoStepCollectorMixin:
@@ -15,6 +15,8 @@ class TwoStepCollectorMixin:
 
     适用于需要先访问首页获取今日链接，再访问今日页面获取下载链接的采集器。
     """
+
+    today_page: str | None = None  # 保存今日页面 URL
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接（子类实现）
@@ -43,6 +45,9 @@ class TwoStepCollectorMixin:
 
         Returns:
             (文件名, URL) 元组列表
+
+        Raises:
+            ParseError: 无法获取今日链接
         """
         # 步骤1：获取首页
         home_html = self.fetch_html(self.home_page)
@@ -50,9 +55,14 @@ class TwoStepCollectorMixin:
         # 步骤2：获取今日链接
         today_url = self.get_today_url(home_html)
         if not today_url:
-            logging.warning(f"[{self.name}] No today URL found")
-            return []
+            raise ParseError(
+                "No today URL found on homepage",
+                self.home_page,
+                getattr(self, "name", None),
+            )
 
+        # 保存今日页面 URL
+        self.today_page = today_url
         logging.info(f"[{self.name}] Today URL: {today_url}")
 
         # 步骤3：获取今日页面
@@ -81,17 +91,29 @@ class XPathParserMixin:
 
         Returns:
             (文件名, URL) 元组列表
-        """
-        tree = etree.HTML(html)
-        results = []
 
+        Raises:
+            ParseError: XPath 解析失败
+        """
+        try:
+            tree = etree.HTML(html)
+        except Exception as e:
+            raise ParseError(
+                f"Failed to parse HTML: {e}",
+                collector_name=getattr(self, "name", None),
+            ) from e
+
+        results = []
         for filename, xpath_expr in rules.items():
             try:
                 hrefs = tree.xpath(xpath_expr)
                 if hrefs:
                     results.append((filename, hrefs[0]))
             except Exception as e:
-                logging.warning(f"XPath failed for {filename}: {e}")
+                logging.warning(
+                    f"[{getattr(self, 'name', 'unknown')}] "
+                    f"XPath failed for {filename}: {e}"
+                )
 
         return results
 

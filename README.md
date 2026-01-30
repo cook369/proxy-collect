@@ -11,59 +11,52 @@
 
 ---
 
+## 采集状态
+
+| 站点 | 状态 | 更新时间 | 今日来源 |
+|------|------|----------|----------|
+| 85la | ✅ | 2026-01-30 18:48 | [链接](https://www.85la.com/12425.html) |
+| cfmeme | ✅ | 2026-01-30 18:48 | [链接](https://www.cfmem.com/2026/01/20260130-33-v2rayclashsingbox.html) |
+| datiya | ✅ | 2026-01-30 18:48 | - |
+| jichangx | ✅ | 2026-01-30 18:48 | - |
+| nodefree | ❌ | - | - |
+| oneclash | ❌ | - | - |
+| yudou | ✅ | 2026-01-30 18:48 | [链接](https://www.yudou789.top/329.html) |
+
+**最后运行**: 2026-01-30 18:48:14
+
+
+---
+
+
 ## 每日更新订阅
 
-### 85la 订阅链接
+### 85la
 
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/85la/clash.yaml
 ```
-```shell
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/85la/v2ray.txt
 ```
-### cfmeme 订阅链接
+### cfmeme
 
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/cfmeme/clash.yaml
-```
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/cfmeme/v2ray.txt
-```
-### datiya 订阅链接
+### datiya
 
-```shell
+```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/clash.yaml
 ```
-```shell
+```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/v2ray.txt
 ```
-### jichangx 订阅链接
+### jichangx
 
-```shell
+```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/jichangx/v2ray.txt
 ```
-### nodefree 订阅链接
+### yudou
 
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/nodefree/clash.yaml
 ```
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/nodefree/v2ray.txt
-```
-### oneclash 订阅链接
-
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/oneclash/clash.yaml
-```
-```shell
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/oneclash/v2ray.txt
-```
-### yudou 订阅链接
-
-```shell
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/yudou/clash.yaml
 ```
-```shell
+```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/yudou/v2ray.txt
 ```
 

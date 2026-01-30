@@ -1,41 +1,42 @@
-"""采集器基类和注册表
-
-简化版本：移除 ProxyManager 和 DownloadRecord，通过依赖注入接收服务。
-"""
+"""采集器基类和注册表"""
 from abc import ABC, abstractmethod
 import logging
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Union
 
-# 从新模块导入
-from core.models import CollectorResult, DownloadTask
-from core.interfaces import HttpClient, RecordStorage
+import yaml
+
+from core.models import CollectorResult, FileManifest, ProxyInfo
+from core.interfaces import HttpClient
+from core.exceptions import NetworkError, DownloadError, ValidationError
+
+# 内容验证常量
+MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
+MIN_FILE_SIZE = 100  # 100 bytes
 
 # 采集器注册表
 COLLECTOR_REGISTRY: dict[str, type["BaseCollector"]] = {}
 
 
 class BaseCollector(ABC):
-    """采集器基类 - 简化版本，通过依赖注入接收服务"""
+    """采集器基类"""
 
     name: str
     home_page: str
+    today_page: str | None = None  # 今日页面 URL（由 mixin 设置）
 
     def __init__(
         self,
-        proxies_list: Optional[list[str]] = None,
+        proxies_list: Optional[Union[list[str], list[ProxyInfo]]] = None,
         http_client: Optional[HttpClient] = None,
-        record_storage: Optional[RecordStorage] = None
     ):
-        """初始化采集器（支持两种方式）
+        """初始化采集器
 
         Args:
-            proxies_list: 代理列表（旧方式，向后兼容）
+            proxies_list: 代理列表（支持字符串或 ProxyInfo）
             http_client: HTTP 客户端（新方式，依赖注入）
-            record_storage: 记录存储（新方式，依赖注入）
         """
         if http_client is None:
-            # 旧方式：从 proxies_list 创建服务
             from services.http_service import HttpService, ProxyPool, ProxyHttpService
             http_service = HttpService()
             if proxies_list:
@@ -44,10 +45,7 @@ class BaseCollector(ABC):
             else:
                 self.http_client = http_service
         else:
-            # 新方式：使用传入的服务
             self.http_client = http_client
-
-        self.record_storage = record_storage
 
     def fetch_html(self, url: str) -> str:
         """获取 HTML 内容
@@ -57,12 +55,18 @@ class BaseCollector(ABC):
 
         Returns:
             HTML 内容
+
+        Raises:
+            NetworkError: 网络请求失败
         """
         if not self.http_client:
-            raise RuntimeError("HTTP client not initialized")
+            raise NetworkError("HTTP client not initialized", url, self.name)
 
         logging.info(f"[{self.name}] Fetching: {url}")
-        return self.http_client.get(url, timeout=20)
+        try:
+            return self.http_client.get(url, timeout=20)
+        except Exception as e:
+            raise NetworkError(str(e), url, self.name) from e
 
     @abstractmethod
     def get_download_urls(self) -> list[tuple[str, str]]:
@@ -72,6 +76,42 @@ class BaseCollector(ABC):
             (文件名, URL) 元组列表
         """
         raise NotImplementedError
+
+    def validate_content(self, content: str, filename: str) -> None:
+        """验证下载内容
+
+        Args:
+            content: 文件内容
+            filename: 文件名
+
+        Raises:
+            ValidationError: 内容验证失败
+        """
+        # 检查文件大小
+        content_size = len(content.encode("utf-8"))
+        if content_size > MAX_FILE_SIZE:
+            raise ValidationError(
+                f"File too large: {content_size} bytes (max {MAX_FILE_SIZE})",
+                filename,
+                self.name,
+            )
+        if content_size < MIN_FILE_SIZE:
+            raise ValidationError(
+                f"File too small: {content_size} bytes (min {MIN_FILE_SIZE})",
+                filename,
+                self.name,
+            )
+
+        # 验证 YAML 格式
+        if filename.endswith((".yaml", ".yml")):
+            try:
+                yaml.safe_load(content)
+            except yaml.YAMLError as e:
+                raise ValidationError(
+                    f"Invalid YAML format: {e}",
+                    filename,
+                    self.name,
+                ) from e
 
     def download_file(self, filename: str, url: str, output_dir: Path) -> bool:
         """下载单个文件
@@ -87,6 +127,9 @@ class BaseCollector(ABC):
         try:
             content = self.fetch_html(url)
 
+            # 验证内容
+            self.validate_content(content, filename)
+
             file_path = output_dir / self.name / filename
             file_path.parent.mkdir(parents=True, exist_ok=True)
             file_path.write_text(content, encoding="utf-8")
@@ -94,9 +137,14 @@ class BaseCollector(ABC):
             logging.info(f"[{self.name}] Saved to: {file_path}")
             return True
 
-        except Exception as e:
-            logging.error(f"[{self.name}] Failed to download {url}: {e}")
+        except ValidationError as e:
+            logging.warning(f"[{self.name}] Validation failed for {filename}: {e}")
             return False
+        except NetworkError as e:
+            logging.error(f"[{self.name}] Network error downloading {url}: {e}")
+            return False
+        except Exception as e:
+            raise DownloadError(str(e), url, filename, self.name) from e
 
     def run(self, output_dir: Path) -> CollectorResult:
         """执行采集
@@ -108,51 +156,43 @@ class BaseCollector(ABC):
             采集结果
         """
         logging.info(f"[{self.name}] Start collector")
-        result = "success"
-        urls: list[tuple[str, str]] = []
-        url_status: dict[str, bool] = {}
+        files: dict[str, FileManifest] = {}
+        error_msg: str | None = None
 
         try:
-            # 获取下载 URL
             urls = self.get_download_urls()
             logging.info(f"[{self.name}] Found {len(urls)} URLs")
 
-            # 下载文件
             for filename, url in urls:
-                # 检查是否已下载
-                if self.record_storage and self.record_storage.is_downloaded(self.name, url):
-                    url_status[url] = True
-                    continue
-
-                # 下载文件
                 success = self.download_file(filename, url, output_dir)
-                url_status[url] = success
-
-            # 更新记录
-            if self.record_storage:
-                self.record_storage.update_site(self.name, url_status)
-                self.record_storage.save()
+                files[filename] = FileManifest(
+                    url=url,
+                    success=success,
+                    error=None if success else "Download failed"
+                )
 
         except Exception as e:
-            result = "failed"
+            error_msg = str(e)
             logging.error(f"[{self.name}] Error: {e}")
 
         logging.info(f"[{self.name}] Collector finished")
 
-        # 构建结果
-        all_urls = [url for _, url in urls]
-        tried_urls = [url for url in url_status if url in all_urls]
-        success_urls = [url for url, ok in url_status.items() if ok]
-        failed_urls = [url for url, ok in url_status.items() if not ok]
+        # 计算状态
+        if error_msg and not files:
+            status = "failed"
+        elif all(f.success for f in files.values()):
+            status = "success"
+        elif any(f.success for f in files.values()):
+            status = "partial"
+        else:
+            status = "failed"
 
         return CollectorResult(
             site=self.name,
-            all_urls=all_urls,
-            tried_urls=tried_urls,
-            success_urls=success_urls,
-            failed_urls=failed_urls,
-            url_status=url_status,
-            result=result,
+            today_page=getattr(self, "today_page", None),
+            files=files,
+            status=status,
+            error=error_msg,
         )
 
 
@@ -200,15 +240,9 @@ def get_collector(name: str) -> type[BaseCollector]:
     return COLLECTOR_REGISTRY[name]
 
 
-# -------------------- 向后兼容 -------------------- #
-
-# 为了向后兼容，从服务层导入并重新导出
-from services.record_service import RecordService as DownloadRecord
-
 __all__ = [
     "BaseCollector",
     "CollectorResult",
-    "DownloadRecord",
     "register_collector",
     "list_collectors",
     "get_collector",
