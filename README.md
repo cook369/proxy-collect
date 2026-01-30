@@ -15,15 +15,15 @@
 
 | 站点 | 状态 | 更新时间 | 今日来源 |
 |------|------|----------|----------|
-| 85la | ✅ | 2026-01-30 18:48 | [链接](https://www.85la.com/12425.html) |
-| cfmeme | ✅ | 2026-01-30 18:48 | [链接](https://www.cfmem.com/2026/01/20260130-33-v2rayclashsingbox.html) |
-| datiya | ✅ | 2026-01-30 18:48 | - |
-| jichangx | ✅ | 2026-01-30 18:48 | - |
+| 85la | ✅ | 2026-01-30 11:09 | [链接](https://www.85la.com/12425.html) |
+| cfmeme | ✅ | 2026-01-30 11:09 | [链接](https://www.cfmem.com/2026/01/20260130-33-v2rayclashsingbox.html) |
+| datiya | ⚠️ | 2026-01-30 11:09 | - |
+| jichangx | ✅ | 2026-01-30 11:09 | - |
 | nodefree | ❌ | - | - |
-| oneclash | ❌ | - | - |
-| yudou | ✅ | 2026-01-30 18:48 | [链接](https://www.yudou789.top/329.html) |
+| oneclash | ⚠️ | 2026-01-30 11:09 | - |
+| yudou | ✅ | 2026-01-30 11:09 | [链接](https://www.yudou789.top/329.html) |
 
-**最后运行**: 2026-01-30 18:48:14
+**最后运行**: 2026-01-30 11:09:52
 
 
 ---
@@ -38,18 +38,20 @@ https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main
 ```
 ### cfmeme
 
-### datiya
+### datiya ⚠️
 
 ```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/clash.yaml
-```
-```
-https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/v2ray.txt
 ```
 ### jichangx
 
 ```
 https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/jichangx/v2ray.txt
+```
+### oneclash ⚠️
+
+```
+https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/oneclash/clash.yaml
 ```
 ### yudou
 
