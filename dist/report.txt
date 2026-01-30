@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-30 04:55:01
+# Collect Time: 2026-01-30 05:12:21
 
 
 ## Site: jichangx
@@ -7,32 +7,6 @@
 | URL                                          | Tried   | Success   |
 |----------------------------------------------|---------|-----------|
 | https://jichangx.com/nodes/v2ray-20260130-01 | No      | Yes       |
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: 85la
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
-
-采集成功: 0 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260130-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20260130-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
-
-
-## Site: cfmeme
-
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
 
@@ -47,12 +21,14 @@
 采集成功: 0 / 采集失败: 2
 
 
-## Site: yudou
+## Site: datiya
 
-| URL   | Tried   | Success   |
-|-------|---------|-----------|
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20260130-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20260130-v2ray.txt  | Yes     | No        |
 
-采集成功: 0 / 采集失败: 0
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: oneclash
@@ -63,3 +39,30 @@
 | https://oneclash.githubrowcontent.com/2026/01/20260130.txt  | Yes     | No        |
 
 采集成功: 0 / 采集失败: 2
+
+
+## Site: cfmeme
+
+| URL   | Tried   | Success   |
+|-------|---------|-----------|
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: 85la
+
+| URL                                                                   | Tried   | Success   |
+|-----------------------------------------------------------------------|---------|-----------|
+| https://www.85la.com/wp-content/uploads/2026/01/2274de63de17909-3.txt | No      | Yes       |
+
+采集成功: 0 / 采集失败: 0
+
+
+## Site: yudou
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://dd.yudou6677.top/202601/20260130mg5eta.yaml | Yes     | Yes       |
+| https://dd.yudou6677.top/202601/20260130bau6se.txt  | Yes     | Yes       |
+
+采集成功: 2 / 采集失败: 0
