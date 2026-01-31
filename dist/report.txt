@@ -1,5 +1,5 @@
 
-# Collect Time: 2026-01-31 20:34:32
+# Collect Time: 2026-01-31 22:31:35
 
 
 ## Site: jichangx
@@ -9,6 +9,16 @@
 | https://jichangx.com/nodes/v2ray-20260131-01 | No      | Yes       |
 
 采集成功: 0 / 采集失败: 0
+
+
+## Site: datiya
+
+| URL                                                 | Tried   | Success   |
+|-----------------------------------------------------|---------|-----------|
+| https://free.datiya.com/uploads/20260131-clash.yaml | No      | Yes       |
+| https://free.datiya.com/uploads/20260131-v2ray.txt  | Yes     | No        |
+
+采集成功: 0 / 采集失败: 1
 
 
 ## Site: cfmeme
@@ -25,16 +35,6 @@
 |-------|---------|-----------|
 
 采集成功: 0 / 采集失败: 0
-
-
-## Site: datiya
-
-| URL                                                 | Tried   | Success   |
-|-----------------------------------------------------|---------|-----------|
-| https://free.datiya.com/uploads/20260131-clash.yaml | No      | Yes       |
-| https://free.datiya.com/uploads/20260131-v2ray.txt  | Yes     | No        |
-
-采集成功: 0 / 采集失败: 1
 
 
 ## Site: nodefree
