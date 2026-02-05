@@ -1,0 +1,87 @@
+{
+  "last_run": "2026-05-17 22:59:55",
+  "sites": {
+    "jichangx": {
+      "today_page": null,
+      "status": "success",
+      "updated_at": "2026-05-17 22:59:54",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://jichangx.com/nodes/v2ray-20260517-01",
+          "success": true
+        }
+      }
+    },
+    "nodefree": {
+      "today_page": "https://nodefree.me/p/3783.html",
+      "status": "success",
+      "updated_at": "2026-05-17 22:59:54",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://node.nodefree.me/2026/05/20260517.txt",
+          "success": true
+        }
+      }
+    },
+    "oneclash": {
+      "today_page": "https://oneclash.cc/a/3415.html",
+      "status": "success",
+      "updated_at": "2026-05-17 22:59:54",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://oss.oneclash.cc/2026/05/20260517.txt",
+          "success": true
+        }
+      }
+    },
+    "cfmeme": {
+      "today_page": null,
+      "status": "failed",
+      "updated_at": null,
+      "files": {},
+      "error": "[cfmeme] No today URL found on homepage"
+    },
+    "85la": {
+      "today_page": "https://www.85la.com/13759.html",
+      "status": "success",
+      "updated_at": "2026-05-17 22:59:54",
+      "files": {
+        "clash.yaml": {
+          "url": "https://www.qilan.de/api/subscription/de98fc033defcafa0bdde3bcec1de7904e0b60b58d370b91",
+          "success": true
+        }
+      }
+    },
+    "yudou": {
+      "today_page": "https://www.yudou789.top/900.html",
+      "status": "success",
+      "updated_at": "2026-05-17 22:59:55",
+      "files": {
+        "clash.yaml": {
+          "url": "https://hh.yudou226.top/202605/20260517mk5eta.yaml",
+          "success": true
+        },
+        "v2ray.txt": {
+          "url": "https://hh.yudou226.top/202605/20260517bag3se.txt",
+          "success": true
+        }
+      }
+    },
+    "datiya": {
+      "today_page": "https://free.datiya.com/post/20260518/",
+      "status": "partial",
+      "updated_at": "2026-05-17 22:59:55",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://free.datiya.com/uploads/20260518-v2ray.txt",
+          "success": false,
+          "error": "Download failed"
+        },
+        "clash.yaml": {
+          "url": "https://free.datiya.com/uploads/20260518-clash.yaml",
+          "success": true
+        }
+      }
+    }
+  }
+}
