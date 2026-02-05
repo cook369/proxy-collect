@@ -1,0 +1,99 @@
+{
+  "last_run": "2026-02-21 22:34:24",
+  "sites": {
+    "jichangx": {
+      "today_page": null,
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:21",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://jichangx.com/nodes/v2ray-20260221-01",
+          "success": true
+        }
+      }
+    },
+    "nodefree": {
+      "today_page": "https://nodefree.me/p/3868.html",
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:21",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://node.nodefree.me/2026/02/20260221.txt",
+          "success": true
+        }
+      }
+    },
+    "oneclash": {
+      "today_page": "https://oneclash.cc/a/3500.html",
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:21",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://oss.oneclash.cc/2026/02/20260221.txt",
+          "success": true
+        }
+      }
+    },
+    "cfmeme": {
+      "today_page": "https://www.cfmem.com/2026/02/20260221-19-v2rayclashsingbox.html",
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:21",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://v2rayse.com/fs/public/20260221/3k69i4c.txt",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://v2rayse.com/fs/public/20260221/xldfuen.yaml",
+          "success": true
+        }
+      }
+    },
+    "85la": {
+      "today_page": "https://www.85la.com/12550.html",
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:21",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://www.85la.com/wp-content/uploads/2026/02/c21f969b5f03d33-2.txt",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://www.85la.com/wp-content/uploads/2026/02/c21f969b5f03d33-2.yaml",
+          "success": true
+        }
+      }
+    },
+    "yudou": {
+      "today_page": "https://www.yudou789.top/442.html",
+      "status": "success",
+      "updated_at": "2026-02-21 22:34:23",
+      "files": {
+        "clash.yaml": {
+          "url": "https://hh.yudou6677.top/202602/20260221mets3a.yaml",
+          "success": true
+        },
+        "v2ray.txt": {
+          "url": "https://hh.yudou6677.top/202602/20260221baj5se.txt",
+          "success": true
+        }
+      }
+    },
+    "datiya": {
+      "today_page": "https://free.datiya.com/post/20260222/",
+      "status": "partial",
+      "updated_at": "2026-02-21 22:34:23",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://free.datiya.com/uploads/20260222-v2ray.txt",
+          "success": false,
+          "error": "Download failed"
+        },
+        "clash.yaml": {
+          "url": "https://free.datiya.com/uploads/20260222-clash.yaml",
+          "success": true
+        }
+      }
+    }
+  }
+}
