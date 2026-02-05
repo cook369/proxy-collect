@@ -11,4 +11,71 @@
 
 ---
 
+## 采集状态
+
+| 站点 | 状态 | 更新时间 | 今日来源 |
+|------|------|----------|----------|
+| 85la | ✅ | 2026-05-03 22:54 | [链接](https://www.85la.com/13512.html) |
+| cfmeme | ✅ | 2026-05-03 22:54 | [链接](https://www.cfmem.com/2026/05/20260503-24-vless-x14-ss-x7-vmess-x2.html) |
+| datiya | ⚠️ | 2026-05-03 22:54 | [链接](https://free.datiya.com/post/20260504/) |
+| jichangx | ✅ | 2026-05-03 22:54 | - |
+| nodefree | ✅ | 2026-05-03 22:54 | [链接](https://nodefree.me/p/3797.html) |
+| oneclash | ✅ | 2026-05-03 22:54 | [链接](https://oneclash.cc/a/3429.html) |
+| yudou | ✅ | 2026-05-03 22:54 | [链接](https://www.yudou789.top/829.html) |
+
+**最后运行**: 2026-05-03 22:54:31
+
+
+---
+
+
 ## 每日更新订阅
+
+### 85la
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| Clash | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/85la/clash.yaml |
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/85la/v2ray.txt |
+
+### cfmeme
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| Clash | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/cfmeme/clash.yaml |
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/cfmeme/v2ray.txt |
+
+### datiya ⚠️
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| Clash | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/clash.yaml |
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/datiya/v2ray.txt |
+
+### jichangx
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/jichangx/v2ray.txt |
+
+### nodefree
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/nodefree/v2ray.txt |
+
+### oneclash
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/oneclash/v2ray.txt |
+
+### yudou
+
+| 类型 | 订阅链接 |
+|:----:|----------|
+| Clash | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/yudou/clash.yaml |
+| V2Ray | https://ghproxy.net/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/yudou/v2ray.txt |
+
+
+---
