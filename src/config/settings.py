@@ -105,6 +105,11 @@ class ProxyConfig(BaseSettings):
         default=200, ge=50, le=1000, description="基础采样数量"
     )
 
+    # 缓存最小代理数
+    min_cache_proxies: int = Field(
+        default=10, ge=1, le=100, description="缓存有效所需的最小健康代理数"
+    )
+
     # 代理源列表（支持字符串或字典格式）
     proxy_sources: list[Union[str, dict]] = Field(
         default_factory=lambda: [
@@ -149,6 +154,11 @@ class CollectorConfig(BaseSettings):
 
     # 最大并发采集器数
     max_workers: int = Field(default=4, ge=1, le=20, description="最大并发采集器数量")
+
+    # 请求超时时间（秒）
+    fetch_timeout: int = Field(
+        default=20, ge=5, le=120, description="HTTP 请求超时时间（秒）"
+    )
 
 
 class Config(BaseSettings):

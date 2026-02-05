@@ -15,15 +15,17 @@ from core.models import ProxyInfo, ProxyCache
 class ProxyCacheService:
     """代理缓存服务"""
 
-    def __init__(self, cache_file: Path, ttl: int = 3600):
+    def __init__(self, cache_file: Path, ttl: int = 3600, min_cache_proxies: int = 10):
         """初始化缓存服务
 
         Args:
             cache_file: 缓存文件路径
             ttl: 缓存有效期（秒）
+            min_cache_proxies: 缓存有效所需的最小健康代理数
         """
         self.cache_file = cache_file
         self.ttl = ttl
+        self.min_cache_proxies = min_cache_proxies
         self._cache: Optional[ProxyCache] = None
 
     @property
@@ -90,7 +92,7 @@ class ProxyCacheService:
             return False
 
         healthy = self._cache.get_healthy_proxies(min_health_score)
-        if len(healthy) < 10:
+        if len(healthy) < self.min_cache_proxies:
             logging.info(f"Not enough healthy proxies: {len(healthy)}")
             return False
 

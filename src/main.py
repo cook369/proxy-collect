@@ -67,17 +67,21 @@ def update_readme(
         site_dir = output_dir / site_name
         status_suffix = " ⚠️" if site.status == "partial" else ""
         lines.append(f"### {site_name}{status_suffix}\n")
+        lines.append("| 类型 | 订阅链接 |")
+        lines.append("|:----:|----------|")
 
         clash_path = site_dir / "clash.yaml"
         v2ray_path = site_dir / "v2ray.txt"
 
         if clash_path.exists():
             url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/clash.yaml"
-            lines.append(f"```\n{url}\n```")
+            lines.append(f"| Clash | {url} |")
 
         if v2ray_path.exists():
             url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/v2ray.txt"
-            lines.append(f"```\n{url}\n```")
+            lines.append(f"| V2Ray | {url} |")
+
+        lines.append("")
 
     lines.append("\n---\n")
 
@@ -187,7 +191,9 @@ def main():
             if config.proxy.cache_file
             else config.app.output_dir / "proxy_cache.json"
         )
-        cache_service = ProxyCacheService(cache_file, config.proxy.cache_ttl)
+        cache_service = ProxyCacheService(
+            cache_file, config.proxy.cache_ttl, config.proxy.min_cache_proxies
+        )
 
         use_cache = config.proxy.cache_enabled and not args.no_proxy_cache
 
@@ -206,7 +212,7 @@ def main():
     logging.info(f"Get available proxy: {len(proxy_list)}")
 
     # 使用 ThreadPoolExecutor 并发运行采集器
-    results = []
+    results: list[CollectorResult] = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
             executor.submit(
@@ -238,7 +244,7 @@ def main():
         # 注入时间戳到 clash.yaml
         if result.status != "failed":
             clash_path = config.app.output_dir / result.site / "clash.yaml"
-            FileProcessor.process_downloaded_file(clash_path, result.site, timestamp)
+            FileProcessor.process_downloaded_file(clash_path, result, timestamp)
 
     # 保存 manifest
     manifest.save()
