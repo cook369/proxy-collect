@@ -67,17 +67,21 @@ def update_readme(
         site_dir = output_dir / site_name
         status_suffix = " ⚠️" if site.status == "partial" else ""
         lines.append(f"### {site_name}{status_suffix}\n")
+        lines.append("| 类型 | 订阅链接 |")
+        lines.append("|:----:|----------|")
 
         clash_path = site_dir / "clash.yaml"
         v2ray_path = site_dir / "v2ray.txt"
 
         if clash_path.exists():
             url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/clash.yaml"
-            lines.append(f"```\n{url}\n```")
+            lines.append(f"| Clash | {url} |")
 
         if v2ray_path.exists():
             url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/v2ray.txt"
-            lines.append(f"```\n{url}\n```")
+            lines.append(f"| V2Ray | {url} |")
+
+        lines.append("")
 
     lines.append("\n---\n")
 
