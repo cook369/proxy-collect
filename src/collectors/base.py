@@ -10,6 +10,7 @@ import yaml
 from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError, DownloadError, ValidationError
+from config.settings import default_config
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -66,7 +67,9 @@ class BaseCollector(ABC):
 
         logging.info(f"[{self.name}] Fetching: {url}")
         try:
-            return self.http_client.get(url, timeout=20)
+            return self.http_client.get(
+                url, timeout=default_config.collector.fetch_timeout
+            )
         except Exception as e:
             raise NetworkError(str(e), url, self.name) from e
 

@@ -9,7 +9,7 @@ from Crypto.Hash import MD5
 from Crypto.Util.Padding import unpad
 
 from collectors.base import BaseCollector, register_collector
-from collectors.mixins import TwoStepCollectorMixin, safe_xpath, safe_xpath_all
+from collectors.mixins import TwoStepCollectorMixin, HtmlParser
 from core.models import DownloadTask
 
 
@@ -57,29 +57,14 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接"""
-        links = safe_xpath_all(
-            home_html,
-            '//a[text()[contains(., "免费精选节点")]]/@href',
-            self.name,
-        )
-        if not links:
-            return None
-        return links[0]
+        parser = HtmlParser(home_html, self.name)
+        return parser.xpath('//a[text()[contains(., "免费精选节点")]]/@href')
 
     def parse_download_tasks(self, today_html: str) -> list[DownloadTask]:
         """从今日页面解析下载任务"""
-        elements = safe_xpath_all(
-            today_html,
-            '//div[p[contains(., "免费节点订阅链接")]]',
-            self.name,
-        )
-        if not elements:
-            return []
-
-        sub_content_data = safe_xpath(
-            today_html,
+        parser = HtmlParser(today_html, self.name)
+        sub_content_data = parser.xpath(
             'string(//div[p[contains(., "免费节点订阅链接")]])',
-            self.name,
             default="",
         )
         if not sub_content_data:

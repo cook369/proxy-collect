@@ -10,13 +10,15 @@ import logging
 
 import yaml
 
+from core.models import CollectorResult
+
 
 class FileProcessor:
     """文件处理器"""
 
     @staticmethod
     def inject_timestamp_to_clash(
-        content: str, site: str, timestamp: Optional[str] = None
+        content: str, result: CollectorResult, timestamp: Optional[str] = None
     ) -> str:
         """注入时间戳节点到 clash.yaml
 
@@ -31,26 +33,31 @@ class FileProcessor:
         if timestamp is None:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-        name = f"更新时间 {timestamp} | {site}"
+        names = [
+            f"更新时间 {timestamp}",
+            f"站点 {result.site}",
+            f"采集地址 {result.today_page}",
+        ]
 
-        # VLESS 时间戳节点
-        timestamp_node = {
-            "name": name,
-            "type": "vless",
-            "server": "127.0.0.1",
-            "port": 1,
-            "uuid": "00000000-0000-0000-0000-000000000000",
-            "network": "ws",
-            "skip-cert-verify": True,
-            "tls": False,
-        }
         data = yaml.safe_load(content)
-        if "proxies" in data:
-            data["proxies"].insert(0, timestamp_node)
+
+        for name in names:
+            new_node = {
+                "name": name,
+                "type": "vless",
+                "server": "127.0.0.1",
+                "port": 0,
+                "uuid": "00000000-0000-0000-0000-000000000000",
+                "network": "ws",
+                "skip-cert-verify": True,
+                "tls": False,
+            }
+            if "proxies" in data:
+                data["proxies"].insert(0, new_node)
         if "proxy-groups" in data:
-            for i in range(len(data["proxy-groups"])):
-                if "proxies" in data["proxy-groups"][i]:
-                    data["proxy-groups"][i]["proxies"].insert(0, name)
+            group = {"name": "订阅信息", "proxies": names, "type": "select"}
+
+            data["proxy-groups"].insert(0, group)
 
         content = yaml.safe_dump(data, allow_unicode=True)
 
@@ -58,7 +65,7 @@ class FileProcessor:
 
     @staticmethod
     def process_downloaded_file(
-        file_path: Path, site: str, timestamp: Optional[str] = None
+        file_path: Path, result: CollectorResult, timestamp: Optional[str] = None
     ):
         """处理下载的文件
 
@@ -75,7 +82,7 @@ class FileProcessor:
         if filename.endswith(".yaml") or filename.endswith(".yml"):
             content = file_path.read_text(encoding="utf-8")
             processed = FileProcessor.inject_timestamp_to_clash(
-                content, site, timestamp
+                content, result, timestamp
             )
             file_path.write_text(processed, encoding="utf-8")
-            logging.info(f"[{site}] Injected timestamp to {filename}")
+            logging.info(f"[{result.site}] Injected timestamp to {filename}")

@@ -76,6 +76,7 @@ class HttpService:
 
         if not resp.text.strip():
             raise ValueError("Empty response")
+        resp.encoding = "utf-8"
 
         return resp.text
 
