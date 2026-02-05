@@ -1,9 +1,8 @@
 """ManifestService 单元测试"""
+
 import json
-import pytest
 import tempfile
 from pathlib import Path
-from unittest.mock import patch
 
 from services.manifest_service import ManifestService
 from core.models import CollectorResult, FileManifest, SiteManifest
@@ -37,11 +36,11 @@ class TestManifestServiceInit:
                         "files": {
                             "clash.yaml": {
                                 "url": "http://example.com/clash.yaml",
-                                "success": True
+                                "success": True,
                             }
-                        }
+                        },
                     }
-                }
+                },
             }
             manifest_file.write_text(json.dumps(data), encoding="utf-8")
 
@@ -71,7 +70,9 @@ class TestManifestServiceShouldDownload:
             manifest_file = Path(tmpdir) / "manifest.json"
             service = ManifestService(manifest_file)
 
-            assert service.should_download("new_site", "http://example.com/file") is True
+            assert (
+                service.should_download("new_site", "http://example.com/file") is True
+            )
 
     def test_should_download_existing_url_success(self):
         """测试已成功下载的 URL 不需要重新下载"""
@@ -86,13 +87,14 @@ class TestManifestServiceShouldDownload:
                 updated_at="2026-01-30",
                 files={
                     "clash.yaml": FileManifest(
-                        url="http://example.com/clash.yaml",
-                        success=True
+                        url="http://example.com/clash.yaml", success=True
                     )
-                }
+                },
             )
 
-            result = service.should_download("test_site", "http://example.com/clash.yaml")
+            result = service.should_download(
+                "test_site", "http://example.com/clash.yaml"
+            )
             assert result is False
 
     def test_should_download_existing_url_failed(self):
@@ -109,12 +111,14 @@ class TestManifestServiceShouldDownload:
                     "clash.yaml": FileManifest(
                         url="http://example.com/clash.yaml",
                         success=False,
-                        error="Download failed"
+                        error="Download failed",
                     )
-                }
+                },
             )
 
-            result = service.should_download("test_site", "http://example.com/clash.yaml")
+            result = service.should_download(
+                "test_site", "http://example.com/clash.yaml"
+            )
             assert result is True
 
 
@@ -132,11 +136,10 @@ class TestManifestServiceUpdateFromResult:
                 today_page="http://example.com/today",
                 files={
                     "clash.yaml": FileManifest(
-                        url="http://example.com/clash.yaml",
-                        success=True
+                        url="http://example.com/clash.yaml", success=True
                     )
                 },
-                status="success"
+                status="success",
             )
 
             service.update_from_result(result)
@@ -156,7 +159,7 @@ class TestManifestServiceUpdateFromResult:
                 today_page=None,
                 files={},
                 status="failed",
-                error="Connection error"
+                error="Connection error",
             )
 
             service.update_from_result(result)
@@ -181,10 +184,9 @@ class TestManifestServiceSave:
                 updated_at="2026-01-30",
                 files={
                     "clash.yaml": FileManifest(
-                        url="http://example.com/clash.yaml",
-                        success=True
+                        url="http://example.com/clash.yaml", success=True
                     )
-                }
+                },
             )
 
             service.save()
@@ -208,10 +210,10 @@ class TestManifestServiceSave:
                     "clash.yaml": FileManifest(
                         url="http://example.com/clash.yaml",
                         success=False,
-                        error="Download failed"
+                        error="Download failed",
                     )
                 },
-                error="Site error"
+                error="Site error",
             )
 
             service.save()
@@ -235,7 +237,7 @@ class TestManifestServiceGetSite:
                 today_page="http://example.com",
                 status="success",
                 updated_at="2026-01-30",
-                files={}
+                files={},
             )
 
             site = service.get_site("test_site")

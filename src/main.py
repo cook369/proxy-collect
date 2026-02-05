@@ -1,4 +1,5 @@
 """主入口"""
+
 import argparse
 import logging
 import os
@@ -47,7 +48,9 @@ def update_readme(
 
     for site_name in sorted(manifest.sites.keys()):
         site = manifest.sites[site_name]
-        status_icon = {"success": "✅", "partial": "⚠️", "failed": "❌"}.get(site.status, "❓")
+        status_icon = {"success": "✅", "partial": "⚠️", "failed": "❌"}.get(
+            site.status, "❓"
+        )
         updated = site.updated_at[:16] if site.updated_at else "-"
         source = f"[链接]({site.today_page})" if site.today_page else "-"
         lines.append(f"| {site_name} | {status_icon} | {updated} | {source} |")
@@ -104,15 +107,16 @@ def print_report(results: list[CollectorResult]):
     for r in sorted(results, key=lambda x: x.site):
         icon = {"success": "✓", "partial": "!", "failed": "✗"}.get(r.status, "?")
         files_str = "  ".join(
-            f"{f} {'✓' if info.success else '✗'}"
-            for f, info in r.files.items()
+            f"{f} {'✓' if info.success else '✗'}" for f, info in r.files.items()
         )
         if not files_str and r.error:
             files_str = f"({r.error})"
         print(f"[{icon}] {r.site:12} │ {files_str}")
 
     print("-" * 60)
-    print(f"总计: {len(results)} 站点 │ 成功: {success_count} │ 部分: {partial_count} │ 失败: {failed_count}")
+    print(
+        f"总计: {len(results)} 站点 │ 成功: {success_count} │ 部分: {partial_count} │ 失败: {failed_count}"
+    )
     print("=" * 60 + "\n")
 
 
@@ -178,7 +182,11 @@ def main():
         proxy_service = ProxyService(http_service, validator, config.proxy)
 
         # 初始化缓存服务
-        cache_file = Path(config.proxy.cache_file) if config.proxy.cache_file else config.app.output_dir / "proxy_cache.json"
+        cache_file = (
+            Path(config.proxy.cache_file)
+            if config.proxy.cache_file
+            else config.app.output_dir / "proxy_cache.json"
+        )
         cache_service = ProxyCacheService(cache_file, config.proxy.cache_ttl)
 
         use_cache = config.proxy.cache_enabled and not args.no_proxy_cache
@@ -201,7 +209,9 @@ def main():
     results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
-            executor.submit(run_collector, name, proxy_list, config.app.output_dir): name
+            executor.submit(
+                run_collector, name, proxy_list, config.app.output_dir
+            ): name
             for name in collectors_to_run
         }
         for future in as_completed(futures):
@@ -237,9 +247,13 @@ def main():
     print_report(results)
 
     # 更新 README
-    update_readme(manifest, config.app.readme_file, config.proxy.github_proxy, config.app.output_dir)
+    update_readme(
+        manifest,
+        config.app.readme_file,
+        config.proxy.github_proxy,
+        config.app.output_dir,
+    )
 
 
 if __name__ == "__main__":
     main()
-

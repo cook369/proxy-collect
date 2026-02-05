@@ -107,7 +107,7 @@ class ProxyCacheService:
         """
         if self._cache is None:
             self._cache = self.load()
-        
+
         return self._cache.get_healthy_proxies(min_health_score)
 
     def update_proxies(self, proxies: list[ProxyInfo]) -> None:

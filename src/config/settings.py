@@ -147,21 +147,8 @@ class CollectorConfig(BaseSettings):
         extra="ignore",
     )
 
-    # 下载超时（秒）
-    download_timeout: int = Field(
-        default=30, ge=5, le=300, description="下载超时时间（秒）"
-    )
-
     # 最大并发采集器数
     max_workers: int = Field(default=4, ge=1, le=20, description="最大并发采集器数量")
-
-    # 重试次数
-    retry_times: int = Field(default=3, ge=0, le=10, description="请求重试次数")
-
-    # HTTP 请求超时（秒）
-    http_timeout: int = Field(
-        default=30, ge=5, le=300, description="HTTP 请求超时时间（秒）"
-    )
 
 
 class Config(BaseSettings):

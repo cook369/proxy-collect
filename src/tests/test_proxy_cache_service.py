@@ -1,12 +1,10 @@
 """ProxyCacheService 单元测试"""
+
 import json
 import time
-import pytest
-from pathlib import Path
-from unittest.mock import patch
 
 from services.proxy_cache_service import ProxyCacheService
-from core.models import ProxyInfo, ProxyCache, ProxyType
+from core.models import ProxyInfo
 
 
 class TestProxyCacheService:
@@ -34,9 +32,7 @@ class TestProxyCacheService:
         """测试加载已存在的缓存文件"""
         cache_file = tmp_path / "cache.json"
         data = {
-            "proxies": [
-                {"host": "1.2.3.4", "port": 1080, "proxy_type": "socks5"}
-            ],
+            "proxies": [{"host": "1.2.3.4", "port": 1080, "proxy_type": "socks5"}],
             "created_at": time.time(),
             "updated_at": time.time(),
         }
@@ -65,9 +61,7 @@ class TestProxyCacheService:
         """测试缓存过期"""
         cache_file = tmp_path / "cache.json"
         data = {
-            "proxies": [
-                {"host": "1.2.3.4", "port": 1080, "success_count": 5}
-            ],
+            "proxies": [{"host": "1.2.3.4", "port": 1080, "success_count": 5}],
             "created_at": time.time() - 7200,
             "updated_at": time.time() - 7200,
         }
@@ -81,9 +75,7 @@ class TestProxyCacheService:
         """测试健康代理不足"""
         cache_file = tmp_path / "cache.json"
         data = {
-            "proxies": [
-                {"host": "1.2.3.4", "port": 1080, "fail_count": 10}
-            ],
+            "proxies": [{"host": "1.2.3.4", "port": 1080, "fail_count": 10}],
             "created_at": time.time(),
             "updated_at": time.time(),
         }

@@ -3,14 +3,14 @@
 import base64
 import re
 import urllib.parse
-from lxml import etree
 from typing import Optional
 from Crypto.Cipher import AES
 from Crypto.Hash import MD5
 from Crypto.Util.Padding import unpad
 
 from collectors.base import BaseCollector, register_collector
-from collectors.mixins import TwoStepCollectorMixin
+from collectors.mixins import TwoStepCollectorMixin, safe_xpath, safe_xpath_all
+from core.models import DownloadTask
 
 
 @register_collector
@@ -57,29 +57,43 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接"""
-        tree = etree.HTML(home_html)
-        links = tree.xpath('//a[text()[contains(., "免费精选节点")]]/@href')
+        links = safe_xpath_all(
+            home_html,
+            '//a[text()[contains(., "免费精选节点")]]/@href',
+            self.name,
+        )
         if not links:
-            raise ValueError("No links found on homepage.")
+            return None
         return links[0]
 
-    def parse_download_urls(self, today_html: str) -> list[tuple[str, str]]:
-        """从今日页面解析下载链接"""
-        tree = etree.HTML(today_html)
-        elements = tree.xpath('//div[p[contains(., "免费节点订阅链接")]]')
+    def parse_download_tasks(self, today_html: str) -> list[DownloadTask]:
+        """从今日页面解析下载任务"""
+        elements = safe_xpath_all(
+            today_html,
+            '//div[p[contains(., "免费节点订阅链接")]]',
+            self.name,
+        )
         if not elements:
-            raise ValueError("No elements found.")
+            return []
 
-        sub_content_data = elements[0].xpath("string(.)")
+        sub_content_data = safe_xpath(
+            today_html,
+            'string(//div[p[contains(., "免费节点订阅链接")]])',
+            self.name,
+            default="",
+        )
+        if not sub_content_data:
+            return []
+
         rules = {
             "clash.yaml": r"https?://[^\s'\"<>]+?\.(?:yaml)",
             "v2ray.txt": r"https?://[^\s'\"<>]+?\.(?:txt)",
         }
 
-        urls: list[tuple[str, str]] = []
+        tasks: list[DownloadTask] = []
         for filename, regex_expr in rules.items():
             hrefs = re.findall(regex_expr, sub_content_data)
             if hrefs:
-                urls.append((filename, str(hrefs[0])))
+                tasks.append(DownloadTask(filename=filename, url=str(hrefs[0])))
 
-        return urls
+        return tasks

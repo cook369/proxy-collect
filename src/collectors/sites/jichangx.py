@@ -3,6 +3,7 @@
 from datetime import datetime
 
 from collectors.base import BaseCollector, register_collector
+from core.models import DownloadTask
 
 
 @register_collector
@@ -12,7 +13,12 @@ class JichangxCollector(BaseCollector):
     name = "jichangx"
     home_page = "https://jichangx.com"
 
-    def get_download_urls(self) -> list[tuple[str, str]]:
-        """构建下载 URL"""
+    def get_download_tasks(self) -> list[DownloadTask]:
+        """构建下载任务"""
         date_str = datetime.now().strftime("%Y%m%d")
-        return [("v2ray.txt", f"{self.home_page}/nodes/v2ray-{date_str}-01")]
+        return [
+            DownloadTask(
+                filename="v2ray.txt",
+                url=f"{self.home_page}/nodes/v2ray-{date_str}-01",
+            )
+        ]

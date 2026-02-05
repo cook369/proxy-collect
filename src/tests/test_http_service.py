@@ -1,4 +1,5 @@
 """HttpService 单元测试"""
+
 import pytest
 from unittest.mock import Mock, patch
 import requests
@@ -22,7 +23,7 @@ class TestHttpService:
         assert service.verify_ssl is False
         assert service.session.verify is False
 
-    @patch('services.http_service.requests.Session.get')
+    @patch("services.http_service.requests.Session.get")
     def test_get_success(self, mock_get):
         """测试成功的 GET 请求"""
         mock_response = Mock()
@@ -36,7 +37,7 @@ class TestHttpService:
         assert result == "test content"
         mock_get.assert_called_once()
 
-    @patch('services.http_service.requests.Session.get')
+    @patch("services.http_service.requests.Session.get")
     def test_get_with_proxy(self, mock_get):
         """测试使用代理的 GET 请求"""
         mock_response = Mock()
@@ -49,12 +50,12 @@ class TestHttpService:
 
         assert result == "test content"
         call_kwargs = mock_get.call_args[1]
-        assert call_kwargs['proxies'] == {
-            'http': 'socks5://proxy:1080',
-            'https': 'socks5://proxy:1080'
+        assert call_kwargs["proxies"] == {
+            "http": "socks5://proxy:1080",
+            "https": "socks5://proxy:1080",
         }
 
-    @patch('services.http_service.requests.Session.get')
+    @patch("services.http_service.requests.Session.get")
     def test_get_empty_response(self, mock_get):
         """测试空响应"""
         mock_response = Mock()
@@ -66,7 +67,7 @@ class TestHttpService:
         with pytest.raises(ValueError, match="Empty response"):
             service.get("http://example.com")
 
-    @patch('services.http_service.requests.Session.get')
+    @patch("services.http_service.requests.Session.get")
     def test_get_http_error(self, mock_get):
         """测试 HTTP 错误"""
         mock_get.side_effect = requests.HTTPError("404 Not Found")

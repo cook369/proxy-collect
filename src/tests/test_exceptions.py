@@ -1,5 +1,4 @@
 """异常类单元测试"""
-import pytest
 
 from core.exceptions import (
     CollectorError,
@@ -65,9 +64,7 @@ class TestDownloadError:
     def test_with_filename(self):
         """测试带文件名"""
         error = DownloadError(
-            "Download failed",
-            url="http://example.com/file",
-            filename="clash.yaml"
+            "Download failed", url="http://example.com/file", filename="clash.yaml"
         )
         assert error.url == "http://example.com/file"
         assert error.filename == "clash.yaml"
