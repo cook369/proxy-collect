@@ -1,7 +1,7 @@
 """Yudou 采集器测试 - 包含 AES 解密功能"""
+
 import pytest
 from unittest.mock import Mock
-import base64
 
 from collectors.sites.yudou import YudouCollector
 from core.interfaces import HttpClient
@@ -20,7 +20,7 @@ class TestYudouCollector:
         key, iv = collector.evp_bytes_to_key(password, salt)
 
         assert len(key) == 32  # 256-bit key
-        assert len(iv) == 16   # 128-bit IV
+        assert len(iv) == 16  # 128-bit IV
         assert isinstance(key, bytes)
         assert isinstance(iv, bytes)
 
@@ -57,11 +57,12 @@ class TestYudouCollector:
 
         home_html = "<html><body>No links</body></html>"
 
-        with pytest.raises(ValueError, match="No links found on homepage"):
-            collector.get_today_url(home_html)
+        # 现在返回 None 而不是抛出异常
+        result = collector.get_today_url(home_html)
+        assert result is None
 
-    def test_parse_download_urls(self):
-        """测试解析下载链接"""
+    def test_parse_download_tasks(self):
+        """测试解析下载任务"""
         mock_http_client = Mock(spec=HttpClient)
         collector = YudouCollector(http_client=mock_http_client)
 
@@ -77,21 +78,26 @@ class TestYudouCollector:
         </html>
         """
 
-        urls = collector.parse_download_urls(today_html)
+        tasks = collector.parse_download_tasks(today_html)
 
-        assert len(urls) == 2
-        assert ("clash.yaml", "https://example.com/clash.yaml") in urls
-        assert ("v2ray.txt", "https://example.com/v2ray.txt") in urls
+        assert len(tasks) == 2
+        filenames = [t.filename for t in tasks]
+        urls = [t.url for t in tasks]
+        assert "clash.yaml" in filenames
+        assert "v2ray.txt" in filenames
+        assert "https://example.com/clash.yaml" in urls
+        assert "https://example.com/v2ray.txt" in urls
 
-    def test_parse_download_urls_not_found(self):
+    def test_parse_download_tasks_not_found(self):
         """测试未找到下载链接的情况"""
         mock_http_client = Mock(spec=HttpClient)
         collector = YudouCollector(http_client=mock_http_client)
 
         today_html = "<html><body>No content</body></html>"
 
-        with pytest.raises(ValueError, match="No elements found"):
-            collector.parse_download_urls(today_html)
+        # 现在返回空列表而不是抛出异常
+        result = collector.parse_download_tasks(today_html)
+        assert result == []
 
     def test_collector_name(self):
         """测试采集器名称"""
@@ -108,6 +114,7 @@ class TestYudouCollector:
 
         # 测试 AES 密文模式匹配
         import re
+
         pattern = collector.AES_PATTERN
 
         # 有效的 AES 密文

@@ -7,7 +7,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Optional
 import logging
-import re
 
 import yaml
 
@@ -31,29 +30,29 @@ class FileProcessor:
         """
         if timestamp is None:
             timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-        
+
         name = f"更新时间 {timestamp} | {site}"
 
         # VLESS 时间戳节点
         timestamp_node = {
             "name": name,
             "type": "vless",
-            "server": "127.0.0.1", 
-            "port": 1, 
+            "server": "127.0.0.1",
+            "port": 1,
             "uuid": "00000000-0000-0000-0000-000000000000",
             "network": "ws",
             "skip-cert-verify": True,
-            "tls": False
-            }
+            "tls": False,
+        }
         data = yaml.safe_load(content)
-        if 'proxies' in data:
-            data['proxies'].insert(0, timestamp_node)
-        if 'proxy-groups' in data:
-            for i in range(len(data['proxy-groups'])):
-                if 'proxies' in data['proxy-groups'][i]:
-                    data['proxy-groups'][i]['proxies'].insert(0, name)
-        
-        content = yaml.safe_dump(data,allow_unicode=True)
+        if "proxies" in data:
+            data["proxies"].insert(0, timestamp_node)
+        if "proxy-groups" in data:
+            for i in range(len(data["proxy-groups"])):
+                if "proxies" in data["proxy-groups"][i]:
+                    data["proxy-groups"][i]["proxies"].insert(0, name)
+
+        content = yaml.safe_dump(data, allow_unicode=True)
 
         return content
 

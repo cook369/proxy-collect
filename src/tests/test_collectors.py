@@ -1,11 +1,12 @@
 """采集器基类单元测试"""
+
 import pytest
 from pathlib import Path
-from unittest.mock import Mock, MagicMock, patch
+from unittest.mock import Mock
 import tempfile
 
 from collectors.base import BaseCollector, register_collector
-from core.models import CollectorResult
+from core.models import CollectorResult, DownloadTask
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError
 
@@ -21,7 +22,7 @@ class TestBaseCollector:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector(http_client=mock_http_client)
@@ -29,11 +30,12 @@ class TestBaseCollector:
 
     def test_init_without_http_client(self):
         """测试不提供 HTTP 客户端时的初始化（向后兼容）"""
+
         class TestCollector(BaseCollector):
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector()
@@ -49,7 +51,7 @@ class TestBaseCollector:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector(http_client=mock_http_client)
@@ -60,11 +62,12 @@ class TestBaseCollector:
 
     def test_fetch_html_no_client(self):
         """测试未初始化 HTTP 客户端时的错误"""
+
         class TestCollector(BaseCollector):
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector(http_client=Mock())
@@ -83,14 +86,15 @@ class TestBaseCollector:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector(http_client=mock_http_client)
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            success = collector.download_file("test.txt", "http://example.com/test.txt", output_dir)
+            task = DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+            success = collector.download_file(task, output_dir)
 
             assert success is True
             file_path = output_dir / "test" / "test.txt"
@@ -106,14 +110,15 @@ class TestBaseCollector:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         collector = TestCollector(http_client=mock_http_client)
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            success = collector.download_file("test.txt", "http://example.com/test.txt", output_dir)
+            task = DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+            success = collector.download_file(task, output_dir)
 
             assert success is False
 
@@ -131,8 +136,10 @@ class TestCollectorRun:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
-                return [("test.txt", "http://example.com/test.txt")]
+            def get_download_tasks(self):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
 
         collector = TestCollector(http_client=mock_http_client)
 
@@ -154,8 +161,8 @@ class TestCollectorRun:
             name = "test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
-                raise Exception("Failed to get URLs")
+            def get_download_tasks(self):
+                raise Exception("Failed to get tasks")
 
         collector = TestCollector(http_client=mock_http_client)
 
@@ -180,7 +187,7 @@ class TestCollectorRegistry:
             name = "test_registry"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
+            def get_download_tasks(self):
                 return []
 
         assert "test_registry" in COLLECTOR_REGISTRY

@@ -2,13 +2,13 @@
 
 测试多个组件协同工作的场景。
 """
-import pytest
+
 import tempfile
 from pathlib import Path
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
 from collectors.base import BaseCollector
-from core.models import CollectorResult, FileManifest
+from core.models import CollectorResult, FileManifest, DownloadTask
 from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
 
@@ -28,11 +28,10 @@ class TestCollectorWithManifest:
                 today_page="http://example.com/today",
                 files={
                     "clash.yaml": FileManifest(
-                        url="http://example.com/clash.yaml",
-                        success=True
+                        url="http://example.com/clash.yaml", success=True
                     )
                 },
-                status="success"
+                status="success",
             )
 
             manifest.update_from_result(result)
@@ -55,11 +54,10 @@ class TestCollectorWithManifest:
                 today_page="http://example.com/today",
                 files={
                     "clash.yaml": FileManifest(
-                        url="http://example.com/clash.yaml",
-                        success=True
+                        url="http://example.com/clash.yaml", success=True
                     )
                 },
-                status="success"
+                status="success",
             )
             manifest.update_from_result(result)
 
@@ -82,10 +80,7 @@ class TestCollectorWithFileProcessor:
 
             # 创建测试文件
             clash_file = site_dir / "clash.yaml"
-            clash_file.write_text(
-                "proxies:\n  - name: node1\n",
-                encoding="utf-8"
-            )
+            clash_file.write_text("proxies:\n  - name: node1\n", encoding="utf-8")
 
             # 处理文件
             FileProcessor.process_downloaded_file(
@@ -93,7 +88,7 @@ class TestCollectorWithFileProcessor:
             )
 
             content = clash_file.read_text(encoding="utf-8")
-            assert "⏰ 2026-01-30 10:00 | test_site" in content
+            assert "更新时间 2026-01-30 10:00 | test_site" in content
 
 
 class TestEndToEndCollector:
@@ -109,8 +104,10 @@ class TestEndToEndCollector:
             name = "e2e_test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
-                return [("test.txt", "http://example.com/test.txt")]
+            def get_download_tasks(self):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
@@ -130,8 +127,10 @@ class TestEndToEndCollector:
             name = "validation_test"
             home_page = "http://example.com"
 
-            def get_download_urls(self):
-                return [("test.txt", "http://example.com/test.txt")]
+            def get_download_tasks(self):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)

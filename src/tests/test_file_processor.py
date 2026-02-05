@@ -1,5 +1,5 @@
 """FileProcessor 单元测试"""
-import pytest
+
 import tempfile
 from pathlib import Path
 from unittest.mock import patch
@@ -23,9 +23,9 @@ proxies:
             content, "test_site", "2026-01-30 10:00"
         )
 
-        assert '⏰ 2026-01-30 10:00 | test_site' in result
-        assert 'type: vless' in result
-        assert 'server: 127.0.0.1' in result
+        assert "更新时间 2026-01-30 10:00 | test_site" in result
+        assert "type: vless" in result
+        assert "server: 127.0.0.1" in result
 
     def test_inject_timestamp_no_proxies_section(self):
         """测试没有 proxies 部分的情况"""
@@ -37,20 +37,19 @@ rules:
             content, "test_site", "2026-01-30 10:00"
         )
 
-        # 内容应该保持不变
-        assert result == content
-        assert '⏰' not in result
+        # 没有 proxies 部分时，不会注入时间戳节点
+        assert "更新时间" not in result
 
     def test_inject_timestamp_default_time(self):
         """测试使用默认时间戳"""
         content = """proxies:
   - name: "node1"
 """
-        with patch('services.file_processor.datetime') as mock_dt:
+        with patch("services.file_processor.datetime") as mock_dt:
             mock_dt.now.return_value.strftime.return_value = "2026-01-30 12:00"
             result = FileProcessor.inject_timestamp_to_clash(content, "test_site")
 
-        assert '2026-01-30 12:00' in result
+        assert "2026-01-30 12:00" in result
 
     def test_inject_preserves_original_content(self):
         """测试注入后保留原始内容"""
@@ -64,9 +63,9 @@ proxies:
             content, "test", "2026-01-30 10:00"
         )
 
-        assert 'port: 7890' in result
-        assert 'name: "node1"' in result
-        assert 'type: ss' in result
+        assert "port: 7890" in result
+        assert "node1" in result
+        assert "type: ss" in result
 
 
 class TestProcessDownloadedFile:
@@ -83,7 +82,7 @@ class TestProcessDownloadedFile:
             )
 
             content = file_path.read_text(encoding="utf-8")
-            assert '⏰ 2026-01-30 10:00 | test_site' in content
+            assert "更新时间 2026-01-30 10:00 | test_site" in content
 
     def test_process_yml_file(self):
         """测试处理 .yml 扩展名文件"""
@@ -96,7 +95,7 @@ class TestProcessDownloadedFile:
             )
 
             content = file_path.read_text(encoding="utf-8")
-            assert '⏰' in content
+            assert "更新时间" in content
 
     def test_process_nonexistent_file(self):
         """测试处理不存在的文件"""

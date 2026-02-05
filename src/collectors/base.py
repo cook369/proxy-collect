@@ -7,7 +7,7 @@ from typing import Optional, Union
 
 import yaml
 
-from core.models import CollectorResult, FileManifest, ProxyInfo
+from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError, DownloadError, ValidationError
 
@@ -71,11 +71,11 @@ class BaseCollector(ABC):
             raise NetworkError(str(e), url, self.name) from e
 
     @abstractmethod
-    def get_download_urls(self) -> list[tuple[str, str]]:
-        """获取下载 URL 列表（子类实现）
+    def get_download_tasks(self) -> list[DownloadTask]:
+        """获取下载任务列表（子类实现）
 
         Returns:
-            (文件名, URL) 元组列表
+            DownloadTask 列表
         """
         raise NotImplementedError
 
@@ -115,24 +115,27 @@ class BaseCollector(ABC):
                     self.name,
                 ) from e
 
-    def download_file(self, filename: str, url: str, output_dir: Path) -> bool:
+    def download_file(self, task: DownloadTask, output_dir: Path) -> bool:
         """下载单个文件
 
         Args:
-            filename: 文件名
-            url: 下载 URL
+            task: 下载任务
             output_dir: 输出目录
 
         Returns:
             是否成功
         """
         try:
-            content = self.fetch_html(url)
+            content = self.fetch_html(task.url)
+
+            # 应用内容处理器
+            if task.processor:
+                content = task.processor(content)
 
             # 验证内容
-            self.validate_content(content, filename)
+            self.validate_content(content, task.filename)
 
-            file_path = output_dir / self.name / filename
+            file_path = output_dir / self.name / task.filename
             file_path.parent.mkdir(parents=True, exist_ok=True)
             file_path.write_text(content, encoding="utf-8")
 
@@ -140,13 +143,13 @@ class BaseCollector(ABC):
             return True
 
         except ValidationError as e:
-            logging.warning(f"[{self.name}] Validation failed for {filename}: {e}")
+            logging.warning(f"[{self.name}] Validation failed for {task.filename}: {e}")
             return False
         except NetworkError as e:
-            logging.error(f"[{self.name}] Network error downloading {url}: {e}")
+            logging.error(f"[{self.name}] Network error downloading {task.url}: {e}")
             return False
         except Exception as e:
-            raise DownloadError(str(e), url, filename, self.name) from e
+            raise DownloadError(str(e), task.url, task.filename, self.name) from e
 
     def run(self, output_dir: Path) -> CollectorResult:
         """执行采集
@@ -162,13 +165,13 @@ class BaseCollector(ABC):
         error_msg: str | None = None
 
         try:
-            urls = self.get_download_urls()
-            logging.info(f"[{self.name}] Found {len(urls)} URLs")
+            tasks = self.get_download_tasks()
+            logging.info(f"[{self.name}] Found {len(tasks)} tasks")
 
-            for filename, url in urls:
-                success = self.download_file(filename, url, output_dir)
-                files[filename] = FileManifest(
-                    url=url,
+            for task in tasks:
+                success = self.download_file(task, output_dir)
+                files[task.filename] = FileManifest(
+                    url=task.url,
                     success=success,
                     error=None if success else "Download failed",
                 )

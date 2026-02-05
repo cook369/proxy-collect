@@ -1,6 +1,6 @@
 """ProxyService 单元测试"""
-import pytest
-from unittest.mock import Mock, patch, MagicMock
+
+from unittest.mock import Mock
 
 from services.proxy_service import ProxyValidator, ProxyService
 from services.http_service import HttpService
@@ -87,7 +87,7 @@ class TestProxyService:
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
             proxy_sources=[{"url": "http://example.com/proxies.txt", "weight": 1.0}],
-            base_sample_size=100
+            base_sample_size=100,
         )
 
         service = ProxyService(mock_http, mock_validator, config)
@@ -104,8 +104,7 @@ class TestProxyService:
         mock_http.get.return_value = lines
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
-            proxy_sources=[{"url": "url1", "weight": 2.0}],
-            base_sample_size=100
+            proxy_sources=[{"url": "url1", "weight": 2.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)
@@ -120,8 +119,7 @@ class TestProxyService:
         mock_http.get.return_value = "1.2.3.4:1080\n1.2.3.4:1080\n"
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
-            proxy_sources=[{"url": "url1", "weight": 1.0}],
-            base_sample_size=100
+            proxy_sources=[{"url": "url1", "weight": 1.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)
@@ -138,8 +136,7 @@ class TestProxyService:
             ProxyInfo(host="1.2.3.4", port=1080)
         ]
         config = ProxyConfig(
-            proxy_sources=[{"url": "url1", "weight": 1.0}],
-            base_sample_size=100
+            proxy_sources=[{"url": "url1", "weight": 1.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)

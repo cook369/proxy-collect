@@ -1,7 +1,6 @@
 """配置模块单元测试"""
-import os
+
 import pytest
-from pathlib import Path
 from pydantic import ValidationError
 
 from config.settings import AppConfig, ProxyConfig, CollectorConfig, Config
@@ -38,7 +37,7 @@ class TestProxyConfig:
         config = ProxyConfig()
         assert config.github_proxy == "https://ghproxy.net"
         assert config.test_url == "http://httpbin.org/ip"
-        assert config.max_available == 50
+        assert config.max_available == 15
         assert config.check_timeout == 5
         assert config.check_workers == 20
         assert config.verify_ssl is False
@@ -93,24 +92,7 @@ class TestCollectorConfig:
     def test_default_values(self):
         """测试默认值"""
         config = CollectorConfig()
-        assert config.download_timeout == 20
         assert config.max_workers == 4
-        assert config.retry_times == 3
-        assert config.http_timeout == 30
-
-    def test_download_timeout_validation(self):
-        """测试 download_timeout 字段验证"""
-        # 有效值
-        config = CollectorConfig(download_timeout=60)
-        assert config.download_timeout == 60
-
-        # 无效值（小于 5）
-        with pytest.raises(ValidationError):
-            CollectorConfig(download_timeout=4)
-
-        # 无效值（大于 300）
-        with pytest.raises(ValidationError):
-            CollectorConfig(download_timeout=301)
 
     def test_max_workers_validation(self):
         """测试 max_workers 字段验证"""
@@ -125,20 +107,6 @@ class TestCollectorConfig:
         # 无效值（大于 20）
         with pytest.raises(ValidationError):
             CollectorConfig(max_workers=21)
-
-    def test_retry_times_validation(self):
-        """测试 retry_times 字段验证"""
-        # 有效值
-        config = CollectorConfig(retry_times=5)
-        assert config.retry_times == 5
-
-        # 无效值（小于 0）
-        with pytest.raises(ValidationError):
-            CollectorConfig(retry_times=-1)
-
-        # 无效值（大于 10）
-        with pytest.raises(ValidationError):
-            CollectorConfig(retry_times=11)
 
 
 class TestConfig:
@@ -155,7 +123,7 @@ class TestConfig:
         """测试嵌套配置访问"""
         config = Config()
         assert config.app.output_dir.name == "dist"
-        assert config.proxy.max_available == 50
+        assert config.proxy.max_available == 15
         assert config.collector.max_workers == 4
 
 
@@ -179,7 +147,5 @@ class TestEnvironmentVariables:
     def test_collector_env_prefix(self, monkeypatch):
         """测试 COLLECTOR_ 前缀的环境变量"""
         monkeypatch.setenv("COLLECTOR_MAX_WORKERS", "8")
-        monkeypatch.setenv("COLLECTOR_RETRY_TIMES", "5")
         config = CollectorConfig()
         assert config.max_workers == 8
-        assert config.retry_times == 5

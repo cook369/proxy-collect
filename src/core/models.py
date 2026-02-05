@@ -5,8 +5,17 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional
+from typing import Optional, Callable
 import time
+
+
+@dataclass
+class DownloadTask:
+    """下载任务"""
+
+    filename: str
+    url: str
+    processor: Optional[Callable[[str], str]] = None
 
 
 @dataclass
