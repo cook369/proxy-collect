@@ -187,7 +187,9 @@ def main():
             if config.proxy.cache_file
             else config.app.output_dir / "proxy_cache.json"
         )
-        cache_service = ProxyCacheService(cache_file, config.proxy.cache_ttl)
+        cache_service = ProxyCacheService(
+            cache_file, config.proxy.cache_ttl, config.proxy.min_cache_proxies
+        )
 
         use_cache = config.proxy.cache_enabled and not args.no_proxy_cache
 

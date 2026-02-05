@@ -156,7 +156,7 @@ class ProxyService:
 
         for source in sources:
             try:
-                url = f"{self.config.github_proxy}/{source.url}"
+                url = f"{self.config.github_proxy.rstrip('/')}/{source.url.lstrip('/')}"
                 content = self.http_service.get(url, timeout=30)
 
                 proxies = []

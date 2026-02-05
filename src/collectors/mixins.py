@@ -3,7 +3,6 @@
 提取采集器中的通用模式，消除重复代码。
 """
 
-from datetime import datetime
 from lxml import etree
 import logging
 from typing import Optional
@@ -12,75 +11,82 @@ from core.exceptions import ParseError
 from core.models import DownloadTask
 
 
-def safe_xpath(
-    html: str,
-    xpath_expr: str,
-    collector_name: str | None = None,
-    default: str | None = None,
-) -> str | None:
-    """安全执行 XPath 查询
+class HtmlParser:
+    """HTML 解析器，缓存解析树避免重复解析
 
-    Args:
-        html: HTML 内容
-        xpath_expr: XPath 表达式
-        collector_name: 采集器名称（用于日志）
-        default: 默认值
+    当需要对同一 HTML 执行多次 XPath 查询时，使用此类可以提高性能。
 
-    Returns:
-        查询结果或默认值
+    Example:
+        parser = HtmlParser(html, "collector_name")
+        url1 = parser.xpath('//a/@href')
+        url2 = parser.xpath('//div/@class')
     """
-    try:
-        tree = etree.HTML(html)
-        if tree is None:
-            logging.warning(f"[{collector_name}] Failed to parse HTML")
+
+    def __init__(self, html: str, collector_name: str | None = None):
+        """初始化解析器
+
+        Args:
+            html: HTML 内容
+            collector_name: 采集器名称（用于日志）
+        """
+        self.collector_name = collector_name
+        self._tree = None
+        try:
+            self._tree = etree.HTML(html)
+        except Exception as e:
+            logging.warning(f"[{collector_name}] Failed to parse HTML: {e}")
+
+    def xpath(self, xpath_expr: str, default: str | None = None) -> str | None:
+        """执行 XPath 查询，返回第一个匹配结果
+
+        Args:
+            xpath_expr: XPath 表达式
+            default: 默认值
+
+        Returns:
+            查询结果或默认值
+        """
+        if self._tree is None:
             return default
 
-        result = tree.xpath(xpath_expr)
-        if not result:
+        try:
+            result = self._tree.xpath(xpath_expr)
+            if not result:
+                return default
+            if isinstance(result, list):
+                return result[0] if result else default
+            return str(result) if result else default
+        except etree.XPathError as e:
+            logging.warning(
+                f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}"
+            )
+            return default
+        except Exception as e:
+            logging.warning(f"[{self.collector_name}] XPath query failed: {e}")
             return default
 
-        # 处理不同类型的返回值
-        if isinstance(result, list):
-            return result[0] if result else default
-        return str(result) if result else default
+    def xpath_all(self, xpath_expr: str) -> list:
+        """执行 XPath 查询，返回所有匹配结果
 
-    except etree.XPathError as e:
-        logging.warning(f"[{collector_name}] Invalid XPath '{xpath_expr}': {e}")
-        return default
-    except Exception as e:
-        logging.warning(f"[{collector_name}] XPath query failed: {e}")
-        return default
+        Args:
+            xpath_expr: XPath 表达式
 
-
-def safe_xpath_all(
-    html: str,
-    xpath_expr: str,
-    collector_name: str | None = None,
-) -> list:
-    """安全执行 XPath 查询，返回所有匹配结果
-
-    Args:
-        html: HTML 内容
-        xpath_expr: XPath 表达式
-        collector_name: 采集器名称（用于日志）
-
-    Returns:
-        查询结果列表（失败时返回空列表）
-    """
-    try:
-        tree = etree.HTML(html)
-        if tree is None:
-            logging.warning(f"[{collector_name}] Failed to parse HTML")
+        Returns:
+            查询结果列表（失败时返回空列表）
+        """
+        if self._tree is None:
             return []
 
-        return tree.xpath(xpath_expr) or []
-
-    except etree.XPathError as e:
-        logging.warning(f"[{collector_name}] Invalid XPath '{xpath_expr}': {e}")
-        return []
-    except Exception as e:
-        logging.warning(f"[{collector_name}] XPath query failed: {e}")
-        return []
+        try:
+            return self._tree.xpath(xpath_expr) or []
+        except etree.XPathError as e:
+            logging.warning(
+                f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}"
+            )
+            return []
+        except Exception as e:
+            logging.warning(f"[{self.collector_name}] XPath query failed: {e}")
+            return []
 
 
 class TwoStepCollectorMixin:
@@ -169,30 +175,3 @@ class TwoStepCollectorMixin:
             logging.warning(f"[{collector_name}] No download tasks found on today page")
 
         return tasks
-
-
-class DateBasedUrlMixin:
-    """基于日期的 URL 构建 Mixin
-
-    适用于 URL 中包含日期的采集器。
-    """
-
-    def build_date_tasks(
-        self, base_url: str, date_format: str, extensions: dict[str, str]
-    ) -> list[DownloadTask]:
-        """构建基于日期的下载任务
-
-        Args:
-            base_url: 基础 URL
-            date_format: 日期格式（strftime 格式）
-            extensions: 文件扩展名字典 {文件名: 扩展名}
-
-        Returns:
-            DownloadTask 列表
-        """
-        date_str = datetime.now().strftime(date_format)
-
-        return [
-            DownloadTask(filename=filename, url=f"{base_url}/{date_str}{ext}")
-            for filename, ext in extensions.items()
-        ]
