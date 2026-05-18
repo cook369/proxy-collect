@@ -4,14 +4,14 @@ import json
 from pathlib import Path
 from unittest.mock import Mock
 
-from collectors.sites.xiaoqing import XiaoqingCollector
+from src.collectors.sites.xqkxw import XQKXWCollector
 from core.models import FileManifest, SiteManifest
 from core.interfaces import HttpClient
 
 
 def test_extract_latest_video_url_from_playlist_selects_matching_title():
     mock_http_client = Mock(spec=HttpClient)
-    collector = XiaoqingCollector(http_client=mock_http_client)
+    collector = XQKXWCollector(http_client=mock_http_client)
     data = {
         "contents": {
             "twoColumnBrowseResultsRenderer": {
@@ -26,32 +26,32 @@ def test_extract_latest_video_url_from_playlist_selects_matching_title():
                                                 "contents": [
                                                     {
                                                         "playlistVideoListRenderer": {
-                                                        "contents": [
-                                                            {
-                                                                "playlistVideoRenderer": {
-                                                                    "videoId": "IGNORE_1",
-                                                                    "title": {
-                                                                        "runs": [
-                                                                            {
-                                                                                "text": "其它视频 免费节点"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                }
-                                                            },
-                                                            {
-                                                                "playlistVideoRenderer": {
-                                                                    "videoId": "LN-Dgi_0_1I",
-                                                                    "title": {
-                                                                        "runs": [
-                                                                            {
-                                                                                "text": "最新节点分享 免费节点"
-                                                                            }
-                                                                        ]
-                                                                    },
-                                                                }
-                                                            },
-                                                        ]
+                                                            "contents": [
+                                                                {
+                                                                    "playlistVideoRenderer": {
+                                                                        "videoId": "IGNORE_1",
+                                                                        "title": {
+                                                                            "runs": [
+                                                                                {
+                                                                                    "text": "其它视频 免费节点"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "playlistVideoRenderer": {
+                                                                        "videoId": "LN-Dgi_0_1I",
+                                                                        "title": {
+                                                                            "runs": [
+                                                                                {
+                                                                                    "text": "最新节点分享 免费节点"
+                                                                                }
+                                                                            ]
+                                                                        },
+                                                                    }
+                                                                },
+                                                            ]
                                                         }
                                                     }
                                                 ]
@@ -76,7 +76,7 @@ def test_extract_latest_video_url_from_playlist_selects_matching_title():
 
 def test_extract_latest_video_url_from_compact_playlist_html():
     mock_http_client = Mock(spec=HttpClient)
-    collector = XiaoqingCollector(http_client=mock_http_client)
+    collector = XQKXWCollector(http_client=mock_http_client)
     html = (
         '"playlistVideoRenderer":{"videoId":"LN-Dgi_0_1I",'
         '"title":{"runs":[{"text":"最新节点分享 免费节点"}]}}'
@@ -90,7 +90,7 @@ def test_extract_latest_video_url_from_compact_playlist_html():
 
 def test_extract_paste_url_from_video_html():
     mock_http_client = Mock(spec=HttpClient)
-    collector = XiaoqingCollector(http_client=mock_http_client)
+    collector = XQKXWCollector(http_client=mock_http_client)
     html = (
         r'<a href="/redirect?q=https%3A%2F%2Fpaste.to%2F%3F7d3c11a64e4a5bd4'
         r'%23CZn2QCZQJm1bF8dTdQFEwxiSdfQAbx7wLarWY9zgh4tE\u0026redir_token=x">'
@@ -104,7 +104,7 @@ def test_extract_paste_url_from_video_html():
 
 def test_parse_subscription_tasks_from_decrypted_share():
     mock_http_client = Mock(spec=HttpClient)
-    collector = XiaoqingCollector(http_client=mock_http_client)
+    collector = XQKXWCollector(http_client=mock_http_client)
     content = Path("../new-collect/1.data").read_text(encoding="utf-8")
 
     tasks = collector.parse_subscription_tasks(content)
@@ -116,7 +116,7 @@ def test_parse_subscription_tasks_from_decrypted_share():
 
 def test_brute_force_decrypt_prepares_payload_once_and_finds_password():
     mock_http_client = Mock(spec=HttpClient)
-    collector = XiaoqingCollector(http_client=mock_http_client)
+    collector = XQKXWCollector(http_client=mock_http_client)
     collector.password_workers = 2
     attempts = []
     prepared_payload = object()
@@ -145,15 +145,15 @@ def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
         '"playlistVideoRenderer":{"videoId":"LN-Dgi_0_1I",'
         '"title":{"runs":[{"text":"最新节点分享 免费节点"}]}}'
     )
-    collector = XiaoqingCollector(http_client=mock_http_client)
-    site_dir = tmp_path / "xiaoqing"
+    collector = XQKXWCollector(http_client=mock_http_client)
+    site_dir = tmp_path / "xqkxw"
     site_dir.mkdir()
     (site_dir / "v2ray.txt").write_text("v" * 200, encoding="utf-8")
     (site_dir / "clash.yaml").write_text("proxies:\n  - name: test\n", encoding="utf-8")
 
     class FakeManifest:
         sites = {
-            "xiaoqing": SiteManifest(
+            "xqkxw": SiteManifest(
                 today_page=latest_url,
                 status="success",
                 updated_at="2026-05-18 12:00:00",
