@@ -3,7 +3,7 @@
 from unittest.mock import Mock
 
 from collectors.sites.cfmeme import CfmemeCollector
-from collectors.sites.la85 import La85Collector
+from collectors.sites.s_85la import S85LaCollector
 from core.interfaces import HttpClient
 
 
@@ -46,10 +46,8 @@ class TestCfmemeCollector:
         today_html = """
         <html>
             <body>
-                <div>V2Ray / XRay</div>
-                <div>https://example.com/v2ray.txt</div>
-                <div>Clash/Mihomo</div>
-                <div>https://example.com/clash.yaml</div>
+                <a href="https://example.com/v2ray.txt">V2Ray 订阅链接</a>
+                <a href="https://example.com/clash.yaml">Clash 订阅链接</a>
             </body>
         </html>
         """
@@ -79,7 +77,7 @@ class TestLa85Collector:
     def test_get_today_url(self):
         """测试从首页获取今日链接"""
         mock_http_client = Mock(spec=HttpClient)
-        collector = La85Collector(http_client=mock_http_client)
+        collector = S85LaCollector(http_client=mock_http_client)
 
         home_html = """
         <html>
@@ -95,7 +93,7 @@ class TestLa85Collector:
     def test_get_today_url_not_found(self):
         """测试首页未找到链接的情况"""
         mock_http_client = Mock(spec=HttpClient)
-        collector = La85Collector(http_client=mock_http_client)
+        collector = S85LaCollector(http_client=mock_http_client)
 
         home_html = "<html><body>No links</body></html>"
 
@@ -106,7 +104,7 @@ class TestLa85Collector:
     def test_parse_download_tasks(self):
         """测试解析下载任务"""
         mock_http_client = Mock(spec=HttpClient)
-        collector = La85Collector(http_client=mock_http_client)
+        collector = S85LaCollector(http_client=mock_http_client)
 
         today_html = """
         <html>
@@ -132,7 +130,7 @@ class TestLa85Collector:
     def test_collector_name(self):
         """测试采集器名称"""
         mock_http_client = Mock(spec=HttpClient)
-        collector = La85Collector(http_client=mock_http_client)
+        collector = S85LaCollector(http_client=mock_http_client)
 
         assert collector.name == "85la"
         assert collector.home_page == "https://www.85la.com"

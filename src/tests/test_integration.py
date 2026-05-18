@@ -83,12 +83,19 @@ class TestCollectorWithFileProcessor:
             clash_file.write_text("proxies:\n  - name: node1\n", encoding="utf-8")
 
             # 处理文件
+            result = CollectorResult(
+                site="test_site",
+                today_page="http://example.com/today",
+                files={},
+                status="success",
+            )
             FileProcessor.process_downloaded_file(
-                clash_file, "test_site", "2026-01-30 10:00"
+                clash_file, result, "2026-01-30 10:00"
             )
 
             content = clash_file.read_text(encoding="utf-8")
-            assert "更新时间 2026-01-30 10:00 | test_site" in content
+            assert "更新时间 2026-01-30 10:00" in content
+            assert "站点 test_site" in content
 
 
 class TestEndToEndCollector:
