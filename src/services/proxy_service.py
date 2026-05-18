@@ -133,7 +133,8 @@ class ProxyService:
 
         try:
             if ":" in line:
-                host, port_str = line.rsplit(":", 1)
+                lines = line.split(":")
+                host, port_str = lines[0].strip(), lines[1].strip()
                 port = int(port_str)
                 return ProxyInfo(
                     host=host,

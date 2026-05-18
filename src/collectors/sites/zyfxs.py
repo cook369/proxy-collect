@@ -53,11 +53,13 @@ class ZYFXSCollector(BaseCollector):
         """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
         check_playlist = check_playlist = check_html_contains("playlistVideoRenderer")
         if not self.today_page:
-            playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
+            playlist_html = self.fetch_html(
+                self.home_page, timeout=10, check_html=check_playlist
+            )
             self.today_page = self.get_today_url(playlist_html)
         self.skip_if_cached()
 
-        video_html = self.fetch_html(self.today_page)
+        video_html = self.fetch_html(self.today_page, timeout=10)
         paste_url = self.extract_paste_url(video_html)
 
         logging.info(f"[{self.name}] try decrypt passwd")

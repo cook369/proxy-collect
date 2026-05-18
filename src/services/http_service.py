@@ -53,7 +53,7 @@ class HttpService:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException, ValueError)),
+        retry=retry_if_exception_type((requests.RequestException)),
         reraise=True,
     )
     def get(
@@ -79,6 +79,7 @@ class HttpService:
             ValueError: 响应内容为空
         """
         proxies = {"http": proxy, "https": proxy} if proxy else None
+        # logging.info(f"Fetching URL: {url} with proxy: {proxy}")
         resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
         resp.raise_for_status()
 
@@ -221,8 +222,11 @@ class ProxyHttpService:
         for future in as_completed(futures):
             proxy = futures[future]
             try:
-                result, response_time = future.result()
+                result, response_time, proxyinfo = future.result()
                 if not check_html(result):
+                    logging.info(
+                        f"Proxy {proxy.url} {proxyinfo.host}:{proxyinfo.port} returned invalid content"
+                    )
                     raise ValueError("Response content failed validation")
                 self.proxy_pool.record_success(proxy, response_time)
 
@@ -245,14 +249,14 @@ class ProxyHttpService:
         proxy: ProxyInfo,
         timeout: int,
         headers: Optional[dict[str, str]] = None,
-    ) -> tuple[str, float]:
+    ) -> tuple[str, float, ProxyInfo]:
         """尝试使用指定代理获取"""
         start_time = time.time()
         result = self.http_service.get(
             url, proxy=proxy.url, timeout=timeout, headers=headers
         )
         response_time = time.time() - start_time
-        return result, response_time
+        return result, response_time, proxy
 
     def get(
         self,
