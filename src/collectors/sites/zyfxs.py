@@ -1,5 +1,3 @@
-"""小青科学采集器"""
-
 import base64
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
@@ -20,9 +18,8 @@ from config.settings import default_config
 from core.exceptions import ParseError
 from core.models import DownloadTask
 
-
 ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-LATEST_VIDEO_KEYWORDS = ("最新节点分享", "免费节点")
+LATEST_VIDEO_KEYWORDS = ("节点分享", "免费节点")
 
 
 @dataclass(frozen=True)
@@ -41,11 +38,13 @@ class PreparedPrivateBinPayload:
 
 
 @register_collector
-class XiaoqingCollector(BaseCollector):
-    """小青科学站点采集器"""
+class ZYFXSCollector(BaseCollector):
+    """资源分享师站点采集器"""
 
-    name = "xiaoqing"
-    home_page = "https://www.youtube.com/playlist?list=PLuUYvtnZVIVI79GPS7VvxhYYm0x2jjuOZ"
+    name = "zyfxs"
+    home_page = (
+        "https://www.youtube.com/playlist?list=PLFF7T03a7nnF-5POF9QxmABrzSKGy8fhC"
+    )
     password_workers = min(32, (os.cpu_count() or 4) * 2)
 
     def get_download_tasks(self) -> list[DownloadTask]:
@@ -73,7 +72,7 @@ class XiaoqingCollector(BaseCollector):
                 return f"https://www.youtube.com/watch?v={video_id}"
 
         raise ParseError(
-            "No latest xiaoqing video found",
+            "No latest zyfxs video found",
             self.home_page,
             self.name,
         )
@@ -91,7 +90,8 @@ class XiaoqingCollector(BaseCollector):
             re.DOTALL,
         )
 
-        for match in pattern.finditer(playlist_html):
+        matches = list(pattern.finditer(playlist_html))
+        for match in matches[::-1]:
             yield match.group("id"), html.unescape(match.group("title"))
 
     def iter_initial_data_playlist_videos(self, playlist_html: str):
@@ -110,17 +110,11 @@ class XiaoqingCollector(BaseCollector):
 
         try:
             data = json.loads(match.group(1))
-            contents = (
-                data["contents"]["twoColumnBrowseResultsRenderer"]["tabs"][0][
-                    "tabRenderer"
-                ]["content"]["sectionListRenderer"]["contents"][0][
-                    "itemSectionRenderer"
-                ]["contents"][0][
-                    "playlistVideoListRenderer"
-                ][
-                    "contents"
-                ]
-            )
+            contents = data["contents"]["twoColumnBrowseResultsRenderer"]["tabs"][0][
+                "tabRenderer"
+            ]["content"]["sectionListRenderer"]["contents"][0]["itemSectionRenderer"][
+                "contents"
+            ][0]["playlistVideoListRenderer"]["contents"]
         except (KeyError, IndexError, TypeError, json.JSONDecodeError) as e:
             raise ParseError(
                 f"Failed to parse latest YouTube video: {e}",
@@ -128,7 +122,7 @@ class XiaoqingCollector(BaseCollector):
                 self.name,
             ) from e
 
-        for item in contents:
+        for item in contents[::-1]:
             renderer = item.get("playlistVideoRenderer")
             video = self.parse_playlist_video_renderer(renderer)
             if video:
@@ -153,7 +147,7 @@ class XiaoqingCollector(BaseCollector):
         return video_id, html.unescape(title)
 
     def is_target_video_title(self, title: str) -> bool:
-        """判断是否为小青科学最新节点分享视频"""
+        """判断是否为资源分享师最新节点分享视频"""
         return all(keyword in title for keyword in LATEST_VIDEO_KEYWORDS)
 
     def extract_paste_url(self, video_html: str) -> str:
@@ -238,8 +232,8 @@ class XiaoqingCollector(BaseCollector):
     def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
         """从解密后的分享内容提取订阅链接"""
         patterns = {
-            "v2ray.txt": r"V2ray.*?(https?://[^\s<>'\"，）)]+?\.txt)",
-            "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+?\.yaml)",
+            "v2ray.txt": r"V2ray.*?(https?://[^\s<>'\"，）)]+?\.jpg)",
+            "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+?\.jpg)",
         }
 
         tasks: list[DownloadTask] = []
