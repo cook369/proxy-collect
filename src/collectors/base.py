@@ -3,7 +3,7 @@
 from abc import ABC, abstractmethod
 import logging
 from pathlib import Path
-from typing import Optional, Union
+from typing import Optional, Union, Callable
 
 import yaml
 
@@ -11,6 +11,7 @@ from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
+from utils.check import default_check_html
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -51,12 +52,16 @@ class BaseCollector(ABC):
         else:
             self.http_client = http_client
 
-    def fetch_html(self, url: str) -> str:
+    def fetch_html(
+        self,
+        url: str,
+        check_html: Callable[[str], bool] = default_check_html,
+    ) -> str:
         """获取 HTML 内容
 
         Args:
             url: 请求 URL
-
+            check_html: HTML 内容检查函数
         Returns:
             HTML 内容
 
@@ -69,7 +74,9 @@ class BaseCollector(ABC):
         logging.info(f"[{self.name}] Fetching: {url}")
         try:
             return self.http_client.get(
-                url, timeout=default_config.collector.fetch_timeout
+                url,
+                timeout=default_config.collector.fetch_timeout,
+                check_html=check_html,
             )
         except Exception as e:
             raise NetworkError(str(e), url, self.name) from e
