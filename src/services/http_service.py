@@ -55,7 +55,13 @@ class HttpService:
         retry=retry_if_exception_type((requests.RequestException, ValueError)),
         reraise=True,
     )
-    def get(self, url: str, proxy: Optional[str] = None, timeout: int = 30) -> str:
+    def get(
+        self,
+        url: str,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> str:
         """发送 GET 请求
 
         Args:
@@ -71,7 +77,7 @@ class HttpService:
             ValueError: 响应内容为空
         """
         proxies = {"http": proxy, "https": proxy} if proxy else None
-        resp = self.session.get(url, proxies=proxies, timeout=timeout)
+        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
         resp.raise_for_status()
 
         if not resp.text.strip():
@@ -186,7 +192,9 @@ class ProxyHttpService:
         self.proxy_pool = proxy_pool
         self.executor = ThreadPoolExecutor(max_workers=max_workers)
 
-    def fetch_with_proxies(self, url: str, timeout: int = 30) -> str:
+    def fetch_with_proxies(
+        self, url: str, timeout: int = 30, headers: Optional[dict[str, str]] = None
+    ) -> str:
         """使用代理池并发请求"""
         if not self.proxy_pool:
             return self.http_service.get(url, timeout=timeout)
@@ -196,7 +204,7 @@ class ProxyHttpService:
             raise ProxyError("No proxies available")
 
         futures = {
-            self.executor.submit(self._try_fetch, url, proxy, timeout): proxy
+            self.executor.submit(self._try_fetch, url, proxy, timeout, headers): proxy
             for proxy in proxies
         }
 
@@ -219,16 +227,26 @@ class ProxyHttpService:
 
         raise ProxyError(f"All proxies failed to fetch {url}")
 
-    def _try_fetch(self, url: str, proxy: ProxyInfo, timeout: int) -> tuple[str, float]:
+    def _try_fetch(
+        self,
+        url: str,
+        proxy: ProxyInfo,
+        timeout: int,
+        headers: Optional[dict[str, str]] = None,
+    ) -> tuple[str, float]:
         """尝试使用指定代理获取"""
         start_time = time.time()
-        result = self.http_service.get(url, proxy=proxy.url, timeout=timeout)
+        result = self.http_service.get(
+            url, proxy=proxy.url, timeout=timeout, headers=headers
+        )
         response_time = time.time() - start_time
         return result, response_time
 
-    def get(self, url: str, timeout: int = 30) -> str:
+    def get(
+        self, url: str, timeout: int = 30, headers: Optional[dict[str, str]] = None
+    ) -> str:
         """获取 URL 内容（兼容 HttpService 接口）"""
-        return self.fetch_with_proxies(url, timeout)
+        return self.fetch_with_proxies(url, timeout, headers)
 
     def shutdown(self):
         """关闭线程池"""

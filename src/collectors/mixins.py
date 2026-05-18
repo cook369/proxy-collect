@@ -155,6 +155,8 @@ class TwoStepCollectorMixin:
         # 保存今日页面 URL
         self.today_page = today_url
         logging.info(f"[{collector_name}] Today URL: {today_url}")
+        if hasattr(self, "skip_if_cached"):
+            self.skip_if_cached()
 
         # 步骤3：获取今日页面
         today_html = self.fetch_html(today_url)

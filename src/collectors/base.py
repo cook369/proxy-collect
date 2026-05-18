@@ -26,6 +26,7 @@ class BaseCollector(ABC):
     name: str
     home_page: str
     today_page: str | None = None  # 今日页面 URL（由 mixin 设置）
+    _current_output_dir: Path | None = None
 
     def __init__(
         self,
@@ -154,6 +155,43 @@ class BaseCollector(ABC):
         except Exception as e:
             raise DownloadError(str(e), task.url, task.filename, self.name) from e
 
+    def get_cached_result(
+        self, output_dir: Path | None = None
+    ) -> CollectorResult | None:
+        """获取已采集过同一 today_page 的缓存结果"""
+        today_page = getattr(self, "today_page", None)
+        if not today_page:
+            return None
+
+        from services.manifest_service import ManifestService
+
+        output_dir = (
+            output_dir or self._current_output_dir or default_config.app.output_dir
+        )
+        manifest = ManifestService(default_config.app.manifest_file)
+        site = manifest.get_site(self.name)
+        if not site or site.status != "success" or site.today_page != today_page:
+            return None
+
+        for filename, file_info in site.files.items():
+            if file_info.success and not (output_dir / self.name / filename).exists():
+                return None
+
+        return CollectorResult(
+            site=self.name,
+            today_page=site.today_page,
+            files=site.files,
+            status=site.status,
+            error=site.error,
+        )
+
+    def skip_if_cached(self, output_dir: Path | None = None) -> None:
+        """如果当前 today_page 已成功采集过，则中断当前采集并复用缓存结果"""
+        cached_result = self.get_cached_result(output_dir)
+        if cached_result:
+            logging.info(f"[{self.name}] Already collected {self.today_page}, skip")
+            raise CachedCollectorResult(cached_result)
+
     def run(self, output_dir: Path) -> CollectorResult:
         """执行采集
 
@@ -166,6 +204,7 @@ class BaseCollector(ABC):
         logging.info(f"[{self.name}] Start collector")
         files: dict[str, FileManifest] = {}
         error_msg: str | None = None
+        self._current_output_dir = output_dir
 
         try:
             tasks = self.get_download_tasks()
@@ -178,6 +217,9 @@ class BaseCollector(ABC):
                     success=success,
                     error=None if success else "Download failed",
                 )
+        except CachedCollectorResult as e:
+            logging.info(f"[{self.name}] Collector skipped by cache")
+            return e.result
 
         except Exception as e:
             error_msg = str(e)
@@ -202,6 +244,14 @@ class BaseCollector(ABC):
             status=status,
             error=error_msg,
         )
+
+
+class CachedCollectorResult(Exception):
+    """内部控制流：复用已采集结果并跳过后续解析/下载"""
+
+    def __init__(self, result: CollectorResult):
+        super().__init__("collector result cached")
+        self.result = result
 
 
 # -------------------- 采集器注册表 -------------------- #
