@@ -17,6 +17,8 @@ from collectors.base import BaseCollector, register_collector
 from config.settings import default_config
 from core.exceptions import ParseError
 from core.models import DownloadTask
+from utils.check import check_html_contains
+
 
 ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 LATEST_VIDEO_KEYWORDS = ("最新节点分享", "免费节点")
@@ -49,8 +51,10 @@ class XQKXWCollector(BaseCollector):
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
+
+        check_playlist = check_html_contains("playlistVideoRenderer")
         if not self.today_page:
-            playlist_html = self.fetch_html(self.home_page)
+            playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
             self.today_page = self.get_today_url(playlist_html)
         self.skip_if_cached()
 
@@ -181,6 +185,9 @@ class XQKXWCollector(BaseCollector):
             for future in as_completed(futures):
                 try:
                     result = future.result()
+                    logging.info(
+                        f"[{self.name}] found correct password: {futures[future]}"
+                    )
                 except Exception:
                     continue
 

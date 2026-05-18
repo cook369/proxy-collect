@@ -5,7 +5,7 @@
 
 import logging
 import time
-from typing import Optional, Union
+from typing import Callable, Optional, Union
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import RLock
 import requests
@@ -19,6 +19,7 @@ from tenacity import (
 
 from core.exceptions import ProxyError
 from core.models import ProxyInfo, ProxyType
+from utils.check import default_check_html
 
 
 class HttpService:
@@ -61,6 +62,7 @@ class HttpService:
         proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
+        check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """发送 GET 请求
 
@@ -83,6 +85,8 @@ class HttpService:
         if not resp.text.strip():
             raise ValueError("Empty response")
         resp.encoding = "utf-8"
+        if not check_html(resp.text):
+            raise ValueError("Response content failed validation")
 
         return resp.text
 
@@ -193,11 +197,17 @@ class ProxyHttpService:
         self.executor = ThreadPoolExecutor(max_workers=max_workers)
 
     def fetch_with_proxies(
-        self, url: str, timeout: int = 30, headers: Optional[dict[str, str]] = None
+        self,
+        url: str,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+        check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """使用代理池并发请求"""
         if not self.proxy_pool:
-            return self.http_service.get(url, timeout=timeout)
+            return self.http_service.get(
+                url, timeout=timeout, headers=headers, check_html=check_html
+            )
 
         proxies = self.proxy_pool.get_sorted()
         if not proxies:
@@ -212,6 +222,8 @@ class ProxyHttpService:
             proxy = futures[future]
             try:
                 result, response_time = future.result()
+                if not check_html(result):
+                    raise ValueError("Response content failed validation")
                 self.proxy_pool.record_success(proxy, response_time)
 
                 for f in futures:
@@ -243,10 +255,14 @@ class ProxyHttpService:
         return result, response_time
 
     def get(
-        self, url: str, timeout: int = 30, headers: Optional[dict[str, str]] = None
+        self,
+        url: str,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+        check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """获取 URL 内容（兼容 HttpService 接口）"""
-        return self.fetch_with_proxies(url, timeout, headers)
+        return self.fetch_with_proxies(url, timeout, headers, check_html)
 
     def shutdown(self):
         """关闭线程池"""
