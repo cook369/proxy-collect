@@ -4,7 +4,17 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
+from core.models import CollectorResult
 from services.file_processor import FileProcessor
+
+
+def make_result(site: str = "test_site") -> CollectorResult:
+    return CollectorResult(
+        site=site,
+        today_page="http://example.com/today",
+        files={},
+        status="success",
+    )
 
 
 class TestInjectTimestampToClash:
@@ -20,10 +30,12 @@ proxies:
     port: 443
 """
         result = FileProcessor.inject_timestamp_to_clash(
-            content, "test_site", "2026-01-30 10:00"
+            content, make_result(), "2026-01-30 10:00"
         )
 
-        assert "更新时间 2026-01-30 10:00 | test_site" in result
+        assert "更新时间 2026-01-30 10:00" in result
+        assert "站点 test_site" in result
+        assert "采集地址 http://example.com/today" in result
         assert "type: vless" in result
         assert "server: 127.0.0.1" in result
 
@@ -34,7 +46,7 @@ rules:
   - DOMAIN,example.com,DIRECT
 """
         result = FileProcessor.inject_timestamp_to_clash(
-            content, "test_site", "2026-01-30 10:00"
+            content, make_result(), "2026-01-30 10:00"
         )
 
         # 没有 proxies 部分时，不会注入时间戳节点
@@ -47,7 +59,7 @@ rules:
 """
         with patch("services.file_processor.datetime") as mock_dt:
             mock_dt.now.return_value.strftime.return_value = "2026-01-30 12:00"
-            result = FileProcessor.inject_timestamp_to_clash(content, "test_site")
+            result = FileProcessor.inject_timestamp_to_clash(content, make_result())
 
         assert "2026-01-30 12:00" in result
 
@@ -60,7 +72,7 @@ proxies:
     server: 1.2.3.4
 """
         result = FileProcessor.inject_timestamp_to_clash(
-            content, "test", "2026-01-30 10:00"
+            content, make_result("test"), "2026-01-30 10:00"
         )
 
         assert "port: 7890" in result
@@ -78,11 +90,12 @@ class TestProcessDownloadedFile:
             file_path.write_text("proxies:\n  - name: test\n", encoding="utf-8")
 
             FileProcessor.process_downloaded_file(
-                file_path, "test_site", "2026-01-30 10:00"
+                file_path, make_result(), "2026-01-30 10:00"
             )
 
             content = file_path.read_text(encoding="utf-8")
-            assert "更新时间 2026-01-30 10:00 | test_site" in content
+            assert "更新时间 2026-01-30 10:00" in content
+            assert "站点 test_site" in content
 
     def test_process_yml_file(self):
         """测试处理 .yml 扩展名文件"""
@@ -91,7 +104,7 @@ class TestProcessDownloadedFile:
             file_path.write_text("proxies:\n  - name: test\n", encoding="utf-8")
 
             FileProcessor.process_downloaded_file(
-                file_path, "test_site", "2026-01-30 10:00"
+                file_path, make_result(), "2026-01-30 10:00"
             )
 
             content = file_path.read_text(encoding="utf-8")
@@ -103,7 +116,7 @@ class TestProcessDownloadedFile:
             file_path = Path(tmpdir) / "nonexistent.yaml"
 
             # 不应该抛出异常
-            FileProcessor.process_downloaded_file(file_path, "test_site")
+            FileProcessor.process_downloaded_file(file_path, make_result())
 
     def test_process_non_yaml_file(self):
         """测试处理非 YAML 文件（不做处理）"""
@@ -112,7 +125,7 @@ class TestProcessDownloadedFile:
             original_content = "vmess://xxxxx"
             file_path.write_text(original_content, encoding="utf-8")
 
-            FileProcessor.process_downloaded_file(file_path, "test_site")
+            FileProcessor.process_downloaded_file(file_path, make_result())
 
             # 内容应该保持不变
             assert file_path.read_text(encoding="utf-8") == original_content
