@@ -6,8 +6,9 @@ from collectors.mixins import (
     TwoStepCollectorMixin,
     HtmlParser,
 )
+from collectors.base import BaseCollector
 from core.exceptions import ParseError
-from core.models import DownloadTask
+from core.models import DownloadTask, FileManifest, SiteManifest
 
 
 class TestTwoStepCollectorMixin:
@@ -63,6 +64,59 @@ class TestTwoStepCollectorMixin:
 
         with pytest.raises(ParseError, match="No today URL found"):
             collector.get_download_tasks()
+
+    def test_run_skips_cached_today_page_before_fetching_today_html(
+        self, tmp_path, monkeypatch
+    ):
+        """测试通用缓存跳过在获取今日页面前生效"""
+        today_url = "http://example.com/today"
+        site_dir = tmp_path / "test_cached"
+        site_dir.mkdir()
+        (site_dir / "clash.yaml").write_text(
+            "proxies:\n  - name: test\n", encoding="utf-8"
+        )
+
+        class FakeManifest:
+            sites = {
+                "test_cached": SiteManifest(
+                    today_page=today_url,
+                    status="success",
+                    updated_at="2026-05-18 12:00:00",
+                    files={
+                        "clash.yaml": FileManifest(
+                            url="http://example.com/clash.yaml", success=True
+                        )
+                    },
+                )
+            }
+
+            def __init__(self, manifest_file):
+                pass
+
+            def get_site(self, site):
+                return self.sites.get(site)
+
+        class TestCollector(TwoStepCollectorMixin, BaseCollector):
+            name = "test_cached"
+            home_page = "http://example.com"
+
+            def fetch_html(self, url):
+                if url == today_url:
+                    raise AssertionError("today page should be skipped")
+                return "<html>home</html>"
+
+            def get_today_url(self, home_html):
+                return today_url
+
+            def parse_download_tasks(self, today_html):
+                raise AssertionError("tasks should be skipped")
+
+        monkeypatch.setattr("services.manifest_service.ManifestService", FakeManifest)
+
+        result = TestCollector().run(tmp_path)
+
+        assert result.status == "success"
+        assert result.today_page == today_url
 
 
 class TestHtmlParser:
