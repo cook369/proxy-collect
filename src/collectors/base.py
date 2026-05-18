@@ -55,6 +55,7 @@ class BaseCollector(ABC):
     def fetch_html(
         self,
         url: str,
+        timeout: int = default_config.collector.fetch_timeout,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """获取 HTML 内容
@@ -75,7 +76,7 @@ class BaseCollector(ABC):
         try:
             return self.http_client.get(
                 url,
-                timeout=default_config.collector.fetch_timeout,
+                timeout=timeout,
                 check_html=check_html,
             )
         except Exception as e:

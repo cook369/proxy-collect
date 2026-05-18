@@ -72,7 +72,7 @@ class ProxyConfig(BaseSettings):
 
     # 最大可用代理数
     max_available: int = Field(
-        default=15, ge=1, le=1000, description="最大可用代理数量"
+        default=30, ge=1, le=1000, description="最大可用代理数量"
     )
 
     # 代理检查超时（秒）
@@ -130,7 +130,7 @@ class ProxyConfig(BaseSettings):
                 "weight": 1.0,
             },
             {
-                "url": "https://raw.githubusercontent.com/zloi-user/hideip.me/refs/heads/master/socks5.txt",
+                "url": "https://raw.githubusercontent.com/zloi-user/hideip.me/refs/heads/main/socks5.txt",
                 "weight": 1.5,
             },
             {
