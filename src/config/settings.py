@@ -4,6 +4,7 @@
 """
 
 from pathlib import Path
+import os
 from typing import Optional, Union
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -158,6 +159,14 @@ class CollectorConfig(BaseSettings):
     # 请求超时时间（秒）
     fetch_timeout: int = Field(
         default=20, ge=5, le=120, description="HTTP 请求超时时间（秒）"
+    )
+
+    # Paste.to 密码尝试并发数
+    paste_to_password_workers: int = Field(
+        default_factory=lambda: min(16, (os.cpu_count() or 4) * 2),
+        ge=1,
+        le=16,
+        description="并发处理worker",
     )
 
 

@@ -5,7 +5,10 @@
 
 import re
 import logging
+from collections.abc import Mapping
 from typing import Callable, Optional
+
+from core.models import DownloadTask
 
 
 def extract_by_regex(
@@ -66,3 +69,18 @@ def create_regex_extractor(
         return result
 
     return extractor
+
+
+def create_download_tasks_from_regex_rules(
+    content: str,
+    rules: Mapping[str, str],
+    flags: int = re.IGNORECASE | re.DOTALL,
+) -> list[DownloadTask]:
+    """按正则规则从内容中提取订阅任务"""
+    tasks: list[DownloadTask] = []
+    for filename, pattern in rules.items():
+        match = re.search(pattern, content, flags)
+        if match:
+            tasks.append(DownloadTask(filename=filename, url=match.group(1)))
+
+    return tasks
