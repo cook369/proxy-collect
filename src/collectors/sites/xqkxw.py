@@ -1,17 +1,17 @@
 import base64
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+import hashlib
 import html
 import json
 import logging
 import os
 import re
+import threading
 import zlib
 from urllib.parse import unquote, urlparse
 
 from Crypto.Cipher import AES
-from Crypto.Hash import SHA256
-from Crypto.Protocol.KDF import PBKDF2
 
 from collectors.base import BaseCollector, register_collector
 from config.settings import default_config
@@ -47,6 +47,7 @@ class XQKXWCollector(BaseCollector):
         "https://www.youtube.com/playlist?list=PLuUYvtnZVIVI79GPS7VvxhYYm0x2jjuOZ"
     )
     password_workers = min(32, (os.cpu_count() or 4) * 2)
+    password_space_size = 10000
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
@@ -175,23 +176,31 @@ class XQKXWCollector(BaseCollector):
     def brute_force_decrypt(self, payload: dict, fragment: str) -> str:
         """尝试 0000-9999 四位数字密码解密分享内容"""
         prepared = self.prepare_privatebin_payload(payload, fragment)
+        stop_event = threading.Event()
         with ThreadPoolExecutor(max_workers=self.password_workers) as executor:
             futures = {
                 executor.submit(
-                    self.decrypt_prepared_payload, prepared, password
-                ): password
-                for password in self.iter_passwords()
+                    self.decrypt_password_range,
+                    prepared,
+                    start,
+                    end,
+                    stop_event,
+                ): (start, end)
+                for start, end in self.iter_password_ranges()
             }
 
             for future in as_completed(futures):
                 try:
-                    result = future.result()
-                    logging.info(
-                        f"[{self.name}] found correct password: {futures[future]}"
-                    )
+                    found = future.result()
                 except Exception:
                     continue
 
+                if not found:
+                    continue
+
+                password, result = found
+                logging.info(f"[{self.name}] found correct password: {password}")
+                stop_event.set()
                 for pending in futures:
                     if pending != future:
                         pending.cancel()
@@ -203,9 +212,34 @@ class XQKXWCollector(BaseCollector):
             self.name,
         )
 
-    def iter_passwords(self):
-        """生成 0000-9999 四位数字密码"""
-        return (f"{i:04d}" for i in range(10000))
+    def iter_password_ranges(self):
+        """把四位数字密码空间切分给少量 worker，避免创建 10000 个任务"""
+        total = self.password_space_size
+        workers = max(1, min(self.password_workers, total))
+        chunk_size = (total + workers - 1) // workers
+
+        for start in range(0, total, chunk_size):
+            yield start, min(start + chunk_size, total)
+
+    def decrypt_password_range(
+        self,
+        prepared: PreparedPrivateBinPayload,
+        start: int,
+        end: int,
+        stop_event: threading.Event,
+    ) -> tuple[str, str] | None:
+        """在一个数字区间内尝试密码"""
+        for num in range(start, end):
+            if stop_event.is_set():
+                return None
+
+            password = f"{num:04d}"
+            try:
+                return password, self.decrypt_prepared_payload(prepared, password)
+            except Exception:
+                continue
+
+        return None
 
     def fetch_paste_json(self, paste_id: str) -> dict:
         """获取 paste.to JSON payload"""
@@ -330,12 +364,12 @@ class XQKXWCollector(BaseCollector):
         if password:
             raw += self.js_string_to_bytes(password)
 
-        return PBKDF2(
-            raw,  # type: ignore[arg-type]
+        return hashlib.pbkdf2_hmac(
+            "sha256",
+            raw,
             salt,
-            dkLen=key_len,
-            count=iterations,
-            hmac_hash_module=SHA256,
+            iterations,
+            dklen=key_len,
         )
 
     def b58decode(self, value: str) -> bytes:

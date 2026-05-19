@@ -1,10 +1,9 @@
-"""小青科学采集器测试"""
+"""小青科学网采集器测试"""
 
 import json
-from pathlib import Path
 from unittest.mock import Mock
 
-from src.collectors.sites.xqkxw import XQKXWCollector
+from collectors.sites.xqkxw import XQKXWCollector
 from core.models import FileManifest, SiteManifest
 from core.interfaces import HttpClient
 
@@ -105,7 +104,12 @@ def test_extract_paste_url_from_video_html():
 def test_parse_subscription_tasks_from_decrypted_share():
     mock_http_client = Mock(spec=HttpClient)
     collector = XQKXWCollector(http_client=mock_http_client)
-    content = Path("../new-collect/1.data").read_text(encoding="utf-8")
+    content = """
+    V2ray和小火箭，订阅链接，可更新订阅：
+    https://gist.githubusercontent.com/example/raw/xqkxw260518.txt
+    clash， 订阅链接，可更新订阅（导入）：
+    https://gist.githubusercontent.com/example/raw/xqkxw20260518.yaml
+    """
 
     tasks = collector.parse_subscription_tasks(content)
 
@@ -118,10 +122,10 @@ def test_brute_force_decrypt_prepares_payload_once_and_finds_password():
     mock_http_client = Mock(spec=HttpClient)
     collector = XQKXWCollector(http_client=mock_http_client)
     collector.password_workers = 2
+    collector.password_space_size = 3
     attempts = []
     prepared_payload = object()
 
-    collector.iter_passwords = lambda: ["0000", "0001", "0002"]
     collector.prepare_privatebin_payload = Mock(return_value=prepared_payload)
 
     def fake_decrypt(prepared, password):
@@ -136,6 +140,15 @@ def test_brute_force_decrypt_prepares_payload_once_and_finds_password():
     assert collector.brute_force_decrypt({}, "fragment") == "decrypted content"
     collector.prepare_privatebin_payload.assert_called_once_with({}, "fragment")
     assert "0002" in attempts
+
+
+def test_password_ranges_submit_one_task_per_worker():
+    mock_http_client = Mock(spec=HttpClient)
+    collector = XQKXWCollector(http_client=mock_http_client)
+    collector.password_workers = 4
+    collector.password_space_size = 10
+
+    assert list(collector.iter_password_ranges()) == [(0, 3), (3, 6), (6, 9), (9, 10)]
 
 
 def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
