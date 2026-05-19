@@ -98,7 +98,7 @@ def extract_youtube_redirect_url(
     if not matches:
         raise ParseError(f"No {target_host} URL found")
 
-    return unquote(matches[0])
+    return unquote(matches[-1])
 
 
 check_playlist = check_html_contains("playlistVideoRenderer")
