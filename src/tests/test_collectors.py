@@ -9,6 +9,7 @@ from collectors.base import BaseCollector, register_collector
 from core.models import CollectorResult, DownloadTask
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError
+from utils.check import default_check_html
 
 
 class TestBaseCollector:
@@ -58,7 +59,11 @@ class TestBaseCollector:
         html = collector.fetch_html("http://example.com")
 
         assert html == "<html>test</html>"
-        mock_http_client.get.assert_called_once_with("http://example.com", timeout=20)
+        mock_http_client.get.assert_called_once_with(
+            "http://example.com",
+            timeout=20,
+            check_html=default_check_html,
+        )
 
     def test_fetch_html_no_client(self):
         """测试未初始化 HTTP 客户端时的错误"""

@@ -37,7 +37,7 @@ class TestProxyConfig:
         config = ProxyConfig()
         assert config.github_proxy == "https://ghproxy.net"
         assert config.test_url == "http://httpbin.org/ip"
-        assert config.max_available == 15
+        assert config.max_available == 30
         assert config.check_timeout == 5
         assert config.check_workers == 20
         assert config.verify_ssl is False
@@ -93,6 +93,7 @@ class TestCollectorConfig:
         """测试默认值"""
         config = CollectorConfig()
         assert config.max_workers == 4
+        assert config.paste_to_password_workers >= 1
 
     def test_max_workers_validation(self):
         """测试 max_workers 字段验证"""
@@ -123,7 +124,7 @@ class TestConfig:
         """测试嵌套配置访问"""
         config = Config()
         assert config.app.output_dir.name == "dist"
-        assert config.proxy.max_available == 15
+        assert config.proxy.max_available == 30
         assert config.collector.max_workers == 4
 
 
