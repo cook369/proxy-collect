@@ -73,7 +73,7 @@ class ZYFXSCollector(BaseCollector):
     def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
         """从解密后的分享内容提取订阅链接"""
         patterns = {
-            "v2ray.txt": r"V2ray.*?(https?://[^\s<>'\"，）)]+?\.jpg)",
-            "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+?\.jpg)",
+            "v2ray.txt": r"v2ray.*?(https?://[^\s<>'\"，）)]+)\\n",
+            "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+)\\n",
         }
         return create_download_tasks_from_regex_rules(content, patterns)
