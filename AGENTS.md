@@ -34,10 +34,12 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
 
 - `lxml`: HTML 解析
 - `requests[socks]`: HTTP 请求和 SOCKS 代理支持
+- `pycryptodome`: Paste.to AES-GCM 解密
 - `pydantic` / `pydantic-settings`: 配置管理和数据验证
 - `tenacity`: 重试机制
 - `tqdm`: 进度条显示
 - `pyyaml`: YAML 文件处理
+- `tabulate`: 表格输出辅助
 - `pytest`: 测试框架
 
 ## 核心架构
@@ -70,11 +72,14 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
 定义基础数据结构和接口，不依赖其他模块：
 
 - **`interfaces.py`**: Protocol 接口定义（`HttpClient`）
+  - `HttpClient.get()` 支持 `headers` 和 `check_html` 内容检查回调
 - **`models.py`**: 数据模型
   - `DownloadTask`: 下载任务（含可选的内容处理器）
   - `ProxyInfo`: 代理信息（含健康度评分算法）
   - `CollectorResult`: 采集结果
+    - `from_cache`: 标识是否复用已成功采集的缓存结果
   - `FileManifest` / `SiteManifest`: 文件和站点清单
+  - `ProxySourceConfig`: 代理源配置（URL、权重、代理类型）
   - `ProxyCache`: 代理缓存
 - **`exceptions.py`**: 自定义异常类
   - `CollectorError` → `NetworkError` / `ProxyError` / `ParseError` / `DownloadError` / `ValidationError`
@@ -97,12 +102,14 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
   - `HttpService`: 基础 HTTP 请求（带重试）
   - `ProxyPool`: 代理池管理（健康度排序）
   - `ProxyHttpService`: 支持代理池的并发请求
+  - `get()` / `fetch_with_proxies()` 均支持 `check_html` 校验响应内容
 - **`proxy_service.py`**:
   - `ProxyValidator`: 代理验证器
   - `ProxyService`: 代理获取和验证服务
 - **`proxy_cache_service.py`**: 代理缓存服务
 - **`manifest_service.py`**: Manifest 管理服务
-- **`file_processor.py`**: 文件后处理（注入时间戳等）
+- **`file_processor.py`**: 文件后处理（注入订阅信息节点，重复处理会先移除旧节点避免重复注入）
+- **`paste_to_service.py`**: Paste.to 分享获取、解析、解密服务
 
 ### 4. 采集器层 (`collectors/`)
 
@@ -110,6 +117,7 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
 
 - **`base.py`**: 基类和注册表
   - `BaseCollector`: 采集器基类
+  - `CachedCollectorResult`: 内部控制流，用于命中 `today_page` 缓存后跳过下载
   - `register_collector`: 注册装饰器
   - `COLLECTOR_REGISTRY`: 采集器注册表
 - **`mixins.py`**: 通用 Mixin 和辅助函数
@@ -123,8 +131,14 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
 - **`logging_config.py`**: 日志配置
 - **`extractors.py`**: 内容提取器
   - `extract_by_regex()`: 正则提取
-  - `unescape_newlines()`: 转义换行符处理
+  - `unescape_backslashes()`: 常见反斜杠转义还原
   - `create_regex_extractor()`: 创建正则提取器（用于 DownloadTask.processor）
+  - `create_download_tasks_from_regex_rules()`: 按文件名和正则规则生成下载任务
+- **`check.py`**: HTML 内容检查
+  - `default_check_html()`: 默认非空检查
+  - `check_html_contains()`: 生成关键字包含检查器
+- **`youtube.py`**: YouTube 播放列表和视频跳转链接解析
+- **`paste_to.py`**: Paste.to URL 解析、payload 预处理、AES-GCM 解密和密码策略
 
 ## 采集器模式
 
@@ -237,6 +251,61 @@ class ProcessorCollector(TwoStepCollectorMixin, BaseCollector):
         ]
 ```
 
+### YouTube + Paste.to 采集器
+
+`xqkxw` 和 `zyfxs` 已重构为从 YouTube 播放列表找到最新视频，再从视频页的 redirect 链接提取 `paste.to`，解密后用正则生成订阅任务。类似站点应复用 `utils.youtube`、`services.paste_to_service.PasteToService` 和 `create_download_tasks_from_regex_rules()`：
+
+```python
+from collectors.base import BaseCollector, register_collector
+from config.settings import default_config
+from core.models import DownloadTask
+from services.paste_to_service import PasteToService
+from utils.check import check_html_contains
+from utils.extractors import create_download_tasks_from_regex_rules
+from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
+
+@register_collector
+class YoutubePasteCollector(BaseCollector):
+    name = "youtube_paste"
+    home_page = "https://www.youtube.com/playlist?list=..."
+    paste_to_password: str | None = None
+
+    def get_download_tasks(self) -> list[DownloadTask]:
+        if not self.today_page:
+            html = self.fetch_html(
+                self.home_page,
+                check_html=check_html_contains("playlistVideoRenderer"),
+            )
+            self.today_page = self.get_today_url(html)
+
+        # today_page 已成功采集过且文件仍存在时，直接复用 manifest 结果
+        self.skip_if_cached()
+
+        video_html = self.fetch_html(self.today_page)
+        paste_url = extract_youtube_redirect_url(video_html, "paste.to")
+        content = PasteToService(
+            http_client=self.http_client,
+            timeout=default_config.collector.fetch_timeout,
+            max_workers=default_config.collector.paste_to_password_workers,
+        ).decrypt_url(paste_url, password=self.paste_to_password).content
+
+        return create_download_tasks_from_regex_rules(
+            content,
+            {
+                "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+?\.yaml)",
+                "v2ray.txt": r"v2ray.*?(https?://[^\s<>'\"，）)]+?\.txt)",
+            },
+        )
+
+    def get_today_url(self, home_html: str) -> str:
+        video, _ = find_latest_video_url(
+            home_html,
+            ("节点分享", "免费节点"),
+            reverse=False,
+        )
+        return video
+```
+
 ## 常用命令
 
 ```bash
@@ -260,6 +329,9 @@ cd src && uv run main.py --proxy --no-proxy-cache
 
 # 调试模式
 cd src && LOG_LEVEL=DEBUG uv run main.py --proxy
+
+# 只跑 Paste.to / YouTube 相关测试
+cd src && uv run pytest tests/test_utils_paste_to.py tests/test_paste_to_service.py tests/test_utils_youtube.py
 ```
 
 ## 添加新采集器
@@ -275,7 +347,7 @@ cd src && LOG_LEVEL=DEBUG uv run main.py --proxy
 ### collect.yml - 采集工作流
 
 - **触发条件**:
-  - 推送到 main 分支
+  - 推送到任意分支
   - 定时任务（每 2 小时整点 + 凌晨加密时段）
   - 手动触发
 - **执行流程**: 安装依赖 → 运行采集（带代理）→ 智能提交
@@ -307,17 +379,23 @@ src/
 │   ├── proxy_service.py       # 代理获取和验证
 │   ├── proxy_cache_service.py # 代理缓存
 │   ├── manifest_service.py    # Manifest 管理
+│   ├── paste_to_service.py    # Paste.to 解密服务
 │   └── file_processor.py      # 文件后处理
 ├── collectors/                # 采集器层
 │   ├── base.py                # 基类和注册表
 │   ├── mixins.py              # 通用 Mixin
 │   └── sites/                 # 具体站点采集器
-│       ├── cfmem.py
+│       ├── cfmeme.py
 │       ├── nodefree.py
+│       ├── xqkxw.py
+│       ├── zyfxs.py
 │       └── ...
 ├── utils/                     # 工具层
+│   ├── check.py               # HTML 内容检查
 │   ├── logging_config.py      # 日志配置
-│   └── extractors.py          # 内容提取器
+│   ├── extractors.py          # 内容提取器
+│   ├── paste_to.py            # Paste.to 解密工具
+│   └── youtube.py             # YouTube 页面解析工具
 └── tests/                     # 测试
     ├── conftest.py            # pytest fixtures
     ├── test_collectors.py
@@ -348,6 +426,14 @@ PROXY_CHECK_WORKERS=20         # 代理检查并发数
 PROXY_CACHE_ENABLED=true       # 启用代理缓存
 PROXY_CACHE_TTL=3600           # 缓存有效期（秒）
 PROXY_MIN_HEALTH_SCORE=30.0    # 最低健康度评分
+PROXY_BASE_SAMPLE_SIZE=200     # 代理源基础采样数量
+PROXY_MIN_CACHE_PROXIES=10     # 缓存有效所需的最小健康代理数
+PROXY_VERIFY_SSL=false         # 是否验证 SSL 证书
+
+# 采集器配置
+COLLECTOR_MAX_WORKERS=4        # 最大并发采集器数
+COLLECTOR_FETCH_TIMEOUT=20     # HTTP 请求超时（秒）
+COLLECTOR_PASTE_TO_PASSWORD_WORKERS=16  # Paste.to 密码尝试并发数
 
 # 日志级别
 LOG_LEVEL=INFO                 # DEBUG / INFO / WARNING / ERROR
@@ -357,10 +443,15 @@ LOG_LEVEL=INFO                 # DEBUG / INFO / WARNING / ERROR
 
 - 所有采集器必须使用 `@register_collector` 装饰器
 - 采集器的 `name` 属性必须唯一，用于目录命名和命令行参数
-- `fetch_html()` 方法已处理代理轮换和重试，直接使用即可
+- `fetch_html()` 方法已处理代理轮换和重试，直接使用即可；需要校验页面特征时传入 `check_html=check_html_contains("关键字")`
+- 对依赖 YouTube 播放列表的采集器，使用 `check_html_contains("playlistVideoRenderer")` 校验播放列表页，避免拿到风控/空页面后继续解析
+- 对 `paste.to` 分享，优先通过 `PasteToService` 解密；有固定密码时设置 `paste_to_password`，否则默认使用 4 位数字密码策略并按 `COLLECTOR_PASTE_TO_PASSWORD_WORKERS` 并发尝试
 - 下载的文件会自动保存到 `dist/{name}/` 目录
 - 项目工作目录在 `src/`，所有相对路径基于此目录
 - 使用 `TwoStepCollectorMixin` 时，`today_page` 属性会自动设置
+- 使用 `skip_if_cached()` 前必须先设置 `today_page`；命中缓存后会返回 `CollectorResult.from_cache=True`，主流程不会再次注入订阅信息节点
+- `FileProcessor` 会在 `clash.yaml` 中注入“订阅信息”代理组，并在重复处理时先删除旧的注入节点，避免重复插入
+- 仓库通过 `.gitattributes` 统一文本文件为 LF 行尾
 
 ## 待优化项（TODO）
 
