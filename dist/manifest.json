@@ -1,0 +1,109 @@
+{
+  "last_run": "2026-06-13 21:24:02",
+  "sites": {
+    "jichangx": {
+      "today_page": null,
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://jichangx.com/nodes/v2ray-20260613-01",
+          "success": true
+        }
+      }
+    },
+    "nodefree": {
+      "today_page": "https://nodefree.me/p/3756.html",
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://node.nodefree.me/2026/06/20260613.txt",
+          "success": true
+        }
+      }
+    },
+    "cfmeme": {
+      "today_page": "https://www.cfmem.com/2026/06/20260613-21-vless-x8-trojan-x7-vmess-x5.html",
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://nodebuf.com/files/public/cmqcb0mjy0qfo0q5wtrtx2gxh/preview",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://nodebuf.com/files/public/cmqcb0mjx0qfn0q5wt4pfzuxq/preview",
+          "success": true
+        }
+      }
+    },
+    "oneclash": {
+      "today_page": "https://oneclash.cc/a/3388.html",
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://oss.oneclash.cc/2026/06/20260613.txt",
+          "success": true
+        }
+      }
+    },
+    "85la": {
+      "today_page": "https://www.85la.com/13774.html",
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "clash.yaml": {
+          "url": "https://www.qilan.de/api/subscription/144f0bf2d503d59f4c3e2162dd3940164033f6b7fc78e852",
+          "success": true
+        }
+      }
+    },
+    "yudou": {
+      "today_page": "https://www.yudou789.top/1061.html",
+      "status": "success",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "clash.yaml": {
+          "url": "https://hh.yudou226.top/202606/20260613metd3a.yaml",
+          "success": true
+        },
+        "v2ray.txt": {
+          "url": "https://hh.yudou226.top/202606/20260613bat4se.txt",
+          "success": true
+        }
+      }
+    },
+    "datiya": {
+      "today_page": "https://free.datiya.com/post/20260614/",
+      "status": "partial",
+      "updated_at": "2026-06-13 21:24:02",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://free.datiya.com/uploads/20260614-v2ray.txt",
+          "success": false,
+          "error": "Download failed"
+        },
+        "clash.yaml": {
+          "url": "https://free.datiya.com/uploads/20260614-clash.yaml",
+          "success": true
+        }
+      }
+    },
+    "zyfxs": {
+      "today_page": null,
+      "status": "failed",
+      "updated_at": null,
+      "files": {},
+      "error": "[zyfxs] All proxies failed to fetch https://www.youtube.com/playlist?list=PLFF7T03a7nnF-5POF9QxmABrzSKGy8fhC"
+    },
+    "xqkxw": {
+      "today_page": null,
+      "status": "failed",
+      "updated_at": null,
+      "files": {},
+      "error": "[xqkxw] All proxies failed to fetch https://www.youtube.com/playlist?list=PLuUYvtnZVIVI79GPS7VvxhYYm0x2jjuOZ"
+    }
+  }
+}
