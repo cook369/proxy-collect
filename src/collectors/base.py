@@ -191,6 +191,7 @@ class BaseCollector(ABC):
             files=site.files,
             status=site.status,
             error=site.error,
+            from_cache=True,
         )
 
     def skip_if_cached(self, output_dir: Path | None = None) -> None:

@@ -4,6 +4,8 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
+import yaml
+
 from core.models import CollectorResult
 from services.file_processor import FileProcessor
 
@@ -78,6 +80,160 @@ proxies:
         assert "port: 7890" in result
         assert "node1" in result
         assert "type: ss" in result
+
+    def test_inject_replaces_existing_subscription_info(self):
+        """重复注入时替换旧订阅信息而不是追加"""
+        content = """proxies:
+  - name: node1
+    type: ss
+    server: 1.2.3.4
+proxy-groups:
+  - name: Auto
+    type: select
+    proxies:
+      - node1
+"""
+
+        first = FileProcessor.inject_timestamp_to_clash(
+            content, make_result(), "2026-01-30 10:00"
+        )
+        second = FileProcessor.inject_timestamp_to_clash(
+            first, make_result(), "2026-01-30 11:00"
+        )
+        data = yaml.safe_load(second)
+
+        info_proxy_names = [
+            proxy["name"]
+            for proxy in data["proxies"]
+            if proxy["name"].startswith(("更新时间 ", "站点 ", "采集地址 "))
+        ]
+        info_groups = [
+            group for group in data["proxy-groups"] if group["name"] == "订阅信息"
+        ]
+
+        assert info_proxy_names == [
+            "采集地址 http://example.com/today",
+            "站点 test_site",
+            "更新时间 2026-01-30 11:00",
+        ]
+        assert len(info_groups) == 1
+        assert info_groups[0]["proxies"] == [
+            "更新时间 2026-01-30 11:00",
+            "站点 test_site",
+            "采集地址 http://example.com/today",
+        ]
+
+    def test_inject_preserves_original_info_like_proxy_names(self):
+        """清理旧订阅信息时不能删除同名模式的原始代理"""
+        content = """proxies:
+  - name: 更新时间 original-node
+    type: ss
+    server: 1.2.3.4
+    port: 443
+"""
+
+        first = FileProcessor.inject_timestamp_to_clash(
+            content, make_result(), "2026-01-30 10:00"
+        )
+        second = FileProcessor.inject_timestamp_to_clash(
+            first, make_result(), "2026-01-30 11:00"
+        )
+        data = yaml.safe_load(second)
+
+        original_nodes = [
+            proxy
+            for proxy in data["proxies"]
+            if proxy["name"] == "更新时间 original-node"
+        ]
+
+        assert original_nodes == [
+            {
+                "name": "更新时间 original-node",
+                "type": "ss",
+                "server": "1.2.3.4",
+                "port": 443,
+            }
+        ]
+
+    def test_inject_removes_generated_info_nodes_outside_header(self):
+        """清理旧订阅信息时删除所有带占位特征的生成节点"""
+        content = """proxies:
+  - name: node1
+    type: ss
+    server: 1.2.3.4
+  - name: 更新时间 2026-01-30 10:00
+    type: vless
+    server: 127.0.0.1
+    port: 0
+    uuid: 00000000-0000-0000-0000-000000000000
+    network: ws
+    skip-cert-verify: true
+    tls: false
+proxy-groups:
+  - name: Auto
+    type: select
+    proxies:
+      - node1
+  - name: 订阅信息
+    type: select
+    proxies:
+      - 更新时间 2026-01-30 10:00
+      - 站点 test_site
+      - 采集地址 http://example.com/today
+"""
+
+        result = FileProcessor.inject_timestamp_to_clash(
+            content, make_result(), "2026-01-30 11:00"
+        )
+        data = yaml.safe_load(result)
+
+        generated_info_nodes = [
+            proxy
+            for proxy in data["proxies"]
+            if proxy["name"] == "更新时间 2026-01-30 10:00"
+        ]
+        info_groups = [
+            group for group in data["proxy-groups"] if group["name"] == "订阅信息"
+        ]
+
+        assert generated_info_nodes == []
+        assert len(info_groups) == 1
+        assert info_groups[0]["proxies"] == [
+            "更新时间 2026-01-30 11:00",
+            "站点 test_site",
+            "采集地址 http://example.com/today",
+        ]
+
+    def test_inject_preserves_original_subscription_info_group(self):
+        """清理旧订阅信息时不能删除同名原始分组"""
+        content = """proxies:
+  - name: node1
+    type: ss
+    server: 1.2.3.4
+proxy-groups:
+  - name: 订阅信息
+    type: select
+    proxies:
+      - node1
+"""
+
+        first = FileProcessor.inject_timestamp_to_clash(
+            content, make_result(), "2026-01-30 10:00"
+        )
+        second = FileProcessor.inject_timestamp_to_clash(
+            first, make_result(), "2026-01-30 11:00"
+        )
+        data = yaml.safe_load(second)
+
+        original_groups = [
+            group
+            for group in data["proxy-groups"]
+            if group["name"] == "订阅信息" and group["proxies"] == ["node1"]
+        ]
+
+        assert original_groups == [
+            {"name": "订阅信息", "type": "select", "proxies": ["node1"]}
+        ]
 
 
 class TestProcessDownloadedFile:
