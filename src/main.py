@@ -35,6 +35,11 @@ def run_collector(
     return collector.run(output_dir)
 
 
+def should_process_downloaded_file(result: CollectorResult) -> bool:
+    """判断采集结果是否需要执行本轮下载文件后处理。"""
+    return result.status != "failed" and not result.from_cache
+
+
 def update_readme(
     manifest: ManifestService,
     readme_file: Path,
@@ -242,7 +247,7 @@ def main():
         manifest.update_from_result(result)
 
         # 注入时间戳到 clash.yaml
-        if result.status != "failed":
+        if should_process_downloaded_file(result):
             clash_path = config.app.output_dir / result.site / "clash.yaml"
             FileProcessor.process_downloaded_file(clash_path, result, timestamp)
 

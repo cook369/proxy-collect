@@ -47,6 +47,7 @@ class CollectorResult:
     files: dict[str, FileManifest]
     status: str  # "success" / "partial" / "failed"
     error: Optional[str] = None
+    from_cache: bool = False
 
 
 class ProxyType(Enum):

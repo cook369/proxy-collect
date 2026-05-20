@@ -9,6 +9,7 @@ from unittest.mock import Mock
 
 from collectors.base import BaseCollector
 from core.models import CollectorResult, FileManifest, DownloadTask
+from main import should_process_downloaded_file
 from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
 
@@ -70,6 +71,18 @@ class TestCollectorWithManifest:
 
 class TestCollectorWithFileProcessor:
     """采集器与文件处理器集成测试"""
+
+    def test_cached_result_skips_file_processing(self):
+        """缓存命中结果不应再次处理已有文件"""
+        result = CollectorResult(
+            site="test_site",
+            today_page="http://example.com/today",
+            files={},
+            status="success",
+            from_cache=True,
+        )
+
+        assert should_process_downloaded_file(result) is False
 
     def test_download_and_process_yaml(self):
         """测试下载并处理 YAML 文件"""

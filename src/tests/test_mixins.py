@@ -117,6 +117,7 @@ class TestTwoStepCollectorMixin:
 
         assert result.status == "success"
         assert result.today_page == today_url
+        assert result.from_cache is True
 
 
 class TestHtmlParser:
