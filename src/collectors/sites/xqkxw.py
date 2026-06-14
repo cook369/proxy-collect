@@ -25,7 +25,7 @@ class XQKXWCollector(BaseCollector):
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
-        check_playlist = check_html_contains("playlistVideoRenderer")
+        check_playlist = check_html_contains("节点分享")
         if not self.today_page:
             playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
             self.today_page = self.get_today_url(playlist_html)

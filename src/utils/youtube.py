@@ -30,7 +30,8 @@ def get_playlist_videos(
             "tabRenderer"
         ]["content"]["sectionListRenderer"]["contents"][0]["itemSectionRenderer"][
             "contents"
-        ][0]["playlistVideoListRenderer"]["contents"]
+        ]
+
     except (KeyError, IndexError, TypeError, json.JSONDecodeError) as e:
         raise ParseError(
             f"Failed to parse latest YouTube video: {e}",
@@ -39,7 +40,7 @@ def get_playlist_videos(
     playlist = []
 
     for item in contents:
-        renderer = item.get("playlistVideoRenderer")
+        renderer = item.get("lockupViewModel")
         video = parse_playlist_video_renderer(renderer)
         if video:
             playlist.append(video)
@@ -51,14 +52,13 @@ def parse_playlist_video_renderer(renderer: dict | None) -> tuple[str, str] | No
     if not renderer:
         return None
 
-    video_id = renderer.get("videoId")
+    video_id = renderer.get("contentId")
     if video_id:
         video_id = f"https://www.youtube.com/watch?v={video_id}"
-    title_obj = renderer.get("title") or {}
-    if "runs" in title_obj:
-        title = "".join(item.get("text", "") for item in title_obj["runs"])
-    else:
-        title = title_obj.get("simpleText", "")
+    metadata = renderer.get("metadata") or {}
+    title = (
+        metadata.get("lockupMetadataViewModel", {}).get("title", {}).get("content", "")
+    )
 
     if not video_id or not title:
         return None
