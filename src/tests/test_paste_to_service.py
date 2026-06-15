@@ -98,7 +98,9 @@ def test_paste_to_service_passes_bruteforce_strategy():
     )
     brute_force_payload.assert_called_once()
     assert brute_force_payload.call_args.kwargs["max_workers"] == 2
-    assert brute_force_payload.call_args.kwargs["password_strategy"] is password_strategy
+    assert (
+        brute_force_payload.call_args.kwargs["password_strategy"] is password_strategy
+    )
     decrypt_prepared = brute_force_payload.call_args.kwargs["decrypt_prepared"]
     assert decrypt_prepared("beta") == "decrypted content"
     decrypt_prepared_paste_to_payload.assert_called_once_with(prepared_payload, "beta")

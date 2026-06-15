@@ -168,7 +168,7 @@ class CollectorConfig(BaseSettings):
         le=16,
         description="并发处理worker",
     )
-    
+
     http_password_workers: int = Field(
         default=30,
         ge=1,

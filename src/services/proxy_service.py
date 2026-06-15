@@ -57,6 +57,7 @@ class ProxyValidator:
             futures = {executor.submit(self.validate, p): p for p in proxies}
 
             with tqdm(total=total, desc="Proxy Checking", unit="proxy") as pbar:
+                last_reported_percent = -1
                 for future in as_completed(futures):
                     proxy = futures[future]
                     try:
@@ -76,9 +77,15 @@ class ProxyValidator:
                         logging.debug(f"Proxy failed: {proxy.url}")
 
                     pbar.update(1)
-                    pbar.set_postfix(
-                        {"Available": len(available), "Checked": f"{pbar.n}/{total}"}
-                    )
+                    current_percent = int(pbar.n * 100 / total) if total else 100
+                    if current_percent > last_reported_percent:
+                        last_reported_percent = current_percent
+                        pbar.set_postfix(
+                            {
+                                "Available": len(available),
+                                "Checked": f"{pbar.n}/{total}",
+                            }
+                        )
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available

@@ -2,8 +2,6 @@ import logging
 
 import random
 from threading import Lock
-import time
-from typing import Optional, Union
 
 import requests
 
@@ -16,6 +14,7 @@ from utils.extractors import create_download_tasks_from_regex_rules
 from utils.passwords import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,
+    FatalPasswordAttemptError,
     PasswordAttemptResult,
     brute_force_password,
 )
@@ -32,20 +31,16 @@ class JCNodeCollector(BaseCollector):
     verification_code_strategy: (
         CharsetPasswordStrategy | DictionaryPasswordStrategy | None
     ) = None
-    proxy_reuse_interval = 0
+    verify_network_retry_rounds = 3
     verify_headers = {
         "content-type": "application/json",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     }
 
-    def __init__(
-        self,
-        proxies_list: Optional[Union[list[str], list[ProxyInfo]]] = None,
-        http_client=None,
-    ):
-        super().__init__(proxies_list=proxies_list, http_client=http_client)
-        self._proxy_lock = Lock()
-        self._proxy_last_used_at: dict[str, float] = {}
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._failed_proxy_lock = Lock()
+        self._failed_proxy_urls: set[str] = set()
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """从 jcnode 页面口令接口获取订阅任务"""
@@ -68,8 +63,9 @@ class JCNodeCollector(BaseCollector):
                 password_strategy=self.verification_code_strategy,
                 try_password=self.verify_code,
             )
-
-        logging.info(f"[{self.name}] password verification succeeded")
+        logging.info(
+            f"[{self.name}] password decrypt {self.home_page} with {verification_result.password} share"
+        )
         return self.parse_subscription_tasks(verification_result.content)
 
     def get_today_url(self, home_html: str) -> str:
@@ -90,37 +86,66 @@ class JCNodeCollector(BaseCollector):
     def verify_code(self, password: str) -> str:
         """用单个口令请求 jcnode 验证接口。"""
         last_error: requests.RequestException | None = None
+        failed_rounds = 0
 
         logging.debug(f"[{self.name}] trying password candidate")
 
-        for proxy in self._proxy_candidates():
-            self._wait_for_proxy_slot(proxy)
-            proxies = {"http": proxy.url, "https": proxy.url} if proxy else None
-
-            try:
-                response = requests.post(
-                    self.verify_url,
-                    proxies=proxies,
-                    headers=self.verify_headers,
-                    json={"code": password},
-                    timeout=default_config.collector.fetch_timeout,
+        while failed_rounds < self.verify_network_retry_rounds:
+            candidates = self._proxy_candidates()
+            if not candidates:
+                failed_rounds += 1
+                self._reset_failed_proxies()
+                logging.info(
+                    f"[{self.name}] all proxies failed, retrying same password"
                 )
-                response.raise_for_status()
-            except requests.RequestException as e:
-                last_error = e
-                logging.info(f"[{self.name}] proxy request failed, trying next proxy")
                 continue
 
-            if "口令错误" in response.text:
-                logging.debug(f"[{self.name}] password candidate rejected")
-                raise ValueError("password error")
-            if not response.text.strip():
-                raise ValueError("empty verification response")
-            return response.text
+            for proxy in candidates:
+                if self._is_proxy_failed(proxy):
+                    continue
+
+                proxies = {"http": proxy.url, "https": proxy.url} if proxy else None
+
+                try:
+                    response = requests.post(
+                        self.verify_url,
+                        proxies=proxies,
+                        headers=self.verify_headers,
+                        json={"code": password},
+                        timeout=default_config.collector.fetch_timeout,
+                    )
+                    response.raise_for_status()
+                except requests.RequestException as e:
+                    last_error = e
+                    self._mark_proxy_failed(proxy)
+                    logging.debug(
+                        f"[{self.name}] proxy request failed, trying next proxy: {e}"
+                    )
+                    continue
+
+                if "口令错误" in response.text:
+                    logging.debug(f"[{self.name}] password candidate rejected")
+                    raise ValueError("password error")
+                if not response.text.strip():
+                    self._mark_proxy_failed(proxy)
+                    logging.debug(
+                        f"[{self.name}] empty verification response, trying next proxy"
+                    )
+                    continue
+                return response.text
+
+            failed_rounds += 1
+            if failed_rounds < self.verify_network_retry_rounds:
+                logging.info(
+                    f"[{self.name}] all proxies failed, retrying same password"
+                )
+                self._reset_failed_proxies()
 
         if last_error:
-            raise last_error
-        raise ValueError("no proxy available")
+            raise FatalPasswordAttemptError(
+                "jcnode verification network failed"
+            ) from last_error
+        raise FatalPasswordAttemptError("no proxy available for jcnode verification")
 
     def _proxy_candidates(self) -> list[ProxyInfo | None]:
         if not self.proxy_pool:
@@ -130,24 +155,30 @@ class JCNodeCollector(BaseCollector):
         if not proxies:
             return [None]
 
-        random.shuffle(proxies)
-        return proxies
+        with self._failed_proxy_lock:
+            failed_proxy_urls = set(self._failed_proxy_urls)
 
-    def _wait_for_proxy_slot(self, proxy: ProxyInfo | None) -> None:
+        candidates = [proxy for proxy in proxies if proxy.url not in failed_proxy_urls]
+        if not candidates:
+            return []
+
+        random.shuffle(candidates)
+        return candidates
+
+    def _mark_proxy_failed(self, proxy: ProxyInfo | None) -> None:
         if proxy is None:
             return
 
-        wait_seconds = self._reserve_proxy_slot(proxy)
-        if wait_seconds > 0:
-            time.sleep(wait_seconds)
+        with self._failed_proxy_lock:
+            self._failed_proxy_urls.add(proxy.url)
 
-    def _reserve_proxy_slot(self, proxy: ProxyInfo) -> float:
-        proxy_key = proxy.url
-        with self._proxy_lock:
-            now = time.monotonic()
-            next_available = (
-                self._proxy_last_used_at.get(proxy_key, 0) + self.proxy_reuse_interval
-            )
-            wait_seconds = max(0.0, next_available - now)
-            self._proxy_last_used_at[proxy_key] = now + wait_seconds
-            return wait_seconds
+    def _is_proxy_failed(self, proxy: ProxyInfo | None) -> bool:
+        if proxy is None:
+            return False
+
+        with self._failed_proxy_lock:
+            return proxy.url in self._failed_proxy_urls
+
+    def _reset_failed_proxies(self) -> None:
+        with self._failed_proxy_lock:
+            self._failed_proxy_urls.clear()

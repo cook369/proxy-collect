@@ -3,9 +3,12 @@
 import argparse
 import logging
 import os
+import re
+import subprocess
 from datetime import datetime
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote
 
 from config.settings import Config
 from core.models import CollectorResult, ProxyInfo
@@ -19,6 +22,7 @@ from utils.logging_config import setup_logging
 
 
 config = Config()
+DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 
 log_level = os.getenv("LOG_LEVEL", "INFO")
 setup_logging(level=log_level)
@@ -40,6 +44,71 @@ def should_process_downloaded_file(result: CollectorResult) -> bool:
     return result.status != "failed" and not result.from_cache
 
 
+def get_current_branch() -> str:
+    """Get the branch that should be used in generated raw GitHub URLs."""
+    env_branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME")
+    if env_branch:
+        return env_branch
+
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            cwd=Path(__file__).resolve().parent.parent,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        branch = result.stdout.strip()
+        if branch and branch != "HEAD":
+            return branch
+    except Exception:
+        logging.debug("Failed to detect current git branch", exc_info=True)
+
+    return "main"
+
+
+def get_github_repository() -> str:
+    """Get owner/repo for generated raw GitHub URLs."""
+    env_repository = os.getenv("GITHUB_REPOSITORY")
+    if env_repository:
+        return env_repository
+
+    try:
+        result = subprocess.run(
+            ["git", "config", "--get", "remote.origin.url"],
+            cwd=Path(__file__).resolve().parent.parent,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        remote_url = result.stdout.strip()
+        match = re.search(
+            r"github\.com[:/](?P<repo>[^/\s]+/[^/\s]+?)(?:\.git)?$",
+            remote_url,
+        )
+        if match:
+            return match.group("repo")
+    except Exception:
+        logging.debug("Failed to detect GitHub repository", exc_info=True)
+
+    return DEFAULT_GITHUB_REPOSITORY
+
+
+def build_raw_github_url(
+    github_prefix: str,
+    repository: str,
+    branch: str,
+    site_name: str,
+    filename: str,
+) -> str:
+    """Build a branch-aware raw GitHub URL for README subscriptions."""
+    encoded_branch = quote(branch, safe="/")
+    return (
+        f"{github_prefix}/https://raw.githubusercontent.com/"
+        f"{repository}/refs/heads/{encoded_branch}/dist/{site_name}/{filename}"
+    )
+
+
 def update_readme(
     manifest: ManifestService,
     readme_file: Path,
@@ -47,6 +116,8 @@ def update_readme(
     output_dir: Path,
 ):
     """更新 README.md"""
+    github_repository = get_github_repository()
+    github_branch = get_current_branch()
     lines = ["\n## 采集状态\n"]
     lines.append("| 站点 | 状态 | 更新时间 | 今日来源 |")
     lines.append("|------|------|----------|----------|")
@@ -79,11 +150,15 @@ def update_readme(
         v2ray_path = site_dir / "v2ray.txt"
 
         if clash_path.exists():
-            url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/clash.yaml"
+            url = build_raw_github_url(
+                github_prefix, github_repository, github_branch, site_name, "clash.yaml"
+            )
             lines.append(f"| Clash | {url} |")
 
         if v2ray_path.exists():
-            url = f"{github_prefix}/https://raw.githubusercontent.com/cook369/proxy-collect/main/dist/{site_name}/v2ray.txt"
+            url = build_raw_github_url(
+                github_prefix, github_repository, github_branch, site_name, "v2ray.txt"
+            )
             lines.append(f"| V2Ray | {url} |")
 
         lines.append("")

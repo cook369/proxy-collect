@@ -23,6 +23,10 @@ class PasswordAttemptResult:
     content: str
 
 
+class FatalPasswordAttemptError(Exception):
+    """不可当作候选口令错误继续尝试的失败。"""
+
+
 @dataclass(frozen=True)
 class CharsetPasswordStrategy:
     """按字符集和长度生成候选密码"""
@@ -50,7 +54,7 @@ class DictionaryPasswordStrategy:
 
     def iter_passwords(self) -> Iterator[str]:
         """按给定顺序流式生成密码"""
-        return iter(self.candidates)
+        return iter(self.passwords)
 
 
 def _try_password_queue(
@@ -72,6 +76,9 @@ def _try_password_queue(
             result = try_password(password)
             stop_event.set()
             return password, result
+        except FatalPasswordAttemptError:
+            stop_event.set()
+            raise
         except Exception:
             continue
 
@@ -141,6 +148,12 @@ def brute_force_password(
         for future in as_completed(futures):
             try:
                 found = future.result()
+            except FatalPasswordAttemptError:
+                stop_event.set()
+                for pending in futures:
+                    if pending != future:
+                        pending.cancel()
+                raise
             except Exception:
                 continue
 
