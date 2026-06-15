@@ -40,13 +40,14 @@ class BaseCollector(ABC):
             proxies_list: 代理列表（支持字符串或 ProxyInfo）
             http_client: HTTP 客户端（新方式，依赖注入）
         """
+        self.proxy_pool = None
         if http_client is None:
             from services.http_service import HttpService, ProxyPool, ProxyHttpService
 
             http_service = HttpService()
             if proxies_list:
-                proxy_pool = ProxyPool(proxies_list)
-                self.http_client = ProxyHttpService(http_service, proxy_pool)
+                self.proxy_pool = ProxyPool(proxies_list)
+                self.http_client = ProxyHttpService(http_service, self.proxy_pool)
             else:
                 self.http_client = http_service
         else:

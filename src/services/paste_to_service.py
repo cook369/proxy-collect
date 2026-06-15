@@ -1,11 +1,12 @@
 """Paste.to 解密服务"""
 
+from functools import partial
 from core.interfaces import HttpClient
 from utils.paste_to import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,
-    PasteToDecryptResult,
-    brute_force_paste_to_payload,
+    PasswordAttemptResult,
+    brute_force_payload,
     decrypt_prepared_paste_to_payload,
     fetch_paste_to_payload,
     parse_paste_to_url,
@@ -36,7 +37,7 @@ class PasteToService:
         paste_url: str,
         *,
         password: str | None,
-    ) -> PasteToDecryptResult:
+    ) -> PasswordAttemptResult:
         """根据 paste.to URL 获取 payload，并按密码或爆破策略解密"""
         paste_id, fragment = parse_paste_to_url(paste_url)
         payload = fetch_paste_to_payload(
@@ -47,10 +48,12 @@ class PasteToService:
         prepared = prepare_paste_to_payload(payload, fragment)
         if password:
             data = decrypt_prepared_paste_to_payload(prepared, password)
-            return PasteToDecryptResult(password=password, content=data)
+            return PasswordAttemptResult(password=password, content=data)
 
-        return brute_force_paste_to_payload(
-            prepared=prepared,
+        decrypt_prepared = partial(decrypt_prepared_paste_to_payload, prepared)
+
+        return brute_force_payload(
             max_workers=self.max_workers,
             password_strategy=self.password_strategy,
+            decrypt_prepared=decrypt_prepared,
         )

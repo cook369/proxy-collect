@@ -8,10 +8,10 @@ import pytest
 from collectors.sites.zyfxs import ZYFXSCollector
 from core.interfaces import HttpClient
 from core.models import FileManifest, SiteManifest
-from utils.paste_to import DictionaryPasswordStrategy, PasteToDecryptResult
+from utils.paste_to import DictionaryPasswordStrategy, PasswordAttemptResult
 
 
-def test_extract_latest_video_url_from_playlist_uses_reversed_order():
+def test_extract_latest_video_url_from_playlist_uses_current_order():
     mock_http_client = Mock(spec=HttpClient)
     collector = ZYFXSCollector(http_client=mock_http_client)
     data = {
@@ -27,35 +27,29 @@ def test_extract_latest_video_url_from_playlist_uses_reversed_order():
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "OLDER",
-                                                                        "title": {
-                                                                            "runs": [
-                                                                                {
-                                                                                    "text": "节点分享 免费节点"
-                                                                                }
-                                                                            ]
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "OLDER",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "节点分享 免费节点"
                                                                     }
-                                                                },
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "LATEST",
-                                                                        "title": {
-                                                                            "runs": [
-                                                                                {
-                                                                                    "text": "资源分享师 节点分享 免费节点"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                    }
-                                                                },
-                                                            ]
+                                                                }
+                                                            },
                                                         }
-                                                    }
+                                                    },
+                                                    {
+                                                        "lockupViewModel": {
+                                                            "contentId": "LATEST",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "资源分享师 节点分享 免费节点"
+                                                                    }
+                                                                }
+                                                            },
+                                                        }
+                                                    },
                                                 ]
                                             }
                                         }
@@ -70,7 +64,7 @@ def test_extract_latest_video_url_from_playlist_uses_reversed_order():
     }
     html = f"<script>var ytInitialData = {json.dumps(data)};</script>"
 
-    assert collector.get_today_url(html) == "https://www.youtube.com/watch?v=LATEST"
+    assert collector.get_today_url(html) == "https://www.youtube.com/watch?v=OLDER"
 
 
 def test_get_today_url_rejects_compact_playlist_html():
@@ -129,7 +123,7 @@ def test_get_download_tasks_uses_paste_to_service(monkeypatch):
         )
     )
     paste_to_service = Mock()
-    paste_to_service.decrypt_url.return_value = PasteToDecryptResult(
+    paste_to_service.decrypt_url.return_value = PasswordAttemptResult(
         password="1234", content="share content"
     )
     paste_to_service_class = Mock(return_value=paste_to_service)
@@ -166,17 +160,15 @@ def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "LATEST",
-                                                                        "title": {
-                                                                            "simpleText": "资源分享师 节点分享 免费节点"
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "LATEST",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "资源分享师 节点分享 免费节点"
                                                                     }
                                                                 }
-                                                            ]
+                                                            },
                                                         }
                                                     }
                                                 ]
