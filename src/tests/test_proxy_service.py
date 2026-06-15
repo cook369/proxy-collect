@@ -1,6 +1,6 @@
 """ProxyService 单元测试"""
 
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 from services.proxy_service import ProxyValidator, ProxyService
 from services.http_service import HttpService
@@ -75,6 +75,49 @@ class TestProxyValidator:
         result = validator.validate_batch(proxies)
 
         assert len(result) == 2
+
+    def test_validate_batch_updates_progress_once_per_percent(self):
+        """Progress postfix should not refresh on every checked proxy."""
+
+        class FakeTqdm:
+            instances = []
+
+            def __init__(self, total, desc, unit):
+                self.n = 0
+                self.total = total
+                self.postfixes = []
+                FakeTqdm.instances.append(self)
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, exc_type, exc, tb):
+                return False
+
+            def update(self, count):
+                self.n += count
+
+            def set_postfix(self, postfix):
+                self.postfixes.append(postfix)
+
+        mock_http = Mock(spec=HttpService)
+        config = ProxyConfig(max_available=200, check_workers=1)
+        validator = ProxyValidator(mock_http, config)
+        validator.validate = Mock(return_value=(False, 0.0))
+        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(123)]
+
+        with patch("services.proxy_service.tqdm", FakeTqdm):
+            result = validator.validate_batch(proxies)
+
+        progress = FakeTqdm.instances[0]
+        reported_percentages = [
+            int(postfix["Checked"].split("/")[0]) * 100 // progress.total
+            for postfix in progress.postfixes
+        ]
+
+        assert result == []
+        assert len(progress.postfixes) == 101
+        assert reported_percentages == list(range(101))
 
 
 class TestProxyService:
