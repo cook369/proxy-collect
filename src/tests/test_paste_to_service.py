@@ -4,7 +4,7 @@ from unittest.mock import Mock
 
 import services.paste_to_service as paste_to_service
 from services.paste_to_service import PasteToService
-from utils.paste_to import DictionaryPasswordStrategy, PasteToDecryptResult
+from utils.paste_to import DictionaryPasswordStrategy, PasswordAttemptResult
 
 
 def test_paste_to_service_decrypts_url_with_configured_dependencies():
@@ -39,7 +39,7 @@ def test_paste_to_service_decrypts_url_with_configured_dependencies():
         paste_to_service.prepare_paste_to_payload = original_prepare
         paste_to_service.decrypt_prepared_paste_to_payload = original_decrypt
 
-    assert result == PasteToDecryptResult(
+    assert result == PasswordAttemptResult(
         password="1234",
         content="decrypted content",
     )
@@ -66,16 +66,21 @@ def test_paste_to_service_passes_bruteforce_strategy():
 
     fetch_paste_to_payload = Mock(return_value={"ct": "payload"})
     prepare_paste_to_payload = Mock(return_value=prepared_payload)
-    brute_force_paste_to_payload = Mock(
-        return_value=PasteToDecryptResult(password="beta", content="decrypted content")
+    decrypt_prepared_paste_to_payload = Mock(return_value="decrypted content")
+    brute_force_payload = Mock(
+        return_value=PasswordAttemptResult(password="beta", content="decrypted content")
     )
 
     original_fetch = paste_to_service.fetch_paste_to_payload
     original_prepare = paste_to_service.prepare_paste_to_payload
-    original_bruteforce = paste_to_service.brute_force_paste_to_payload
+    original_decrypt = paste_to_service.decrypt_prepared_paste_to_payload
+    original_bruteforce = paste_to_service.brute_force_payload
     paste_to_service.fetch_paste_to_payload = fetch_paste_to_payload
     paste_to_service.prepare_paste_to_payload = prepare_paste_to_payload
-    paste_to_service.brute_force_paste_to_payload = brute_force_paste_to_payload
+    paste_to_service.decrypt_prepared_paste_to_payload = (
+        decrypt_prepared_paste_to_payload
+    )
+    paste_to_service.brute_force_payload = brute_force_payload
     try:
         result = service.decrypt_url(
             "https://paste.to/?abc123#FragmentKey",
@@ -84,14 +89,16 @@ def test_paste_to_service_passes_bruteforce_strategy():
     finally:
         paste_to_service.fetch_paste_to_payload = original_fetch
         paste_to_service.prepare_paste_to_payload = original_prepare
-        paste_to_service.brute_force_paste_to_payload = original_bruteforce
+        paste_to_service.decrypt_prepared_paste_to_payload = original_decrypt
+        paste_to_service.brute_force_payload = original_bruteforce
 
-    assert result == PasteToDecryptResult(
+    assert result == PasswordAttemptResult(
         password="beta",
         content="decrypted content",
     )
-    brute_force_paste_to_payload.assert_called_once_with(
-        prepared=prepared_payload,
-        max_workers=2,
-        password_strategy=password_strategy,
-    )
+    brute_force_payload.assert_called_once()
+    assert brute_force_payload.call_args.kwargs["max_workers"] == 2
+    assert brute_force_payload.call_args.kwargs["password_strategy"] is password_strategy
+    decrypt_prepared = brute_force_payload.call_args.kwargs["decrypt_prepared"]
+    assert decrypt_prepared("beta") == "decrypted content"
+    decrypt_prepared_paste_to_payload.assert_called_once_with(prepared_payload, "beta")

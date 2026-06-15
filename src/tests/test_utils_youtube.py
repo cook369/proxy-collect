@@ -36,27 +36,29 @@ def test_find_latest_video_url_can_reverse_initial_data_order():
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "OLDER",
-                                                                        "title": {
-                                                                            "simpleText": "节点分享 免费节点"
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "OLDER",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "节点分享 免费节点"
                                                                     }
-                                                                },
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "LATEST",
-                                                                        "title": {
-                                                                            "simpleText": "资源分享师 节点分享 免费节点"
-                                                                        },
-                                                                    }
-                                                                },
-                                                            ]
+                                                                }
+                                                            },
                                                         }
-                                                    }
+                                                    },
+                                                    {
+                                                        "lockupViewModel": {
+                                                            "contentId": "LATEST",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "资源分享师 节点分享 免费节点"
+                                                                    }
+                                                                }
+                                                            },
+                                                        }
+                                                    },
                                                 ]
                                             }
                                         }
@@ -95,21 +97,15 @@ def test_find_latest_video_url_matches_all_keywords():
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "MATCH",
-                                                                        "title": {
-                                                                            "runs": [
-                                                                                {
-                                                                                    "text": "最新节点分享 免费节点"
-                                                                                }
-                                                                            ]
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "MATCH",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "最新节点分享 免费节点"
                                                                     }
                                                                 }
-                                                            ]
+                                                            },
                                                         }
                                                     }
                                                 ]
@@ -150,17 +146,15 @@ def test_find_latest_video_url_raises_parse_error_when_no_match():
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "IGNORE",
-                                                                        "title": {
-                                                                            "simpleText": "其它视频 免费节点"
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "IGNORE",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "其它视频 免费节点"
                                                                     }
                                                                 }
-                                                            ]
+                                                            },
                                                         }
                                                     }
                                                 ]

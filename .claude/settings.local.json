@@ -10,7 +10,8 @@
       "Bash(dir:*)",
       "Bash(uv sync:*)",
       "Bash(cd:*)",
-      "Bash(pushd:*)"
+      "Bash(pushd:*)",
+      "Bash(python *)"
     ]
   }
 }

@@ -8,7 +8,7 @@ import pytest
 from collectors.sites.xqkxw import XQKXWCollector
 from core.interfaces import HttpClient
 from core.models import FileManifest, SiteManifest
-from utils.paste_to import DictionaryPasswordStrategy, PasteToDecryptResult
+from utils.paste_to import DictionaryPasswordStrategy, PasswordAttemptResult
 
 
 def test_extract_latest_video_url_from_playlist_selects_matching_title():
@@ -27,35 +27,29 @@ def test_extract_latest_video_url_from_playlist_selects_matching_title():
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "IGNORE_1",
-                                                                        "title": {
-                                                                            "runs": [
-                                                                                {
-                                                                                    "text": "其它视频 免费节点"
-                                                                                }
-                                                                            ]
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "IGNORE_1",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "其它视频 免费节点"
                                                                     }
-                                                                },
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "LN-Dgi_0_1I",
-                                                                        "title": {
-                                                                            "runs": [
-                                                                                {
-                                                                                    "text": "最新节点分享 免费节点"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                    }
-                                                                },
-                                                            ]
+                                                                }
+                                                            },
                                                         }
-                                                    }
+                                                    },
+                                                    {
+                                                        "lockupViewModel": {
+                                                            "contentId": "LN-Dgi_0_1I",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "最新节点分享 免费节点"
+                                                                    }
+                                                                }
+                                                            },
+                                                        }
+                                                    },
                                                 ]
                                             }
                                         }
@@ -132,7 +126,7 @@ def test_get_download_tasks_uses_paste_to_service(monkeypatch):
         )
     )
     paste_to_service = Mock()
-    paste_to_service.decrypt_url.return_value = PasteToDecryptResult(
+    paste_to_service.decrypt_url.return_value = PasswordAttemptResult(
         password="1234", content="share content"
     )
     paste_to_service_class = Mock(return_value=paste_to_service)
@@ -169,17 +163,15 @@ def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
                                             "itemSectionRenderer": {
                                                 "contents": [
                                                     {
-                                                        "playlistVideoListRenderer": {
-                                                            "contents": [
-                                                                {
-                                                                    "playlistVideoRenderer": {
-                                                                        "videoId": "LN-Dgi_0_1I",
-                                                                        "title": {
-                                                                            "simpleText": "最新节点分享 免费节点"
-                                                                        },
+                                                        "lockupViewModel": {
+                                                            "contentId": "LN-Dgi_0_1I",
+                                                            "metadata": {
+                                                                "lockupMetadataViewModel": {
+                                                                    "title": {
+                                                                        "content": "最新节点分享 免费节点"
                                                                     }
                                                                 }
-                                                            ]
+                                                            },
                                                         }
                                                     }
                                                 ]

@@ -48,7 +48,7 @@ def get_playlist_videos(
 
 
 def parse_playlist_video_renderer(renderer: dict | None) -> tuple[str, str] | None:
-    """从 playlistVideoRenderer 提取视频 ID 和标题"""
+    """从 lockupViewModel 提取视频 ID 和标题"""
     if not renderer:
         return None
 
@@ -101,7 +101,7 @@ def extract_youtube_redirect_url(
     return unquote(matches[-1])
 
 
-check_playlist = check_html_contains("playlistVideoRenderer")
+check_playlist = check_html_contains("lockupViewModel")
 
 
 def get_playlist_html(http_client: HttpClient, url: str) -> str:

@@ -9,9 +9,9 @@ import utils.paste_to as paste_to
 from utils.paste_to import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,
-    PasteToDecryptResult,
+    PasswordAttemptResult,
     b58decode,
-    brute_force_paste_to_payload,
+    brute_force_payload,
     decode_paste_to_key,
     decrypt_paste_to_url,
     fetch_paste_to_payload,
@@ -66,80 +66,59 @@ def test_charset_password_strategy_generates_passwords_from_charset_and_length()
     assert list(strategy.iter_passwords()) == ["aa", "ab", "ba", "bb"]
 
 
-def test_brute_force_paste_to_payload_returns_password_and_content():
+def test_brute_force_payload_returns_password_and_content():
     attempts = []
-    prepared_payload = object()
 
-    def fake_decrypt(prepared, password):
-        assert prepared is prepared_payload
+    def fake_decrypt(password):
         attempts.append(password)
         if password == "2":
             return "decrypted content"
         raise ValueError("bad password")
 
-    original_decrypt = paste_to.decrypt_prepared_paste_to_payload
-    paste_to.decrypt_prepared_paste_to_payload = fake_decrypt
-    try:
-        result = brute_force_paste_to_payload(
-            prepared_payload,
-            max_workers=1,
-            password_strategy=CharsetPasswordStrategy(length=1, charset="012"),
-        )
-    finally:
-        paste_to.decrypt_prepared_paste_to_payload = original_decrypt
+    result = brute_force_payload(
+        max_workers=1,
+        password_strategy=CharsetPasswordStrategy(length=1, charset="012"),
+        decrypt_prepared=fake_decrypt,
+    )
 
-    assert result == PasteToDecryptResult(password="2", content="decrypted content")
+    assert result == PasswordAttemptResult(password="2", content="decrypted content")
     assert attempts == ["0", "1", "2"]
 
 
-def test_brute_force_paste_to_payload_uses_dictionary_strategy():
+def test_brute_force_payload_uses_dictionary_strategy():
     attempts = []
-    prepared_payload = object()
 
-    def fake_decrypt(prepared, password):
-        assert prepared is prepared_payload
+    def fake_decrypt(password):
         attempts.append(password)
         if password == "beta":
             return "decrypted content"
         raise ValueError("bad password")
 
-    original_decrypt = paste_to.decrypt_prepared_paste_to_payload
-    paste_to.decrypt_prepared_paste_to_payload = fake_decrypt
-    try:
-        result = brute_force_paste_to_payload(
-            prepared_payload,
-            max_workers=1,
-            password_strategy=DictionaryPasswordStrategy(["alpha", "beta", "0002"]),
-        )
-    finally:
-        paste_to.decrypt_prepared_paste_to_payload = original_decrypt
+    result = brute_force_payload(
+        max_workers=1,
+        password_strategy=DictionaryPasswordStrategy(["alpha", "beta", "0002"]),
+        decrypt_prepared=fake_decrypt,
+    )
 
-    assert result == PasteToDecryptResult(password="beta", content="decrypted content")
+    assert result == PasswordAttemptResult(password="beta", content="decrypted content")
     assert attempts == ["alpha", "beta"]
 
 
-def test_brute_force_paste_to_payload_uses_default_four_digit_numeric_strategy():
+def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
     attempts = []
-    prepared_payload = object()
 
-    def fake_decrypt(prepared, password):
-        assert prepared is prepared_payload
+    def fake_decrypt(password):
         attempts.append(password)
         if password == "0002":
             return "decrypted content"
         raise ValueError("bad password")
 
-    original_decrypt = paste_to.decrypt_prepared_paste_to_payload
-    paste_to.decrypt_prepared_paste_to_payload = fake_decrypt
-    try:
-        result = brute_force_paste_to_payload(
-            prepared_payload,
-            max_workers=1,
-        )
-    finally:
-        paste_to.decrypt_prepared_paste_to_payload = original_decrypt
+    result = brute_force_payload(
+        max_workers=1,
+        decrypt_prepared=fake_decrypt,
+    )
 
-    assert result == PasteToDecryptResult(password="0002", content="decrypted content")
+    assert result == PasswordAttemptResult(password="0002", content="decrypted content")
     assert attempts == ["0000", "0001", "0002"]
 
 
@@ -169,7 +148,7 @@ def test_decrypt_paste_to_url_uses_password_without_bruteforce():
         paste_to.prepare_paste_to_payload = original_prepare
         paste_to.decrypt_prepared_paste_to_payload = original_decrypt
 
-    assert result == PasteToDecryptResult(
+    assert result == PasswordAttemptResult(
         password="1234",
         content="decrypted by password",
     )
@@ -203,7 +182,7 @@ def test_decrypt_paste_to_url_brute_forces_without_password():
         paste_to.prepare_paste_to_payload = original_prepare
         paste_to.decrypt_prepared_paste_to_payload = original_decrypt
 
-    assert result == PasteToDecryptResult(
+    assert result == PasswordAttemptResult(
         password="2",
         content="decrypted by brute force",
     )

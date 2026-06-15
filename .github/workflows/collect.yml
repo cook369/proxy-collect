@@ -2,7 +2,8 @@ name: collect
 on:
   push:
     branches:
-    - '*'
+    - main
+    - develop
   schedule:
     - cron: "0,30 1,3 * * *"
     - cron: "0 */2 * * *"
@@ -11,20 +12,19 @@ jobs:
   collect:
     permissions:
       contents: write
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 2  # 获取最近2个commit用于判断
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version-file: "pyproject.toml"
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v6
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
           enable-cache: true
 
@@ -54,7 +54,7 @@ jobs:
           if [[ "$LAST_AUTHOR" == "github-actions[bot]" ]]; then
             echo "Last commit is from CI, amending..."
             git commit --amend -m "chore: auto collect $(date -u +'%Y-%m-%d %H:%M') UTC"
-            git push --force
+            git push --force-with-lease
           else
             echo "Last commit is not from CI, creating new commit..."
             git commit -m "chore: auto collect $(date -u +'%Y-%m-%d %H:%M') UTC"
