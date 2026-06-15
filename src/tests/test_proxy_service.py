@@ -76,16 +76,19 @@ class TestProxyValidator:
 
         assert len(result) == 2
 
-    def test_validate_batch_updates_progress_once_per_percent(self):
-        """Progress postfix should not refresh on every checked proxy."""
+    def test_validate_batch_updates_progress_once_per_ten_percent(self):
+        """Progress should track available proxy target and refresh every 10%."""
 
         class FakeTqdm:
             instances = []
 
-            def __init__(self, total, desc, unit):
+            def __init__(self, total, desc, unit, miniters=None):
                 self.n = 0
                 self.total = total
                 self.postfixes = []
+                self.refresh_count = 0
+                self.updates = []
+                self.miniters = miniters
                 FakeTqdm.instances.append(self)
 
             def __enter__(self):
@@ -96,28 +99,36 @@ class TestProxyValidator:
 
             def update(self, count):
                 self.n += count
+                self.updates.append(count)
 
-            def set_postfix(self, postfix):
+            def set_postfix(self, postfix, refresh=True):
                 self.postfixes.append(postfix)
 
+            def refresh(self):
+                self.refresh_count += 1
+
         mock_http = Mock(spec=HttpService)
-        config = ProxyConfig(max_available=200, check_workers=1)
+        config = ProxyConfig(max_available=100, check_workers=1)
         validator = ProxyValidator(mock_http, config)
-        validator.validate = Mock(return_value=(False, 0.0))
-        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(123)]
+        validator.validate = Mock(return_value=(True, 0.1))
+        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(100)]
 
         with patch("services.proxy_service.tqdm", FakeTqdm):
             result = validator.validate_batch(proxies)
 
         progress = FakeTqdm.instances[0]
         reported_percentages = [
-            int(postfix["Checked"].split("/")[0]) * 100 // progress.total
+            int(postfix["Available"].split("/")[0]) * 100 // progress.total
             for postfix in progress.postfixes
         ]
 
-        assert result == []
-        assert len(progress.postfixes) == 101
-        assert reported_percentages == list(range(101))
+        assert len(result) == 100
+        assert progress.total == config.max_available
+        assert progress.miniters == progress.total + 1
+        assert len(progress.postfixes) == 10
+        assert progress.refresh_count == 10
+        assert len(progress.updates) == 10
+        assert reported_percentages == list(range(10, 101, 10))
 
 
 class TestProxyService:
