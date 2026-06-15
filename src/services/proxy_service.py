@@ -52,13 +52,21 @@ class ProxyValidator:
         """
         available = []
         total = len(proxies)
+        target_available = self.config.max_available
 
         with ThreadPoolExecutor(max_workers=self.config.check_workers) as executor:
             futures = {executor.submit(self.validate, p): p for p in proxies}
 
-            with tqdm(total=total, desc="Proxy Checking", unit="proxy") as pbar:
-                last_reported_percent = -1
+            with tqdm(
+                total=target_available,
+                desc="Proxy Checking",
+                unit="proxy",
+                miniters=target_available + 1,
+            ) as pbar:
+                checked_count = 0
+                last_reported_bucket = 0
                 for future in as_completed(futures):
+                    stop_checking = False
                     proxy = futures[future]
                     try:
                         success, response_time = future.result()
@@ -69,23 +77,45 @@ class ProxyValidator:
                                 for f in futures:
                                     if not f.done():
                                         f.cancel()
-                                break
+                                stop_checking = True
                         else:
                             proxy.record_failure()
                     except Exception:
                         proxy.record_failure()
                         logging.debug(f"Proxy failed: {proxy.url}")
 
-                    pbar.update(1)
-                    current_percent = int(pbar.n * 100 / total) if total else 100
-                    if current_percent > last_reported_percent:
-                        last_reported_percent = current_percent
+                    checked_count += 1
+                    current_percent = (
+                        int(len(available) * 100 / target_available)
+                        if target_available
+                        else 100
+                    )
+                    current_bucket = current_percent // 10
+                    if current_bucket > last_reported_bucket:
+                        last_reported_bucket = current_bucket
+                        pbar.update(len(available) - pbar.n)
                         pbar.set_postfix(
                             {
-                                "Available": len(available),
-                                "Checked": f"{pbar.n}/{total}",
-                            }
+                                "Available": f"{len(available)}/{target_available}",
+                                "Checked": f"{checked_count}/{total}",
+                            },
+                            refresh=False,
                         )
+                        pbar.refresh()
+
+                    if stop_checking:
+                        break
+
+                if pbar.n < len(available):
+                    pbar.update(len(available) - pbar.n)
+                    pbar.set_postfix(
+                        {
+                            "Available": f"{len(available)}/{target_available}",
+                            "Checked": f"{checked_count}/{total}",
+                        },
+                        refresh=False,
+                    )
+                    pbar.refresh()
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available
