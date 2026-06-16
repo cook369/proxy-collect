@@ -21,3 +21,13 @@ class HttpClient(Protocol):
     ) -> str:
         """发送 GET 请求并返回响应内容"""
         ...
+
+    def get_raw(
+        self,
+        url: str,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> bytes:
+        """发送 GET 请求并返回二进制响应内容"""
+        ...

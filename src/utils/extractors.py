@@ -81,6 +81,17 @@ def create_download_tasks_from_regex_rules(
     for filename, pattern in rules.items():
         match = re.search(pattern, content, flags)
         if match:
-            tasks.append(DownloadTask(filename=filename, url=match.group(1)))
+            tasks.append(DownloadTask(filename=filename, url=match.group(1), data=""))
+
+    return tasks
+
+
+def create_download_tasks_from_file(
+    result: dict[str, str],
+) -> list[DownloadTask]:
+    """从文件中提取订阅信息"""
+    tasks: list[DownloadTask] = []
+    for filename, data in result.items():
+        tasks.append(DownloadTask(filename=filename, url="", data=data))
 
     return tasks

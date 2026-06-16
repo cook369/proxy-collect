@@ -91,6 +91,43 @@ class HttpService:
 
         return resp.text
 
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type((requests.RequestException)),
+        reraise=True,
+    )
+    def get_raw(
+        self,
+        url: str,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> bytes:
+        """发送 GET 请求
+
+        Args:
+            url: 请求 URL
+            proxy: 代理地址（可选）
+            timeout: 超时时间（秒）
+
+        Returns:
+            响应内容
+
+        Raises:
+            requests.HTTPError: HTTP 错误
+            ValueError: 响应内容为空
+        """
+        proxies = {"http": proxy, "https": proxy} if proxy else None
+        # logging.info(f"Fetching URL: {url} with proxy: {proxy}")
+        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
+        resp.raise_for_status()
+
+        if not resp.content:
+            raise ValueError("Empty response")
+
+        return resp.content
+
 
 class ProxyPool:
     """代理池管理"""
@@ -267,6 +304,33 @@ class ProxyHttpService:
     ) -> str:
         """获取 URL 内容（兼容 HttpService 接口）"""
         return self.fetch_with_proxies(url, timeout, headers, check_html)
+
+    def get_raw(
+        self,
+        url: str,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> bytes:
+        """获取二进制内容（兼容 HttpService 接口）"""
+        if not self.proxy_pool:
+            return self.http_service.get_raw(url, timeout=timeout, headers=headers)
+
+        proxies = self.proxy_pool.get_sorted()
+        if not proxies:
+            raise ProxyError("No proxies available")
+
+        for proxy_info in proxies:
+            try:
+                result = self.http_service.get_raw(
+                    url, proxy=proxy_info.url, timeout=timeout, headers=headers
+                )
+                self.proxy_pool.record_success(proxy_info, 1.0)
+                return result
+            except Exception:
+                self.proxy_pool.record_failure(proxy_info)
+
+        raise ProxyError(f"All proxies failed to fetch {url}")
 
     def shutdown(self):
         """关闭线程池"""

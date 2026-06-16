@@ -85,6 +85,23 @@ def find_latest_video_url(
     )
 
 
+def find_latest_video_url_in_home(
+    home_html: str,
+) -> tuple[str, str]:
+    """从 YouTube 主页页面提取匹配关键词的视频 URL"""
+    match = re.search(r"\[Daily Update\].*?\"", home_html)
+    if not match:
+        raise ParseError("YouTube home not find videos")
+    title = match.group(0)
+    st_index = home_html.index(title)
+    match = re.search(r"/watch\?v=(.*?)\"", home_html[st_index:])
+    if not match:
+        raise ParseError("YouTube home not find videos url")
+    video_id = match.group(1)
+    video = f"https://www.youtube.com/watch?v={video_id}"
+    return video, title
+
+
 def extract_youtube_redirect_url(
     video_html: str,
     target_host: str,

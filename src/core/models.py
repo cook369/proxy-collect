@@ -14,7 +14,8 @@ class DownloadTask:
     """下载任务"""
 
     filename: str
-    url: str
+    url: str = ""
+    data: str = ""
     processor: Optional[Callable[[str], str]] = None
 
 
