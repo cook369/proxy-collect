@@ -83,6 +83,34 @@ class BaseCollector(ABC):
         except Exception as e:
             raise NetworkError(str(e), url, self.name) from e
 
+    def fetch_data(
+        self,
+        url: str,
+        timeout: int = default_config.collector.fetch_timeout,
+    ) -> bytes:
+        """获取二进制内容
+
+        Args:
+            url: 请求 URL
+            timeout: 请求超时时间（秒）
+        Returns:
+            二进制响应内容
+
+        Raises:
+            NetworkError: 网络请求失败
+        """
+        if not self.http_client:
+            raise NetworkError("HTTP client not initialized", url, self.name)
+
+        logging.info(f"[{self.name}] Fetching: {url}")
+        try:
+            return self.http_client.get_raw(
+                url,
+                timeout=timeout,
+            )
+        except Exception as e:
+            raise NetworkError(str(e), url, self.name) from e
+
     @abstractmethod
     def get_download_tasks(self) -> list[DownloadTask]:
         """获取下载任务列表（子类实现）
@@ -139,7 +167,14 @@ class BaseCollector(ABC):
             是否成功
         """
         try:
-            content = self.fetch_html(task.url)
+            content = ""
+            if task.url:
+                content = self.fetch_html(task.url)
+            if task.data:
+                content = task.data
+
+            if not content:
+                raise ValidationError(f"empty content for {task.filename}")
 
             # 应用内容处理器
             if task.processor:
