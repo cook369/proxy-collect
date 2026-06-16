@@ -1,0 +1,171 @@
+{
+  "last_run": "2026-06-23 23:15:18",
+  "sites": {
+    "cfmeme": {
+      "today_page": "https://www.cfmem.com/2026/06/20260623-21-vless-x14-trojan-x6-ss-x1.html",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://nodebuf.com/files/public/cmqqlf9th00efdw5wspysorpf/preview",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://nodebuf.com/files/public/cmqqlf9ti00egdw5whi54b2ra/preview",
+          "success": true
+        }
+      }
+    },
+    "jichangx": {
+      "today_page": null,
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://jichangx.com/nodes/v2ray-20260623-01",
+          "success": true
+        }
+      }
+    },
+    "nodefree": {
+      "today_page": "https://nodefree.me/p/3746.html",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://node.nodefree.me/2026/06/20260623.txt",
+          "success": true
+        }
+      }
+    },
+    "fxrj": {
+      "today_page": "https://www.youtube.com/watch?v=y_0krkYPaOI",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "",
+          "success": true
+        }
+      }
+    },
+    "oneclash": {
+      "today_page": "https://oneclash.cc/a/3378.html",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://oss.oneclash.cc/2026/06/20260623.txt",
+          "success": true
+        }
+      }
+    },
+    "85la": {
+      "today_page": "https://www.85la.com/14612.html",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "clash.yaml": {
+          "url": "https://www.qilan.de/api/subscription/97d8bac42dceebd63cdba7365b773ba5b538c66475a6b907",
+          "success": true
+        }
+      }
+    },
+    "qfzyfx": {
+      "today_page": "https://www.youtube.com/watch?v=M3oBjFpt8Yk",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://fsxdz.us.kg/sub?token=26cd5a148d39391eb6eefbdfc6491039",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://fsxdz.us.kg/sub?token=26cd5a148d39391eb6eefbdfc6491039&clash",
+          "success": true
+        }
+      }
+    },
+    "yudou": {
+      "today_page": "https://www.yudou789.top/1142.html",
+      "status": "partial",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "clash.yaml": {
+          "url": "https://hh.yudou226.top/202606/20260623mem3ta.yaml",
+          "success": false,
+          "error": "Download failed"
+        },
+        "v2ray.txt": {
+          "url": "https://hh.yudou226.top/202606/20260623ba2ase.txt",
+          "success": true
+        }
+      }
+    },
+    "xqkxw": {
+      "today_page": "https://www.youtube.com/watch?v=kqlz_TswPCg",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://gist.githubusercontent.com/guidongone/b32572aa6f5c77cac5c8d4b86a123d02/raw/4a207944c478e6ca41a1de980a870371c1716836/%25E5%25B0%258F%25E9%259D%2592%25E7%25A7%2591%25E5%25AD%25A6%25E7%25BD%2591V2ray%25E5%2585%258D%25E8%25B4%25B9%25E8%258A%2582%25E7%2582%25B9260623.txt",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://gist.githubusercontent.com/guidongone/2028d8e1f1dbb13228f770c140ecbfa5/raw/7fc7fd28a4a4a3d90d2025e58cc5baa91f860087/%25E5%25B0%258F%25E9%259D%2592%25E7%25A7%2591%25E5%25AD%25A6%25E7%25BD%2591Clash%25E5%2585%258D%25E8%25B4%25B9%25E8%258A%2582%25E7%2582%25B9260623.yaml",
+          "success": true
+        }
+      }
+    },
+    "datiya": {
+      "today_page": "https://free.datiya.com/post/20260624/",
+      "status": "partial",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://free.datiya.com/uploads/20260624-v2ray.txt",
+          "success": false,
+          "error": "Download failed"
+        },
+        "clash.yaml": {
+          "url": "https://free.datiya.com/uploads/20260624-clash.yaml",
+          "success": true
+        }
+      }
+    },
+    "zyfxs": {
+      "today_page": "https://www.youtube.com/watch?v=eFj78_p_Cf0",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3QvYy9jZDVmMDg0ZTUxNDhlMTc5L0lRRGpQVExObUp0RFJZQmMxRlFQcXdMdkFUNTItb2MtRGlSWnY4ZVJrMUtZNzBjP2U9T3BFQTdQ.jpg",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9jZDVmMDg0ZTUxNDhlMTc5L0lRQjNhYmFXUWxxdFJLNTR2ek82UDNqcUFlWEdEdHZ0TzJvRzdzeVZnZEVZM0VjP2U9UmxnR05Q.jpg",
+          "success": true
+        }
+      }
+    },
+    "jcnode": {
+      "today_page": "https://youtu.be/HaaPTVot8mI",
+      "status": "success",
+      "updated_at": "2026-06-23 23:15:18",
+      "files": {
+        "v2ray.txt": {
+          "url": "https://shz.al/fw6p",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://shz.al/WWee",
+          "success": true
+        }
+      }
+    }
+  }
+}

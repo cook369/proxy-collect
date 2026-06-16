@@ -1,0 +1,6367 @@
+allow-lan: true
+dns:
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  ipv6: true
+  listen: 0.0.0.0:1053
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+external-controller: 127.0.0.1:9090
+ipv6: true
+log-level: info
+mixed-port: 7890
+mode: rule
+proxies:
+- name: 采集地址 https://www.youtube.com/watch?v=eFj78_p_Cf0
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 站点 zyfxs
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 更新时间 2026-06-23 04:11
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 香港-youtube@资源分享师 03
+  port: 10000
+  server: 207.174.133.173
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: d26598cf-2cdf-4219-80d0-94646dff160d
+- name: 香港-youtube@资源分享师 02
+  password: '114514'
+  port: 443
+  server: 68.64.178.42
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- name: 香港-youtube@资源分享师 04
+  password: '114514'
+  port: 443
+  server: 103.219.194.43
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- name: 美国-youtube@资源分享师 07
+  password: '114514'
+  port: 443
+  server: 154.26.187.69
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- name: 美国-youtube@资源分享师 08
+  password: '114514'
+  port: 443
+  server: 154.64.235.208
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- http-opts:
+    headers:
+      Host:
+      - sudo.domain.direct.Pannel.admin.soon.ab841.com
+    path:
+    - /@SoonTeam
+  name: 加拿大-youtube@资源分享师 05
+  network: http
+  port: 8880
+  server: 104.27.194.143
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: SoonTeam
+- name: 美国-youtube@资源分享师 05
+  port: 443
+  server: 206.82.3.131
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: d26598cf-2cdf-4219-80d0-94646dff160d
+- name: 德国-youtube@资源分享师 04
+  network: ws
+  port: 80
+  server: 151.101.122.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 48
+  network: ws
+  port: 80
+  server: 151.101.205.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 15
+  network: ws
+  port: 80
+  server: 151.101.242.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- http-opts:
+    headers:
+      Host:
+      - CAdaba.amki.IR.
+    path:
+    - /graphql
+  name: 加拿大-youtube@资源分享师 01
+  network: httpupgrade
+  port: 2052
+  server: suolar.yellowsky.ir
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: a4548d7f-8e0f-4780-9f5a-30cbd2754550
+- name: 德国-youtube@资源分享师 07
+  network: ws
+  port: 80
+  server: 151.101.60.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 58
+  network: ws
+  port: 80
+  server: 151.101.205.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 美国-youtube@资源分享师 09
+  port: 443
+  reality-opts:
+    public-key: zCeRZCK7gCGFmPlOzBaTWHVkmysMFJlPqgDTPZRjRx0
+    short-id: 6ba85179e30d4fc2
+  server: media6.hihidress.com
+  servername: www.mi.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 27f914c5-bdcc-441a-9459-368daf552606
+- name: 德国-youtube@资源分享师 93
+  network: ws
+  port: 80
+  server: 151.101.206.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 95
+  network: ws
+  port: 80
+  server: 151.101.122.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 40
+  network: ws
+  port: 80
+  server: 151.101.242.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 55
+  network: ws
+  port: 80
+  server: 151.101.10.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 164
+  network: ws
+  port: 80
+  server: 151.101.6.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 02
+  network: ws
+  port: 80
+  server: 151.101.241.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 20
+  network: ws
+  port: 80
+  server: 151.101.206.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 09
+  network: ws
+  port: 80
+  server: 151.101.120.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 218
+  network: ws
+  port: 80
+  server: 151.101.7.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 64
+  network: ws
+  port: 80
+  server: 151.101.61.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 128
+  network: ws
+  port: 80
+  server: 151.101.9.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 178
+  network: ws
+  port: 80
+  server: 151.101.7.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 香港-youtube@资源分享师 07
+  password: '114514'
+  port: 443
+  server: 209.33.166.199
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- name: 德国-youtube@资源分享师 104
+  network: ws
+  port: 80
+  server: 151.101.60.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 113
+  network: ws
+  port: 80
+  server: 151.101.61.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 208
+  network: ws
+  port: 80
+  server: 151.101.10.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 05
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.254
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- name: 德国-youtube@资源分享师 10
+  network: ws
+  port: 80
+  server: 151.101.188.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 08
+  network: ws
+  port: 80
+  server: 151.101.241.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 153
+  network: ws
+  port: 80
+  server: 151.101.6.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 111
+  network: ws
+  port: 80
+  server: 151.101.188.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: safari
+  flow: xtls-rprx-vision
+  name: 荷兰-youtube@资源分享师 01
+  port: 8443
+  reality-opts:
+    public-key: -FQM2tUbpiBjwjgla2mwkSkFhFIKQU0FQOvRi0ZD_mY
+    short-id: 540f5784c2481b5a
+  server: 81.90.29.53
+  servername: mishaduck.duckdns.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: cf038a28-8f85-41fc-9e86-ba99a3fdd0d9
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 伊拉克-youtube@资源分享师 01
+  port: 8443
+  reality-opts:
+    public-key: -FQM2tUbpiBjwjgla2mwkSkFhFIKQU0FQOvRi0ZD_mY
+    short-id: 540f5784c2481b5a
+  server: 81.90.29.53
+  servername: mishaduck.duckdns.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: cf038a28-8f85-41fc-9e86-ba99a3fdd0d9
+- name: 德国-youtube@资源分享师 61
+  network: ws
+  port: 80
+  server: 151.101.190.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 01
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.245
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- name: 德国-youtube@资源分享师 131
+  network: ws
+  port: 80
+  server: 151.101.9.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- flow: xtls-rprx-vision
+  name: 美国-youtube@资源分享师 04
+  port: 443
+  reality-opts:
+    public-key: oJpNbJRVc1L_hgwBW5pHJA1BFXkw8tqXMc2I72LbdGc
+    short-id: 2629b9
+  server: 72.249.200.37
+  servername: apple.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: d43023ff-4608-481b-9f8a-b7694dcf5d53
+- name: 德国-youtube@资源分享师 43
+  network: ws
+  port: 80
+  server: 151.101.120.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 13
+  network: ws
+  port: 80
+  server: 151.101.190.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 224
+  network: ws
+  port: 80
+  server: 151.101.191.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 06
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.246
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- name: 德国-youtube@资源分享师 12
+  network: ws
+  port: 80
+  server: 151.101.245.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 11
+  network: ws
+  port: 80
+  server: 151.101.244.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 加拿大-youtube@资源分享师 06
+  password: humanity
+  port: 443
+  server: 172.64.152.23
+  skip-cert-verify: true
+  sni: www.calmlunch.com
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.calmlunch.com
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 07
+  port: 443
+  reality-opts:
+    public-key: j97RCvxVfMu5XWcXuAc4s8TnBTdl8PQrNFrZDQpAkng
+    short-id: f5781bd8af7dbaf6
+  server: 135.106.140.152
+  servername: ytt.gazladder.work
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2e146372-aafa-42e6-aaa6-b2a7185225ce
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 丹麦-youtube@资源分享师 01
+  port: 443
+  server: assets.trorays.com
+  servername: assets.trorays.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: b69a71ef-51dc-48c6-b3df-4c3533062606
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 02
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  server: 109.73.194.240
+  servername: sellflow.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 33de2596-d95d-412b-a8c2-410be7060ca3
+- name: 德国-youtube@资源分享师 49
+  network: ws
+  port: 80
+  server: 151.101.246.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 88
+  network: ws
+  port: 80
+  server: 151.101.134.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 07
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.247
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- name: 德国-youtube@资源分享师 01
+  network: ws
+  port: 80
+  server: 151.101.244.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 187
+  network: ws
+  port: 80
+  server: 151.101.246.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 05
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  server: 5.129.194.22
+  servername: sellflow.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 33de2596-d95d-412b-a8c2-410be7060ca3
+- name: 德国-youtube@资源分享师 17
+  network: ws
+  port: 80
+  server: 151.101.133.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 207
+  network: ws
+  port: 80
+  server: 151.101.133.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 84
+  network: ws
+  port: 80
+  server: 151.101.0.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 101
+  network: ws
+  port: 80
+  server: 151.101.2.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 50
+  network: ws
+  port: 80
+  server: 151.101.140.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 117
+  network: ws
+  port: 80
+  server: 151.101.0.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 147
+  network: ws
+  port: 80
+  server: 151.101.0.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 02
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.248
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- name: 德国-youtube@资源分享师 115
+  network: ws
+  port: 80
+  server: 151.101.0.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- client-fingerprint: chrome
+  name: 芬兰-youtube@资源分享师 09
+  port: 2083
+  reality-opts:
+    public-key: dAyGv5mA1pNYS6amZ4I68rcL7dgOlqJT5y8GuB-2_UA
+    short-id: 9e85f18d29809f14
+  server: ipadvpn.dpdns.org
+  servername: www.yahoo.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: aaac923e-df0e-4928-aaec-b77cb68f91fc
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 04
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+    short-id: 6ba85179e30d4fc2
+  server: 217.217.247.249
+  servername: enterprisekitten.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8ca5cbd3-ec16-4728-bedc-2bc0d82f0922
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 06
+  port: 443
+  reality-opts:
+    public-key: U__j2tLl5Kl7R7zICEWGQLTxV9SZk_Lj0k_338xDWGQ
+    short-id: 8fb53b24
+  server: 92.53.74.158
+  servername: api-maps.yandex.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 92e41c23-4b39-464a-bbff-63ef84f317da
+- client-fingerprint: chrome
+  name: 捷克-youtube@资源分享师 01
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: S05RWQUVH-p3uqekd0iRpIeH__NpCt0XEN2xCiQJs3Y
+    short-id: c56c3ba3b9f676c5
+  server: 95.85.233.181
+  servername: c.primarymaster.online
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: e0bb3250-1873-4b9d-b9b5-7aa6c863885f
+- name: 德国-youtube@资源分享师 47
+  network: ws
+  port: 80
+  server: 151.101.140.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  http-opts:
+    path:
+    - /
+  name: 德国-youtube@资源分享师 132
+  network: http
+  port: 443
+  reality-opts:
+    public-key: Np5eNpCJdcXe4IvMs0stzE-sMtlphhTnZeuCkhjQXzQ
+    short-id: a8389289e18af5f4
+  server: de-01.gni-daed.ru
+  servername: de-01.gni-daed.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7c0f30a2-a7c1-43b1-bc51-20f07036a76e
+- client-fingerprint: qq
+  http-opts:
+    path:
+    - /xhttp-proxy
+  name: 意大利-youtube@资源分享师 02
+  network: http
+  port: 443
+  reality-opts:
+    public-key: akcAXaW7GNwXT6bTrtD6oZIY9rdEzW4TfZvYqDRzsTc
+    short-id: a8f3c1d7e9b4c2f6
+  server: 45.196.215.205
+  servername: 5post-gate.x5.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 0c986712-ccb1-4c8f-8e25-6a209db3c466
+- client-fingerprint: firefox
+  name: 英国-youtube@资源分享师 02
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: 4gf45fdg45fd542g2in.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: f1c742c5-f44c-481d-9fbf-2a2ceebd8ab9
+  ws-opts:
+    headers:
+      Host: 4gf45fdg45fd542g2in.kawaii520.icu
+    path: /
+- name: 德国-youtube@资源分享师 134
+  network: ws
+  port: 80
+  server: 151.101.239.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  name: 英国-youtube@资源分享师 03
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: 4gf45fdg45fd542g2in.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: c00ae81e-68dc-4951-aeea-c495f32f91a5
+  ws-opts:
+    headers:
+      Host: 4gf45fdg45fd542g2in.kawaii520.icu
+    path: /
+- name: 香港-youtube@资源分享师 10
+  password: '114514'
+  port: 443
+  server: 23.156.153.57
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 芬兰-youtube@资源分享师 08
+  port: 443
+  reality-opts:
+    public-key: uHgXn92PmJ1ilszzwK2LHKvoC5dwhqYVhfKT_JW7JHM
+    short-id: 40a5eaec20abf1
+  server: 104.238.29.241
+  servername: helsinki.fi
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 1f4c983e-382c-d2fa-b2dc-7981f02b34de
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 德国-youtube@资源分享师 242
+  port: 443
+  reality-opts:
+    public-key: j97RCvxVfMu5XWcXuAc4s8TnBTdl8PQrNFrZDQpAkng
+    short-id: b415b8d7a6106ace
+  server: fast.gazladder.work
+  servername: fast.gazladder.work
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2e146372-aafa-42e6-aaa6-b2a7185225ce
+- name: 德国-youtube@资源分享师 18
+  network: ws
+  port: 80
+  server: 151.101.239.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  name: 德国-youtube@资源分享师 177
+  port: 448
+  reality-opts:
+    public-key: qX6IJfWNN-SNray6xJugb8pCpgY_zjeyCfvq9IUyd3w
+    short-id: e1bdc95c1554c8eb
+  server: 93.114.194.84
+  servername: www.samsung.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: bc5b801f-49a7-4db7-ac92-a2c57d42d132
+- client-fingerprint: firefox
+  name: 英国-youtube@资源分享师 01
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: 4gf45fdg45fd542g2in.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7b3c9cec-6a21-4d57-b9c9-383d519e0b27
+  ws-opts:
+    headers:
+      Host: 4gf45fdg45fd542g2in.kawaii520.icu
+    path: /
+- name: 德国-youtube@资源分享师 114
+  network: ws
+  port: 80
+  server: 151.101.158.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 140
+  network: ws
+  port: 80
+  server: 151.101.158.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- alterId: 0
+  cipher: auto
+  name: 香港-youtube@资源分享师 12
+  port: 52080
+  server: 154.37.223.56
+  skip-cert-verify: true
+  tls: false
+  type: vmess
+  udp: true
+  uuid: f1ac5c82-00a4-400b-bb20-530c91b7c5bb
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 03
+  port: 443
+  reality-opts:
+    public-key: ICOdUjV4l0pQKechbg5GIDyo0mvDH373CR1dcWxXCXg
+    short-id: 7baebcace7b4d3a6
+  server: yandex.plan-vpn.ru
+  servername: yandex.plan-vpn.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8f8a4b5f-2656-450e-95a6-6fb5e628bfb7
+- name: 香港-youtube@资源分享师 09
+  password: '114514'
+  port: 443
+  server: 209.33.160.242
+  skip-cert-verify: true
+  sni: tjaaa.hhllfly.kdns.fr
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: tjaaa.hhllfly.kdns.fr
+    path: /
+- client-fingerprint: chrome
+  name: 香港-youtube@资源分享师 01
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: dfs8545fads4ds5.another-appleid.ccwu.cc
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7b3c9cec-6a21-4d57-b9c9-383d519e0b27
+  ws-opts:
+    headers:
+      Host: dfs8545fads4ds5.another-appleid.ccwu.cc
+    path: /
+- client-fingerprint: chrome
+  http-opts:
+    headers:
+      Host:
+      - fi.dns.xn--q9jyb4c
+    path:
+    - /xn--q9jyb4c
+  name: 芬兰-youtube@资源分享师 03
+  network: http
+  port: 443
+  server: 8.6.112.121
+  servername: ProxyVPN11.dns.xn--q9jyb4c
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 1c3927cb-6141-4473-a17d-4b290f7c6980
+- client-fingerprint: firefox
+  name: 德国-youtube@资源分享师 150
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: S05RWQUVH-p3uqekd0iRpIeH__NpCt0XEN2xCiQJs3Y
+    short-id: c56c3ba3b9f676c5
+  server: 95.85.233.181
+  servername: c.primarymaster.online
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: e0bb3250-1873-4b9d-b9b5-7aa6c863885f
+- client-fingerprint: chrome
+  name: 美国-youtube@资源分享师 10
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: tt86554he5f4jb8ezvry6v8us.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7b3c9cec-6a21-4d57-b9c9-383d519e0b27
+  ws-opts:
+    headers:
+      Host: tt86554he5f4jb8ezvry6v8us.kawaii520.icu
+    path: /
+- cipher: chacha20-ietf-poly1305
+  name: 伊朗-youtube@资源分享师 01
+  password: 6SjeAjXcDrovE45S0NyCGgQfIQLSFV04JyMhMtmZiGQ=
+  port: 51570
+  server: e1.cover20.ir
+  skip-cert-verify: true
+  type: ss
+  udp: true
+- client-fingerprint: chrome
+  http-opts:
+    headers:
+      Host:
+      - sa.sorixset.ir
+    path:
+    - /@IRAN_V2RAY1-@IRAN_V2RAY1-@IRAN_V2RAY1-@IRAN_V2RAY1-@IRAN_V2RAY1-@IRAN_V2RAY1-@IRAN_V2RAY1-
+  name: 阿联酋-youtube@资源分享师 01
+  network: http
+  port: 8443
+  server: 199.181.197.176
+  servername: sla.sorixset.ir
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 044aa4fc-d4e4-45e8-94cf-dd597e972b82
+- http-opts:
+    headers:
+      Host:
+      - sudo.domain.direct.Pannel.admin.soon.ab841.com
+    path:
+    - /@SoonTeam
+  name: 加拿大-youtube@资源分享师 04
+  network: http
+  port: 8880
+  server: 104.17.52.188
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: SoonTeam
+- client-fingerprint: chrome
+  name: 德国-youtube@资源分享师 258
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: tupdfsfrgsdgd57345v8de.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: f1c742c5-f44c-481d-9fbf-2a2ceebd8ab9
+  ws-opts:
+    headers:
+      Host: tupdfsfrgsdgd57345v8de.kawaii520.icu
+    path: /
+- name: 韩国-youtube@资源分享师 01
+  password: C0DD7bgChaltqnh/T2az6ijM
+  port: 20000
+  server: 193.123.228.188
+  skip-cert-verify: true
+  sni: www.bing.com
+  type: hysteria2
+  udp: true
+- client-fingerprint: firefox
+  name: 罗马尼亚-youtube@资源分享师 01
+  port: 448
+  reality-opts:
+    public-key: qX6IJfWNN-SNray6xJugb8pCpgY_zjeyCfvq9IUyd3w
+    short-id: e1bdc95c1554c8eb
+  server: 93.114.194.84
+  servername: www.samsung.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: bc5b801f-49a7-4db7-ac92-a2c57d42d132
+- name: 德国-youtube@资源分享师 184
+  network: ws
+  port: 80
+  server: 151.101.55.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  name: 新加坡-youtube@资源分享师 01
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: djkrei5f4jb9941fd6v8sg.another-appleid.ccwu.cc
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: f1c742c5-f44c-481d-9fbf-2a2ceebd8ab9
+  ws-opts:
+    headers:
+      Host: djkrei5f4jb9941fd6v8sg.another-appleid.ccwu.cc
+    path: /
+- name: 德国-youtube@资源分享师 33
+  network: ws
+  port: 80
+  server: 151.101.19.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 219
+  network: ws
+  port: 80
+  server: 151.101.96.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 232
+  network: ws
+  port: 80
+  server: 151.101.16.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 255
+  network: ws
+  port: 80
+  server: 151.101.69.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 加拿大-youtube@资源分享师 02
+  network: ws
+  port: 80
+  server: 199.232.197.131
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 190
+  network: ws
+  port: 80
+  server: 151.101.213.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 211
+  network: ws
+  port: 80
+  server: 151.101.55.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 67
+  network: ws
+  port: 80
+  server: 151.101.70.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 130
+  network: ws
+  port: 80
+  server: 151.101.58.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 168
+  network: ws
+  port: 80
+  server: 151.101.170.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  name: 德国-youtube@资源分享师 19
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: tupdfsfrgsdgd57345v8de.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: c00ae81e-68dc-4951-aeea-c495f32f91a5
+  ws-opts:
+    headers:
+      Host: tupdfsfrgsdgd57345v8de.kawaii520.icu
+    path: /
+- name: 德国-youtube@资源分享师 166
+  network: ws
+  port: 80
+  server: 151.101.48.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 172
+  network: ws
+  port: 80
+  server: 151.101.108.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 181
+  network: ws
+  port: 80
+  server: 151.101.103.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 191
+  network: ws
+  port: 80
+  server: 151.101.198.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 253
+  network: ws
+  port: 80
+  server: 151.101.196.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 28
+  network: ws
+  port: 80
+  server: 151.101.112.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 246
+  network: ws
+  port: 80
+  server: 151.101.42.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 108
+  network: ws
+  port: 80
+  server: 151.101.161.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 126
+  network: ws
+  port: 80
+  server: 151.101.58.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 145
+  network: ws
+  port: 80
+  server: 151.101.169.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 158
+  network: ws
+  port: 80
+  server: 151.101.34.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 163
+  network: ws
+  port: 80
+  server: 151.101.33.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 31
+  network: ws
+  port: 80
+  server: 151.101.162.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 56
+  network: ws
+  port: 80
+  server: 151.101.149.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 69
+  network: ws
+  port: 80
+  server: 151.101.118.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 92
+  network: ws
+  port: 80
+  server: 151.101.33.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 173
+  network: ws
+  port: 80
+  server: 151.101.212.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 202
+  network: ws
+  port: 80
+  server: 151.101.17.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 30
+  network: ws
+  port: 80
+  server: 151.101.136.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 68
+  network: ws
+  port: 80
+  server: 151.101.117.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 94
+  network: ws
+  port: 80
+  server: 151.101.214.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 171
+  network: ws
+  port: 80
+  server: 151.101.215.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 239
+  network: ws
+  port: 80
+  server: 151.101.150.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  name: 香港-youtube@资源分享师 11
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: dfs8545fads4ds5.another-appleid.ccwu.cc
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: f1c742c5-f44c-481d-9fbf-2a2ceebd8ab9
+  ws-opts:
+    headers:
+      Host: dfs8545fads4ds5.another-appleid.ccwu.cc
+    path: /
+- client-fingerprint: chrome
+  name: 德国-youtube@资源分享师 06
+  network: ws
+  port: 443
+  server: another-cf.dnsyes.kawaii520.icu
+  servername: tupdfsfrgsdgd57345v8de.kawaii520.icu
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7b3c9cec-6a21-4d57-b9c9-383d519e0b27
+  ws-opts:
+    headers:
+      Host: tupdfsfrgsdgd57345v8de.kawaii520.icu
+    path: /
+- name: 德国-youtube@资源分享师 45
+  network: ws
+  port: 80
+  server: 151.101.160.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 165
+  network: ws
+  port: 80
+  server: 151.101.17.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 188
+  network: ws
+  port: 80
+  server: 151.101.19.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 196
+  network: ws
+  port: 80
+  server: 151.101.22.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 220
+  network: ws
+  port: 80
+  server: 151.101.23.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 234
+  network: ws
+  port: 80
+  server: 151.101.148.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 22
+  network: ws
+  port: 80
+  server: 151.101.181.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 42
+  network: ws
+  port: 80
+  server: 151.101.22.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 76
+  network: ws
+  port: 80
+  server: 151.101.109.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 198
+  network: ws
+  port: 80
+  server: 151.101.214.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 16
+  network: ws
+  port: 80
+  server: 151.101.127.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 24
+  network: ws
+  port: 80
+  server: 151.101.84.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 38
+  network: ws
+  port: 80
+  server: 151.101.162.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 192
+  network: ws
+  port: 80
+  server: 151.101.19.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 204
+  network: ws
+  port: 80
+  server: 151.101.115.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 154
+  network: ws
+  port: 80
+  server: 151.101.84.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 200
+  network: ws
+  port: 80
+  server: 151.101.17.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 209
+  network: ws
+  port: 80
+  server: 151.101.170.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 248
+  network: ws
+  port: 80
+  server: 151.101.126.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 21
+  network: ws
+  port: 80
+  server: 151.101.86.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 230
+  network: ws
+  port: 80
+  server: 151.101.182.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 245
+  network: ws
+  port: 80
+  server: 151.101.198.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 254
+  network: ws
+  port: 80
+  server: 151.101.34.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 257
+  network: ws
+  port: 80
+  server: 151.101.86.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 72
+  network: ws
+  port: 80
+  server: 151.101.21.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 77
+  network: ws
+  port: 80
+  server: 151.101.118.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 143
+  network: ws
+  port: 80
+  server: 151.101.196.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 151
+  network: ws
+  port: 80
+  server: 151.101.114.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 193
+  network: ws
+  port: 80
+  server: 151.101.115.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 237
+  network: ws
+  port: 80
+  server: 151.101.203.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 256
+  network: ws
+  port: 80
+  server: 151.101.96.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- cipher: chacha20-ietf-poly1305
+  name: 意大利-youtube@资源分享师 01
+  password: 951753pjh
+  port: 30008
+  server: vc2606.vip1314.vip
+  skip-cert-verify: true
+  type: ss
+  udp: true
+- name: 德国-youtube@资源分享师 162
+  network: ws
+  port: 80
+  server: 151.101.160.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 175
+  network: ws
+  port: 80
+  server: 151.101.46.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 212
+  network: ws
+  port: 80
+  server: 151.101.16.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 225
+  network: ws
+  port: 80
+  server: 151.101.114.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 53
+  network: ws
+  port: 80
+  server: 151.101.152.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 65
+  network: ws
+  port: 80
+  server: 151.101.212.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 167
+  network: ws
+  port: 80
+  server: 151.101.215.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 195
+  network: ws
+  port: 80
+  server: 151.101.161.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 35
+  network: ws
+  port: 80
+  server: 151.101.86.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 78
+  network: ws
+  port: 80
+  server: 151.101.33.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 81
+  network: ws
+  port: 80
+  server: 151.101.42.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 121
+  network: ws
+  port: 80
+  server: 151.101.102.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 221
+  network: ws
+  port: 80
+  server: 151.101.125.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 223
+  network: ws
+  port: 80
+  server: 151.101.33.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 229
+  network: ws
+  port: 80
+  server: 151.101.69.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 27
+  network: ws
+  port: 80
+  server: 151.101.13.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 37
+  network: ws
+  port: 80
+  server: 151.101.126.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 105
+  network: ws
+  port: 80
+  server: 151.101.127.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 210
+  network: ws
+  port: 80
+  server: 151.101.70.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 227
+  network: ws
+  port: 80
+  server: 151.101.169.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 240
+  network: ws
+  port: 80
+  server: 151.101.13.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 249
+  network: ws
+  port: 80
+  server: 151.101.17.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 美国-youtube@资源分享师 13
+  port: 443
+  reality-opts:
+    public-key: 69_I9Wm_vP5wQUbiQhdejWS9yLlNYLFjcnF59G-0GAU
+    short-id: 31e36d0ac3355472
+  server: 191.44.118.101
+  servername: www.microsoft.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: deecd21a-a24f-444d-b92a-2c8e41a6b05b
+- name: 德国-youtube@资源分享师 59
+  network: ws
+  port: 80
+  server: 151.101.117.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 63
+  network: ws
+  port: 80
+  server: 151.101.118.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 100
+  network: ws
+  port: 80
+  server: 151.101.102.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 129
+  network: ws
+  port: 80
+  server: 151.101.48.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 141
+  network: ws
+  port: 80
+  server: 151.101.112.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 205
+  network: ws
+  port: 80
+  server: 151.101.12.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 215
+  network: ws
+  port: 80
+  server: 151.101.136.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 226
+  network: ws
+  port: 80
+  server: 151.101.117.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 241
+  network: ws
+  port: 80
+  server: 151.101.108.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 251
+  network: ws
+  port: 80
+  server: 151.101.19.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 133
+  network: ws
+  port: 80
+  server: 151.101.201.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 252
+  network: ws
+  port: 80
+  server: 151.101.118.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 57
+  network: ws
+  port: 80
+  server: 151.101.213.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 156
+  network: ws
+  port: 80
+  server: 151.101.201.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 201
+  network: ws
+  port: 80
+  server: 151.101.74.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 236
+  network: ws
+  port: 80
+  server: 151.101.253.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 139
+  network: ws
+  port: 80
+  server: 151.101.103.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 149
+  network: ws
+  port: 80
+  server: 151.101.26.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 157
+  network: ws
+  port: 80
+  server: 151.101.181.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 179
+  network: ws
+  port: 80
+  server: 151.101.153.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 110
+  network: ws
+  port: 80
+  server: 151.101.253.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 142
+  network: ws
+  port: 80
+  server: 151.101.200.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 161
+  network: ws
+  port: 80
+  server: 151.101.117.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 238
+  network: ws
+  port: 80
+  server: 151.101.124.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  http-opts:
+    headers:
+      Host:
+      - wizardali.global.ssl.fastly.net
+    path:
+    - /mammadalifsx
+  name: 美国-youtube@资源分享师 11
+  network: http
+  port: 443
+  server: fsxhh.fastshop1.com
+  servername: ssl.fastly.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4c9b304f-ec00-41af-be5b-aa3f22ed430e
+- name: 德国-youtube@资源分享师 26
+  network: ws
+  port: 80
+  server: 151.101.115.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 186
+  network: ws
+  port: 80
+  server: 151.101.26.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 216
+  network: ws
+  port: 80
+  server: 151.101.200.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- http-opts:
+    headers:
+      Host:
+      - new.new.new.ab841.com
+    path:
+    - /@SoonTeam
+  name: 加拿大-youtube@资源分享师 08
+  network: http
+  port: 8080
+  server: 198.41.207.201
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: SoonTeam
+- client-fingerprint: chrome
+  http-opts:
+    headers:
+      Host:
+      - us.dns.xn--q9jyb4c
+    path:
+    - /xn--q9jyb4c
+  name: 美国-youtube@资源分享师 01
+  network: http
+  port: 443
+  server: 188.114.97.6
+  servername: us.dns.xn--q9jyb4c
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: fa957c2e-2eef-42e6-804b-a2a16fab0781
+- name: 德国-youtube@资源分享师 32
+  network: ws
+  port: 80
+  server: 151.101.155.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 136
+  network: ws
+  port: 80
+  server: 151.101.106.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 231
+  network: ws
+  port: 80
+  server: 151.101.152.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 52
+  network: ws
+  port: 80
+  server: 151.101.203.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 82
+  network: ws
+  port: 80
+  server: 151.101.25.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 146
+  network: ws
+  port: 80
+  server: 151.101.153.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 04
+  port: 443
+  reality-opts:
+    public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+  server: 185.185.142.88
+  servername: ai.sellflow.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 33de2596-d95d-412b-a8c2-410be7060ca3
+- name: 德国-youtube@资源分享师 83
+  network: ws
+  port: 80
+  server: 151.101.146.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 91
+  network: ws
+  port: 80
+  server: 151.101.253.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 99
+  network: ws
+  port: 80
+  server: 151.101.73.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 103
+  network: ws
+  port: 80
+  server: 151.101.70.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 119
+  network: ws
+  port: 80
+  server: 151.101.105.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 189
+  network: ws
+  port: 80
+  server: 151.101.253.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 250
+  network: ws
+  port: 80
+  server: 151.101.86.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 29
+  network: ws
+  port: 80
+  server: 151.101.146.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 213
+  network: ws
+  port: 80
+  server: 151.101.182.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: edge
+  http-opts:
+    headers:
+      Host:
+      - jp.jyp.ccwu.cc
+    path:
+    - /api/v2/check_update
+  name: 日本-youtube@资源分享师 02
+  network: httpupgrade
+  port: 2053
+  server: xmmcf.130209.xyz
+  servername: jp.jyp.ccwu.cc
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 65c56e1f-5c41-40bc-b0b5-9346772476ca
+- name: 德国-youtube@资源分享师 44
+  network: ws
+  port: 80
+  server: 151.101.74.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 127
+  network: ws
+  port: 80
+  server: 151.101.194.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 182
+  network: ws
+  port: 80
+  server: 151.101.25.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 194
+  network: ws
+  port: 80
+  server: 151.101.146.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 41
+  network: ws
+  port: 80
+  server: 151.101.149.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 106
+  network: ws
+  port: 80
+  server: 151.101.74.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 124
+  network: ws
+  port: 80
+  server: 151.101.106.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 222
+  network: ws
+  port: 80
+  server: 151.101.73.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 122
+  network: ws
+  port: 80
+  server: 151.101.193.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 125
+  network: ws
+  port: 80
+  server: 151.101.193.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 70
+  network: ws
+  port: 80
+  server: 151.101.70.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 123
+  network: ws
+  port: 80
+  server: 151.101.194.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 233
+  network: ws
+  port: 80
+  server: 151.101.255.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 46
+  network: ws
+  port: 80
+  server: 151.101.73.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 54
+  network: ws
+  port: 80
+  server: 151.101.146.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 96
+  network: ws
+  port: 80
+  server: 151.101.21.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 235
+  network: ws
+  port: 80
+  server: 151.101.145.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 36
+  network: ws
+  port: 80
+  server: 151.101.147.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 89
+  network: ws
+  port: 80
+  server: 151.101.64.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 97
+  network: ws
+  port: 80
+  server: 151.101.67.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 214
+  network: ws
+  port: 80
+  server: 151.101.124.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 247
+  network: ws
+  port: 80
+  server: 151.101.12.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 197
+  network: ws
+  port: 80
+  server: 151.101.210.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 75
+  network: ws
+  port: 80
+  server: 151.101.64.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 180
+  network: ws
+  port: 80
+  server: 151.101.130.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 79
+  network: ws
+  port: 80
+  server: 151.101.128.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 87
+  network: ws
+  port: 80
+  server: 151.101.67.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 102
+  network: ws
+  port: 80
+  server: 151.101.64.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 118
+  network: ws
+  port: 80
+  server: 151.101.128.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 152
+  network: ws
+  port: 80
+  server: 151.101.131.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 85
+  network: ws
+  port: 80
+  server: 151.101.77.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 98
+  network: ws
+  port: 80
+  server: 151.101.66.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 66
+  network: ws
+  port: 80
+  server: 151.101.128.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 144
+  network: ws
+  port: 80
+  server: 151.101.78.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 160
+  network: ws
+  port: 80
+  server: 151.101.64.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 112
+  network: ws
+  port: 80
+  server: 151.101.78.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 169
+  network: ws
+  port: 80
+  server: 151.101.209.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 174
+  network: ws
+  port: 80
+  server: 151.101.67.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- cipher: chacha20-ietf-poly1305
+  name: 伊朗-youtube@资源分享师 02
+  password: pf1BozsIFaJeK9yVaraePPMdOMO5iauFm23w4+Ffqck=
+  port: 30874
+  server: e2.cover20.ir
+  skip-cert-verify: true
+  type: ss
+  udp: true
+- name: 德国-youtube@资源分享师 51
+  network: ws
+  port: 80
+  server: 151.101.210.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 80
+  network: ws
+  port: 80
+  server: 151.101.66.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 86
+  network: ws
+  port: 80
+  server: 151.101.131.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 176
+  network: ws
+  port: 80
+  server: 151.101.128.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 116
+  network: ws
+  port: 80
+  server: 151.101.79.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 哈萨克斯坦-youtube@资源分享师 01
+  port: 448
+  reality-opts:
+    public-key: RlXCeIykJsVU_xhJMu9zohMUQiTfi52kibVvY5Zz9k4
+    short-id: 943e6ba0e346b3a8
+  server: 185.91.126.49
+  servername: www.cloudflare.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5005e971-b6a7-4d68-9100-616358f3cdab
+- name: 德国-youtube@资源分享师 155
+  network: ws
+  port: 80
+  server: 151.101.130.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 206
+  network: ws
+  port: 80
+  server: 151.101.77.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 135
+  network: ws
+  port: 80
+  server: 151.101.67.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 228
+  network: ws
+  port: 80
+  server: 151.101.76.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 加拿大-youtube@资源分享师 03
+  network: ws
+  port: 80
+  server: 151.101.66.219
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 170
+  network: ws
+  port: 80
+  server: 151.101.79.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 199
+  network: ws
+  port: 80
+  server: 151.101.148.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 148
+  network: ws
+  port: 80
+  server: 151.101.208.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 71
+  network: ws
+  port: 80
+  server: 151.101.209.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  http-opts:
+    path:
+    - /cdn-data
+  name: 德国-youtube@资源分享师 203
+  network: http
+  port: 8443
+  reality-opts:
+    public-key: VrWXAqq3fCtgo-VTe35BHHXme2kMsSWqopmac-GzOlQ
+    short-id: be8318
+  server: 162.55.98.167
+  servername: www.yahoo.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: c9f829a6-2f60-4bd9-8189-06df479d0488
+- name: 德国-youtube@资源分享师 107
+  network: ws
+  port: 80
+  server: 151.101.76.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 伊朗-youtube@资源分享师 03
+  port: 5050
+  server: 85.198.10.213
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 06287fd2-c6af-49ab-9e48-451bd0eee1d4
+- name: 德国-youtube@资源分享师 217
+  network: ws
+  port: 80
+  server: 151.101.208.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 137
+  network: ws
+  port: 80
+  server: 151.101.91.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 德国-youtube@资源分享师 244
+  port: 443
+  reality-opts:
+    public-key: L78hKnIWL5jdxw3R2NcY725t8QMqAfX8rGdYI46cFgs
+    short-id: a8399289e18af5f4
+  server: 150.241.65.86
+  servername: swe-01.gni-daed.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7c0f30a2-a7c1-43b1-bc51-20f07036a76e
+- name: 加拿大-youtube@资源分享师 14
+  network: ws
+  port: 80
+  server: 151.101.130.219
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- http-opts:
+    headers:
+      Host:
+      - sudo.domain.direct.Pannel.admin.soon.ab841.com
+    path:
+    - /@SoonTeam
+  name: 加拿大-youtube@资源分享师 07
+  network: http
+  port: 8880
+  server: 198.41.207.201
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: SoonTeam
+- client-fingerprint: chrome
+  name: 加拿大-youtube@资源分享师 10
+  network: ws
+  port: 443
+  server: fbi.gov
+  servername: c.downloadphysics.ir
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 1c0abb34-4313-4acb-993d-62bf52eace71
+  ws-opts:
+    headers:
+      Host: c.downloadphysics.ir
+    path: /
+- name: 德国-youtube@资源分享师 62
+  network: ws
+  port: 80
+  server: 151.101.197.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- name: 德国-youtube@资源分享师 90
+  network: ws
+  port: 80
+  server: 151.101.73.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 34
+  network: ws
+  port: 80
+  server: 151.101.115.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- name: 德国-youtube@资源分享师 73
+  network: ws
+  port: 80
+  server: 151.101.109.151
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /?https://t.me/WangCai2🇨🇳
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 俄罗斯-youtube@资源分享师 08
+  port: 5443
+  reality-opts:
+    public-key: UUp8aYlix63MWuNmZ8io2lO18FEXUdoujgPIyjoflDw
+    short-id: a1b2c3d4
+  server: vkcloud-bm1.futurefast.ru
+  servername: max.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 144dd2a3-3059-4094-b7da-1901ab2e3033
+- name: 美国-youtube@资源分享师 02
+  network: ws
+  port: 80
+  server: 167.82.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 0058c215-ab1e-400c-a403-b5b2fda7e846
+  ws-opts:
+    headers:
+      Host: max-gb1.global.ssl.fastly.net
+    path: /
+- client-fingerprint: chrome
+  name: 加拿大-youtube@资源分享师 09
+  network: ws
+  port: 2083
+  server: solar.appleseraj.ir
+  servername: rouwwwfrance.appleseraj.ir
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: a4548d7f-8e0f-4780-9f5a-30cbd2754550
+  ws-opts:
+    headers:
+      Host: rouwwwfrance.appleseraj.ir
+    path: /
+proxy-groups:
+- name: 订阅信息
+  proxies:
+  - 更新时间 2026-06-23 04:11
+  - 站点 zyfxs
+  - 采集地址 https://www.youtube.com/watch?v=eFj78_p_Cf0
+  type: select
+- name: 🚀 节点选择
+  proxies:
+  - ♻️ 自动选择
+  - DIRECT
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+- interval: 300
+  name: ♻️ 自动选择
+  proxies:
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  tolerance: 50
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- name: 🌍 国外媒体
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🎯 全球直连
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+- name: 📲 电报信息
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+- name: Ⓜ️ 微软服务
+  proxies:
+  - 🎯 全球直连
+  - 🚀 节点选择
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+- name: 🍎 苹果服务
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+- name: 🎯 全球直连
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  type: select
+- name: 🛑 全球拦截
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🍃 应用净化
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🐟 漏网之鱼
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - ♻️ 自动选择
+  - 香港-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 02
+  - 香港-youtube@资源分享师 04
+  - 美国-youtube@资源分享师 07
+  - 美国-youtube@资源分享师 08
+  - 加拿大-youtube@资源分享师 05
+  - 美国-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 48
+  - 德国-youtube@资源分享师 15
+  - 加拿大-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 58
+  - 美国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 93
+  - 德国-youtube@资源分享师 95
+  - 德国-youtube@资源分享师 40
+  - 德国-youtube@资源分享师 55
+  - 德国-youtube@资源分享师 164
+  - 德国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 20
+  - 德国-youtube@资源分享师 09
+  - 德国-youtube@资源分享师 218
+  - 德国-youtube@资源分享师 64
+  - 德国-youtube@资源分享师 128
+  - 德国-youtube@资源分享师 178
+  - 香港-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 104
+  - 德国-youtube@资源分享师 113
+  - 德国-youtube@资源分享师 208
+  - 芬兰-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 153
+  - 德国-youtube@资源分享师 111
+  - 荷兰-youtube@资源分享师 01
+  - 伊拉克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 61
+  - 芬兰-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 131
+  - 美国-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 43
+  - 德国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 224
+  - 芬兰-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 12
+  - 德国-youtube@资源分享师 11
+  - 加拿大-youtube@资源分享师 06
+  - 俄罗斯-youtube@资源分享师 07
+  - 丹麦-youtube@资源分享师 01
+  - 俄罗斯-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 49
+  - 德国-youtube@资源分享师 88
+  - 芬兰-youtube@资源分享师 07
+  - 德国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 187
+  - 俄罗斯-youtube@资源分享师 05
+  - 德国-youtube@资源分享师 17
+  - 德国-youtube@资源分享师 207
+  - 德国-youtube@资源分享师 84
+  - 德国-youtube@资源分享师 101
+  - 德国-youtube@资源分享师 50
+  - 德国-youtube@资源分享师 117
+  - 德国-youtube@资源分享师 147
+  - 芬兰-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 115
+  - 芬兰-youtube@资源分享师 09
+  - 芬兰-youtube@资源分享师 04
+  - 俄罗斯-youtube@资源分享师 06
+  - 捷克-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 47
+  - 德国-youtube@资源分享师 132
+  - 意大利-youtube@资源分享师 02
+  - 英国-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 134
+  - 英国-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 10
+  - 芬兰-youtube@资源分享师 08
+  - 德国-youtube@资源分享师 242
+  - 德国-youtube@资源分享师 18
+  - 德国-youtube@资源分享师 177
+  - 英国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 114
+  - 德国-youtube@资源分享师 140
+  - 香港-youtube@资源分享师 12
+  - 俄罗斯-youtube@资源分享师 03
+  - 香港-youtube@资源分享师 09
+  - 香港-youtube@资源分享师 01
+  - 芬兰-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 150
+  - 美国-youtube@资源分享师 10
+  - 伊朗-youtube@资源分享师 01
+  - 阿联酋-youtube@资源分享师 01
+  - 加拿大-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 258
+  - 韩国-youtube@资源分享师 01
+  - 罗马尼亚-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 184
+  - 新加坡-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 33
+  - 德国-youtube@资源分享师 219
+  - 德国-youtube@资源分享师 232
+  - 德国-youtube@资源分享师 255
+  - 加拿大-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 190
+  - 德国-youtube@资源分享师 211
+  - 德国-youtube@资源分享师 67
+  - 德国-youtube@资源分享师 130
+  - 德国-youtube@资源分享师 168
+  - 德国-youtube@资源分享师 19
+  - 德国-youtube@资源分享师 166
+  - 德国-youtube@资源分享师 172
+  - 德国-youtube@资源分享师 181
+  - 德国-youtube@资源分享师 191
+  - 德国-youtube@资源分享师 253
+  - 德国-youtube@资源分享师 28
+  - 德国-youtube@资源分享师 246
+  - 德国-youtube@资源分享师 108
+  - 德国-youtube@资源分享师 126
+  - 德国-youtube@资源分享师 145
+  - 德国-youtube@资源分享师 158
+  - 德国-youtube@资源分享师 163
+  - 德国-youtube@资源分享师 31
+  - 德国-youtube@资源分享师 56
+  - 德国-youtube@资源分享师 69
+  - 德国-youtube@资源分享师 92
+  - 德国-youtube@资源分享师 173
+  - 德国-youtube@资源分享师 202
+  - 德国-youtube@资源分享师 30
+  - 德国-youtube@资源分享师 68
+  - 德国-youtube@资源分享师 94
+  - 德国-youtube@资源分享师 171
+  - 德国-youtube@资源分享师 239
+  - 香港-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 06
+  - 德国-youtube@资源分享师 45
+  - 德国-youtube@资源分享师 165
+  - 德国-youtube@资源分享师 188
+  - 德国-youtube@资源分享师 196
+  - 德国-youtube@资源分享师 220
+  - 德国-youtube@资源分享师 234
+  - 德国-youtube@资源分享师 22
+  - 德国-youtube@资源分享师 42
+  - 德国-youtube@资源分享师 76
+  - 德国-youtube@资源分享师 198
+  - 德国-youtube@资源分享师 16
+  - 德国-youtube@资源分享师 24
+  - 德国-youtube@资源分享师 38
+  - 德国-youtube@资源分享师 192
+  - 德国-youtube@资源分享师 204
+  - 德国-youtube@资源分享师 154
+  - 德国-youtube@资源分享师 200
+  - 德国-youtube@资源分享师 209
+  - 德国-youtube@资源分享师 248
+  - 德国-youtube@资源分享师 21
+  - 德国-youtube@资源分享师 230
+  - 德国-youtube@资源分享师 245
+  - 德国-youtube@资源分享师 254
+  - 德国-youtube@资源分享师 257
+  - 德国-youtube@资源分享师 72
+  - 德国-youtube@资源分享师 77
+  - 德国-youtube@资源分享师 143
+  - 德国-youtube@资源分享师 151
+  - 德国-youtube@资源分享师 193
+  - 德国-youtube@资源分享师 237
+  - 德国-youtube@资源分享师 256
+  - 意大利-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 162
+  - 德国-youtube@资源分享师 175
+  - 德国-youtube@资源分享师 212
+  - 德国-youtube@资源分享师 225
+  - 德国-youtube@资源分享师 53
+  - 德国-youtube@资源分享师 65
+  - 德国-youtube@资源分享师 167
+  - 德国-youtube@资源分享师 195
+  - 德国-youtube@资源分享师 35
+  - 德国-youtube@资源分享师 78
+  - 德国-youtube@资源分享师 81
+  - 德国-youtube@资源分享师 121
+  - 德国-youtube@资源分享师 221
+  - 德国-youtube@资源分享师 223
+  - 德国-youtube@资源分享师 229
+  - 德国-youtube@资源分享师 27
+  - 德国-youtube@资源分享师 37
+  - 德国-youtube@资源分享师 105
+  - 德国-youtube@资源分享师 210
+  - 德国-youtube@资源分享师 227
+  - 德国-youtube@资源分享师 240
+  - 德国-youtube@资源分享师 249
+  - 美国-youtube@资源分享师 13
+  - 德国-youtube@资源分享师 59
+  - 德国-youtube@资源分享师 63
+  - 德国-youtube@资源分享师 100
+  - 德国-youtube@资源分享师 129
+  - 德国-youtube@资源分享师 141
+  - 德国-youtube@资源分享师 205
+  - 德国-youtube@资源分享师 215
+  - 德国-youtube@资源分享师 226
+  - 德国-youtube@资源分享师 241
+  - 德国-youtube@资源分享师 251
+  - 德国-youtube@资源分享师 133
+  - 德国-youtube@资源分享师 252
+  - 德国-youtube@资源分享师 57
+  - 德国-youtube@资源分享师 156
+  - 德国-youtube@资源分享师 201
+  - 德国-youtube@资源分享师 236
+  - 德国-youtube@资源分享师 139
+  - 德国-youtube@资源分享师 149
+  - 德国-youtube@资源分享师 157
+  - 德国-youtube@资源分享师 179
+  - 德国-youtube@资源分享师 110
+  - 德国-youtube@资源分享师 142
+  - 德国-youtube@资源分享师 161
+  - 德国-youtube@资源分享师 238
+  - 美国-youtube@资源分享师 11
+  - 德国-youtube@资源分享师 26
+  - 德国-youtube@资源分享师 186
+  - 德国-youtube@资源分享师 216
+  - 加拿大-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 32
+  - 德国-youtube@资源分享师 136
+  - 德国-youtube@资源分享师 231
+  - 德国-youtube@资源分享师 52
+  - 德国-youtube@资源分享师 82
+  - 德国-youtube@资源分享师 146
+  - 俄罗斯-youtube@资源分享师 04
+  - 德国-youtube@资源分享师 83
+  - 德国-youtube@资源分享师 91
+  - 德国-youtube@资源分享师 99
+  - 德国-youtube@资源分享师 103
+  - 德国-youtube@资源分享师 119
+  - 德国-youtube@资源分享师 189
+  - 德国-youtube@资源分享师 250
+  - 德国-youtube@资源分享师 29
+  - 德国-youtube@资源分享师 213
+  - 日本-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 44
+  - 德国-youtube@资源分享师 127
+  - 德国-youtube@资源分享师 182
+  - 德国-youtube@资源分享师 194
+  - 德国-youtube@资源分享师 41
+  - 德国-youtube@资源分享师 106
+  - 德国-youtube@资源分享师 124
+  - 德国-youtube@资源分享师 222
+  - 德国-youtube@资源分享师 122
+  - 德国-youtube@资源分享师 125
+  - 德国-youtube@资源分享师 70
+  - 德国-youtube@资源分享师 123
+  - 德国-youtube@资源分享师 233
+  - 德国-youtube@资源分享师 46
+  - 德国-youtube@资源分享师 54
+  - 德国-youtube@资源分享师 96
+  - 德国-youtube@资源分享师 235
+  - 德国-youtube@资源分享师 36
+  - 德国-youtube@资源分享师 89
+  - 德国-youtube@资源分享师 97
+  - 德国-youtube@资源分享师 214
+  - 德国-youtube@资源分享师 247
+  - 德国-youtube@资源分享师 197
+  - 德国-youtube@资源分享师 75
+  - 德国-youtube@资源分享师 180
+  - 德国-youtube@资源分享师 79
+  - 德国-youtube@资源分享师 87
+  - 德国-youtube@资源分享师 102
+  - 德国-youtube@资源分享师 118
+  - 德国-youtube@资源分享师 152
+  - 德国-youtube@资源分享师 85
+  - 德国-youtube@资源分享师 98
+  - 德国-youtube@资源分享师 66
+  - 德国-youtube@资源分享师 144
+  - 德国-youtube@资源分享师 160
+  - 德国-youtube@资源分享师 112
+  - 德国-youtube@资源分享师 169
+  - 德国-youtube@资源分享师 174
+  - 伊朗-youtube@资源分享师 02
+  - 德国-youtube@资源分享师 51
+  - 德国-youtube@资源分享师 80
+  - 德国-youtube@资源分享师 86
+  - 德国-youtube@资源分享师 176
+  - 德国-youtube@资源分享师 116
+  - 哈萨克斯坦-youtube@资源分享师 01
+  - 德国-youtube@资源分享师 155
+  - 德国-youtube@资源分享师 206
+  - 德国-youtube@资源分享师 135
+  - 德国-youtube@资源分享师 228
+  - 加拿大-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 170
+  - 德国-youtube@资源分享师 199
+  - 德国-youtube@资源分享师 148
+  - 德国-youtube@资源分享师 71
+  - 德国-youtube@资源分享师 203
+  - 德国-youtube@资源分享师 107
+  - 伊朗-youtube@资源分享师 03
+  - 德国-youtube@资源分享师 217
+  - 德国-youtube@资源分享师 137
+  - 德国-youtube@资源分享师 244
+  - 加拿大-youtube@资源分享师 14
+  - 加拿大-youtube@资源分享师 07
+  - 加拿大-youtube@资源分享师 10
+  - 德国-youtube@资源分享师 62
+  - 德国-youtube@资源分享师 90
+  - 德国-youtube@资源分享师 34
+  - 德国-youtube@资源分享师 73
+  - 俄罗斯-youtube@资源分享师 08
+  - 美国-youtube@资源分享师 02
+  - 加拿大-youtube@资源分享师 09
+  type: select
+rule-providers:
+  Apple:
+    behavior: classical
+    path: ./rules/Apple.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
+  BanAD:
+    behavior: classical
+    path: ./rules/BanAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list
+  BanProgramAD:
+    behavior: classical
+    path: ./rules/BanProgramAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list
+  ChinaCompanyIp:
+    behavior: classical
+    path: ./rules/ChinaCompanyIp.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+  ChinaDomain:
+    behavior: classical
+    path: ./rules/ChinaDomain.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
+  GoogleCN:
+    behavior: classical
+    path: ./rules/GoogleCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/GoogleCN.list
+  LocalAreaNetwork:
+    behavior: classical
+    path: ./rules/LocalAreaNetwork.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list
+  Microsoft:
+    behavior: classical
+    path: ./rules/Microsoft.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
+  ProxyLite:
+    behavior: classical
+    path: ./rules/ProxyLite.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list
+  ProxyMedia:
+    behavior: classical
+    path: ./rules/ProxyMedia.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
+  SteamCN:
+    behavior: classical
+    path: ./rules/SteamCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
+  Telegram:
+    behavior: classical
+    path: ./rules/Telegram.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
+rules:
+- DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+- RULE-SET,LocalAreaNetwork,🎯 全球直连
+- RULE-SET,BanAD,🛑 全球拦截
+- RULE-SET,BanProgramAD,🍃 应用净化
+- RULE-SET,GoogleCN,🎯 全球直连
+- RULE-SET,SteamCN,🎯 全球直连
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,ProxyMedia,🌍 国外媒体
+- RULE-SET,Telegram,📲 电报信息
+- RULE-SET,ProxyLite,🚀 节点选择
+- RULE-SET,ChinaDomain,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
