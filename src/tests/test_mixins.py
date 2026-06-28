@@ -44,6 +44,183 @@ class TestTwoStepCollectorMixin:
         assert tasks[0].filename == "clash.yaml"
         assert tasks[0].url == "http://example.com/clash.yaml"
 
+    def test_get_download_tasks_extracts_title(self):
+        """测试从今日页面 <title> 提取采集标题"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return "<html><head><title>今日免费节点 2026-06-27</title></head><body>today</body></html>"
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        collector.get_download_tasks()
+
+        assert collector.title == "今日免费节点 2026-06-27"
+
+    def test_get_download_tasks_title_none_when_absent(self):
+        """测试今日页面无 <title> 时 title 为 None，不阻断采集"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return "<html><body>no title here</body></html>"
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        tasks = collector.get_download_tasks()
+
+        assert collector.title is None
+        assert len(tasks) == 1  # 采集未受影响
+
+    def test_title_xpath_override_uses_custom_rule(self):
+        """测试覆盖 title_xpath 时按站点自定义规则提取标题"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+            title_xpath = "//h1/text()"  # 该站点标题在 <h1> 而非 <title>
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return (
+                    "<html><head><title>站点品牌</title></head>"
+                    "<body><h1>今日节点 0627</h1></body></html>"
+                )
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        collector.get_download_tasks()
+
+        assert collector.title == "今日节点 0627"  # 取 h1 而非 title
+
+    def test_title_xpath_none_disables_extraction(self):
+        """测试 title_xpath=None 时禁用标题提取"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+            title_xpath = None  # 该站点不提取标题
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return "<html><head><title>有标题但不取</title></head></html>"
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        collector.get_download_tasks()
+
+        assert collector.title is None
+
+    def test_extract_title_override_custom_logic(self):
+        """测试覆盖 extract_title() 实现任意自定义规则"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return "<html><head><title>raw - 站点</title></head></html>"
+
+            def extract_title(self, today_html):
+                # 自定义：截取分隔符前的部分
+                raw = HtmlParser(today_html, self.name).xpath("//title/text()")
+                return raw.split(" - ")[0] if raw else None
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        collector.get_download_tasks()
+
+        assert collector.title == "raw"
+
+    def test_extract_title_failure_does_not_block_collection(self):
+        """测试 extract_title 抛异常时 title 为 None 且不阻断采集"""
+
+        class TestCollector(TwoStepCollectorMixin):
+            name = "test"
+            home_page = "http://example.com"
+
+            def fetch_html(self, url):
+                if url == self.home_page:
+                    return "<html><body>home</body></html>"
+                return "<html><body>today</body></html>"
+
+            def extract_title(self, today_html):
+                raise ValueError("boom")
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(
+                        filename="clash.yaml", url="http://example.com/clash.yaml"
+                    )
+                ]
+
+        collector = TestCollector()
+        tasks = collector.get_download_tasks()
+
+        assert collector.title is None
+        assert len(tasks) == 1  # 采集未受影响
+
     def test_get_download_tasks_no_today_url(self):
         """测试未找到今日链接的情况"""
 

@@ -37,6 +37,8 @@ class SiteManifest:
     updated_at: Optional[str]
     files: dict[str, FileManifest] = field(default_factory=dict)
     error: Optional[str] = None
+    title: Optional[str] = None  # 采集标题
+    collected_at: Optional[str] = None  # 真实采集时间
 
 
 @dataclass
@@ -49,6 +51,8 @@ class CollectorResult:
     status: str  # "success" / "partial" / "failed"
     error: Optional[str] = None
     from_cache: bool = False
+    title: Optional[str] = None  # 采集标题（today_html <title>）
+    collected_at: Optional[str] = None  # 首次采集时间（缓存命中时保留）
 
 
 class ProxyType(Enum):

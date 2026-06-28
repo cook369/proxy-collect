@@ -124,6 +124,7 @@ class TestCollectorWithFileProcessor:
             files={},
             status="success",
             from_cache=True,
+            collected_at="2026-06-27 10:00:00",  # 缓存 result 自带旧时间
         )
 
         assert should_process_downloaded_file(result) is False

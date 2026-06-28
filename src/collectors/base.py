@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 import logging
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union, Callable
 
@@ -237,7 +238,7 @@ class BaseCollector(ABC):
             logging.info(f"[{self.name}] Already collected {self.today_page}, skip")
             raise CachedCollectorResult(cached_result)
 
-    def run(self, output_dir: Path) -> CollectorResult:
+    def run(self, output_dir: Path, timestamp: str | None = None) -> CollectorResult:
         """执行采集
 
         Args:
@@ -282,9 +283,13 @@ class BaseCollector(ABC):
         else:
             status = "failed"
 
+        ts = timestamp or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
         return CollectorResult(
             site=self.name,
             today_page=getattr(self, "today_page", None),
+            title=getattr(self, "title", None),
+            collected_at=ts,
             files=files,
             status=status,
             error=error_msg,

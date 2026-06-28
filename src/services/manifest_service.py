@@ -43,6 +43,8 @@ class ManifestService:
                     today_page=site_data.get("today_page"),
                     status=site_data.get("status", "unknown"),
                     updated_at=site_data.get("updated_at"),
+                    title=site_data.get("title"),
+                    collected_at=site_data.get("collected_at"),
                     files=files,
                     error=site_data.get("error"),
                 )
@@ -76,11 +78,25 @@ class ManifestService:
             result: 采集结果
         """
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        existing = self.sites.get(result.site)
+
+        if result.from_cache and existing is not None:
+            # 缓存命中：保留旧的真实采集时间、标题、updated_at
+            collected_at = existing.collected_at
+            title = existing.title
+            updated_at = existing.updated_at
+        else:
+            # 首次采集 / 失败重采：用本次真实时间
+            collected_at = result.collected_at or now
+            title = result.title
+            updated_at = now if result.status != "failed" else None
 
         self.sites[result.site] = SiteManifest(
             today_page=result.today_page,
             status=result.status,
-            updated_at=now if result.status != "failed" else None,
+            updated_at=updated_at,
+            title=title,
+            collected_at=collected_at,
             files=result.files,
             error=result.error,
         )
@@ -106,6 +122,8 @@ class ManifestService:
                 "today_page": site_data.today_page,
                 "status": site_data.status,
                 "updated_at": site_data.updated_at,
+                "title": site_data.title,
+                "collected_at": site_data.collected_at,
                 "files": files_dict,
             }
             if site_data.error:

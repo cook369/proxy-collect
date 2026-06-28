@@ -6,6 +6,7 @@ from unittest.mock import Mock
 import tempfile
 
 from collectors.base import BaseCollector, register_collector
+from collectors.mixins import TwoStepCollectorMixin
 from core.models import CollectorResult, DownloadTask
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError
@@ -157,6 +158,59 @@ class TestCollectorRun:
             assert result.status == "success"
             assert len(result.files) == 1
             assert result.files["test.txt"].success is True
+
+    def test_run_writes_collected_at_and_title(self):
+        """测试 run() 写入 collected_at（来自 timestamp）和 title"""
+        mock_http_client = Mock(spec=HttpClient)
+        # 带且内容足够长（>=100 bytes）通过验证
+        mock_http_client.get.return_value = (
+            "<html><head><title>T</title></head><body>"
+            + "x" * 200
+            + "</body></html>"
+        )
+
+        class TestCollector(TwoStepCollectorMixin, BaseCollector):
+            name = "test"
+            home_page = "http://example.com"
+
+            def get_today_url(self, home_html):
+                return "http://example.com/today"
+
+            def parse_download_tasks(self, today_html):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
+
+        collector = TestCollector(http_client=mock_http_client)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_dir = Path(tmpdir)
+            result = collector.run(output_dir, timestamp="2026-06-27 10:00:00")
+
+            assert result.collected_at == "2026-06-27 10:00:00"
+            assert result.title is not None  # TwoStepCollectorMixin 提取的 <title>
+
+    def test_run_collected_at_defaults_when_no_timestamp(self):
+        """不传 timestamp 时 collected_at 兜底为当前时间（非 None）"""
+
+        class TestCollector(BaseCollector):
+            name = "test"
+            home_page = "http://example.com"
+
+            def get_download_tasks(self):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
+
+        mock_http_client = Mock(spec=HttpClient)
+        mock_http_client.get.return_value = "x" * 200
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_dir = Path(tmpdir)
+            result = TestCollector(http_client=mock_http_client).run(output_dir)
+
+            assert result.collected_at is not None
+            assert len(result.collected_at) == 19  # "YYYY-MM-DD HH:MM:SS"
 
     def test_run_failure(self):
         """测试采集失败的情况"""

@@ -96,6 +96,11 @@ class TwoStepCollectorMixin:
     """
 
     today_page: str | None = None  # 保存今日页面 URL
+    title: str | None = None  # 保存今日页面标题，作为采集标题
+
+    # 标题提取规则：默认取页面 <title>，各站点可覆盖为自己的 XPath。
+    # 设为 None 表示该站点不提取标题。复杂规则可改为覆盖 extract_title()。
+    title_xpath: str | None = "//title/text()"
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接（子类实现）
@@ -118,6 +123,25 @@ class TwoStepCollectorMixin:
             DownloadTask 列表
         """
         raise NotImplementedError
+
+    def extract_title(self, today_html: str) -> str | None:
+        """从今日页面提取采集标题（可覆盖）
+
+        默认按 title_xpath 提取并去除首尾空白。各站点有两种自定义方式：
+        - 简单场景：覆盖类属性 title_xpath 指向不同元素；
+        - 复杂场景：覆盖本方法实现任意规则（如正则、拼接多个字段）。
+
+        Args:
+            today_html: 今日页面 HTML 内容
+
+        Returns:
+            采集标题，无法提取时返回 None
+        """
+        if not self.title_xpath:
+            return None
+        parser = HtmlParser(today_html, getattr(self, "name", "unknown"))
+        title = parser.xpath(self.title_xpath, default=None)
+        return title.strip() if title and title.strip() else None
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """两步采集流程
@@ -160,6 +184,13 @@ class TwoStepCollectorMixin:
 
         # 步骤3：获取今日页面
         today_html = self.fetch_html(today_url)
+
+        # 提取今日页面标题（按站点规则，失败时为 None，不阻断采集）
+        try:
+            self.title = self.extract_title(today_html)
+        except Exception as e:
+            logging.warning(f"[{collector_name}] Failed to extract title: {e}")
+            self.title = None
 
         # 步骤4：解析下载任务（带错误处理）
         try:

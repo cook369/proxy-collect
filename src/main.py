@@ -32,11 +32,12 @@ def run_collector(
     collector_name: str,
     proxy_list: list[ProxyInfo],
     output_dir: Path,
+    timestamp: str,
 ) -> CollectorResult:
     """运行单个采集器"""
     collector_cls = get_collector(collector_name)
     collector = collector_cls(proxy_list)
-    return collector.run(output_dir)
+    return collector.run(output_dir, timestamp=timestamp)
 
 
 def should_process_downloaded_file(result: CollectorResult) -> bool:
@@ -109,6 +110,14 @@ def build_raw_github_url(
     )
 
 
+def _render_title(title: str | None) -> str:
+    """渲染采集标题用于 README 表格：转义 |、去换行、截断超长。"""
+    if not title:
+        return "-"
+    cleaned = title.strip().replace("|", "\\|").replace("\n", " ")
+    return cleaned[:40] + "…" if len(cleaned) > 40 else cleaned
+
+
 def update_readme(
     manifest: ManifestService,
     readme_file: Path,
@@ -119,8 +128,8 @@ def update_readme(
     github_repository = get_github_repository()
     github_branch = get_current_branch()
     lines = ["\n## 采集状态\n"]
-    lines.append("| 站点 | 状态 | 更新时间 | 今日来源 |")
-    lines.append("|------|------|----------|----------|")
+    lines.append("| 站点 | 状态 | 更新时间 | 采集时间 | 标题 | 今日来源 |")
+    lines.append("|------|------|----------|----------|------|----------|")
 
     for site_name in sorted(manifest.sites.keys()):
         site = manifest.sites[site_name]
@@ -128,8 +137,12 @@ def update_readme(
             site.status, "❓"
         )
         updated = site.updated_at[:16] if site.updated_at else "-"
+        collected = site.collected_at[:16] if site.collected_at else "-"
+        title = _render_title(site.title)
         source = f"[链接]({site.today_page})" if site.today_page else "-"
-        lines.append(f"| {site_name} | {status_icon} | {updated} | {source} |")
+        lines.append(
+            f"| {site_name} | {status_icon} | {updated} | {collected} | {title} | {source} |"
+        )
 
     lines.append(f"\n**最后运行**: {manifest.last_run}\n")
     lines.append("\n---\n")
@@ -254,7 +267,7 @@ def main():
 
     # 初始化服务
     manifest = ManifestService(config.app.manifest_file)
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
     proxy_list: list[ProxyInfo] = []
@@ -296,7 +309,7 @@ def main():
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
             executor.submit(
-                run_collector, name, proxy_list, config.app.output_dir
+                run_collector, name, proxy_list, config.app.output_dir, timestamp
             ): name
             for name in collectors_to_run
         }

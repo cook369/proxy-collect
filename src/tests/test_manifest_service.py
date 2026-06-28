@@ -60,6 +60,36 @@ class TestManifestServiceInit:
             service = ManifestService(manifest_file)
             assert service.sites == {}
 
+    def test_init_with_legacy_manifest_without_new_fields(self):
+        """加载旧 manifest（无 title/collected_at）字段为 None，不报错"""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            manifest_file = Path(tmpdir) / "manifest.json"
+            data = {
+                "last_run": "2026-01-30 10:00:00",
+                "sites": {
+                    "test_site": {
+                        "today_page": "http://example.com/today",
+                        "status": "success",
+                        "updated_at": "2026-01-30 10:00:00",
+                        "files": {
+                            "clash.yaml": {
+                                "url": "http://example.com/clash.yaml",
+                                "success": True,
+                            }
+                        },
+                        # 无 title / collected_at
+                    }
+                },
+            }
+            manifest_file.write_text(json.dumps(data), encoding="utf-8")
+
+            service = ManifestService(manifest_file)
+
+            site = service.sites["test_site"]
+            assert site.title is None
+            assert site.collected_at is None
+            assert site.status == "success"  # 既有字段不受影响
+
 
 class TestManifestServiceShouldDownload:
     """should_download 方法测试"""
@@ -168,6 +198,73 @@ class TestManifestServiceUpdateFromResult:
             assert service.sites["test_site"].updated_at is None
             assert service.sites["test_site"].error == "Connection error"
 
+    def test_update_writes_collected_at_and_title(self):
+        """首次采集写入真实采集时间和标题"""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            manifest_file = Path(tmpdir) / "manifest.json"
+            service = ManifestService(manifest_file)
+
+            result = CollectorResult(
+                site="test_site",
+                today_page="http://example.com/today",
+                files={
+                    "clash.yaml": FileManifest(
+                        url="http://example.com/clash.yaml", success=True
+                    )
+                },
+                status="success",
+                title="今日免费节点",
+                collected_at="2026-06-27 10:00:00",
+            )
+
+            service.update_from_result(result)
+
+            site = service.sites["test_site"]
+            assert site.collected_at == "2026-06-27 10:00:00"
+            assert site.title == "今日免费节点"
+            assert site.updated_at is not None
+
+    def test_update_cache_hit_preserves_old_values(self):
+        """缓存命中（from_cache=True）时保留旧真实采集时间、标题、updated_at"""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            manifest_file = Path(tmpdir) / "manifest.json"
+            service = ManifestService(manifest_file)
+
+            # 旧记录：真实采集时间/标题/updated_at 已存在
+            service.sites["test_site"] = SiteManifest(
+                today_page="http://example.com/today",
+                status="success",
+                updated_at="2026-06-27 10:00:00",
+                files={
+                    "clash.yaml": FileManifest(
+                        url="http://example.com/clash.yaml", success=True
+                    )
+                },
+                title="旧标题",
+                collected_at="2026-06-27 10:00:00",
+            )
+
+            # 本轮缓存命中（result 自带字段为 None，模拟缓存 result 未携带）
+            cached_result = CollectorResult(
+                site="test_site",
+                today_page="http://example.com/today",
+                files={
+                    "clash.yaml": FileManifest(
+                        url="http://example.com/clash.yaml", success=True
+                    )
+                },
+                status="success",
+                from_cache=True,
+                # title / collected_at 留空，验证从旧记录保留
+            )
+
+            service.update_from_result(cached_result)
+
+            site = service.sites["test_site"]
+            assert site.collected_at == "2026-06-27 10:00:00"  # 旧值，未被 now 覆盖
+            assert site.title == "旧标题"  # 旧值保留
+            assert site.updated_at == "2026-06-27 10:00:00"  # 旧值，未被 now 覆盖
+
 
 class TestManifestServiceSave:
     """save 方法测试"""
@@ -222,6 +319,31 @@ class TestManifestServiceSave:
             site_data = data["sites"]["test_site"]
             assert site_data["error"] == "Site error"
             assert site_data["files"]["clash.yaml"]["error"] == "Download failed"
+
+    def test_save_load_roundtrip_new_fields(self):
+        """save 再 _load 新字段不丢"""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            manifest_file = Path(tmpdir) / "manifest.json"
+            service = ManifestService(manifest_file)
+
+            service.sites["test_site"] = SiteManifest(
+                today_page="http://example.com/today",
+                status="success",
+                updated_at="2026-06-27 10:00:00",
+                files={
+                    "clash.yaml": FileManifest(
+                        url="http://example.com/clash.yaml", success=True
+                    )
+                },
+                title="今日免费节点",
+                collected_at="2026-06-27 10:00:00",
+            )
+            service.save()
+
+            reloaded = ManifestService(manifest_file)
+            site = reloaded.sites["test_site"]
+            assert site.title == "今日免费节点"
+            assert site.collected_at == "2026-06-27 10:00:00"
 
 
 class TestManifestServiceGetSite:
