@@ -5,7 +5,7 @@
 
 import logging
 import time
-from typing import Callable, Optional, Union
+from typing import Callable, Iterator, Optional, Union
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import RLock
 import requests
@@ -20,6 +20,15 @@ from tenacity import (
 from core.exceptions import ProxyError
 from core.models import ProxyInfo, ProxyType
 from utils.check import default_check_html
+
+# 代理竞速默认批大小：每批并发尝试的代理数
+DEFAULT_PROXY_BATCH_SIZE = 5
+
+
+def _chunked(items: list, size: int) -> Iterator[list]:
+    """按固定大小切分列表（最后一块可能更短）"""
+    for start in range(0, len(items), size):
+        yield items[start : start + size]
 
 
 class HttpService:
@@ -50,6 +59,31 @@ class HttpService:
         )
         return session
 
+    def _get(
+        self,
+        url: str,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+        check_html: Callable[[str], bool] = default_check_html,
+    ) -> str:
+        """发送单次 GET 请求（不重试）
+
+        供代理竞速等场景使用：单代理失败应立即让位给其它代理，而不是在同一
+        代理上重试，以免被放弃的请求因重试被拖到 3×timeout，影响收尾。
+        """
+        proxies = {"http": proxy, "https": proxy} if proxy else None
+        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
+        resp.raise_for_status()
+
+        if not resp.text.strip():
+            raise ValueError("Empty response")
+        resp.encoding = "utf-8"
+        if not check_html(resp.text):
+            raise ValueError("Response content failed validation")
+
+        return resp.text
+
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
@@ -64,7 +98,7 @@ class HttpService:
         headers: Optional[dict[str, str]] = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
-        """发送 GET 请求
+        """发送 GET 请求（带重试）
 
         Args:
             url: 请求 URL
@@ -78,18 +112,9 @@ class HttpService:
             requests.HTTPError: HTTP 错误
             ValueError: 响应内容为空
         """
-        proxies = {"http": proxy, "https": proxy} if proxy else None
-        # logging.info(f"Fetching URL: {url} with proxy: {proxy}")
-        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
-        resp.raise_for_status()
-
-        if not resp.text.strip():
-            raise ValueError("Empty response")
-        resp.encoding = "utf-8"
-        if not check_html(resp.text):
-            raise ValueError("Response content failed validation")
-
-        return resp.text
+        return self._get(
+            url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html
+        )
 
     @retry(
         stop=stop_after_attempt(3),
@@ -228,11 +253,13 @@ class ProxyHttpService:
         self,
         http_service: HttpService,
         proxy_pool: Optional[ProxyPool] = None,
-        max_workers: int = 10,
+        batch_size: int = DEFAULT_PROXY_BATCH_SIZE,
     ):
         self.http_service = http_service
         self.proxy_pool = proxy_pool
-        self.executor = ThreadPoolExecutor(max_workers=max_workers)
+        # 每批并发竞速的代理数。线程池按「调用 + 批」即时创建、随 with 关闭，
+        # 不作为成员长期持有，因此不会泄漏，进程退出也不会被遗留线程拖住。
+        self.batch_size = max(1, batch_size)
 
     def fetch_with_proxies(
         self,
@@ -241,7 +268,11 @@ class ProxyHttpService:
         headers: Optional[dict[str, str]] = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
-        """使用代理池并发请求"""
+        """使用代理池按健康度小批次竞速请求
+
+        代理按健康度排序后分批，每批最多 ``batch_size`` 个并发竞速，命中即返回；
+        批内线程池用 ``with`` 管理，调用结束即确定性关闭，不残留后台线程。
+        """
         if not self.proxy_pool:
             return self.http_service.get(
                 url, timeout=timeout, headers=headers, check_html=check_html
@@ -251,34 +282,45 @@ class ProxyHttpService:
         if not proxies:
             raise ProxyError("No proxies available")
 
-        futures = {
-            self.executor.submit(self._try_fetch, url, proxy, timeout, headers): proxy
-            for proxy in proxies
-        }
-
-        for future in as_completed(futures):
-            proxy = futures[future]
-            try:
-                result, response_time, proxyinfo = future.result()
-                if not check_html(result):
-                    logging.info(
-                        f"Proxy {proxy.url} {proxyinfo.host}:{proxyinfo.port} returned invalid content"
-                    )
-                    raise ValueError("Response content failed validation")
-                self.proxy_pool.record_success(proxy, response_time)
-
-                for f in futures:
-                    if f != future:
-                        f.cancel()
-
-                logging.info(f"Successfully fetched {url} with proxy: {proxy.url}")
+        for batch in _chunked(proxies, self.batch_size):
+            result = self._race_batch(url, batch, timeout, headers, check_html)
+            if result is not None:
                 return result
 
-            except Exception as e:
-                self.proxy_pool.record_failure(proxy)
-                logging.debug(f"Proxy {proxy.url} failed: {e}")
-
         raise ProxyError(f"All proxies failed to fetch {url}")
+
+    def _race_batch(
+        self,
+        url: str,
+        proxies: list[ProxyInfo],
+        timeout: int,
+        headers: Optional[dict[str, str]],
+        check_html: Callable[[str], bool],
+    ) -> Optional[str]:
+        """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。
+
+        命中后从 ``with`` 块返回，executor 会确定性关闭（join 掉同批其余请求）。
+        因 ``_try_fetch`` 走非重试单次请求，被放弃的请求至多耗时一个 timeout。
+        """
+        with ThreadPoolExecutor(max_workers=len(proxies)) as executor:
+            futures = {
+                executor.submit(self._try_fetch, url, proxy, timeout, headers): proxy
+                for proxy in proxies
+            }
+            for future in as_completed(futures):
+                proxy = futures[future]
+                try:
+                    result, response_time, _ = future.result()
+                    if not check_html(result):
+                        logging.info(f"Proxy {proxy.url} returned invalid content")
+                        raise ValueError("Response content failed validation")
+                    self.proxy_pool.record_success(proxy, response_time)
+                    logging.info(f"Successfully fetched {url} with proxy: {proxy.url}")
+                    return result
+                except Exception as e:
+                    self.proxy_pool.record_failure(proxy)
+                    logging.debug(f"Proxy {proxy.url} failed: {e}")
+        return None
 
     def _try_fetch(
         self,
@@ -287,9 +329,9 @@ class ProxyHttpService:
         timeout: int,
         headers: Optional[dict[str, str]] = None,
     ) -> tuple[str, float, ProxyInfo]:
-        """尝试使用指定代理获取"""
+        """尝试使用指定代理获取（单次，不重试）"""
         start_time = time.time()
-        result = self.http_service.get(
+        result = self.http_service._get(
             url, proxy=proxy.url, timeout=timeout, headers=headers
         )
         response_time = time.time() - start_time
@@ -331,7 +373,3 @@ class ProxyHttpService:
                 self.proxy_pool.record_failure(proxy_info)
 
         raise ProxyError(f"All proxies failed to fetch {url}")
-
-    def shutdown(self):
-        """关闭线程池"""
-        self.executor.shutdown(wait=True)

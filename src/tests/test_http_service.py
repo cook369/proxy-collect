@@ -1,11 +1,16 @@
 """HttpService 单元测试"""
 
+import threading
+import time
+
 import pytest
 from unittest.mock import Mock, patch
 import requests
 
-from services.http_service import HttpService, ProxyPool
+from services.http_service import HttpService, ProxyHttpService, ProxyPool
+from core.exceptions import ProxyError
 from core.models import ProxyInfo, ProxyType
+from utils.check import default_check_html
 
 
 class TestHttpService:
@@ -183,3 +188,121 @@ class TestProxyPool:
         urls = pool.get_proxy_urls()
         assert "socks5h://1.2.3.4:1080" in urls
         assert "http://5.6.7.8:8080" in urls
+
+
+class _FakeHttpService:
+    """可控的 HttpService 替身：按代理 URL 指定行为，记录调用。"""
+
+    def __init__(self, behavior=None, *, direct=None):
+        # behavior: proxy_url -> ("ok", content)
+        #                      | ("fail",)
+        #                      | ("slow", seconds, content)
+        self.behavior = behavior or {}
+        self.direct = direct
+        self.calls: list[str | None] = []
+        self._lock = threading.Lock()
+
+    def _get(
+        self, url, proxy=None, timeout=30, headers=None, check_html=default_check_html
+    ):
+        with self._lock:
+            self.calls.append(proxy)
+        action = self.behavior.get(proxy)
+        if action is None:
+            raise requests.ConnectionError(f"no route via {proxy}")
+        kind = action[0]
+        if kind == "ok":
+            return action[1]
+        if kind == "slow":
+            time.sleep(action[1])
+            return action[2]
+        raise requests.ConnectionError(f"fail via {proxy}")
+
+    def get(self, url, timeout=30, headers=None, check_html=default_check_html):
+        if self.direct is None:
+            raise requests.ConnectionError("no direct route")
+        return self.direct
+
+
+class TestProxyHttpService:
+    """ProxyHttpService 小批次竞速与线程池生命周期测试"""
+
+    def _pool(self, n: int) -> tuple[list[ProxyInfo], ProxyPool]:
+        proxies = [ProxyInfo(host=f"10.0.0.{i}", port=1000 + i) for i in range(n)]
+        return proxies, ProxyPool(proxies)
+
+    def test_returns_first_successful_proxy(self):
+        """同一批内有代理成功时返回其响应"""
+        proxies, pool = self._pool(3)
+        fake = _FakeHttpService({proxies[0].url: ("ok", "winner")})
+        svc = ProxyHttpService(fake, pool, batch_size=5)
+        assert svc.fetch_with_proxies("http://x") == "winner"
+
+    def test_advances_to_next_batch_when_batch_fails(self):
+        """前面的批整批失败时，应继续尝试后续批次"""
+        proxies, pool = self._pool(3)
+        # batch_size=1 → 每个代理各成一批；只有最后一个成功
+        fake = _FakeHttpService({proxies[2].url: ("ok", "third")})
+        svc = ProxyHttpService(fake, pool, batch_size=1)
+        assert svc.fetch_with_proxies("http://x") == "third"
+        # 三个代理都被尝试过
+        assert set(fake.calls) == {p.url for p in proxies}
+
+    def test_first_proxy_win_short_circuits_later_batches(self):
+        """首个代理就命中时，后续批次的代理不应被触达"""
+        proxies, pool = self._pool(4)
+        fake = _FakeHttpService({proxies[0].url: ("ok", "first")})
+        svc = ProxyHttpService(fake, pool, batch_size=1)
+        assert svc.fetch_with_proxies("http://x") == "first"
+        assert fake.calls == [proxies[0].url]
+
+    def test_all_proxies_fail_raises_proxyerror(self):
+        """所有代理失败时抛 ProxyError"""
+        _, pool = self._pool(4)
+        fake = _FakeHttpService({})  # 全部失败
+        svc = ProxyHttpService(fake, pool, batch_size=2)
+        with pytest.raises(ProxyError):
+            svc.fetch_with_proxies("http://x")
+
+    def test_invalid_content_is_treated_as_failure(self):
+        """通过校验失败的响应应记为失败，转而尝试其它代理"""
+        proxies, pool = self._pool(2)
+        fake = _FakeHttpService(
+            {proxies[0].url: ("ok", "   "), proxies[1].url: ("ok", "good")}
+        )
+        svc = ProxyHttpService(fake, pool, batch_size=5)
+        # 空白内容无法通过 default_check_html，应回退到第二个代理
+        assert svc.fetch_with_proxies("http://x") == "good"
+
+    def test_no_proxy_pool_falls_back_to_direct(self):
+        """无代理池时走直连（带重试的 get）"""
+        fake = _FakeHttpService(direct="direct-content")
+        svc = ProxyHttpService(fake, None, batch_size=5)
+        assert svc.fetch_with_proxies("http://x") == "direct-content"
+
+    def test_empty_pool_raises_proxyerror(self):
+        """代理池为空时抛 ProxyError"""
+        fake = _FakeHttpService({})
+        svc = ProxyHttpService(fake, ProxyPool(), batch_size=5)
+        with pytest.raises(ProxyError):
+            svc.fetch_with_proxies("http://x")
+
+    def test_no_persistent_executor_or_shutdown(self):
+        """不再持有长期线程池，也不再暴露 shutdown"""
+        svc = ProxyHttpService(_FakeHttpService({}), ProxyPool(), batch_size=5)
+        assert not hasattr(svc, "executor")
+        assert not hasattr(svc, "shutdown")
+
+    def test_batch_threads_released_after_success(self):
+        """命中后批内线程池随 with 关闭，调用返回时无残留工作线程"""
+        proxies, pool = self._pool(5)
+        behavior = {proxies[0].url: ("ok", "w")}
+        for p in proxies[1:]:
+            behavior[p.url] = ("slow", 0.3, "late")
+        fake = _FakeHttpService(behavior)
+        svc = ProxyHttpService(fake, pool, batch_size=5)
+
+        baseline = threading.active_count()
+        assert svc.fetch_with_proxies("http://x") == "w"
+        # with(wait=True) 已 join，工作线程应已退出，无泄漏
+        assert threading.active_count() <= baseline
