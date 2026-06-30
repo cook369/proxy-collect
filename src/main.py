@@ -3,12 +3,9 @@
 import argparse
 import logging
 import os
-import re
-import subprocess
 from datetime import datetime
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from urllib.parse import quote
 
 from config.settings import Config
 from core.models import CollectorResult, ProxyInfo
@@ -17,12 +14,12 @@ from services.proxy_service import ProxyValidator, ProxyService
 from services.proxy_cache_service import ProxyCacheService
 from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
+from services.readme_service import ReadmeService
 from collectors.base import get_collector, list_collectors
 from utils.logging_config import setup_logging
 
 
 config = Config()
-DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 
 log_level = os.getenv("LOG_LEVEL", "INFO")
 setup_logging(level=log_level)
@@ -32,163 +29,16 @@ def run_collector(
     collector_name: str,
     proxy_list: list[ProxyInfo],
     output_dir: Path,
-    timestamp: str,
 ) -> CollectorResult:
     """运行单个采集器"""
     collector_cls = get_collector(collector_name)
     collector = collector_cls(proxy_list)
-    return collector.run(output_dir, timestamp=timestamp)
+    return collector.run(output_dir)
 
 
 def should_process_downloaded_file(result: CollectorResult) -> bool:
     """判断采集结果是否需要执行本轮下载文件后处理。"""
     return result.status != "failed" and not result.from_cache
-
-
-def get_current_branch() -> str:
-    """Get the branch that should be used in generated raw GitHub URLs."""
-    env_branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME")
-    if env_branch:
-        return env_branch
-
-    try:
-        result = subprocess.run(
-            ["git", "rev-parse", "--abbrev-ref", "HEAD"],
-            cwd=Path(__file__).resolve().parent.parent,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        branch = result.stdout.strip()
-        if branch and branch != "HEAD":
-            return branch
-    except Exception:
-        logging.debug("Failed to detect current git branch", exc_info=True)
-
-    return "main"
-
-
-def get_github_repository() -> str:
-    """Get owner/repo for generated raw GitHub URLs."""
-    env_repository = os.getenv("GITHUB_REPOSITORY")
-    if env_repository:
-        return env_repository
-
-    try:
-        result = subprocess.run(
-            ["git", "config", "--get", "remote.origin.url"],
-            cwd=Path(__file__).resolve().parent.parent,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-        remote_url = result.stdout.strip()
-        match = re.search(
-            r"github\.com[:/](?P<repo>[^/\s]+/[^/\s]+?)(?:\.git)?$",
-            remote_url,
-        )
-        if match:
-            return match.group("repo")
-    except Exception:
-        logging.debug("Failed to detect GitHub repository", exc_info=True)
-
-    return DEFAULT_GITHUB_REPOSITORY
-
-
-def build_raw_github_url(
-    github_prefix: str,
-    repository: str,
-    branch: str,
-    site_name: str,
-    filename: str,
-) -> str:
-    """Build a branch-aware raw GitHub URL for README subscriptions."""
-    encoded_branch = quote(branch, safe="/")
-    return (
-        f"{github_prefix}/https://raw.githubusercontent.com/"
-        f"{repository}/refs/heads/{encoded_branch}/dist/{site_name}/{filename}"
-    )
-
-
-def _render_title(title: str | None) -> str:
-    """渲染采集标题用于 README 表格：转义 |、去换行、截断超长。"""
-    if not title:
-        return "-"
-    cleaned = title.strip().replace("|", "\\|").replace("\n", " ")
-    return cleaned[:40] + "…" if len(cleaned) > 40 else cleaned
-
-
-def update_readme(
-    manifest: ManifestService,
-    readme_file: Path,
-    github_prefix: str,
-    output_dir: Path,
-):
-    """更新 README.md"""
-    github_repository = get_github_repository()
-    github_branch = get_current_branch()
-    lines = ["\n## 采集状态\n"]
-    lines.append("| 站点 | 状态 | 更新时间 | 采集时间 | 标题 | 今日来源 |")
-    lines.append("|------|------|----------|----------|------|----------|")
-
-    for site_name in sorted(manifest.sites.keys()):
-        site = manifest.sites[site_name]
-        status_icon = {"success": "✅", "partial": "⚠️", "failed": "❌"}.get(
-            site.status, "❓"
-        )
-        updated = site.updated_at[:16] if site.updated_at else "-"
-        collected = site.collected_at[:16] if site.collected_at else "-"
-        title = _render_title(site.title)
-        source = f"[链接]({site.today_page})" if site.today_page else "-"
-        lines.append(
-            f"| {site_name} | {status_icon} | {updated} | {collected} | {title} | {source} |"
-        )
-
-    lines.append(f"\n**最后运行**: {manifest.last_run}\n")
-    lines.append("\n---\n")
-    lines.append("\n## 每日更新订阅\n")
-
-    for site_name in sorted(manifest.sites.keys()):
-        site = manifest.sites[site_name]
-        if site.status == "failed":
-            continue
-
-        site_dir = output_dir / site_name
-        status_suffix = " ⚠️" if site.status == "partial" else ""
-        lines.append(f"### {site_name}{status_suffix}\n")
-        lines.append("| 类型 | 订阅链接 |")
-        lines.append("|:----:|----------|")
-
-        clash_path = site_dir / "clash.yaml"
-        v2ray_path = site_dir / "v2ray.txt"
-
-        if clash_path.exists():
-            url = build_raw_github_url(
-                github_prefix, github_repository, github_branch, site_name, "clash.yaml"
-            )
-            lines.append(f"| Clash | {url} |")
-
-        if v2ray_path.exists():
-            url = build_raw_github_url(
-                github_prefix, github_repository, github_branch, site_name, "v2ray.txt"
-            )
-            lines.append(f"| V2Ray | {url} |")
-
-        lines.append("")
-
-    lines.append("\n---\n")
-
-    if readme_file.exists():
-        content = readme_file.read_text(encoding="utf-8")
-        if "## 采集状态" in content:
-            content = content.split("## 采集状态")[0].rstrip()
-        elif "## 每日更新订阅" in content:
-            content = content.split("## 每日更新订阅")[0].rstrip()
-        content += "\n" + "\n".join(lines)
-    else:
-        content = "\n".join(lines)
-
-    readme_file.write_text(content, encoding="utf-8")
 
 
 def print_report(results: list[CollectorResult]):
@@ -203,12 +53,15 @@ def print_report(results: list[CollectorResult]):
 
     for r in sorted(results, key=lambda x: x.site):
         icon = {"success": "✓", "partial": "!", "failed": "✗"}.get(r.status, "?")
+        duration_str = (
+            f"{r.duration_seconds:.1f}s" if r.duration_seconds is not None else "-"
+        )
         files_str = "  ".join(
             f"{f} {'✓' if info.success else '✗'}" for f, info in r.files.items()
         )
         if not files_str and r.error:
             files_str = f"({r.error})"
-        print(f"[{icon}] {r.site:12} │ {files_str}")
+        print(f"[{icon}] {r.site:12} │ {duration_str:>6} │ {files_str}")
 
     print("-" * 60)
     print(
@@ -267,7 +120,8 @@ def main():
 
     # 初始化服务
     manifest = ManifestService(config.app.manifest_file)
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    # 用于 YAML 文件头注入的时间戳（统一使用运行开始时间作为标签）
+    file_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
     proxy_list: list[ProxyInfo] = []
@@ -309,7 +163,7 @@ def main():
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
             executor.submit(
-                run_collector, name, proxy_list, config.app.output_dir, timestamp
+                run_collector, name, proxy_list, config.app.output_dir
             ): name
             for name in collectors_to_run
         }
@@ -337,7 +191,7 @@ def main():
         # 注入时间戳到 clash.yaml
         if should_process_downloaded_file(result):
             clash_path = config.app.output_dir / result.site / "clash.yaml"
-            FileProcessor.process_downloaded_file(clash_path, result, timestamp)
+            FileProcessor.process_downloaded_file(clash_path, result, file_timestamp)
 
     # 保存 manifest
     manifest.save()
@@ -346,12 +200,12 @@ def main():
     print_report(results)
 
     # 更新 README
-    update_readme(
+    ReadmeService(
         manifest,
         config.app.readme_file,
         config.proxy.github_proxy,
         config.app.output_dir,
-    )
+    ).update()
 
 
 if __name__ == "__main__":

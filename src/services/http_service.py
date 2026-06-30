@@ -5,7 +5,7 @@
 
 import logging
 import time
-from typing import Callable, Iterator, Optional, Union
+from typing import Any, Callable, Iterator, Optional, Union
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import RLock
 import requests
@@ -115,6 +115,47 @@ class HttpService:
         return self._get(
             url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html
         )
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type((requests.RequestException)),
+        reraise=True,
+    )
+    def post(
+        self,
+        url: str,
+        json: Optional[dict[str, Any]] = None,
+        proxy: Optional[str] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> str:
+        """发送 POST 请求（带重试）
+
+        Args:
+            url: 请求 URL
+            json: JSON 请求体
+            proxy: 代理地址（可选）
+            timeout: 超时时间（秒）
+            headers: 额外的请求头
+
+        Returns:
+            响应内容
+
+        Raises:
+            requests.HTTPError: HTTP 错误
+            ValueError: 响应内容为空
+        """
+        proxies = {"http": proxy, "https": proxy} if proxy else None
+        resp = self.session.post(
+            url, json=json, proxies=proxies, timeout=timeout, headers=headers
+        )
+        resp.raise_for_status()
+
+        if not resp.text.strip():
+            raise ValueError("Empty response")
+        resp.encoding = "utf-8"
+        return resp.text
 
     @retry(
         stop=stop_after_attempt(3),
@@ -354,9 +395,79 @@ class ProxyHttpService:
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
     ) -> bytes:
-        """获取二进制内容（兼容 HttpService 接口）"""
+        """获取二进制内容（兼容 HttpService 接口，使用分批竞速）"""
         if not self.proxy_pool:
-            return self.http_service.get_raw(url, timeout=timeout, headers=headers)
+            return self.http_service.get_raw(
+                url, proxy=proxy, timeout=timeout, headers=headers
+            )
+
+        proxies = self.proxy_pool.get_sorted()
+        if not proxies:
+            raise ProxyError("No proxies available")
+
+        for batch in _chunked(proxies, self.batch_size):
+            result = self._race_batch_raw(url, batch, timeout, headers)
+            if result is not None:
+                return result
+
+        raise ProxyError(f"All proxies failed to fetch {url}")
+
+    def _race_batch_raw(
+        self,
+        url: str,
+        proxies: list[ProxyInfo],
+        timeout: int,
+        headers: Optional[dict[str, str]],
+    ) -> Optional[bytes]:
+        """并发竞速一批代理获取二进制内容，返回首个成功结果；整批失败返回 None"""
+        with ThreadPoolExecutor(max_workers=len(proxies)) as executor:
+            futures = {
+                executor.submit(
+                    self._try_fetch_raw, url, proxy, timeout, headers
+                ): proxy
+                for proxy in proxies
+            }
+            for future in as_completed(futures):
+                proxy = futures[future]
+                try:
+                    result, response_time, _ = future.result()
+                    self.proxy_pool.record_success(proxy, response_time)
+                    logging.info(
+                        f"Successfully fetched (raw) {url} with proxy: {proxy.url}"
+                    )
+                    return result
+                except Exception as e:
+                    self.proxy_pool.record_failure(proxy)
+                    logging.debug(f"Proxy {proxy.url} failed (raw): {e}")
+        return None
+
+    def _try_fetch_raw(
+        self,
+        url: str,
+        proxy: ProxyInfo,
+        timeout: int,
+        headers: Optional[dict[str, str]] = None,
+    ) -> tuple[bytes, float, ProxyInfo]:
+        """尝试使用指定代理获取二进制内容（单次，不重试）"""
+        start_time = time.time()
+        result = self.http_service.get_raw(
+            url, proxy=proxy.url, timeout=timeout, headers=headers
+        )
+        response_time = time.time() - start_time
+        return result, response_time, proxy
+
+    def post(
+        self,
+        url: str,
+        json: Optional[dict[str, Any]] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> str:
+        """发送 POST 请求（兼容 HttpService 接口，使用代理池）"""
+        if not self.proxy_pool:
+            return self.http_service.post(
+                url, json=json, timeout=timeout, headers=headers
+            )
 
         proxies = self.proxy_pool.get_sorted()
         if not proxies:
@@ -364,12 +475,16 @@ class ProxyHttpService:
 
         for proxy_info in proxies:
             try:
-                result = self.http_service.get_raw(
-                    url, proxy=proxy_info.url, timeout=timeout, headers=headers
+                result = self.http_service.post(
+                    url,
+                    json=json,
+                    proxy=proxy_info.url,
+                    timeout=timeout,
+                    headers=headers,
                 )
                 self.proxy_pool.record_success(proxy_info, 1.0)
                 return result
             except Exception:
                 self.proxy_pool.record_failure(proxy_info)
 
-        raise ProxyError(f"All proxies failed to fetch {url}")
+        raise ProxyError(f"All proxies failed to POST {url}")

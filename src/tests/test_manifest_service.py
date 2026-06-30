@@ -170,6 +170,7 @@ class TestManifestServiceUpdateFromResult:
                     )
                 },
                 status="success",
+                duration_seconds=2.5,
             )
 
             service.update_from_result(result)
@@ -177,6 +178,7 @@ class TestManifestServiceUpdateFromResult:
             assert "test_site" in service.sites
             assert service.sites["test_site"].status == "success"
             assert service.sites["test_site"].updated_at is not None
+            assert service.sites["test_site"].duration_seconds == 2.5
 
     def test_update_from_failed_result(self):
         """测试从失败结果更新"""

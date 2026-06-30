@@ -90,10 +90,22 @@ class HtmlParser:
 
 
 class TwoStepCollectorMixin:
-    """两步采集 Mixin：首页 -> 今日页面 -> 下载链接
+    """两步采集 Mixin：首页 → 今日页面 → 下载链接
 
     适用于需要先访问首页获取今日链接，再访问今日页面获取下载链接的采集器。
+
+    依赖 BaseCollector 提供的属性:
+        name: 采集器名称
+        home_page: 首页 URL
+        fetch_html(): 获取 HTML 内容
+        skip_if_cached(): 检查并跳过已缓存的采集
     """
+
+    # 由 BaseCollector 提供的依赖属性（此处声明以消除隐式耦合）
+    name: str
+    home_page: str
+    fetch_html: callable
+    skip_if_cached: callable
 
     today_page: str | None = None  # 保存今日页面 URL
     title: str | None = None  # 保存今日页面标题，作为采集标题
@@ -139,7 +151,7 @@ class TwoStepCollectorMixin:
         """
         if not self.title_xpath:
             return None
-        parser = HtmlParser(today_html, getattr(self, "name", "unknown"))
+        parser = HtmlParser(today_html, self.name)
         title = parser.xpath(self.title_xpath, default=None)
         return title.strip() if title and title.strip() else None
 
@@ -152,8 +164,6 @@ class TwoStepCollectorMixin:
         Raises:
             ParseError: 无法获取今日链接或解析失败
         """
-        collector_name = getattr(self, "name", "unknown")
-
         # 步骤1：获取首页
         home_html = self.fetch_html(self.home_page)
 
@@ -166,19 +176,19 @@ class TwoStepCollectorMixin:
             raise ParseError(
                 f"Failed to get today URL: {e}",
                 self.home_page,
-                collector_name,
+                self.name,
             ) from e
 
         if not today_url:
             raise ParseError(
                 "No today URL found on homepage",
                 self.home_page,
-                collector_name,
+                self.name,
             )
 
         # 保存今日页面 URL
         self.today_page = today_url
-        logging.info(f"[{collector_name}] Today URL: {today_url}")
+        logging.info(f"[{self.name}] Today URL: {today_url}")
         if hasattr(self, "skip_if_cached"):
             self.skip_if_cached()
 
@@ -189,7 +199,7 @@ class TwoStepCollectorMixin:
         try:
             self.title = self.extract_title(today_html)
         except Exception as e:
-            logging.warning(f"[{collector_name}] Failed to extract title: {e}")
+            logging.warning(f"[{self.name}] Failed to extract title: {e}")
             self.title = None
 
         # 步骤4：解析下载任务（带错误处理）
@@ -201,10 +211,10 @@ class TwoStepCollectorMixin:
             raise ParseError(
                 f"Failed to parse download tasks: {e}",
                 today_url,
-                collector_name,
+                self.name,
             ) from e
 
         if not tasks:
-            logging.warning(f"[{collector_name}] No download tasks found on today page")
+            logging.warning(f"[{self.name}] No download tasks found on today page")
 
         return tasks

@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 import logging
+import time
 from datetime import datetime
 from pathlib import Path
 from typing import Optional, Union, Callable
@@ -12,7 +13,10 @@ from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
 from core.interfaces import HttpClient
 from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
-from utils.check import default_check_html
+from utils.check import default_check_html, check_html_contains
+from utils.extractors import create_download_tasks_from_regex_rules
+from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
+from services.paste_to_service import PasteToService
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -248,6 +252,7 @@ class BaseCollector(ABC):
             采集结果
         """
         logging.info(f"[{self.name}] Start collector")
+        start_time = time.time()
         files: dict[str, FileManifest] = {}
         error_msg: str | None = None
         self._current_output_dir = output_dir
@@ -265,13 +270,15 @@ class BaseCollector(ABC):
                 )
         except CachedCollectorResult as e:
             logging.info(f"[{self.name}] Collector skipped by cache")
+            e.result.duration_seconds = round(time.time() - start_time, 1)
             return e.result
 
         except Exception as e:
             error_msg = str(e)
             logging.error(f"[{self.name}] Error: {e}")
 
-        logging.info(f"[{self.name}] Collector finished")
+        duration = round(time.time() - start_time, 1)
+        logging.info(f"[{self.name}] Collector finished in {duration}s")
 
         # 计算状态
         if error_msg and not files:
@@ -283,6 +290,7 @@ class BaseCollector(ABC):
         else:
             status = "failed"
 
+        # 每个采集器使用自己完成时的实际时间
         ts = timestamp or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         return CollectorResult(
@@ -293,6 +301,7 @@ class BaseCollector(ABC):
             files=files,
             status=status,
             error=error_msg,
+            duration_seconds=duration,
         )
 
 
@@ -302,6 +311,75 @@ class CachedCollectorResult(Exception):
     def __init__(self, result: CollectorResult):
         super().__init__("collector result cached")
         self.result = result
+
+
+# -------------------- YouTube + Paste.to 采集器基类 -------------------- #
+
+
+class YouTubePasteToCollector(BaseCollector):
+    """YouTube + Paste.to 采集器基类
+
+    适用于从 YouTube 播放列表找最新视频，从视频描述提取 paste.to 分享链接，
+    解密后提取订阅链接的采集器。
+
+    子类需定义:
+        home_page: YouTube 播放列表 URL
+        playlist_keywords: 匹配视频标题的关键字元组（首个同时用作页面校验关键字）
+        subscription_patterns: 从解密内容提取订阅链接的正则规则字典
+    """
+
+    playlist_keywords: tuple[str, ...] = ("免费节点",)
+    paste_to_password: str | None = None
+    paste_to_password_strategy: (
+        "CharsetPasswordStrategy | DictionaryPasswordStrategy | None"
+    ) = None
+
+    def get_download_tasks(self) -> list[DownloadTask]:
+        """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
+        check_playlist = check_html_contains(self.playlist_keywords[0])
+        if not self.today_page:
+            playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
+            self.today_page = self.get_today_url(playlist_html)
+        self.skip_if_cached()
+
+        video_html = self.fetch_html(self.today_page)
+        paste_url = self.extract_paste_url(video_html)
+
+        logging.info(f"[{self.name}] try decrypt {paste_url} share")
+        paste_to_service = PasteToService(
+            http_client=self.http_client,
+            timeout=default_config.collector.fetch_timeout,
+            max_workers=default_config.collector.paste_to_password_workers,
+            password_strategy=self.paste_to_password_strategy,
+        )
+        decrypt_result = paste_to_service.decrypt_url(
+            paste_url,
+            password=self.paste_to_password,
+        )
+        if not self.paste_to_password:
+            logging.info(
+                f"[{self.name}] password decrypt {paste_url} with {decrypt_result.password} share"
+            )
+        return self.parse_subscription_tasks(decrypt_result.content)
+
+    def get_today_url(self, home_html: str) -> str:
+        """从 YouTube 播放列表页面提取最新视频 URL"""
+        video, title = find_latest_video_url(
+            home_html,
+            self.playlist_keywords,
+            reverse=False,
+        )
+        logging.info(f"[{self.name}] find video {video}, title {title}")
+        return video
+
+    def extract_paste_url(self, video_html: str) -> str:
+        """从 YouTube 视频页提取 paste.to 分享 URL"""
+        return extract_youtube_redirect_url(video_html, "paste.to")
+
+    @abstractmethod
+    def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
+        """从解密后的分享内容提取订阅链接（子类实现）"""
+        raise NotImplementedError
 
 
 # -------------------- 采集器注册表 -------------------- #
@@ -351,6 +429,7 @@ def get_collector(name: str) -> type[BaseCollector]:
 
 __all__ = [
     "BaseCollector",
+    "YouTubePasteToCollector",
     "CollectorResult",
     "register_collector",
     "list_collectors",

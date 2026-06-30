@@ -10,7 +10,9 @@ from Crypto.Util.Padding import unpad
 
 from collectors.base import BaseCollector, register_collector
 from collectors.mixins import TwoStepCollectorMixin, HtmlParser
+from config.settings import default_config
 from core.models import DownloadTask
+from utils.passwords import CharsetPasswordStrategy, brute_force_password
 
 
 @register_collector
@@ -22,10 +24,13 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
     AES_PATTERN = r"U2FsdGVkX1[0-9A-Za-z+/=]+"
     PASSWORD_RANGE = (1000, 9999)
 
+    # ── AES 解密（站点特有算法） ──
+
+    @staticmethod
     def evp_bytes_to_key(
-        self, password: str, salt: bytes, key_len: int = 32, iv_len: int = 16
-    ):
-        """从密码和盐生成密钥和 IV"""
+        password: str, salt: bytes, key_len: int = 32, iv_len: int = 16
+    ) -> tuple[bytes, bytes]:
+        """从密码和盐生成密钥和 IV (EVP_BytesToKey 兼容)"""
         derived = b""
         prev = b""
         pw_bytes = password.encode("utf-8")
@@ -35,7 +40,7 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
         return derived[:key_len], derived[key_len : key_len + iv_len]
 
     def decrypt(self, ciphertext: str, password: str) -> str:
-        """AES 解密"""
+        """AES 解密（CBC 模式，OpenSSL Salted__ 格式）"""
         data = base64.b64decode(ciphertext)
         if not data.startswith(b"Salted__"):
             raise ValueError("Ciphertext missing 'Salted__'")
@@ -44,16 +49,22 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
         key, iv = self.evp_bytes_to_key(password, salt)
         cipher = AES.new(key, AES.MODE_CBC, iv)
         decrypted = unpad(cipher.decrypt(cipher_bytes), AES.block_size)
-        return decrypted.decode("utf-8")
+        return urllib.parse.unquote(decrypted.decode("utf-8"))
 
-    def brute_force_password(self, encrypted_data: str) -> str:
-        """暴力破解密码"""
-        for pwd in range(self.PASSWORD_RANGE[0], self.PASSWORD_RANGE[1] + 1):
-            try:
-                return urllib.parse.unquote(self.decrypt(encrypted_data, str(pwd)))
-            except Exception:
-                continue
-        raise ValueError("Failed to brute-force the encryption password.")
+    def brute_force_decrypt(self, encrypted_data: str) -> str:
+        """并发暴力破解 AES 加密密码（4 位数字）"""
+        strategy = CharsetPasswordStrategy(
+            length=4,
+            charset="0123456789",
+        )
+        result = brute_force_password(
+            max_workers=default_config.collector.http_password_workers,
+            password_strategy=strategy,
+            try_password=lambda pwd: self.decrypt(encrypted_data, pwd),
+        )
+        return result.content
+
+    # ── TwoStep 采集流程 ──
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接"""

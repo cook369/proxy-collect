@@ -127,7 +127,7 @@ def test_get_download_tasks_uses_paste_to_service(monkeypatch):
         password="1234", content="share content"
     )
     paste_to_service_class = Mock(return_value=paste_to_service)
-    monkeypatch.setattr("collectors.sites.zyfxs.PasteToService", paste_to_service_class)
+    monkeypatch.setattr("collectors.base.PasteToService", paste_to_service_class)
     collector.parse_subscription_tasks = Mock(return_value=[])
 
     collector.get_download_tasks()
@@ -217,7 +217,7 @@ def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
 
     monkeypatch.setattr("services.manifest_service.ManifestService", FakeManifest)
     paste_to_service = Mock()
-    monkeypatch.setattr("collectors.sites.zyfxs.PasteToService", paste_to_service)
+    monkeypatch.setattr("collectors.base.PasteToService", paste_to_service)
 
     result = collector.run(tmp_path)
 

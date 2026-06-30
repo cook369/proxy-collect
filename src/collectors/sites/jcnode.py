@@ -1,14 +1,10 @@
 import logging
 
-import random
-from threading import Lock
-
-import requests
-
 from collectors.base import BaseCollector, register_collector
 from collectors.mixins import HtmlParser
 from config.settings import default_config
-from core.models import DownloadTask, ProxyInfo
+from core.exceptions import ProxyError
+from core.models import DownloadTask
 from utils.check import check_html_contains
 from utils.extractors import create_download_tasks_from_regex_rules
 from utils.passwords import (
@@ -36,11 +32,6 @@ class JCNodeCollector(BaseCollector):
         "content-type": "application/json",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     }
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._failed_proxy_lock = Lock()
-        self._failed_proxy_urls: set[str] = set()
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """从 jcnode 页面口令接口获取订阅任务"""
@@ -84,101 +75,54 @@ class JCNodeCollector(BaseCollector):
         return create_download_tasks_from_regex_rules(content, patterns)
 
     def verify_code(self, password: str) -> str:
-        """用单个口令请求 jcnode 验证接口。"""
-        last_error: requests.RequestException | None = None
+        """用单个口令请求 jcnode 验证接口。
+
+        通过 self.http_client.post() 发送请求，代理池自动管理代理选择与重试。
+        当所有代理失败时，重试 verify_network_retry_rounds 轮（每轮代理池会重新排序）。
+        """
+        last_error: Exception | None = None
         failed_rounds = 0
 
         logging.debug(f"[{self.name}] trying password candidate")
 
         while failed_rounds < self.verify_network_retry_rounds:
-            candidates = self._proxy_candidates()
-            if not candidates:
-                failed_rounds += 1
-                self._reset_failed_proxies()
-                logging.info(
-                    f"[{self.name}] all proxies failed, retrying same password"
+            try:
+                response = self.http_client.post(
+                    self.verify_url,
+                    json={"code": password},
+                    timeout=default_config.collector.fetch_timeout,
+                    headers=self.verify_headers,
                 )
+            except ProxyError as e:
+                last_error = e
+                failed_rounds += 1
+                if failed_rounds < self.verify_network_retry_rounds:
+                    logging.info(
+                        f"[{self.name}] all proxies failed, retrying same password"
+                    )
+                continue
+            except Exception as e:
+                last_error = e
+                failed_rounds += 1
+                if failed_rounds < self.verify_network_retry_rounds:
+                    logging.info(
+                        f"[{self.name}] request failed, retrying same password: {e}"
+                    )
                 continue
 
-            for proxy in candidates:
-                if self._is_proxy_failed(proxy):
-                    continue
-
-                proxies = {"http": proxy.url, "https": proxy.url} if proxy else None
-
-                try:
-                    response = requests.post(
-                        self.verify_url,
-                        proxies=proxies,
-                        headers=self.verify_headers,
-                        json={"code": password},
-                        timeout=default_config.collector.fetch_timeout,
-                    )
-                    response.raise_for_status()
-                except requests.RequestException as e:
-                    last_error = e
-                    self._mark_proxy_failed(proxy)
-                    logging.debug(
-                        f"[{self.name}] proxy request failed, trying next proxy: {e}"
-                    )
-                    continue
-
-                if "口令错误" in response.text:
-                    logging.debug(f"[{self.name}] password candidate rejected")
-                    raise ValueError("password error")
-                if not response.text.strip():
-                    self._mark_proxy_failed(proxy)
-                    logging.debug(
-                        f"[{self.name}] empty verification response, trying next proxy"
-                    )
-                    continue
-                return response.text
-
-            failed_rounds += 1
-            if failed_rounds < self.verify_network_retry_rounds:
-                logging.info(
-                    f"[{self.name}] all proxies failed, retrying same password"
+            if "口令错误" in response:
+                logging.debug(f"[{self.name}] password candidate rejected")
+                raise ValueError("password error")
+            if not response.strip():
+                failed_rounds += 1
+                logging.debug(
+                    f"[{self.name}] empty verification response, retrying"
                 )
-                self._reset_failed_proxies()
+                continue
+            return response
 
         if last_error:
             raise FatalPasswordAttemptError(
                 "jcnode verification network failed"
             ) from last_error
         raise FatalPasswordAttemptError("no proxy available for jcnode verification")
-
-    def _proxy_candidates(self) -> list[ProxyInfo | None]:
-        if not self.proxy_pool:
-            return [None]
-
-        proxies = self.proxy_pool.get_sorted()
-        if not proxies:
-            return [None]
-
-        with self._failed_proxy_lock:
-            failed_proxy_urls = set(self._failed_proxy_urls)
-
-        candidates = [proxy for proxy in proxies if proxy.url not in failed_proxy_urls]
-        if not candidates:
-            return []
-
-        random.shuffle(candidates)
-        return candidates
-
-    def _mark_proxy_failed(self, proxy: ProxyInfo | None) -> None:
-        if proxy is None:
-            return
-
-        with self._failed_proxy_lock:
-            self._failed_proxy_urls.add(proxy.url)
-
-    def _is_proxy_failed(self, proxy: ProxyInfo | None) -> bool:
-        if proxy is None:
-            return False
-
-        with self._failed_proxy_lock:
-            return proxy.url in self._failed_proxy_urls
-
-    def _reset_failed_proxies(self) -> None:
-        with self._failed_proxy_lock:
-            self._failed_proxy_urls.clear()

@@ -45,6 +45,7 @@ class ManifestService:
                     updated_at=site_data.get("updated_at"),
                     title=site_data.get("title"),
                     collected_at=site_data.get("collected_at"),
+                    duration_seconds=site_data.get("duration_seconds"),
                     files=files,
                     error=site_data.get("error"),
                 )
@@ -81,15 +82,17 @@ class ManifestService:
         existing = self.sites.get(result.site)
 
         if result.from_cache and existing is not None:
-            # 缓存命中：保留旧的真实采集时间、标题、updated_at
+            # 缓存命中：保留旧的真实采集时间、标题、updated_at、耗时
             collected_at = existing.collected_at
             title = existing.title
             updated_at = existing.updated_at
+            duration_seconds = existing.duration_seconds
         else:
             # 首次采集 / 失败重采：用本次真实时间
             collected_at = result.collected_at or now
             title = result.title
             updated_at = now if result.status != "failed" else None
+            duration_seconds = result.duration_seconds
 
         self.sites[result.site] = SiteManifest(
             today_page=result.today_page,
@@ -97,6 +100,7 @@ class ManifestService:
             updated_at=updated_at,
             title=title,
             collected_at=collected_at,
+            duration_seconds=duration_seconds,
             files=result.files,
             error=result.error,
         )
@@ -124,6 +128,7 @@ class ManifestService:
                 "updated_at": site_data.updated_at,
                 "title": site_data.title,
                 "collected_at": site_data.collected_at,
+                "duration_seconds": site_data.duration_seconds,
                 "files": files_dict,
             }
             if site_data.error:

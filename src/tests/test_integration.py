@@ -9,21 +9,17 @@ from unittest.mock import Mock
 
 from collectors.base import BaseCollector
 from core.models import CollectorResult, FileManifest, DownloadTask
-from main import (
-    build_raw_github_url,
-    get_current_branch,
-    get_github_repository,
-    should_process_downloaded_file,
-)
+from main import should_process_downloaded_file
 from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
+from services.readme_service import ReadmeService
 
 
 class TestReadmeUrls:
     """README URL generation tests."""
 
     def test_build_raw_github_url_uses_current_branch_ref(self):
-        url = build_raw_github_url(
+        url = ReadmeService._build_raw_github_url(
             "https://ghproxy.net",
             "owner/repo",
             "develop",
@@ -37,7 +33,7 @@ class TestReadmeUrls:
         )
 
     def test_build_raw_github_url_supports_branch_with_slash(self):
-        url = build_raw_github_url(
+        url = ReadmeService._build_raw_github_url(
             "https://ghproxy.net",
             "owner/repo",
             "feature/readme-links",
@@ -50,12 +46,12 @@ class TestReadmeUrls:
     def test_current_branch_prefers_github_env(self, monkeypatch):
         monkeypatch.setenv("GITHUB_REF_NAME", "develop")
 
-        assert get_current_branch() == "develop"
+        assert ReadmeService.get_current_branch() == "develop"
 
     def test_github_repository_prefers_github_env(self, monkeypatch):
         monkeypatch.setenv("GITHUB_REPOSITORY", "owner/repo")
 
-        assert get_github_repository() == "owner/repo"
+        assert ReadmeService.get_github_repository() == "owner/repo"
 
 
 class TestCollectorWithManifest:

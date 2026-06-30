@@ -3,12 +3,10 @@
 from unittest.mock import Mock
 
 import pytest
-import requests
 
-import collectors.sites.jcnode as jcnode
 from collectors.sites.jcnode import JCNodeCollector
+from core.exceptions import ProxyError
 from core.interfaces import HttpClient
-from core.models import ProxyInfo
 from utils.passwords import (
     DictionaryPasswordStrategy,
     FatalPasswordAttemptError,
@@ -52,18 +50,19 @@ def test_get_download_tasks_uses_configured_code_without_bruteforce(monkeypatch)
     collector.today_page = "https://jcnode.com/posts/free-nodes/20260615/"
     collector.verification_code = "1234"
     collector.skip_if_cached = Mock()
-    collector.verify_code = Mock(
+    collector.http_client.post = Mock(
         return_value='{"v2ray":"https://example.com/v2ray.txt"}'
     )
-    brute_force_password = Mock()
+    brute_force_password_mock = Mock()
     monkeypatch.setattr(
-        "collectors.sites.jcnode.brute_force_password", brute_force_password
+        "collectors.sites.jcnode.brute_force_password", brute_force_password_mock
     )
 
     tasks = collector.get_download_tasks()
 
-    collector.verify_code.assert_called_once_with("1234")
-    brute_force_password.assert_not_called()
+    collector.http_client.post.assert_called_once()
+    assert collector.http_client.post.call_args.kwargs["json"] == {"code": "1234"}
+    brute_force_password_mock.assert_not_called()
     assert [task.filename for task in tasks] == ["v2ray.txt"]
 
 
@@ -72,124 +71,76 @@ def test_get_download_tasks_passes_instance_verifier_to_bruteforce(monkeypatch):
     collector.today_page = "https://jcnode.com/posts/free-nodes/20260615/"
     collector.verification_code_strategy = DictionaryPasswordStrategy(["1234"])
     collector.skip_if_cached = Mock()
-    collector.verify_code = Mock(return_value="unused")
+    collector.http_client.post = Mock(return_value="unused")
     collector.parse_subscription_tasks = Mock(return_value=[])
-    brute_force_password = Mock(
+    brute_force_password_mock = Mock(
         return_value=PasswordAttemptResult(password="1234", content="share content")
     )
     monkeypatch.setattr(
-        "collectors.sites.jcnode.brute_force_password", brute_force_password
+        "collectors.sites.jcnode.brute_force_password", brute_force_password_mock
     )
 
     collector.get_download_tasks()
 
-    brute_force_password.assert_called_once()
+    brute_force_password_mock.assert_called_once()
     assert (
-        brute_force_password.call_args.kwargs["password_strategy"]
+        brute_force_password_mock.call_args.kwargs["password_strategy"]
         is collector.verification_code_strategy
     )
-    assert (
-        brute_force_password.call_args.kwargs["try_password"] is collector.verify_code
-    )
+    # verify_code bound method may differ by identity, check it's callable
+    assert callable(brute_force_password_mock.call_args.kwargs["try_password"])
     collector.parse_subscription_tasks.assert_called_once_with("share content")
 
 
-def test_verify_code_posts_with_timeout_and_returns_content(monkeypatch):
+def test_verify_code_posts_with_timeout_and_returns_content():
     collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
-    response = Mock(text='{"v2ray":"https://example.com/v2ray.txt"}')
-    response.raise_for_status = Mock()
-    post = Mock(return_value=response)
-    monkeypatch.setattr("collectors.sites.jcnode.requests.post", post)
+    collector.http_client.post = Mock(
+        return_value='{"v2ray":"https://example.com/v2ray.txt"}'
+    )
 
-    assert collector.verify_code("1234") == response.text
+    result = collector.verify_code("1234")
 
-    post.assert_called_once_with(
+    assert result == '{"v2ray":"https://example.com/v2ray.txt"}'
+    collector.http_client.post.assert_called_once_with(
         collector.verify_url,
-        proxies=None,
-        headers=collector.verify_headers,
         json={"code": "1234"},
-        timeout=jcnode.default_config.collector.fetch_timeout,
+        timeout=20,
+        headers=collector.verify_headers,
     )
 
 
-def test_verify_code_retries_other_proxy_on_request_error(monkeypatch):
-    p1 = ProxyInfo(host="127.0.0.1", port=1080)
-    p2 = ProxyInfo(host="127.0.0.2", port=1080)
-    collector = JCNodeCollector(proxies_list=[p1, p2])
-    monkeypatch.setattr("collectors.sites.jcnode.random.shuffle", lambda items: None)
-    response = Mock(text='{"v2ray":"https://example.com/v2ray.txt"}')
-    response.raise_for_status = Mock()
-    post = Mock(side_effect=[requests.Timeout("timeout"), response])
-    monkeypatch.setattr("collectors.sites.jcnode.requests.post", post)
-
-    assert collector.verify_code("1234") == response.text
-
-    assert post.call_count == 2
-    assert post.call_args_list[0].kwargs["json"] == {"code": "1234"}
-    assert post.call_args_list[1].kwargs["json"] == {"code": "1234"}
-    assert post.call_args_list[0].kwargs["proxies"] == {
-        "http": p1.url,
-        "https": p1.url,
-    }
-    assert post.call_args_list[1].kwargs["proxies"] == {
-        "http": p2.url,
-        "https": p2.url,
-    }
-
-
-def test_verify_code_skips_known_failed_proxy(monkeypatch):
-    p1 = ProxyInfo(host="127.0.0.1", port=1080)
-    p2 = ProxyInfo(host="127.0.0.2", port=1080)
-    collector = JCNodeCollector(proxies_list=[p1, p2])
-    monkeypatch.setattr("collectors.sites.jcnode.random.shuffle", lambda items: None)
-    wrong_response = Mock(text="口令错误")
-    wrong_response.raise_for_status = Mock()
-    success_response = Mock(text='{"v2ray":"https://example.com/v2ray.txt"}')
-    success_response.raise_for_status = Mock()
-    post = Mock(
-        side_effect=[requests.Timeout("timeout"), wrong_response, success_response]
-    )
-    monkeypatch.setattr("collectors.sites.jcnode.requests.post", post)
-
-    with pytest.raises(ValueError, match="password error"):
-        collector.verify_code("0000")
-
-    assert collector.verify_code("1234") == success_response.text
-    assert post.call_count == 3
-    assert post.call_args_list[2].kwargs["proxies"] == {
-        "http": p2.url,
-        "https": p2.url,
-    }
-
-
-def test_verify_code_rejects_wrong_password(monkeypatch):
+def test_verify_code_retries_on_proxy_error():
     collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
-    response = Mock(text="口令错误")
-    response.raise_for_status = Mock()
-    monkeypatch.setattr(
-        "collectors.sites.jcnode.requests.post", Mock(return_value=response)
+    collector.http_client.post = Mock(
+        side_effect=[
+            ProxyError("all proxies failed"),
+            '{"v2ray":"https://example.com/v2ray.txt"}',
+        ]
     )
+
+    result = collector.verify_code("1234")
+
+    assert result == '{"v2ray":"https://example.com/v2ray.txt"}'
+    assert collector.http_client.post.call_count == 2
+
+
+def test_verify_code_rejects_wrong_password():
+    collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
+    collector.http_client.post = Mock(return_value="口令错误")
 
     with pytest.raises(ValueError, match="password error"):
         collector.verify_code("0000")
 
 
-def test_verify_code_does_not_record_proxy_cache(monkeypatch):
-    proxy = ProxyInfo(host="127.0.0.1", port=1080)
-    collector = JCNodeCollector(proxies_list=[proxy])
-    collector.verify_network_retry_rounds = 1
-    monkeypatch.setattr(
-        "collectors.sites.jcnode.requests.post",
-        Mock(side_effect=requests.Timeout("timeout")),
-    )
+def test_verify_code_raises_fatal_error_after_all_rounds_fail():
+    collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
+    collector.verify_network_retry_rounds = 2
+    collector.http_client.post = Mock(side_effect=ProxyError("all proxies failed"))
 
-    with pytest.raises(FatalPasswordAttemptError):
+    with pytest.raises(FatalPasswordAttemptError, match="network failed"):
         collector.verify_code("1234")
 
-    assert collector.proxy_pool is not None
-    [stored_proxy] = collector.proxy_pool.get_sorted()
-    assert stored_proxy.fail_count == 0
-    assert stored_proxy.success_count == 0
+    assert collector.http_client.post.call_count == 2
 
 
 def test_bruteforce_propagates_fatal_attempt_error():

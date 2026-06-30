@@ -3,7 +3,7 @@
 使用 Protocol 定义接口，支持鸭子类型和依赖注入。
 """
 
-from typing import Callable, Optional, Protocol, runtime_checkable
+from typing import Any, Callable, Optional, Protocol, runtime_checkable
 
 from utils.check import default_check_html
 
@@ -30,4 +30,14 @@ class HttpClient(Protocol):
         headers: Optional[dict[str, str]] = None,
     ) -> bytes:
         """发送 GET 请求并返回二进制响应内容"""
+        ...
+
+    def post(
+        self,
+        url: str,
+        json: Optional[dict[str, Any]] = None,
+        timeout: int = 30,
+        headers: Optional[dict[str, str]] = None,
+    ) -> str:
+        """发送 POST 请求并返回响应内容"""
         ...

@@ -233,6 +233,28 @@ class TestCollectorRun:
             assert len(result.files) == 0
             assert result.error is not None
 
+    def test_run_includes_duration(self):
+        """测试 run() 结果包含采集耗时"""
+        mock_http_client = Mock(spec=HttpClient)
+        mock_http_client.get.return_value = "x" * 200
+
+        class TestCollector(BaseCollector):
+            name = "test"
+            home_page = "http://example.com"
+
+            def get_download_tasks(self):
+                return [
+                    DownloadTask(filename="test.txt", url="http://example.com/test.txt")
+                ]
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_dir = Path(tmpdir)
+            result = TestCollector(http_client=mock_http_client).run(output_dir)
+
+            assert result.duration_seconds is not None
+            assert result.duration_seconds >= 0
+            assert isinstance(result.duration_seconds, float)
+
 
 class TestCollectorRegistry:
     """采集器注册表测试类"""

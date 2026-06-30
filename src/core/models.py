@@ -39,6 +39,7 @@ class SiteManifest:
     error: Optional[str] = None
     title: Optional[str] = None  # 采集标题
     collected_at: Optional[str] = None  # 真实采集时间
+    duration_seconds: Optional[float] = None  # 采集耗时（秒）
 
 
 @dataclass
@@ -53,6 +54,7 @@ class CollectorResult:
     from_cache: bool = False
     title: Optional[str] = None  # 采集标题（today_html <title>）
     collected_at: Optional[str] = None  # 首次采集时间（缓存命中时保留）
+    duration_seconds: Optional[float] = None  # 采集耗时（秒）
 
 
 class ProxyType(Enum):
