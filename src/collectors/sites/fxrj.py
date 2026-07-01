@@ -1,3 +1,6 @@
+"""FXRJ 采集器（异步版本）"""
+
+import asyncio
 import logging
 import re
 import zipfile
@@ -28,11 +31,11 @@ class FXRJCollector(YouTubeBaseCollector):
         logging.info(f"[{self.name}] find video {video}, title {title}")
         return video, ""
 
-    def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
+    async def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """从 Google Drive 下载 zip 并提取订阅任务"""
         download_url = self._convert_gdriver_download_url(target_url)
         logging.info(f"[{self.name}] try decrypt {target_url} share")
-        return self.parse_subscription_tasks(download_url)
+        return await self.parse_subscription_tasks(download_url)
 
     @staticmethod
     def _convert_gdriver_download_url(url: str) -> str:
@@ -46,13 +49,13 @@ class FXRJCollector(YouTubeBaseCollector):
             f"?id={file_id}&export=download&authuser=0"
         )
 
-    def parse_subscription_tasks(self, url: str) -> list[DownloadTask]:
+    async def parse_subscription_tasks(self, url: str) -> list[DownloadTask]:
         """从 Google Drive 下载的 zip 文件中提取订阅配置"""
-        data = self.fetch_data(url)
+        data = await self.fetch_data(url)
         zip_buffer = BytesIO(data)
 
         try:
-            zf = zipfile.ZipFile(zip_buffer)
+            zf = await asyncio.to_thread(zipfile.ZipFile, zip_buffer)
         except zipfile.BadZipFile as e:
             raise ParseError(f"Downloaded content is not a valid zip file: {e}") from e
 

@@ -1,3 +1,5 @@
+"""jcnode采集器（异步版本）"""
+
 import logging
 
 from collectors.base import BaseCollector, register_collector
@@ -32,11 +34,13 @@ class JCNodeCollector(BaseCollector):
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     }
 
-    def get_download_tasks(self) -> list[DownloadTask]:
+    async def get_download_tasks(self) -> list[DownloadTask]:
         """从 jcnode 页面口令接口获取订阅任务"""
         check_playlist = check_html_contains("免费节点")
         if not self.today_page:
-            playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
+            playlist_html = await self.fetch_html(
+                self.home_page, check_html=check_playlist
+            )
             self.today_page = self.get_today_url(playlist_html)
         self.skip_if_cached()
 
@@ -45,10 +49,10 @@ class JCNodeCollector(BaseCollector):
         if self.verification_code:
             verification_result = PasswordAttemptResult(
                 password=self.verification_code,
-                content=self.verify_code(self.verification_code),
+                content=await self.verify_code(self.verification_code),
             )
         else:
-            verification_result = brute_force_password(
+            verification_result = await brute_force_password(
                 max_workers=default_config.collector.http_password_workers,
                 password_strategy=self.verification_code_strategy,
                 try_password=self.verify_code,
@@ -73,7 +77,7 @@ class JCNodeCollector(BaseCollector):
         }
         return create_download_tasks_from_regex_rules(content, patterns)
 
-    def verify_code(self, password: str) -> str:
+    async def verify_code(self, password: str) -> str:
         """用单个口令请求 jcnode 验证接口。
 
         通过 self.http_client.post() 发送请求，代理池自动管理代理选择与重试。
@@ -81,7 +85,7 @@ class JCNodeCollector(BaseCollector):
         logging.debug(f"[{self.name}] trying password candidate")
 
         try:
-            response = self.http_client.post(
+            response = await self.http_client.post(
                 self.verify_url,
                 json={"code": password},
                 timeout=default_config.collector.fetch_timeout,

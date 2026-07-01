@@ -1,8 +1,9 @@
-"""Manifest 服务
+"""Manifest 服务（异步版本）
 
 管理 manifest.json，记录采集状态和缓存信息。
 """
 
+import asyncio
 import json
 import logging
 from datetime import datetime
@@ -13,7 +14,7 @@ from core.models import CollectorResult, FileManifest, SiteManifest
 
 
 class ManifestService:
-    """Manifest 服务"""
+    """Manifest 服务（异步）"""
 
     def __init__(self, manifest_file: Path):
         self.manifest_file = manifest_file
@@ -22,7 +23,7 @@ class ManifestService:
         self._load()
 
     def _load(self):
-        """加载 manifest 文件"""
+        """加载 manifest 文件（同步，因为 __init__ 不能是 async）"""
         if not self.manifest_file.exists():
             return
 
@@ -105,7 +106,7 @@ class ManifestService:
             error=result.error,
         )
 
-    def save(self):
+    async def save(self):
         """保存 manifest 到文件"""
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.last_run = now
@@ -137,8 +138,10 @@ class ManifestService:
             data["sites"][site_name] = site_dict
 
         self.manifest_file.parent.mkdir(parents=True, exist_ok=True)
-        self.manifest_file.write_text(
-            json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8"
+        await asyncio.to_thread(
+            self.manifest_file.write_text,
+            json.dumps(data, indent=2, ensure_ascii=False),
+            encoding="utf-8",
         )
 
     def get_site(self, site: str) -> Optional[SiteManifest]:

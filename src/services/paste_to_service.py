@@ -1,4 +1,4 @@
-"""Paste.to 解密服务"""
+"""Paste.to 解密服务（异步版本）"""
 
 from functools import partial
 from core.interfaces import HttpClient
@@ -15,7 +15,7 @@ from utils.paste_to import (
 
 
 class PasteToService:
-    """封装 Paste.to 获取、解析和解密流程"""
+    """封装 Paste.to 获取、解析和解密流程（异步）"""
 
     def __init__(
         self,
@@ -32,7 +32,7 @@ class PasteToService:
         self.max_workers = max_workers
         self.password_strategy = password_strategy
 
-    def decrypt_url(
+    async def decrypt_url(
         self,
         paste_url: str,
         *,
@@ -40,7 +40,7 @@ class PasteToService:
     ) -> PasswordAttemptResult:
         """根据 paste.to URL 获取 payload，并按密码或爆破策略解密"""
         paste_id, fragment = parse_paste_to_url(paste_url)
-        payload = fetch_paste_to_payload(
+        payload = await fetch_paste_to_payload(
             paste_id,
             http_client=self.http_client,
             timeout=self.timeout,
@@ -52,7 +52,7 @@ class PasteToService:
 
         decrypt_prepared = partial(decrypt_prepared_paste_to_payload, prepared)
 
-        return brute_force_payload(
+        return await brute_force_payload(
             max_workers=self.max_workers,
             password_strategy=self.password_strategy,
             decrypt_prepared=decrypt_prepared,

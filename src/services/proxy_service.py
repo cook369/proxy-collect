@@ -1,12 +1,12 @@
-"""代理服务层
+"""代理服务层（异步版本）
 
 提供代理获取、验证和管理服务。
 """
 
+import asyncio
 import logging
 import random
 import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import Optional
 from tqdm import tqdm
 
@@ -16,13 +16,13 @@ from services.http_service import HttpService
 
 
 class ProxyValidator:
-    """代理验证器"""
+    """代理验证器（异步）"""
 
     def __init__(self, http_service: HttpService, config: ProxyConfig):
         self.http_service = http_service
         self.config = config
 
-    def validate(self, proxy: ProxyInfo) -> tuple[bool, float]:
+    async def validate(self, proxy: ProxyInfo) -> tuple[bool, float]:
         """验证单个代理
 
         Args:
@@ -33,7 +33,7 @@ class ProxyValidator:
         """
         try:
             start_time = time.time()
-            self.http_service.get(
+            await self.http_service.get(
                 self.config.test_url, proxy=proxy.url, timeout=self.config.check_timeout
             )
             response_time = time.time() - start_time
@@ -41,7 +41,7 @@ class ProxyValidator:
         except Exception:
             return False, 0.0
 
-    def validate_batch(self, proxies: list[ProxyInfo]) -> list[ProxyInfo]:
+    async def validate_batch(self, proxies: list[ProxyInfo]) -> list[ProxyInfo]:
         """批量验证代理
 
         Args:
@@ -50,77 +50,65 @@ class ProxyValidator:
         Returns:
             可用的代理列表
         """
-        available = []
+        available: list[ProxyInfo] = []
         total = len(proxies)
         target_available = self.config.max_available
 
-        with ThreadPoolExecutor(max_workers=self.config.check_workers) as executor:
-            futures = {executor.submit(self.validate, p): p for p in proxies}
+        semaphore = asyncio.Semaphore(self.config.check_workers)
+        stop_event = asyncio.Event()
 
-            with tqdm(
-                total=target_available,
-                desc="Proxy Checking",
-                unit="proxy",
-                miniters=target_available + 1,
-            ) as pbar:
-                checked_count = 0
-                last_reported_bucket = 0
-                for future in as_completed(futures):
-                    stop_checking = False
-                    proxy = futures[future]
-                    try:
-                        success, response_time = future.result()
-                        if success:
-                            proxy.record_success(response_time)
-                            available.append(proxy)
-                            if len(available) >= self.config.max_available:
-                                for f in futures:
-                                    if not f.done():
-                                        f.cancel()
-                                stop_checking = True
-                        else:
-                            proxy.record_failure()
-                    except Exception:
-                        proxy.record_failure()
-                        logging.debug(f"Proxy failed: {proxy.url}")
+        async def _validate_one(proxy: ProxyInfo) -> None:
+            if stop_event.is_set():
+                return
+            async with semaphore:
+                success, response_time = await self.validate(proxy)
+                if success:
+                    proxy.record_success(response_time)
+                    if not stop_event.is_set():
+                        available.append(proxy)
+                        if len(available) >= self.config.max_available:
+                            stop_event.set()
+                else:
+                    proxy.record_failure()
 
-                    checked_count += 1
-                    current_percent = (
-                        int(len(available) * 100 / target_available)
-                        if target_available
-                        else 100
-                    )
-                    current_bucket = current_percent // 10
-                    if current_bucket > last_reported_bucket:
-                        last_reported_bucket = current_bucket
-                        pbar.set_postfix(
-                            {
-                                "Available": f"{len(available)}/{target_available}",
-                                "Checked": f"{checked_count}/{total}",
-                            },
-                            refresh=False,
-                        )
-                        pbar.update(len(available) - pbar.n)
+        # Create tasks for all proxies
+        tasks = [asyncio.create_task(_validate_one(p)) for p in proxies]
 
-                    if stop_checking:
-                        break
+        # Wait with progress tracking
+        checked_count = 0
+        last_reported_bucket = 0
 
-                if pbar.n < len(available):
-                    pbar.set_postfix(
-                        {
-                            "Available": f"{len(available)}/{target_available}",
-                            "Checked": f"{checked_count}/{total}",
-                        },
-                        refresh=False,
-                    )
-                    pbar.update(len(available) - pbar.n)
+        for coro in asyncio.as_completed(tasks):
+            if stop_event.is_set():
+                # Cancel remaining
+                for t in tasks:
+                    if not t.done():
+                        t.cancel()
+            try:
+                await coro
+            except Exception:
+                pass
+
+            checked_count += 1
+            current_percent = (
+                int(len(available) * 100 / target_available)
+                if target_available
+                else 100
+            )
+            current_bucket = current_percent // 10
+            if current_bucket > last_reported_bucket:
+                last_reported_bucket = current_bucket
+                logging.debug(
+                    f"Proxy checking: {len(available)}/{target_available} available, "
+                    f"{checked_count}/{total} checked"
+                )
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available
 
 
 class ProxyService:
-    """代理服务：获取、验证、管理代理"""
+    """代理服务：获取、验证、管理代理（异步）"""
 
     def __init__(
         self, http_service: HttpService, validator: ProxyValidator, config: ProxyConfig
@@ -181,7 +169,7 @@ class ProxyService:
             pass
         return None
 
-    def fetch_proxies(self) -> list[ProxyInfo]:
+    async def fetch_proxies(self) -> list[ProxyInfo]:
         """从多个源获取代理列表
 
         Returns:
@@ -193,7 +181,7 @@ class ProxyService:
         for source in sources:
             try:
                 url = f"{self.config.github_proxy.rstrip('/')}/{source.url.lstrip('/')}"
-                content = self.http_service.get(url, timeout=30)
+                content = await self.http_service.get(url, timeout=30)
 
                 proxies = []
                 for line in content.splitlines():
@@ -212,8 +200,8 @@ class ProxyService:
                 logging.error(f"Failed to fetch from {source.url}: {e}")
 
         # 去重
-        seen = set()
-        unique = []
+        seen: set[str] = set()
+        unique: list[ProxyInfo] = []
         for p in all_proxies:
             key = f"{p.host}:{p.port}"
             if key not in seen:
@@ -222,16 +210,16 @@ class ProxyService:
 
         return unique
 
-    def get_validated_proxies(self) -> list[ProxyInfo]:
+    async def get_validated_proxies(self) -> list[ProxyInfo]:
         """获取并验证代理
 
         Returns:
             可用的代理列表
         """
-        proxies = self.fetch_proxies()
+        proxies = await self.fetch_proxies()
         logging.info(f"Total proxies fetched: {len(proxies)}")
 
-        validated = self.validator.validate_batch(proxies)
+        validated = await self.validator.validate_batch(proxies)
         logging.info(f"Validated proxies: {len(validated)}")
 
         return validated

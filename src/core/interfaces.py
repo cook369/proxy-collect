@@ -10,9 +10,9 @@ from utils.check import default_check_html
 
 @runtime_checkable
 class HttpClient(Protocol):
-    """HTTP 客户端接口"""
+    """HTTP 客户端接口（异步）"""
 
-    def get(
+    async def get(
         self,
         url: str,
         timeout: int = 30,
@@ -22,7 +22,7 @@ class HttpClient(Protocol):
         """发送 GET 请求并返回响应内容"""
         ...
 
-    def get_raw(
+    async def get_raw(
         self,
         url: str,
         proxy: Optional[str] = None,
@@ -32,7 +32,7 @@ class HttpClient(Protocol):
         """发送 GET 请求并返回二进制响应内容"""
         ...
 
-    def post(
+    async def post(
         self,
         url: str,
         json: Optional[dict[str, Any]] = None,

@@ -1,15 +1,15 @@
-"""HTTP 请求服务
+"""HTTP 请求服务（异步版本）
 
-提供基础 HTTP 请求和支持代理池的 HTTP 请求服务。
+提供基于 aiohttp 的异步 HTTP 请求和支持代理池的 HTTP 请求服务。
 """
 
+import asyncio
 import logging
 import time
 from typing import Any, Callable, Iterator, Optional, Union
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from threading import RLock
-import requests
-import urllib3
+
+import aiohttp
+from aiohttp_socks import ProxyConnector, ProxyType as SocksProxyType
 from tenacity import (
     retry,
     stop_after_attempt,
@@ -31,73 +31,128 @@ def _chunked(items: list, size: int) -> Iterator[list]:
         yield items[start : start + size]
 
 
+def _proxy_url_to_socks_type(proxy_info: ProxyInfo) -> SocksProxyType:
+    """将内部 ProxyType 映射到 aiohttp-socks 类型"""
+    mapping = {
+        ProxyType.SOCKS5: SocksProxyType.SOCKS5,
+        ProxyType.SOCKS4: SocksProxyType.SOCKS4,
+        ProxyType.HTTP: SocksProxyType.HTTP,
+        ProxyType.HTTPS: SocksProxyType.HTTP,
+    }
+    return mapping.get(proxy_info.proxy_type, SocksProxyType.SOCKS5)
+
+
 class HttpService:
-    """基础 HTTP 请求服务"""
+    """基础 HTTP 请求服务（异步）"""
 
     def __init__(
-        self, session: Optional[requests.Session] = None, verify_ssl: bool = False
+        self,
+        session: Optional[aiohttp.ClientSession] = None,
+        verify_ssl: bool = False,
     ):
         """初始化 HTTP 服务
 
         Args:
-            session: 可选的 requests.Session 实例
+            session: 可选的 aiohttp.ClientSession 实例
             verify_ssl: 是否验证 SSL 证书（默认 False，因为代理站点证书可能有问题）
         """
         self.verify_ssl = verify_ssl
-        self.session = session or self._create_session()
+        self._own_session = session is None
+        self._session = session  # 延迟初始化，需要 event loop
 
-        # 只在禁用 SSL 验证时才禁用警告
-        if not verify_ssl:
-            urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    @property
+    def session(self) -> aiohttp.ClientSession:
+        """延迟获取或创建 session（需要 event loop）"""
+        if self._session is None:
+            self._session = self._create_session()
+        return self._session
 
-    def _create_session(self) -> requests.Session:
-        """创建 HTTP 会话"""
-        from requests.adapters import HTTPAdapter
+    @session.setter
+    def session(self, value: Optional[aiohttp.ClientSession]):
+        self._session = value
 
-        session = requests.Session()
-        session.verify = self.verify_ssl
-        session.headers.update(
-            {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    def _create_session(self) -> aiohttp.ClientSession:
+        """创建 HTTP 会话（无代理）"""
+        connector = aiohttp.TCPConnector(
+            limit=60,
+            limit_per_host=60,
+            ssl=self.verify_ssl,
         )
-        # 默认连接池上限 10，多线程并发时会触发 "Connection pool is full"
-        # 将每个 host 的连接池大小提升到 60，覆盖并行度最高的场景。
-        adapter = HTTPAdapter(pool_connections=60, pool_maxsize=60)
-        session.mount("https://", adapter)
-        session.mount("http://", adapter)
+        session = aiohttp.ClientSession(
+            connector=connector,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+            },
+        )
         return session
 
-    def _get(
+    def _create_proxy_connector(self, proxy_info: ProxyInfo) -> ProxyConnector:
+        """为指定代理创建 SOCKS connector"""
+        socks_type = _proxy_url_to_socks_type(proxy_info)
+        return ProxyConnector(
+            proxy_type=socks_type,
+            host=proxy_info.host,
+            port=proxy_info.port,
+            ssl=self.verify_ssl,
+            limit=1,
+        )
+
+    async def close(self) -> None:
+        """关闭 HTTP 会话"""
+        if self._own_session and self.session is not None:
+            await self.session.close()
+            self.session = None
+
+    async def _get(
         self,
         url: str,
-        proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
         check_html: Callable[[str], bool] = default_check_html,
+        proxy_info: Optional[ProxyInfo] = None,
     ) -> str:
         """发送单次 GET 请求（不重试）
 
         供代理竞速等场景使用：单代理失败应立即让位给其它代理，而不是在同一
         代理上重试，以免被放弃的请求因重试被拖到 3×timeout，影响收尾。
         """
-        proxies = {"http": proxy, "https": proxy} if proxy else None
-        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
-        resp.raise_for_status()
+        if proxy_info:
+            # 使用代理：创建临时 connector
+            connector = self._create_proxy_connector(proxy_info)
+            kwargs: dict[str, Any] = {
+                "connector": connector,
+                "headers": headers or {},
+                "timeout": aiohttp.ClientTimeout(total=timeout),
+            }
+            async with aiohttp.ClientSession(**kwargs) as session:
+                async with session.get(url) as resp:
+                    resp.raise_for_status()
+                    text = await resp.text(encoding="utf-8")
+        else:
+            # 直连：使用共享 session
+            req_kwargs: dict[str, Any] = {
+                "timeout": aiohttp.ClientTimeout(total=timeout),
+            }
+            if headers:
+                req_kwargs["headers"] = headers
+            async with self.session.get(url, **req_kwargs) as resp:
+                resp.raise_for_status()
+                text = await resp.text(encoding="utf-8")
 
-        if not resp.text.strip():
+        if not text.strip():
             raise ValueError("Empty response")
-        resp.encoding = "utf-8"
-        if not check_html(resp.text):
+        if not check_html(text):
             raise ValueError("Response content failed validation")
 
-        return resp.text
+        return text
 
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type((aiohttp.ClientError, ValueError, asyncio.TimeoutError)),
         reraise=True,
     )
-    def get(
+    async def get(
         self,
         url: str,
         proxy: Optional[str] = None,
@@ -109,27 +164,29 @@ class HttpService:
 
         Args:
             url: 请求 URL
-            proxy: 代理地址（可选）
+            proxy: 代理 URL（可选，如 "socks5://host:port"）
             timeout: 超时时间（秒）
 
         Returns:
             响应内容
 
         Raises:
-            requests.HTTPError: HTTP 错误
+            aiohttp.ClientError: HTTP 错误
             ValueError: 响应内容为空
         """
-        return self._get(
-            url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html
+        proxy_info = ProxyPool.parse_proxy_url(proxy) if proxy else None
+        return await self._get(
+            url, timeout=timeout, headers=headers, check_html=check_html,
+            proxy_info=proxy_info,
         )
 
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type((aiohttp.ClientError, asyncio.TimeoutError)),
         reraise=True,
     )
-    def post(
+    async def post(
         self,
         url: str,
         json: Optional[dict[str, Any]] = None,
@@ -142,71 +199,98 @@ class HttpService:
         Args:
             url: 请求 URL
             json: JSON 请求体
-            proxy: 代理地址（可选）
+            proxy: 代理 URL（可选）
             timeout: 超时时间（秒）
             headers: 额外的请求头
 
         Returns:
             响应内容
-
-        Raises:
-            requests.HTTPError: HTTP 错误
-            ValueError: 响应内容为空
         """
-        proxies = {"http": proxy, "https": proxy} if proxy else None
-        resp = self.session.post(
-            url, json=json, proxies=proxies, timeout=timeout, headers=headers
-        )
-        resp.raise_for_status()
+        if proxy:
+            info = ProxyPool.parse_proxy_url(proxy)
+            connector = self._create_proxy_connector(info) if info else None
+        else:
+            connector = None
 
-        if not resp.text.strip():
+        kwargs: dict[str, Any] = {
+            "timeout": aiohttp.ClientTimeout(total=timeout),
+        }
+        if headers:
+            kwargs["headers"] = headers
+        if json is not None:
+            kwargs["json"] = json
+
+        if connector:
+            kwargs["connector"] = connector
+            async with aiohttp.ClientSession(**kwargs) as session:
+                async with session.post(url) as resp:
+                    resp.raise_for_status()
+                    text = await resp.text(encoding="utf-8")
+        else:
+            async with self.session.post(url, **kwargs) as resp:
+                resp.raise_for_status()
+                text = await resp.text(encoding="utf-8")
+
+        if not text.strip():
             raise ValueError("Empty response")
-        resp.encoding = "utf-8"
-        return resp.text
+        return text
 
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type((aiohttp.ClientError, asyncio.TimeoutError)),
         reraise=True,
     )
-    def get_raw(
+    async def get_raw(
         self,
         url: str,
         proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
     ) -> bytes:
-        """发送 GET 请求
+        """发送 GET 请求获取二进制内容
 
         Args:
             url: 请求 URL
-            proxy: 代理地址（可选）
+            proxy: 代理 URL（可选）
             timeout: 超时时间（秒）
 
         Returns:
-            响应内容
-
-        Raises:
-            requests.HTTPError: HTTP 错误
-            ValueError: 响应内容为空
+            二进制响应内容
         """
-        proxies = {"http": proxy, "https": proxy} if proxy else None
-        # logging.info(f"Fetching URL: {url} with proxy: {proxy}")
-        resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
-        resp.raise_for_status()
+        if proxy:
+            info = ProxyPool.parse_proxy_url(proxy)
+            connector = self._create_proxy_connector(info) if info else None
+        else:
+            connector = None
 
-        if not resp.content:
+        kwargs: dict[str, Any] = {
+            "timeout": aiohttp.ClientTimeout(total=timeout),
+        }
+        if headers:
+            kwargs["headers"] = headers
+
+        if connector:
+            kwargs["connector"] = connector
+            async with aiohttp.ClientSession(**kwargs) as session:
+                async with session.get(url) as resp:
+                    resp.raise_for_status()
+                    content = await resp.read()
+        else:
+            async with self.session.get(url, **kwargs) as resp:
+                resp.raise_for_status()
+                content = await resp.read()
+
+        if not content:
             raise ValueError("Empty response")
-
-        return resp.content
+        return content
 
 
 class ProxyPool:
-    """代理池管理"""
+    """代理池管理（异步）"""
 
     def __init__(self, proxies: Optional[Union[list[str], list[ProxyInfo]]] = None):
-        self.lock = RLock()
+        self._lock = asyncio.Lock()
         self._proxies: dict[str, ProxyInfo] = {}
 
         if proxies:
@@ -214,7 +298,7 @@ class ProxyPool:
                 self._add_proxy(proxy)
 
     def _add_proxy(self, proxy: Union[str, ProxyInfo]) -> None:
-        """内部添加代理"""
+        """内部添加代理（不加锁，调用方需持有锁）"""
         if isinstance(proxy, str):
             proxy_info = self._parse_proxy_string(proxy)
         else:
@@ -224,10 +308,10 @@ class ProxyPool:
             key = f"{proxy_info.host}:{proxy_info.port}"
             self._proxies[key] = proxy_info
 
-    def _parse_proxy_string(self, proxy_str: str) -> Optional[ProxyInfo]:
+    @staticmethod
+    def _parse_proxy_string(proxy_str: str) -> Optional[ProxyInfo]:
         """解析代理字符串"""
         try:
-            # 格式: scheme://host:port
             if "://" in proxy_str:
                 scheme, rest = proxy_str.split("://", 1)
                 host, port_str = rest.rsplit(":", 1)
@@ -246,31 +330,36 @@ class ProxyPool:
             pass
         return None
 
-    def add(self, proxy: Union[str, ProxyInfo], priority: int = 0):
+    @staticmethod
+    def parse_proxy_url(proxy_url: str) -> Optional[ProxyInfo]:
+        """解析代理 URL 字符串为 ProxyInfo（公开静态方法）"""
+        return ProxyPool._parse_proxy_string(proxy_url)
+
+    async def add(self, proxy: Union[str, ProxyInfo], priority: int = 0):
         """添加代理"""
-        with self.lock:
+        async with self._lock:
             self._add_proxy(proxy)
 
-    def get_sorted(self) -> list[ProxyInfo]:
+    async def get_sorted(self) -> list[ProxyInfo]:
         """获取按健康度排序的代理列表"""
-        with self.lock:
+        async with self._lock:
             return sorted(self._proxies.values(), key=lambda p: -p.health_score)
 
-    def get_proxy_urls(self) -> list[str]:
+    async def get_proxy_urls(self) -> list[str]:
         """获取代理 URL 列表（向后兼容）"""
-        with self.lock:
+        async with self._lock:
             return [p.url for p in self._proxies.values()]
 
-    def record_success(self, proxy: Union[str, ProxyInfo], response_time: float):
+    async def record_success(self, proxy: Union[str, ProxyInfo], response_time: float):
         """记录成功请求"""
-        with self.lock:
+        async with self._lock:
             key = self._get_key(proxy)
             if key and key in self._proxies:
                 self._proxies[key].record_success(response_time)
 
-    def record_failure(self, proxy: Union[str, ProxyInfo]):
+    async def record_failure(self, proxy: Union[str, ProxyInfo]):
         """记录失败请求"""
-        with self.lock:
+        async with self._lock:
             key = self._get_key(proxy)
             if key and key in self._proxies:
                 self._proxies[key].record_failure()
@@ -285,17 +374,17 @@ class ProxyPool:
                 return f"{info.host}:{info.port}"
         return None
 
-    def increase_priority(self, proxy: str):
+    async def increase_priority(self, proxy: str):
         """提升代理优先级（向后兼容）"""
-        self.record_success(proxy, 1.0)
+        await self.record_success(proxy, 1.0)
 
-    def decrease_priority(self, proxy: str):
+    async def decrease_priority(self, proxy: str):
         """降低代理优先级（向后兼容）"""
-        self.record_failure(proxy)
+        await self.record_failure(proxy)
 
 
 class ProxyHttpService:
-    """支持代理池的 HTTP 服务"""
+    """支持代理池的 HTTP 服务（异步）"""
 
     def __init__(
         self,
@@ -305,11 +394,9 @@ class ProxyHttpService:
     ):
         self.http_service = http_service
         self.proxy_pool = proxy_pool
-        # 每批并发竞速的代理数。线程池按「调用 + 批」即时创建、随 with 关闭，
-        # 不作为成员长期持有，因此不会泄漏，进程退出也不会被遗留线程拖住。
         self.batch_size = max(1, batch_size)
 
-    def fetch_with_proxies(
+    async def fetch_with_proxies(
         self,
         url: str,
         timeout: int = 30,
@@ -318,26 +405,25 @@ class ProxyHttpService:
     ) -> str:
         """使用代理池按健康度小批次竞速请求
 
-        代理按健康度排序后分批，每批最多 ``batch_size`` 个并发竞速，命中即返回；
-        批内线程池用 ``with`` 管理，调用结束即确定性关闭，不残留后台线程。
+        代理按健康度排序后分批，每批最多 ``batch_size`` 个并发竞速，命中即返回。
         """
         if not self.proxy_pool:
-            return self.http_service.get(
+            return await self.http_service.get(
                 url, timeout=timeout, headers=headers, check_html=check_html
             )
 
-        proxies = self.proxy_pool.get_sorted()
+        proxies = await self.proxy_pool.get_sorted()
         if not proxies:
             raise ProxyError("No proxies available")
 
         for batch in _chunked(proxies, self.batch_size):
-            result = self._race_batch(url, batch, timeout, headers, check_html)
+            result = await self._race_batch(url, batch, timeout, headers, check_html)
             if result is not None:
                 return result
 
         raise ProxyError(f"All proxies failed to fetch {url}")
 
-    def _race_batch(
+    async def _race_batch(
         self,
         url: str,
         proxies: list[ProxyInfo],
@@ -345,32 +431,51 @@ class ProxyHttpService:
         headers: Optional[dict[str, str]],
         check_html: Callable[[str], bool],
     ) -> Optional[str]:
-        """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。
+        """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。"""
+        tasks = {
+            asyncio.create_task(
+                self._try_fetch(url, proxy, timeout, headers)
+            ): proxy
+            for proxy in proxies
+        }
 
-        命中后从 ``with`` 块返回，executor 会确定性关闭（join 掉同批其余请求）。
-        因 ``_try_fetch`` 走非重试单次请求，被放弃的请求至多耗时一个 timeout。
-        """
-        with ThreadPoolExecutor(max_workers=len(proxies)) as executor:
-            futures = {
-                executor.submit(self._try_fetch, url, proxy, timeout, headers): proxy
-                for proxy in proxies
-            }
-            for future in as_completed(futures):
-                proxy = futures[future]
-                try:
-                    result, response_time, _ = future.result()
-                    if not check_html(result):
-                        logging.info(f"Proxy {proxy.url} returned invalid content")
-                        raise ValueError("Response content failed validation")
-                    self.proxy_pool.record_success(proxy, response_time)
-                    logging.info(f"Successfully fetched {url} with proxy: {proxy.url}")
+        done, pending = await asyncio.wait(
+            tasks.keys(), return_when=asyncio.FIRST_COMPLETED
+        )
+
+        # Cancel remaining tasks
+        for task in pending:
+            task.cancel()
+
+        # Check completed tasks
+        for task in done:
+            proxy = tasks[task]
+            try:
+                result, response_time, _ = task.result()
+                if check_html(result):
+                    await self.proxy_pool.record_success(proxy, response_time)
+                    logging.info(
+                        f"Successfully fetched {url} with proxy: {proxy.url}"
+                    )
                     return result
-                except Exception as e:
-                    self.proxy_pool.record_failure(proxy)
-                    logging.debug(f"Proxy {proxy.url} failed: {e}")
+                else:
+                    await self.proxy_pool.record_failure(proxy)
+                    logging.info(f"Proxy {proxy.url} returned invalid content")
+            except Exception as e:
+                await self.proxy_pool.record_failure(proxy)
+                logging.debug(f"Proxy {proxy.url} failed: {e}")
+
+        # Follow up with remaining results from cancelled tasks
+        for task in pending:
+            proxy = tasks[task]
+            try:
+                await task
+            except (asyncio.CancelledError, Exception):
+                await self.proxy_pool.record_failure(proxy)
+
         return None
 
-    def _try_fetch(
+    async def _try_fetch(
         self,
         url: str,
         proxy: ProxyInfo,
@@ -379,47 +484,56 @@ class ProxyHttpService:
     ) -> tuple[str, float, ProxyInfo]:
         """尝试使用指定代理获取（单次，不重试）"""
         start_time = time.time()
-        result = self.http_service.get(
-            url, proxy=proxy.url, timeout=timeout, headers=headers
-        )
+        connector = self.http_service._create_proxy_connector(proxy)
+        req_kwargs: dict[str, Any] = {
+            "timeout": aiohttp.ClientTimeout(total=timeout),
+        }
+        if headers:
+            req_kwargs["headers"] = headers
+        async with aiohttp.ClientSession(connector=connector, **req_kwargs) as session:
+            async with session.get(url) as resp:
+                resp.raise_for_status()
+                text = await resp.text(encoding="utf-8")
         response_time = time.time() - start_time
-        return result, response_time, proxy
+        if not text.strip():
+            raise ValueError("Empty response")
+        return text, response_time, proxy
 
-    def get(
+    async def get(
         self,
         url: str,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
-        """获取 URL 内容（兼容 HttpService 接口）"""
-        return self.fetch_with_proxies(url, timeout, headers, check_html)
+        """获取 URL 内容（兼容 HttpClient 接口）"""
+        return await self.fetch_with_proxies(url, timeout, headers, check_html)
 
-    def get_raw(
+    async def get_raw(
         self,
         url: str,
         proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
     ) -> bytes:
-        """获取二进制内容（兼容 HttpService 接口，使用分批竞速）"""
+        """获取二进制内容（兼容 HttpClient 接口，使用分批竞速）"""
         if not self.proxy_pool:
-            return self.http_service.get_raw(
+            return await self.http_service.get_raw(
                 url, proxy=proxy, timeout=timeout, headers=headers
             )
 
-        proxies = self.proxy_pool.get_sorted()
+        proxies = await self.proxy_pool.get_sorted()
         if not proxies:
             raise ProxyError("No proxies available")
 
         for batch in _chunked(proxies, self.batch_size):
-            result = self._race_batch_raw(url, batch, timeout, headers)
+            result = await self._race_batch_raw(url, batch, timeout, headers)
             if result is not None:
                 return result
 
         raise ProxyError(f"All proxies failed to fetch {url}")
 
-    def _race_batch_raw(
+    async def _race_batch_raw(
         self,
         url: str,
         proxies: list[ProxyInfo],
@@ -427,28 +541,44 @@ class ProxyHttpService:
         headers: Optional[dict[str, str]],
     ) -> Optional[bytes]:
         """并发竞速一批代理获取二进制内容，返回首个成功结果；整批失败返回 None"""
-        with ThreadPoolExecutor(max_workers=len(proxies)) as executor:
-            futures = {
-                executor.submit(
-                    self._try_fetch_raw, url, proxy, timeout, headers
-                ): proxy
-                for proxy in proxies
-            }
-            for future in as_completed(futures):
-                proxy = futures[future]
-                try:
-                    result, response_time, _ = future.result()
-                    self.proxy_pool.record_success(proxy, response_time)
-                    logging.info(
-                        f"Successfully fetched (raw) {url} with proxy: {proxy.url}"
-                    )
-                    return result
-                except Exception as e:
-                    self.proxy_pool.record_failure(proxy)
-                    logging.debug(f"Proxy {proxy.url} failed (raw): {e}")
+        tasks = {
+            asyncio.create_task(
+                self._try_fetch_raw(url, proxy, timeout, headers)
+            ): proxy
+            for proxy in proxies
+        }
+
+        done, pending = await asyncio.wait(
+            tasks.keys(), return_when=asyncio.FIRST_COMPLETED
+        )
+
+        # Cancel remaining tasks
+        for task in pending:
+            task.cancel()
+
+        for task in done:
+            proxy = tasks[task]
+            try:
+                result, response_time, _ = task.result()
+                await self.proxy_pool.record_success(proxy, response_time)
+                logging.info(
+                    f"Successfully fetched (raw) {url} with proxy: {proxy.url}"
+                )
+                return result
+            except Exception as e:
+                await self.proxy_pool.record_failure(proxy)
+                logging.debug(f"Proxy {proxy.url} failed (raw): {e}")
+
+        for task in pending:
+            proxy = tasks[task]
+            try:
+                await task
+            except (asyncio.CancelledError, Exception):
+                await self.proxy_pool.record_failure(proxy)
+
         return None
 
-    def _try_fetch_raw(
+    async def _try_fetch_raw(
         self,
         url: str,
         proxy: ProxyInfo,
@@ -457,41 +587,57 @@ class ProxyHttpService:
     ) -> tuple[bytes, float, ProxyInfo]:
         """尝试使用指定代理获取二进制内容（单次，不重试）"""
         start_time = time.time()
-        result = self.http_service.get_raw(
-            url, proxy=proxy.url, timeout=timeout, headers=headers
-        )
+        connector = self.http_service._create_proxy_connector(proxy)
+        req_kwargs: dict[str, Any] = {
+            "timeout": aiohttp.ClientTimeout(total=timeout),
+        }
+        if headers:
+            req_kwargs["headers"] = headers
+        async with aiohttp.ClientSession(connector=connector, **req_kwargs) as session:
+            async with session.get(url) as resp:
+                resp.raise_for_status()
+                content = await resp.read()
         response_time = time.time() - start_time
-        return result, response_time, proxy
+        if not content:
+            raise ValueError("Empty response")
+        return content, response_time, proxy
 
-    def post(
+    async def post(
         self,
         url: str,
         json: Optional[dict[str, Any]] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
     ) -> str:
-        """发送 POST 请求（兼容 HttpService 接口，使用代理池）"""
+        """发送 POST 请求（兼容 HttpClient 接口，使用代理池）"""
         if not self.proxy_pool:
-            return self.http_service.post(
+            return await self.http_service.post(
                 url, json=json, timeout=timeout, headers=headers
             )
 
-        proxies = self.proxy_pool.get_sorted()
+        proxies = await self.proxy_pool.get_sorted()
         if not proxies:
             raise ProxyError("No proxies available")
 
         for proxy_info in proxies:
             try:
-                result = self.http_service.post(
-                    url,
-                    json=json,
-                    proxy=proxy_info.url,
-                    timeout=timeout,
-                    headers=headers,
-                )
-                self.proxy_pool.record_success(proxy_info, 1.0)
-                return result
+                connector = self.http_service._create_proxy_connector(proxy_info)
+                req_kwargs: dict[str, Any] = {
+                    "timeout": aiohttp.ClientTimeout(total=timeout),
+                }
+                if headers:
+                    req_kwargs["headers"] = headers
+                if json is not None:
+                    req_kwargs["json"] = json
+                async with aiohttp.ClientSession(
+                    connector=connector, **req_kwargs
+                ) as session:
+                    async with session.post(url) as resp:
+                        resp.raise_for_status()
+                        text = await resp.text(encoding="utf-8")
+                await self.proxy_pool.record_success(proxy_info, 1.0)
+                return text
             except Exception:
-                self.proxy_pool.record_failure(proxy_info)
+                await self.proxy_pool.record_failure(proxy_info)
 
         raise ProxyError(f"All proxies failed to POST {url}")

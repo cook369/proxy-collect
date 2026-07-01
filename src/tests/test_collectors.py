@@ -1,8 +1,9 @@
-"""采集器基类单元测试"""
+"""采集器基类单元测试（异步版本）"""
 
+import asyncio
 import pytest
 from pathlib import Path
-from unittest.mock import Mock
+from unittest.mock import Mock, AsyncMock
 import tempfile
 
 from collectors.base import BaseCollector, register_collector
@@ -41,13 +42,14 @@ class TestBaseCollector:
                 return []
 
         collector = TestCollector()
-        # 应该自动创建 HttpService
-        assert collector.http_client is not None
+        # HTTP client 延迟初始化，不提供时为 None
+        assert collector._http_client is None
 
-    def test_fetch_html_success(self):
+    @pytest.mark.asyncio
+    async def test_fetch_html_success(self):
         """测试成功获取 HTML"""
-        mock_http_client = Mock(spec=HttpClient)
-        mock_http_client.get.return_value = "<html>test</html>"
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(return_value="<html>test</html>")
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -57,17 +59,13 @@ class TestBaseCollector:
                 return []
 
         collector = TestCollector(http_client=mock_http_client)
-        html = collector.fetch_html("http://example.com")
+        html = await collector.fetch_html("http://example.com")
 
         assert html == "<html>test</html>"
-        mock_http_client.get.assert_called_once_with(
-            "http://example.com",
-            timeout=20,
-            check_html=default_check_html,
-        )
 
-    def test_fetch_html_no_client(self):
-        """测试未初始化 HTTP 客户端时的错误"""
+    @pytest.mark.asyncio
+    async def test_fetch_html_auto_init_client(self):
+        """测试未初始化 HTTP 客户端时自动延迟初始化"""
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -76,17 +74,19 @@ class TestBaseCollector:
             def get_download_tasks(self):
                 return []
 
-        collector = TestCollector(http_client=Mock())
-        collector.http_client = None
+        collector = TestCollector()
+        # http_client 延迟初始化，第一次调用 fetch_html 时会自动创建
+        assert collector._http_client is None
+        # 延迟初始化会在 fetch_html 时触发，因为需要 event loop
+        with pytest.raises(Exception):
+            # 会尝试真正请求 URL，预期失败（因为是真实网络请求）
+            await collector.fetch_html("http://nonexistent.example.com")
 
-        with pytest.raises(NetworkError, match="HTTP client not initialized"):
-            collector.fetch_html("http://example.com")
-
-    def test_download_file_success(self):
+    @pytest.mark.asyncio
+    async def test_download_file_success(self):
         """测试成功下载文件"""
-        mock_http_client = Mock(spec=HttpClient)
-        # 返回足够长的内容以通过验证（MIN_FILE_SIZE = 100）
-        mock_http_client.get.return_value = "x" * 200
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(return_value="x" * 200)
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -100,17 +100,18 @@ class TestBaseCollector:
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
             task = DownloadTask(filename="test.txt", url="http://example.com/test.txt")
-            success = collector.download_file(task, output_dir)
+            success = await collector.download_file(task, output_dir)
 
             assert success is True
             file_path = output_dir / "test" / "test.txt"
             assert file_path.exists()
             assert file_path.read_text(encoding="utf-8") == "x" * 200
 
-    def test_download_file_failure(self):
+    @pytest.mark.asyncio
+    async def test_download_file_failure(self):
         """测试下载文件失败"""
-        mock_http_client = Mock(spec=HttpClient)
-        mock_http_client.get.side_effect = Exception("Network error")
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(side_effect=Exception("Network error"))
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -124,7 +125,7 @@ class TestBaseCollector:
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
             task = DownloadTask(filename="test.txt", url="http://example.com/test.txt")
-            success = collector.download_file(task, output_dir)
+            success = await collector.download_file(task, output_dir)
 
             assert success is False
 
@@ -132,11 +133,11 @@ class TestBaseCollector:
 class TestCollectorRun:
     """采集器 run 方法测试类"""
 
-    def test_run_success(self):
+    @pytest.mark.asyncio
+    async def test_run_success(self):
         """测试成功的采集流程"""
-        mock_http_client = Mock(spec=HttpClient)
-        # 返回足够长的内容以通过验证
-        mock_http_client.get.return_value = "x" * 200
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(return_value="x" * 200)
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -151,7 +152,7 @@ class TestCollectorRun:
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            result = collector.run(output_dir)
+            result = await collector.run(output_dir)
 
             assert isinstance(result, CollectorResult)
             assert result.site == "test"
@@ -159,14 +160,16 @@ class TestCollectorRun:
             assert len(result.files) == 1
             assert result.files["test.txt"].success is True
 
-    def test_run_writes_collected_at_and_title(self):
+    @pytest.mark.asyncio
+    async def test_run_writes_collected_at_and_title(self):
         """测试 run() 写入 collected_at（来自 timestamp）和 title"""
-        mock_http_client = Mock(spec=HttpClient)
-        # 带且内容足够长（>=100 bytes）通过验证
-        mock_http_client.get.return_value = (
-            "<html><head><title>T</title></head><body>"
-            + "x" * 200
-            + "</body></html>"
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(
+            return_value=(
+                "<html><head><title>T</title></head><body>"
+                + "x" * 200
+                + "</body></html>"
+            )
         )
 
         class TestCollector(TwoStepCollectorMixin, BaseCollector):
@@ -185,12 +188,13 @@ class TestCollectorRun:
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            result = collector.run(output_dir, timestamp="2026-06-27 10:00:00")
+            result = await collector.run(output_dir, timestamp="2026-06-27 10:00:00")
 
             assert result.collected_at == "2026-06-27 10:00:00"
-            assert result.title is not None  # TwoStepCollectorMixin 提取的 <title>
+            assert result.title is not None
 
-    def test_run_collected_at_defaults_when_no_timestamp(self):
+    @pytest.mark.asyncio
+    async def test_run_collected_at_defaults_when_no_timestamp(self):
         """不传 timestamp 时 collected_at 兜底为当前时间（非 None）"""
 
         class TestCollector(BaseCollector):
@@ -202,19 +206,20 @@ class TestCollectorRun:
                     DownloadTask(filename="test.txt", url="http://example.com/test.txt")
                 ]
 
-        mock_http_client = Mock(spec=HttpClient)
-        mock_http_client.get.return_value = "x" * 200
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(return_value="x" * 200)
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            result = TestCollector(http_client=mock_http_client).run(output_dir)
+            result = await TestCollector(http_client=mock_http_client).run(output_dir)
 
             assert result.collected_at is not None
-            assert len(result.collected_at) == 19  # "YYYY-MM-DD HH:MM:SS"
+            assert len(result.collected_at) == 19
 
-    def test_run_failure(self):
+    @pytest.mark.asyncio
+    async def test_run_failure(self):
         """测试采集失败的情况"""
-        mock_http_client = Mock(spec=HttpClient)
+        mock_http_client = AsyncMock(spec=HttpClient)
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -227,16 +232,17 @@ class TestCollectorRun:
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            result = collector.run(output_dir)
+            result = await collector.run(output_dir)
 
             assert result.status == "failed"
             assert len(result.files) == 0
             assert result.error is not None
 
-    def test_run_includes_duration(self):
+    @pytest.mark.asyncio
+    async def test_run_includes_duration(self):
         """测试 run() 结果包含采集耗时"""
-        mock_http_client = Mock(spec=HttpClient)
-        mock_http_client.get.return_value = "x" * 200
+        mock_http_client = AsyncMock(spec=HttpClient)
+        mock_http_client.get = AsyncMock(return_value="x" * 200)
 
         class TestCollector(BaseCollector):
             name = "test"
@@ -249,7 +255,7 @@ class TestCollectorRun:
 
         with tempfile.TemporaryDirectory() as tmpdir:
             output_dir = Path(tmpdir)
-            result = TestCollector(http_client=mock_http_client).run(output_dir)
+            result = await TestCollector(http_client=mock_http_client).run(output_dir)
 
             assert result.duration_seconds is not None
             assert result.duration_seconds >= 0

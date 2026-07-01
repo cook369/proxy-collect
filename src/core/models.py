@@ -5,7 +5,7 @@
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional, Callable
+from typing import Awaitable, Optional, Callable, Union
 import time
 
 
@@ -16,7 +16,8 @@ class DownloadTask:
     filename: str
     url: str = ""
     data: str = ""
-    processor: Optional[Callable[[str], str]] = None
+    # processor 支持同步和异步两种回调
+    processor: Optional[Union[Callable[[str], str], Callable[[str], Awaitable[str]]]] = None
 
 
 @dataclass

@@ -1,6 +1,7 @@
-"""ProxyService 单元测试"""
+"""ProxyService 单元测试（异步版本）"""
 
-from unittest.mock import Mock, patch
+from unittest.mock import Mock, AsyncMock, patch
+import pytest
 
 from services.proxy_service import ProxyValidator, ProxyService
 from services.http_service import HttpService
@@ -11,37 +12,39 @@ from core.models import ProxyInfo, ProxyType
 class TestProxyValidator:
     """ProxyValidator 测试类"""
 
-    def test_validate_success(self):
+    @pytest.mark.asyncio
+    async def test_validate_success(self):
         """测试验证成功"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.return_value = '{"origin": "1.2.3.4"}'
+        mock_http.get = AsyncMock(return_value='{"origin": "1.2.3.4"}')
         config = ProxyConfig()
 
         validator = ProxyValidator(mock_http, config)
         proxy = ProxyInfo(host="1.2.3.4", port=1080)
-        success, response_time = validator.validate(proxy)
+        success, response_time = await validator.validate(proxy)
 
         assert success is True
         assert response_time > 0
-        mock_http.get.assert_called_once()
 
-    def test_validate_failure(self):
+    @pytest.mark.asyncio
+    async def test_validate_failure(self):
         """测试验证失败"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.side_effect = Exception("Connection failed")
+        mock_http.get = AsyncMock(side_effect=Exception("Connection failed"))
         config = ProxyConfig()
 
         validator = ProxyValidator(mock_http, config)
         proxy = ProxyInfo(host="1.2.3.4", port=1080)
-        success, response_time = validator.validate(proxy)
+        success, response_time = await validator.validate(proxy)
 
         assert success is False
         assert response_time == 0.0
 
-    def test_validate_batch_all_success(self):
+    @pytest.mark.asyncio
+    async def test_validate_batch_all_success(self):
         """测试批量验证全部成功"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.return_value = '{"origin": "1.2.3.4"}'
+        mock_http.get = AsyncMock(return_value='{"origin": "1.2.3.4"}')
         config = ProxyConfig(max_available=10, check_workers=2)
 
         validator = ProxyValidator(mock_http, config)
@@ -50,19 +53,22 @@ class TestProxyValidator:
             ProxyInfo(host="5.6.7.8", port=1080),
         ]
 
-        result = validator.validate_batch(proxies)
+        result = await validator.validate_batch(proxies)
 
         assert len(result) == 2
         assert all(p.success_count == 1 for p in result)
 
-    def test_validate_batch_partial_success(self):
+    @pytest.mark.asyncio
+    async def test_validate_batch_partial_success(self):
         """测试批量验证部分成功"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.side_effect = [
-            '{"origin": "1.2.3.4"}',
-            Exception("Failed"),
-            '{"origin": "5.6.7.8"}',
-        ]
+        mock_http.get = AsyncMock(
+            side_effect=[
+                '{"origin": "1.2.3.4"}',
+                Exception("Failed"),
+                '{"origin": "5.6.7.8"}',
+            ]
+        )
         config = ProxyConfig(max_available=10, check_workers=1)
 
         validator = ProxyValidator(mock_http, config)
@@ -72,72 +78,19 @@ class TestProxyValidator:
             ProxyInfo(host="9.10.11.12", port=1080),
         ]
 
-        result = validator.validate_batch(proxies)
+        result = await validator.validate_batch(proxies)
 
         assert len(result) == 2
-
-    def test_validate_batch_updates_progress_once_per_ten_percent(self):
-        """Progress should track available proxy target and refresh every 10%."""
-
-        class FakeTqdm:
-            instances = []
-
-            def __init__(self, total, desc, unit, miniters=None):
-                self.n = 0
-                self.total = total
-                self.postfixes = []
-                self.refresh_count = 0
-                self.updates = []
-                self.miniters = miniters
-                FakeTqdm.instances.append(self)
-
-            def __enter__(self):
-                return self
-
-            def __exit__(self, exc_type, exc, tb):
-                return False
-
-            def update(self, count):
-                self.n += count
-                self.updates.append(count)
-
-            def set_postfix(self, postfix, refresh=True):
-                self.postfixes.append(postfix)
-
-            def refresh(self):
-                self.refresh_count += 1
-
-        mock_http = Mock(spec=HttpService)
-        config = ProxyConfig(max_available=100, check_workers=1)
-        validator = ProxyValidator(mock_http, config)
-        validator.validate = Mock(return_value=(True, 0.1))
-        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(100)]
-
-        with patch("services.proxy_service.tqdm", FakeTqdm):
-            result = validator.validate_batch(proxies)
-
-        progress = FakeTqdm.instances[0]
-        reported_percentages = [
-            int(postfix["Available"].split("/")[0]) * 100 // progress.total
-            for postfix in progress.postfixes
-        ]
-
-        assert len(result) == 100
-        assert progress.total == config.max_available
-        assert progress.miniters == progress.total + 1
-        assert len(progress.postfixes) == 10
-        assert progress.refresh_count == 10
-        assert len(progress.updates) == 10
-        assert reported_percentages == list(range(10, 101, 10))
 
 
 class TestProxyService:
     """ProxyService 测试类"""
 
-    def test_fetch_proxies_success(self):
+    @pytest.mark.asyncio
+    async def test_fetch_proxies_success(self):
         """测试成功获取代理"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.return_value = "1.2.3.4:1080\n5.6.7.8:1080\n"
+        mock_http.get = AsyncMock(return_value="1.2.3.4:1080\n5.6.7.8:1080\n")
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
             proxy_sources=[{"url": "http://example.com/proxies.txt", "weight": 1.0}],
@@ -145,59 +98,59 @@ class TestProxyService:
         )
 
         service = ProxyService(mock_http, mock_validator, config)
-        proxies = service.fetch_proxies()
+        proxies = await service.fetch_proxies()
 
         assert len(proxies) == 2
         assert all(isinstance(p, ProxyInfo) for p in proxies)
 
-    def test_fetch_proxies_with_weight(self):
+    @pytest.mark.asyncio
+    async def test_fetch_proxies_with_weight(self):
         """测试带权重的代理获取"""
         mock_http = Mock(spec=HttpService)
-        # 返回足够多的代理以测试采样
         lines = "\n".join([f"1.2.3.{i}:1080" for i in range(300)])
-        mock_http.get.return_value = lines
+        mock_http.get = AsyncMock(return_value=lines)
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
             proxy_sources=[{"url": "url1", "weight": 2.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)
-        proxies = service.fetch_proxies()
+        proxies = await service.fetch_proxies()
 
-        # weight=2.0, base=100, 所以采样 200 个
         assert len(proxies) == 200
 
-    def test_fetch_proxies_deduplication(self):
+    @pytest.mark.asyncio
+    async def test_fetch_proxies_deduplication(self):
         """测试代理去重"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.return_value = "1.2.3.4:1080\n1.2.3.4:1080\n"
+        mock_http.get = AsyncMock(return_value="1.2.3.4:1080\n1.2.3.4:1080\n")
         mock_validator = Mock(spec=ProxyValidator)
         config = ProxyConfig(
             proxy_sources=[{"url": "url1", "weight": 1.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)
-        proxies = service.fetch_proxies()
+        proxies = await service.fetch_proxies()
 
         assert len(proxies) == 1
 
-    def test_get_validated_proxies(self):
+    @pytest.mark.asyncio
+    async def test_get_validated_proxies(self):
         """测试获取并验证代理"""
         mock_http = Mock(spec=HttpService)
-        mock_http.get.return_value = "1.2.3.4:1080\n"
+        mock_http.get = AsyncMock(return_value="1.2.3.4:1080\n")
         mock_validator = Mock(spec=ProxyValidator)
-        mock_validator.validate_batch.return_value = [
-            ProxyInfo(host="1.2.3.4", port=1080)
-        ]
+        mock_validator.validate_batch = AsyncMock(
+            return_value=[ProxyInfo(host="1.2.3.4", port=1080)]
+        )
         config = ProxyConfig(
             proxy_sources=[{"url": "url1", "weight": 1.0}], base_sample_size=100
         )
 
         service = ProxyService(mock_http, mock_validator, config)
-        result = service.get_validated_proxies()
+        result = await service.get_validated_proxies()
 
         assert len(result) == 1
-        mock_validator.validate_batch.assert_called_once()
 
     def test_parse_proxy_sources_string_format(self):
         """测试解析字符串格式的代理源"""

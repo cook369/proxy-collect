@@ -1,7 +1,6 @@
-"""Paste.to 辅助函数测试"""
+"""Paste.to 辅助函数测试（异步版本）"""
 
-from unittest.mock import Mock
-
+from unittest.mock import Mock, AsyncMock
 import pytest
 
 from core.exceptions import ParseError
@@ -47,16 +46,17 @@ def test_js_helpers_match_paste_to_frontend_encoding():
     assert js_json_stringify(["a", {"b": 1}]) == b'["a",{"b":1}]'
 
 
-def test_fetch_paste_to_payload_uses_pasteid_endpoint():
-    http_client = Mock()
-    http_client.get.return_value = '{"ct": "payload"}'
+@pytest.mark.asyncio
+async def test_fetch_paste_to_payload_uses_pasteid_endpoint():
+    http_client = AsyncMock()
+    http_client.get = AsyncMock(return_value='{"ct": "payload"}')
 
-    assert fetch_paste_to_payload(
+    assert await fetch_paste_to_payload(
         "abc123",
         http_client=http_client,
         timeout=7,
     ) == {"ct": "payload"}
-    http_client.get.assert_called_once()
+    http_client.get.assert_awaited_once()
     assert http_client.get.call_args.args[0] == "https://paste.to/?pasteid=abc123"
 
 
@@ -66,7 +66,8 @@ def test_charset_password_strategy_generates_passwords_from_charset_and_length()
     assert list(strategy.iter_passwords()) == ["aa", "ab", "ba", "bb"]
 
 
-def test_brute_force_payload_returns_password_and_content():
+@pytest.mark.asyncio
+async def test_brute_force_payload_returns_password_and_content():
     attempts = []
 
     def fake_decrypt(password):
@@ -75,7 +76,7 @@ def test_brute_force_payload_returns_password_and_content():
             return "decrypted content"
         raise ValueError("bad password")
 
-    result = brute_force_payload(
+    result = await brute_force_payload(
         max_workers=1,
         password_strategy=CharsetPasswordStrategy(length=1, charset="012"),
         decrypt_prepared=fake_decrypt,
@@ -85,7 +86,8 @@ def test_brute_force_payload_returns_password_and_content():
     assert attempts == ["0", "1", "2"]
 
 
-def test_brute_force_payload_uses_dictionary_strategy():
+@pytest.mark.asyncio
+async def test_brute_force_payload_uses_dictionary_strategy():
     attempts = []
 
     def fake_decrypt(password):
@@ -94,7 +96,7 @@ def test_brute_force_payload_uses_dictionary_strategy():
             return "decrypted content"
         raise ValueError("bad password")
 
-    result = brute_force_payload(
+    result = await brute_force_payload(
         max_workers=1,
         password_strategy=DictionaryPasswordStrategy(["alpha", "beta", "0002"]),
         decrypt_prepared=fake_decrypt,
@@ -104,7 +106,8 @@ def test_brute_force_payload_uses_dictionary_strategy():
     assert attempts == ["alpha", "beta"]
 
 
-def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
+@pytest.mark.asyncio
+async def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
     attempts = []
 
     def fake_decrypt(password):
@@ -113,7 +116,7 @@ def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
             return "decrypted content"
         raise ValueError("bad password")
 
-    result = brute_force_payload(
+    result = await brute_force_payload(
         max_workers=1,
         decrypt_prepared=fake_decrypt,
     )
@@ -122,9 +125,10 @@ def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
     assert attempts == ["0000", "0001", "0002"]
 
 
-def test_decrypt_paste_to_url_uses_password_without_bruteforce():
-    http_client = Mock()
-    http_client.get.return_value = '{"ct": "payload"}'
+@pytest.mark.asyncio
+async def test_decrypt_paste_to_url_uses_password_without_bruteforce():
+    http_client = AsyncMock()
+    http_client.get = AsyncMock(return_value='{"ct": "payload"}')
     prepared_payload = object()
 
     def fake_decrypt(prepared, password):
@@ -137,7 +141,7 @@ def test_decrypt_paste_to_url_uses_password_without_bruteforce():
     paste_to.prepare_paste_to_payload = lambda payload, fragment: prepared_payload
     paste_to.decrypt_prepared_paste_to_payload = fake_decrypt
     try:
-        result = decrypt_paste_to_url(
+        result = await decrypt_paste_to_url(
             "https://paste.to/?abc123#FragmentKey",
             http_client=http_client,
             password="1234",
@@ -154,9 +158,10 @@ def test_decrypt_paste_to_url_uses_password_without_bruteforce():
     )
 
 
-def test_decrypt_paste_to_url_brute_forces_without_password():
-    http_client = Mock()
-    http_client.get.return_value = '{"ct": "payload"}'
+@pytest.mark.asyncio
+async def test_decrypt_paste_to_url_brute_forces_without_password():
+    http_client = AsyncMock()
+    http_client.get = AsyncMock(return_value='{"ct": "payload"}')
     prepared_payload = object()
 
     def fake_decrypt(prepared, password):
@@ -170,7 +175,7 @@ def test_decrypt_paste_to_url_brute_forces_without_password():
     paste_to.prepare_paste_to_payload = lambda payload, fragment: prepared_payload
     paste_to.decrypt_prepared_paste_to_payload = fake_decrypt
     try:
-        result = decrypt_paste_to_url(
+        result = await decrypt_paste_to_url(
             "https://paste.to/?abc123#FragmentKey",
             http_client=http_client,
             password=None,

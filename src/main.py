@@ -1,11 +1,11 @@
-"""主入口"""
+"""主入口（异步版本）"""
 
 import argparse
+import asyncio
 import logging
 import os
 from datetime import datetime
 from pathlib import Path
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from config.settings import Config
 from core.models import CollectorResult, ProxyInfo
@@ -25,15 +25,15 @@ log_level = os.getenv("LOG_LEVEL", "INFO")
 setup_logging(level=log_level)
 
 
-def run_collector(
+async def run_collector(
     collector_name: str,
     proxy_list: list[ProxyInfo],
     output_dir: Path,
 ) -> CollectorResult:
-    """运行单个采集器"""
+    """运行单个采集器（异步）"""
     collector_cls = get_collector(collector_name)
     collector = collector_cls(proxy_list)
-    return collector.run(output_dir)
+    return await collector.run(output_dir)
 
 
 def should_process_downloaded_file(result: CollectorResult) -> bool:
@@ -70,39 +70,8 @@ def print_report(results: list[CollectorResult]):
     print("=" * 60 + "\n")
 
 
-def main():
-    """主入口函数"""
-    parser = argparse.ArgumentParser(description="Run a collector")
-    parser.add_argument(
-        "--site",
-        nargs="*",
-        choices=list_collectors(),
-        help="Choose which site(s) to collect from. If empty, all sites are collected",
-    )
-    parser.add_argument(
-        "--list",
-        action="store_true",
-        help="List all supported collectors and exit",
-    )
-    parser.add_argument(
-        "--workers",
-        type=int,
-        default=4,
-        help="Number of threads for concurrent collectors",
-    )
-    parser.add_argument(
-        "--proxy",
-        action="store_true",
-        help="Use proxy collect",
-    )
-    parser.add_argument(
-        "--no-proxy-cache",
-        action="store_true",
-        help="Disable proxy cache and force refresh",
-    )
-
-    args = parser.parse_args()
-
+async def async_main(args: argparse.Namespace):
+    """异步主入口函数"""
     # 列出采集器
     if args.list:
         print("Supported collectors:")
@@ -120,7 +89,6 @@ def main():
 
     # 初始化服务
     manifest = ManifestService(config.app.manifest_file)
-    # 用于 YAML 文件头注入的时间戳（统一使用运行开始时间作为标签）
     file_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
@@ -145,44 +113,51 @@ def main():
         use_cache = config.proxy.cache_enabled and not args.no_proxy_cache
 
         if use_cache:
-            cache_service.load()
-            if cache_service.is_valid(config.proxy.min_health_score):
-                proxy_list = cache_service.get_proxies(config.proxy.min_health_score)
+            await cache_service.load()
+            if await cache_service.is_valid(config.proxy.min_health_score):
+                proxy_list = await cache_service.get_proxies(
+                    config.proxy.min_health_score
+                )
                 logging.info(f"Using {len(proxy_list)} proxies from cache")
 
         if not proxy_list:
-            proxy_list = proxy_service.get_validated_proxies()
+            proxy_list = await proxy_service.get_validated_proxies()
             if cache_service and use_cache:
                 cache_service.update_proxies(proxy_list)
-                cache_service.save()
+                await cache_service.save()
+
+        # 清理 http_service 的 session
+        await http_service.close()
 
     logging.info(f"Get available proxy: {len(proxy_list)}")
 
-    # 使用 ThreadPoolExecutor 并发运行采集器
+    # 使用 asyncio.TaskGroup 并发运行采集器
     results: list[CollectorResult] = []
-    with ThreadPoolExecutor(max_workers=args.workers) as executor:
-        futures = {
-            executor.submit(
-                run_collector, name, proxy_list, config.app.output_dir
+
+    async with asyncio.TaskGroup() as tg:
+        tasks_map = {
+            tg.create_task(
+                run_collector(name, proxy_list, config.app.output_dir)
             ): name
             for name in collectors_to_run
         }
-        for future in as_completed(futures):
-            name = futures[future]
-            try:
-                result = future.result()
-                results.append(result)
-            except Exception as e:
-                logging.error(f"Collector {name} failed: {e}")
-                results.append(
-                    CollectorResult(
-                        site=name,
-                        today_page=None,
-                        files={},
-                        status="failed",
-                        error=str(e),
-                    )
+
+    # TaskGroup 完成后收集结果
+    for task, name in tasks_map.items():
+        try:
+            result = task.result()
+            results.append(result)
+        except Exception as e:
+            logging.error(f"Collector {name} failed: {e}")
+            results.append(
+                CollectorResult(
+                    site=name,
+                    today_page=None,
+                    files={},
+                    status="failed",
+                    error=str(e),
                 )
+            )
 
     # 更新 manifest 并注入时间戳
     for result in results:
@@ -191,21 +166,59 @@ def main():
         # 注入时间戳到 clash.yaml
         if should_process_downloaded_file(result):
             clash_path = config.app.output_dir / result.site / "clash.yaml"
-            FileProcessor.process_downloaded_file(clash_path, result, file_timestamp)
+            await FileProcessor.process_downloaded_file(
+                clash_path, result, file_timestamp
+            )
 
     # 保存 manifest
-    manifest.save()
+    await manifest.save()
 
     # 打印控制台报告
     print_report(results)
 
     # 更新 README
-    ReadmeService(
+    await ReadmeService(
         manifest,
         config.app.readme_file,
         config.proxy.github_proxy,
         config.app.output_dir,
     ).update()
+
+
+def main():
+    """同步入口：解析参数后启动异步主循环"""
+    parser = argparse.ArgumentParser(description="Run a collector")
+    parser.add_argument(
+        "--site",
+        nargs="*",
+        choices=list_collectors(),
+        help="Choose which site(s) to collect from. If empty, all sites are collected",
+    )
+    parser.add_argument(
+        "--list",
+        action="store_true",
+        help="List all supported collectors and exit",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=4,
+        help="Number of threads for concurrent collectors (deprecated, kept for compatibility)",
+    )
+    parser.add_argument(
+        "--proxy",
+        action="store_true",
+        help="Use proxy collect",
+    )
+    parser.add_argument(
+        "--no-proxy-cache",
+        action="store_true",
+        help="Disable proxy cache and force refresh",
+    )
+
+    args = parser.parse_args()
+
+    asyncio.run(async_main(args))
 
 
 if __name__ == "__main__":

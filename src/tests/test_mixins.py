@@ -1,6 +1,7 @@
-"""采集器 Mixin 单元测试"""
+"""采集器 Mixin 单元测试（异步版本）"""
 
 import pytest
+from unittest.mock import AsyncMock, Mock
 
 from collectors.mixins import (
     TwoStepCollectorMixin,
@@ -14,15 +15,15 @@ from core.models import DownloadTask, FileManifest, SiteManifest
 class TestTwoStepCollectorMixin:
     """TwoStepCollectorMixin 测试类"""
 
-    def test_get_download_tasks_success(self):
+    @pytest.mark.asyncio
+    async def test_get_download_tasks_success(self):
         """测试成功的两步采集流程"""
 
-        # 创建测试类
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html>home</html>"
                 return "<html>today</html>"
@@ -38,20 +39,21 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        tasks = collector.get_download_tasks()
+        tasks = await collector.get_download_tasks()
 
         assert len(tasks) == 1
         assert tasks[0].filename == "clash.yaml"
         assert tasks[0].url == "http://example.com/clash.yaml"
 
-    def test_get_download_tasks_extracts_title(self):
+    @pytest.mark.asyncio
+    async def test_get_download_tasks_extracts_title(self):
         """测试从今日页面 <title> 提取采集标题"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return "<html><head><title>今日免费节点 2026-06-27</title></head><body>today</body></html>"
@@ -67,18 +69,19 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        collector.get_download_tasks()
+        await collector.get_download_tasks()
 
         assert collector.title == "今日免费节点 2026-06-27"
 
-    def test_get_download_tasks_title_none_when_absent(self):
+    @pytest.mark.asyncio
+    async def test_get_download_tasks_title_none_when_absent(self):
         """测试今日页面无 <title> 时 title 为 None，不阻断采集"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return "<html><body>no title here</body></html>"
@@ -94,20 +97,21 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        tasks = collector.get_download_tasks()
+        tasks = await collector.get_download_tasks()
 
         assert collector.title is None
-        assert len(tasks) == 1  # 采集未受影响
+        assert len(tasks) == 1
 
-    def test_title_xpath_override_uses_custom_rule(self):
+    @pytest.mark.asyncio
+    async def test_title_xpath_override_uses_custom_rule(self):
         """测试覆盖 title_xpath 时按站点自定义规则提取标题"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
-            title_xpath = "//h1/text()"  # 该站点标题在 <h1> 而非 <title>
+            title_xpath = "//h1/text()"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return (
@@ -126,19 +130,20 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        collector.get_download_tasks()
+        await collector.get_download_tasks()
 
-        assert collector.title == "今日节点 0627"  # 取 h1 而非 title
+        assert collector.title == "今日节点 0627"
 
-    def test_title_xpath_none_disables_extraction(self):
+    @pytest.mark.asyncio
+    async def test_title_xpath_none_disables_extraction(self):
         """测试 title_xpath=None 时禁用标题提取"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
-            title_xpath = None  # 该站点不提取标题
+            title_xpath = None
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return "<html><head><title>有标题但不取</title></head></html>"
@@ -154,24 +159,24 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        collector.get_download_tasks()
+        await collector.get_download_tasks()
 
         assert collector.title is None
 
-    def test_extract_title_override_custom_logic(self):
+    @pytest.mark.asyncio
+    async def test_extract_title_override_custom_logic(self):
         """测试覆盖 extract_title() 实现任意自定义规则"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return "<html><head><title>raw - 站点</title></head></html>"
 
             def extract_title(self, today_html):
-                # 自定义：截取分隔符前的部分
                 raw = HtmlParser(today_html, self.name).xpath("//title/text()")
                 return raw.split(" - ")[0] if raw else None
 
@@ -186,18 +191,19 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        collector.get_download_tasks()
+        await collector.get_download_tasks()
 
         assert collector.title == "raw"
 
-    def test_extract_title_failure_does_not_block_collection(self):
+    @pytest.mark.asyncio
+    async def test_extract_title_failure_does_not_block_collection(self):
         """测试 extract_title 抛异常时 title 为 None 且不阻断采集"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == self.home_page:
                     return "<html><body>home</body></html>"
                 return "<html><body>today</body></html>"
@@ -216,19 +222,20 @@ class TestTwoStepCollectorMixin:
                 ]
 
         collector = TestCollector()
-        tasks = collector.get_download_tasks()
+        tasks = await collector.get_download_tasks()
 
         assert collector.title is None
-        assert len(tasks) == 1  # 采集未受影响
+        assert len(tasks) == 1
 
-    def test_get_download_tasks_no_today_url(self):
+    @pytest.mark.asyncio
+    async def test_get_download_tasks_no_today_url(self):
         """测试未找到今日链接的情况"""
 
         class TestCollector(TwoStepCollectorMixin):
             name = "test"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 return "<html>home</html>"
 
             def get_today_url(self, home_html):
@@ -240,9 +247,10 @@ class TestTwoStepCollectorMixin:
         collector = TestCollector()
 
         with pytest.raises(ParseError, match="No today URL found"):
-            collector.get_download_tasks()
+            await collector.get_download_tasks()
 
-    def test_run_skips_cached_today_page_before_fetching_today_html(
+    @pytest.mark.asyncio
+    async def test_run_skips_cached_today_page_before_fetching_today_html(
         self, tmp_path, monkeypatch
     ):
         """测试通用缓存跳过在获取今日页面前生效"""
@@ -277,7 +285,7 @@ class TestTwoStepCollectorMixin:
             name = "test_cached"
             home_page = "http://example.com"
 
-            def fetch_html(self, url):
+            async def fetch_html(self, url):
                 if url == today_url:
                     raise AssertionError("today page should be skipped")
                 return "<html>home</html>"
@@ -290,7 +298,7 @@ class TestTwoStepCollectorMixin:
 
         monkeypatch.setattr("services.manifest_service.ManifestService", FakeManifest)
 
-        result = TestCollector().run(tmp_path)
+        result = await TestCollector().run(tmp_path)
 
         assert result.status == "success"
         assert result.today_page == today_url

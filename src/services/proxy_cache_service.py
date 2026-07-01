@@ -1,8 +1,9 @@
-"""代理缓存服务
+"""代理缓存服务（异步版本）
 
 提供代理缓存的加载、保存和统计更新功能。
 """
 
+import asyncio
 import json
 import logging
 import time
@@ -13,7 +14,7 @@ from core.models import ProxyInfo, ProxyCache
 
 
 class ProxyCacheService:
-    """代理缓存服务"""
+    """代理缓存服务（异步）"""
 
     def __init__(self, cache_file: Path, ttl: int = 3600, min_cache_proxies: int = 10):
         """初始化缓存服务
@@ -35,7 +36,7 @@ class ProxyCacheService:
             self._cache = ProxyCache()
         return self._cache
 
-    def load(self) -> ProxyCache:
+    async def load(self) -> ProxyCache:
         """加载缓存
 
         Returns:
@@ -47,8 +48,11 @@ class ProxyCacheService:
             return self._cache
 
         try:
-            with open(self.cache_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
+            data = json.loads(
+                await asyncio.to_thread(
+                    self.cache_file.read_text, encoding="utf-8"
+                )
+            )
             self._cache = ProxyCache.from_dict(data)
             logging.info(f"Loaded {len(self._cache.proxies)} proxies from cache")
             return self._cache
@@ -57,7 +61,7 @@ class ProxyCacheService:
             self._cache = ProxyCache(created_at=time.time())
             return self._cache
 
-    def save(self) -> None:
+    async def save(self) -> None:
         """保存缓存"""
         if self._cache is None:
             return
@@ -69,13 +73,16 @@ class ProxyCacheService:
         self.cache_file.parent.mkdir(parents=True, exist_ok=True)
 
         try:
-            with open(self.cache_file, "w", encoding="utf-8") as f:
-                json.dump(self._cache.to_dict(), f, indent=2)
+            await asyncio.to_thread(
+                self.cache_file.write_text,
+                json.dumps(self._cache.to_dict(), indent=2),
+                encoding="utf-8",
+            )
             logging.info(f"Saved {len(self._cache.proxies)} proxies to cache")
         except IOError as e:
             logging.error(f"Failed to save cache: {e}")
 
-    def is_valid(self, min_health_score: float = 30.0) -> bool:
+    async def is_valid(self, min_health_score: float = 30.0) -> bool:
         """检查缓存是否有效
 
         Args:
@@ -85,7 +92,7 @@ class ProxyCacheService:
             缓存是否有效可用
         """
         if self._cache is None:
-            self._cache = self.load()
+            self._cache = await self.load()
 
         if self._cache.is_expired(self.ttl):
             logging.info("Cache expired")
@@ -98,7 +105,7 @@ class ProxyCacheService:
 
         return True
 
-    def get_proxies(self, min_health_score: float = 30.0) -> list[ProxyInfo]:
+    async def get_proxies(self, min_health_score: float = 30.0) -> list[ProxyInfo]:
         """获取健康的代理列表
 
         Args:
@@ -108,12 +115,12 @@ class ProxyCacheService:
             健康代理列表
         """
         if self._cache is None:
-            self._cache = self.load()
+            self._cache = await self.load()
 
         return self._cache.get_healthy_proxies(min_health_score)
 
     def update_proxies(self, proxies: list[ProxyInfo]) -> None:
-        """更新缓存中的代理列表
+        """更新缓存中的代理列表（同步，不涉及 I/O）
 
         Args:
             proxies: 新的代理列表
@@ -140,7 +147,7 @@ class ProxyCacheService:
     def update_proxy_stats(
         self, proxy: ProxyInfo, success: bool, response_time: float = 0.0
     ) -> None:
-        """更新单个代理的统计信息
+        """更新单个代理的统计信息（同步）
 
         Args:
             proxy: 代理信息
@@ -152,9 +159,9 @@ class ProxyCacheService:
         else:
             proxy.record_failure()
 
-    def clear(self) -> None:
+    async def clear(self) -> None:
         """清空缓存"""
         self._cache = ProxyCache(created_at=time.time())
         if self.cache_file.exists():
-            self.cache_file.unlink()
+            await asyncio.to_thread(self.cache_file.unlink)
             logging.info("Cache cleared")

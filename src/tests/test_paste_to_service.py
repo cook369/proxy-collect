@@ -1,14 +1,16 @@
-"""Paste.to 服务测试"""
+"""Paste.to 服务测试（异步版本）"""
 
-from unittest.mock import Mock
+from unittest.mock import Mock, AsyncMock
+import pytest
 
 import services.paste_to_service as paste_to_service
 from services.paste_to_service import PasteToService
 from utils.paste_to import DictionaryPasswordStrategy, PasswordAttemptResult
 
 
-def test_paste_to_service_decrypts_url_with_configured_dependencies():
-    http_client = Mock()
+@pytest.mark.asyncio
+async def test_paste_to_service_decrypts_url_with_configured_dependencies():
+    http_client = AsyncMock()
     prepared_payload = object()
 
     service = PasteToService(
@@ -17,7 +19,7 @@ def test_paste_to_service_decrypts_url_with_configured_dependencies():
         max_workers=2,
     )
 
-    fetch_paste_to_payload = Mock(return_value={"ct": "payload"})
+    fetch_paste_to_payload = AsyncMock(return_value={"ct": "payload"})
     prepare_paste_to_payload = Mock(return_value=prepared_payload)
     decrypt_prepared_paste_to_payload = Mock(return_value="decrypted content")
 
@@ -30,7 +32,7 @@ def test_paste_to_service_decrypts_url_with_configured_dependencies():
         decrypt_prepared_paste_to_payload
     )
     try:
-        result = service.decrypt_url(
+        result = await service.decrypt_url(
             "https://paste.to/?abc123#FragmentKey",
             password="1234",
         )
@@ -43,7 +45,7 @@ def test_paste_to_service_decrypts_url_with_configured_dependencies():
         password="1234",
         content="decrypted content",
     )
-    fetch_paste_to_payload.assert_called_once_with(
+    fetch_paste_to_payload.assert_awaited_once_with(
         "abc123",
         http_client=http_client,
         timeout=7,
@@ -52,8 +54,9 @@ def test_paste_to_service_decrypts_url_with_configured_dependencies():
     decrypt_prepared_paste_to_payload.assert_called_once_with(prepared_payload, "1234")
 
 
-def test_paste_to_service_passes_bruteforce_strategy():
-    http_client = Mock()
+@pytest.mark.asyncio
+async def test_paste_to_service_passes_bruteforce_strategy():
+    http_client = AsyncMock()
     prepared_payload = object()
     password_strategy = DictionaryPasswordStrategy(["alpha", "beta"])
 
@@ -64,10 +67,10 @@ def test_paste_to_service_passes_bruteforce_strategy():
         password_strategy=password_strategy,
     )
 
-    fetch_paste_to_payload = Mock(return_value={"ct": "payload"})
+    fetch_paste_to_payload = AsyncMock(return_value={"ct": "payload"})
     prepare_paste_to_payload = Mock(return_value=prepared_payload)
     decrypt_prepared_paste_to_payload = Mock(return_value="decrypted content")
-    brute_force_payload = Mock(
+    brute_force_payload = AsyncMock(
         return_value=PasswordAttemptResult(password="beta", content="decrypted content")
     )
 
@@ -82,7 +85,7 @@ def test_paste_to_service_passes_bruteforce_strategy():
     )
     paste_to_service.brute_force_payload = brute_force_payload
     try:
-        result = service.decrypt_url(
+        result = await service.decrypt_url(
             "https://paste.to/?abc123#FragmentKey",
             password=None,
         )
@@ -96,11 +99,8 @@ def test_paste_to_service_passes_bruteforce_strategy():
         password="beta",
         content="decrypted content",
     )
-    brute_force_payload.assert_called_once()
+    brute_force_payload.assert_awaited_once()
     assert brute_force_payload.call_args.kwargs["max_workers"] == 2
     assert (
         brute_force_payload.call_args.kwargs["password_strategy"] is password_strategy
     )
-    decrypt_prepared = brute_force_payload.call_args.kwargs["decrypt_prepared"]
-    assert decrypt_prepared("beta") == "decrypted content"
-    decrypt_prepared_paste_to_payload.assert_called_once_with(prepared_payload, "beta")

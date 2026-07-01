@@ -1,6 +1,8 @@
-"""采集器基类和注册表"""
+"""采集器基类和注册表（异步版本）"""
 
 from abc import ABC, abstractmethod
+import asyncio
+import inspect
 import logging
 import time
 from datetime import datetime
@@ -27,7 +29,7 @@ COLLECTOR_REGISTRY: dict[str, type["BaseCollector"]] = {}
 
 
 class BaseCollector(ABC):
-    """采集器基类"""
+    """采集器基类（异步）"""
 
     name: str
     home_page: str
@@ -46,19 +48,30 @@ class BaseCollector(ABC):
             http_client: HTTP 客户端（新方式，依赖注入）
         """
         self.proxy_pool = None
-        if http_client is None:
+        self._http_client = http_client
+        self._proxies_list = proxies_list
+
+    def _ensure_http_client(self):
+        """延迟初始化 HTTP 客户端（需要 event loop）"""
+        if self._http_client is None:
             from services.http_service import HttpService, ProxyPool, ProxyHttpService
 
             http_service = HttpService()
-            if proxies_list:
-                self.proxy_pool = ProxyPool(proxies_list)
-                self.http_client = ProxyHttpService(http_service, self.proxy_pool)
+            if self._proxies_list:
+                self.proxy_pool = ProxyPool(self._proxies_list)
+                self._http_client = ProxyHttpService(http_service, self.proxy_pool)
             else:
-                self.http_client = http_service
-        else:
-            self.http_client = http_client
+                self._http_client = http_service
 
-    def fetch_html(
+    @property
+    def http_client(self) -> Optional[HttpClient]:
+        return self._http_client
+
+    @http_client.setter
+    def http_client(self, value: Optional[HttpClient]):
+        self._http_client = value
+
+    async def fetch_html(
         self,
         url: str,
         timeout: int = default_config.collector.fetch_timeout,
@@ -75,20 +88,22 @@ class BaseCollector(ABC):
         Raises:
             NetworkError: 网络请求失败
         """
+        self._ensure_http_client()
         if not self.http_client:
             raise NetworkError("HTTP client not initialized", url, self.name)
 
         logging.info(f"[{self.name}] Fetching: {url}")
         try:
-            return self.http_client.get(
+            return await self.http_client.get(
                 url,
                 timeout=timeout,
                 check_html=check_html,
             )
         except Exception as e:
-            raise NetworkError(str(e), url, self.name) from e
+            msg = str(e) if str(e) else type(e).__name__
+            raise NetworkError(msg, url, self.name) from e
 
-    def fetch_data(
+    async def fetch_data(
         self,
         url: str,
         timeout: int = default_config.collector.fetch_timeout,
@@ -109,16 +124,19 @@ class BaseCollector(ABC):
 
         logging.info(f"[{self.name}] Fetching: {url}")
         try:
-            return self.http_client.get_raw(
+            return await self.http_client.get_raw(
                 url,
                 timeout=timeout,
             )
         except Exception as e:
-            raise NetworkError(str(e), url, self.name) from e
+            msg = str(e) if str(e) else type(e).__name__
+            raise NetworkError(msg, url, self.name) from e
 
     @abstractmethod
     def get_download_tasks(self) -> list[DownloadTask]:
         """获取下载任务列表（子类实现）
+
+        子类可以返回同步或异步的实现。
 
         Returns:
             DownloadTask 列表
@@ -161,8 +179,8 @@ class BaseCollector(ABC):
                     self.name,
                 ) from e
 
-    def download_file(self, task: DownloadTask, output_dir: Path) -> bool:
-        """下载单个文件
+    async def download_file(self, task: DownloadTask, output_dir: Path) -> bool:
+        """下载单个文件（异步）
 
         Args:
             task: 下载任务
@@ -174,7 +192,7 @@ class BaseCollector(ABC):
         try:
             content = ""
             if task.url:
-                content = self.fetch_html(task.url)
+                content = await self.fetch_html(task.url)
             if task.data:
                 content = task.data
 
@@ -183,14 +201,19 @@ class BaseCollector(ABC):
 
             # 应用内容处理器
             if task.processor:
-                content = task.processor(content)
+                result = task.processor(content)
+                # 支持异步 processor
+                if inspect.isawaitable(result):
+                    content = await result
+                else:
+                    content = result
 
             # 验证内容
             self.validate_content(content, task.filename)
 
             file_path = output_dir / self.name / task.filename
             file_path.parent.mkdir(parents=True, exist_ok=True)
-            file_path.write_text(content, encoding="utf-8")
+            await asyncio.to_thread(file_path.write_text, content, encoding="utf-8")
 
             logging.info(f"[{self.name}] Saved to: {file_path}")
             return True
@@ -242,8 +265,8 @@ class BaseCollector(ABC):
             logging.info(f"[{self.name}] Already collected {self.today_page}, skip")
             raise CachedCollectorResult(cached_result)
 
-    def run(self, output_dir: Path, timestamp: str | None = None) -> CollectorResult:
-        """执行采集
+    async def run(self, output_dir: Path, timestamp: str | None = None) -> CollectorResult:
+        """执行采集（异步）
 
         Args:
             output_dir: 输出目录
@@ -251,6 +274,7 @@ class BaseCollector(ABC):
         Returns:
             采集结果
         """
+        self._ensure_http_client()
         logging.info(f"[{self.name}] Start collector")
         start_time = time.time()
         files: dict[str, FileManifest] = {}
@@ -259,10 +283,13 @@ class BaseCollector(ABC):
 
         try:
             tasks = self.get_download_tasks()
+            # 如果 get_download_tasks 返回协程，则 await
+            if inspect.isawaitable(tasks):
+                tasks = await tasks
             logging.info(f"[{self.name}] Found {len(tasks)} tasks")
 
             for task in tasks:
-                success = self.download_file(task, output_dir)
+                success = await self.download_file(task, output_dir)
                 files[task.filename] = FileManifest(
                     url=task.url,
                     success=success,
@@ -279,6 +306,28 @@ class BaseCollector(ABC):
 
         duration = round(time.time() - start_time, 1)
         logging.info(f"[{self.name}] Collector finished in {duration}s")
+
+        # 关闭 HTTP session（如果存在）
+        if (
+            hasattr(self, "_http_client")
+            and self._http_client is not None
+            and hasattr(self._http_client, "close")
+        ):
+            try:
+                await self._http_client.close()
+            except Exception:
+                pass
+        if (
+            hasattr(self, "http_client")
+            and self.http_client is not None
+            and hasattr(self.http_client, "http_service")
+            and self.http_client.http_service is not None
+            and hasattr(self.http_client.http_service, "close")
+        ):
+            try:
+                await self.http_client.http_service.close()
+            except Exception:
+                pass
 
         # 计算状态
         if error_msg and not files:
@@ -331,15 +380,15 @@ class YouTubeBaseCollector(BaseCollector):
     redirect_target_host: str = ""
     home_check_keyword: str = "免费节点"
 
-    def get_download_tasks(self) -> list[DownloadTask]:
+    async def get_download_tasks(self) -> list[DownloadTask]:
         """从 YouTube 最新视频中提取订阅任务"""
         check_html = check_html_contains(self.home_check_keyword)
         if not self.today_page:
-            home_html = self.fetch_html(self.home_page, check_html=check_html)
+            home_html = await self.fetch_html(self.home_page, check_html=check_html)
             self.today_page, self.title = self.get_today_url(home_html)
         self.skip_if_cached()
 
-        video_html = self.fetch_html(self.today_page)
+        video_html = await self.fetch_html(self.today_page)
         # 用视频页面 HTML 重新提取标题，避免从首页/播放列表取到不准确的值
         video_title = extract_video_title(video_html)
         if video_title:
@@ -347,7 +396,7 @@ class YouTubeBaseCollector(BaseCollector):
         target_url = self.extract_redirect_url(video_html)
 
         logging.info(f"[{self.name}] processing redirect: {target_url}")
-        return self.resolve_tasks_from_redirect(target_url)
+        return await self.resolve_tasks_from_redirect(target_url)
 
     def extract_redirect_url(self, video_html: str) -> str:
         """从 YouTube 视频页提取重定向目标 URL"""
@@ -359,7 +408,7 @@ class YouTubeBaseCollector(BaseCollector):
         raise NotImplementedError
 
     @abstractmethod
-    def resolve_tasks_from_redirect(
+    async def resolve_tasks_from_redirect(
         self, target_url: str
     ) -> list[DownloadTask]:
         """处理重定向目标 URL 并提取下载任务（子类实现）"""
@@ -401,7 +450,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
         """从 YouTube 视频页提取 paste.to 分享 URL（公开，供测试调用）"""
         return extract_youtube_redirect_url(video_html, self.redirect_target_host)
 
-    def resolve_tasks_from_redirect(
+    async def resolve_tasks_from_redirect(
         self, target_url: str
     ) -> list[DownloadTask]:
         """解密 paste.to 分享链接并提取订阅任务"""
@@ -411,7 +460,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
             max_workers=default_config.collector.paste_to_password_workers,
             password_strategy=self.paste_to_password_strategy,
         )
-        decrypt_result = paste_to_service.decrypt_url(
+        decrypt_result = await paste_to_service.decrypt_url(
             target_url,
             password=self.paste_to_password,
         )

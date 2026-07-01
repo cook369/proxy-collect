@@ -1,11 +1,9 @@
-"""通用密码/口令候选尝试工具"""
+"""通用密码/口令候选尝试工具（异步版本）"""
 
+import asyncio
 from collections.abc import Callable, Iterable, Iterator
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from itertools import product
-from queue import Empty, Full, Queue
-import threading
 
 from core.exceptions import ParseError
 
@@ -57,14 +55,14 @@ class DictionaryPasswordStrategy:
         return iter(self.passwords)
 
 
-def _try_password_queue(
-    password_queue: Queue,
-    stop_event: threading.Event,
-    try_password: Callable[[str], str],
+async def _try_password_worker(
+    password_queue: asyncio.Queue,
+    stop_event: asyncio.Event,
+    try_password: Callable,
 ) -> tuple[str, str] | None:
     """从密码队列消费候选并尝试解密"""
     while True:
-        item = password_queue.get()
+        item = await password_queue.get()
         if item is SENTINEL:
             return None
 
@@ -74,6 +72,9 @@ def _try_password_queue(
         password = str(item)
         try:
             result = try_password(password)
+            # 如果 try_password 是协程，需要 await
+            if asyncio.iscoroutine(result):
+                result = await result
             stop_event.set()
             return password, result
         except FatalPasswordAttemptError:
@@ -83,88 +84,103 @@ def _try_password_queue(
             continue
 
 
-def _drain_password_queue(password_queue: Queue) -> None:
+async def _drain_password_queue(password_queue: asyncio.Queue) -> None:
     """清空待消费密码，避免已找到结果后生产者阻塞在哨兵入队"""
-    while True:
+    while not password_queue.empty():
         try:
             password_queue.get_nowait()
-        except Empty:
+        except asyncio.QueueEmpty:
             return
 
 
-def _put_worker_sentinels(
-    password_queue: Queue,
+async def _put_worker_sentinels(
+    password_queue: asyncio.Queue,
     workers: int,
 ) -> None:
     """给每个 worker 发送退出哨兵"""
     for _ in range(workers):
-        while True:
-            try:
-                password_queue.put(SENTINEL, timeout=0.1)
-                break
-            except Full:
-                _drain_password_queue(password_queue)
+        await password_queue.put(SENTINEL)
 
 
-def brute_force_password(
+async def brute_force_password(
     max_workers: int,
     *,
     password_strategy: (
         CharsetPasswordStrategy | DictionaryPasswordStrategy | None
     ) = None,
-    try_password: Callable[[str], str],
+    try_password: Callable,
 ) -> PasswordAttemptResult:
     """按候选策略并发尝试口令，返回第一个成功结果。"""
     strategy = password_strategy or CharsetPasswordStrategy()
     workers = max(1, max_workers)
-    password_queue: Queue[str] = Queue(maxsize=workers * PASSWORD_QUEUE_FACTOR)
-    stop_event = threading.Event()
+    password_queue: asyncio.Queue = asyncio.Queue(
+        maxsize=workers * PASSWORD_QUEUE_FACTOR
+    )
+    stop_event = asyncio.Event()
 
-    with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = [
-            executor.submit(
-                _try_password_queue,
-                password_queue,
-                stop_event,
-                try_password,
+    found: tuple[str, str] | None = None
+    fatal_error: FatalPasswordAttemptError | None = None
+
+    async def worker_wrapper() -> tuple[str, str] | None:
+        nonlocal fatal_error
+        try:
+            return await _try_password_worker(
+                password_queue, stop_event, try_password
             )
-            for _ in range(workers)
+        except FatalPasswordAttemptError as e:
+            fatal_error = e
+            return None
+
+    async with asyncio.TaskGroup() as tg:
+        worker_tasks = [
+            tg.create_task(worker_wrapper()) for _ in range(workers)
         ]
 
-        for password in strategy.iter_passwords():
-            while not stop_event.is_set():
-                try:
-                    password_queue.put(password, timeout=0.1)
+        # Producer
+        async def produce() -> None:
+            for password in strategy.iter_passwords():
+                if stop_event.is_set():
                     break
-                except Full:
-                    continue
+                await password_queue.put(password)
             if stop_event.is_set():
-                break
+                await _drain_password_queue(password_queue)
+            await _put_worker_sentinels(password_queue, workers)
 
-        if stop_event.is_set():
-            _drain_password_queue(password_queue)
-        _put_worker_sentinels(password_queue, workers)
+        producer_task = tg.create_task(produce())
 
-        for future in as_completed(futures):
-            try:
-                found = future.result()
-            except FatalPasswordAttemptError:
-                stop_event.set()
-                for pending in futures:
-                    if pending != future:
-                        pending.cancel()
-                raise
-            except Exception:
-                continue
+        # Wait for workers, checking for results and errors
+        pending = set(worker_tasks)
 
-            if not found:
-                continue
+        while pending and not stop_event.is_set():
+            done, pending = await asyncio.wait(
+                pending, return_when=asyncio.FIRST_COMPLETED
+            )
+            for task in done:
+                result = task.result()
+                if result is not None:
+                    password, content = result
+                    found = (password, content)
+                    stop_event.set()
 
-            password, result = found
-            stop_event.set()
-            for pending in futures:
-                if pending != future:
-                    pending.cancel()
-            return PasswordAttemptResult(password=password, content=result)
+                if fatal_error is not None:
+                    stop_event.set()
+
+        # Cancel remaining tasks
+        for task in pending:
+            task.cancel()
+        if not producer_task.done():
+            producer_task.cancel()
+
+        # Allow cancellation to propagate
+        try:
+            await asyncio.gather(*pending, return_exceptions=True)
+        except Exception:
+            pass
+
+    if fatal_error is not None:
+        raise fatal_error
+
+    if found:
+        return PasswordAttemptResult(password=found[0], content=found[1])
 
     raise ParseError("Failed to brute-force password")

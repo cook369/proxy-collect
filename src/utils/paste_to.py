@@ -54,7 +54,7 @@ def parse_paste_to_url(
     return paste_id, fragment
 
 
-def fetch_paste_to_payload(
+async def fetch_paste_to_payload(
     paste_id: str,
     *,
     http_client: HttpClient,
@@ -62,7 +62,7 @@ def fetch_paste_to_payload(
 ) -> dict:
     """获取 paste.to JSON payload"""
     url = f"https://paste.to/?pasteid={paste_id}"
-    content = http_client.get(
+    content = await http_client.get(
         url,
         timeout=timeout,
         headers={
@@ -176,7 +176,7 @@ def js_json_stringify(obj) -> bytes:
     return json.dumps(obj, separators=(",", ":"), ensure_ascii=True).encode("utf-8")
 
 
-def brute_force_payload(
+async def brute_force_payload(
     max_workers: int,
     *,
     password_strategy: (
@@ -185,14 +185,14 @@ def brute_force_payload(
     decrypt_prepared: Callable[[str], str],
 ) -> PasswordAttemptResult:
     """按候选策略爆破解密 Paste.to payload"""
-    return brute_force_password(
+    return await brute_force_password(
         max_workers=max_workers,
         password_strategy=password_strategy,
         try_password=decrypt_prepared,
     )
 
 
-def decrypt_paste_to_url(
+async def decrypt_paste_to_url(
     paste_url: str,
     *,
     http_client: HttpClient,
@@ -205,7 +205,7 @@ def decrypt_paste_to_url(
 ) -> PasswordAttemptResult:
     """根据 paste.to URL 获取 payload，并按密码或爆破策略解密"""
     paste_id, fragment = parse_paste_to_url(paste_url)
-    payload = fetch_paste_to_payload(
+    payload = await fetch_paste_to_payload(
         paste_id,
         http_client=http_client,
         timeout=timeout,
@@ -217,7 +217,7 @@ def decrypt_paste_to_url(
 
     decrypt_prepared = partial(decrypt_prepared_paste_to_payload, prepared)
 
-    return brute_force_payload(
+    return await brute_force_payload(
         max_workers=max_workers,
         password_strategy=password_strategy,
         decrypt_prepared=decrypt_prepared,

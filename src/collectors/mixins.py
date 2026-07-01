@@ -1,4 +1,4 @@
-"""采集器通用 Mixin
+"""采集器通用 Mixin（异步版本）
 
 提取采集器中的通用模式，消除重复代码。
 """
@@ -155,8 +155,8 @@ class TwoStepCollectorMixin:
         title = parser.xpath(self.title_xpath, default=None)
         return title.strip() if title and title.strip() else None
 
-    def get_download_tasks(self) -> list[DownloadTask]:
-        """两步采集流程
+    async def get_download_tasks(self) -> list[DownloadTask]:
+        """两步采集流程（异步）
 
         Returns:
             DownloadTask 列表
@@ -165,7 +165,7 @@ class TwoStepCollectorMixin:
             ParseError: 无法获取今日链接或解析失败
         """
         # 步骤1：获取首页
-        home_html = self.fetch_html(self.home_page)
+        home_html = await self.fetch_html(self.home_page)
 
         # 步骤2：获取今日链接（带错误处理）
         try:
@@ -193,7 +193,7 @@ class TwoStepCollectorMixin:
             self.skip_if_cached()
 
         # 步骤3：获取今日页面
-        today_html = self.fetch_html(today_url)
+        today_html = await self.fetch_html(today_url)
 
         # 提取今日页面标题（按站点规则，失败时为 None，不阻断采集）
         try:

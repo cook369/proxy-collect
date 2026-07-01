@@ -143,6 +143,6 @@ def extract_video_title(video_html: str) -> str | None:
         return None
 
 
-def get_playlist_html(http_client: HttpClient, url: str) -> str:
-    playlist_html = http_client.get(url, timeout=10, check_html=check_playlist)
+async def get_playlist_html(http_client: HttpClient, url: str) -> str:
+    playlist_html = await http_client.get(url, timeout=10, check_html=check_playlist)
     return playlist_html

@@ -1,8 +1,9 @@
-"""文件处理服务
+"""文件处理服务（异步版本）
 
 处理下载文件的后处理，包括时间戳注入。
 """
 
+import asyncio
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
@@ -100,7 +101,7 @@ class FileProcessor:
 
         Args:
             content: 原始 YAML 内容
-            site: 站点名称
+            result: 采集结果
             timestamp: 时间戳，默认当前时间
 
         Returns:
@@ -113,7 +114,9 @@ class FileProcessor:
 
         data = yaml.safe_load(content)
         if not isinstance(data, dict):
-            logging.warning(f"[{result.site}] Unexpected YAML format, skipping timestamp injection")
+            logging.warning(
+                f"[{result.site}] Unexpected YAML format, skipping timestamp injection"
+            )
             return content
         FileProcessor._remove_existing_subscription_info(data)
 
@@ -135,14 +138,14 @@ class FileProcessor:
         return content
 
     @staticmethod
-    def process_downloaded_file(
+    async def process_downloaded_file(
         file_path: Path, result: CollectorResult, timestamp: Optional[str] = None
     ):
-        """处理下载的文件
+        """处理下载的文件（异步）
 
         Args:
             file_path: 文件路径
-            site: 站点名称
+            result: 采集结果
             timestamp: 时间戳
         """
         if not file_path.exists():
@@ -151,9 +154,13 @@ class FileProcessor:
         filename = file_path.name
 
         if filename.endswith(".yaml") or filename.endswith(".yml"):
-            content = file_path.read_text(encoding="utf-8")
+            content = await asyncio.to_thread(
+                file_path.read_text, encoding="utf-8"
+            )
             processed = FileProcessor.inject_timestamp_to_clash(
                 content, result, timestamp
             )
-            file_path.write_text(processed, encoding="utf-8")
+            await asyncio.to_thread(
+                file_path.write_text, processed, encoding="utf-8"
+            )
             logging.info(f"[{result.site}] Injected timestamp to {filename}")

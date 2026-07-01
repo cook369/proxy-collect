@@ -1,8 +1,9 @@
-"""ManifestService 单元测试"""
+"""ManifestService 单元测试（异步版本）"""
 
 import json
 import tempfile
 from pathlib import Path
+import pytest
 
 from services.manifest_service import ManifestService
 from core.models import CollectorResult, FileManifest, SiteManifest
@@ -25,7 +26,6 @@ class TestManifestServiceInit:
         with tempfile.TemporaryDirectory() as tmpdir:
             manifest_file = Path(tmpdir) / "manifest.json"
 
-            # 创建测试数据
             data = {
                 "last_run": "2026-01-30 10:00:00",
                 "sites": {
@@ -56,7 +56,6 @@ class TestManifestServiceInit:
             manifest_file = Path(tmpdir) / "manifest.json"
             manifest_file.write_text("invalid json", encoding="utf-8")
 
-            # 应该不抛出异常，只是记录警告
             service = ManifestService(manifest_file)
             assert service.sites == {}
 
@@ -77,7 +76,6 @@ class TestManifestServiceInit:
                                 "success": True,
                             }
                         },
-                        # 无 title / collected_at
                     }
                 },
             }
@@ -88,7 +86,7 @@ class TestManifestServiceInit:
             site = service.sites["test_site"]
             assert site.title is None
             assert site.collected_at is None
-            assert site.status == "success"  # 既有字段不受影响
+            assert site.status == "success"
 
 
 class TestManifestServiceShouldDownload:
@@ -110,7 +108,6 @@ class TestManifestServiceShouldDownload:
             manifest_file = Path(tmpdir) / "manifest.json"
             service = ManifestService(manifest_file)
 
-            # 添加已下载的记录
             service.sites["test_site"] = SiteManifest(
                 today_page="http://example.com/today",
                 status="success",
@@ -232,7 +229,6 @@ class TestManifestServiceUpdateFromResult:
             manifest_file = Path(tmpdir) / "manifest.json"
             service = ManifestService(manifest_file)
 
-            # 旧记录：真实采集时间/标题/updated_at 已存在
             service.sites["test_site"] = SiteManifest(
                 today_page="http://example.com/today",
                 status="success",
@@ -246,7 +242,6 @@ class TestManifestServiceUpdateFromResult:
                 collected_at="2026-06-27 10:00:00",
             )
 
-            # 本轮缓存命中（result 自带字段为 None，模拟缓存 result 未携带）
             cached_result = CollectorResult(
                 site="test_site",
                 today_page="http://example.com/today",
@@ -257,21 +252,21 @@ class TestManifestServiceUpdateFromResult:
                 },
                 status="success",
                 from_cache=True,
-                # title / collected_at 留空，验证从旧记录保留
             )
 
             service.update_from_result(cached_result)
 
             site = service.sites["test_site"]
-            assert site.collected_at == "2026-06-27 10:00:00"  # 旧值，未被 now 覆盖
-            assert site.title == "旧标题"  # 旧值保留
-            assert site.updated_at == "2026-06-27 10:00:00"  # 旧值，未被 now 覆盖
+            assert site.collected_at == "2026-06-27 10:00:00"
+            assert site.title == "旧标题"
+            assert site.updated_at == "2026-06-27 10:00:00"
 
 
 class TestManifestServiceSave:
     """save 方法测试"""
 
-    def test_save_creates_file(self):
+    @pytest.mark.asyncio
+    async def test_save_creates_file(self):
         """测试保存创建文件"""
         with tempfile.TemporaryDirectory() as tmpdir:
             manifest_file = Path(tmpdir) / "subdir" / "manifest.json"
@@ -288,14 +283,15 @@ class TestManifestServiceSave:
                 },
             )
 
-            service.save()
+            await service.save()
 
             assert manifest_file.exists()
             data = json.loads(manifest_file.read_text(encoding="utf-8"))
             assert "last_run" in data
             assert "test_site" in data["sites"]
 
-    def test_save_preserves_error_info(self):
+    @pytest.mark.asyncio
+    async def test_save_preserves_error_info(self):
         """测试保存保留错误信息"""
         with tempfile.TemporaryDirectory() as tmpdir:
             manifest_file = Path(tmpdir) / "manifest.json"
@@ -315,14 +311,15 @@ class TestManifestServiceSave:
                 error="Site error",
             )
 
-            service.save()
+            await service.save()
 
             data = json.loads(manifest_file.read_text(encoding="utf-8"))
             site_data = data["sites"]["test_site"]
             assert site_data["error"] == "Site error"
             assert site_data["files"]["clash.yaml"]["error"] == "Download failed"
 
-    def test_save_load_roundtrip_new_fields(self):
+    @pytest.mark.asyncio
+    async def test_save_load_roundtrip_new_fields(self):
         """save 再 _load 新字段不丢"""
         with tempfile.TemporaryDirectory() as tmpdir:
             manifest_file = Path(tmpdir) / "manifest.json"
@@ -340,7 +337,7 @@ class TestManifestServiceSave:
                 title="今日免费节点",
                 collected_at="2026-06-27 10:00:00",
             )
-            service.save()
+            await service.save()
 
             reloaded = ManifestService(manifest_file)
             site = reloaded.sites["test_site"]

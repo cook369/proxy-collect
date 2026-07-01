@@ -1,4 +1,4 @@
-"""Yudou 采集器"""
+"""Yudou 采集器（异步版本）"""
 
 import base64
 import re
@@ -51,13 +51,13 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
         decrypted = unpad(cipher.decrypt(cipher_bytes), AES.block_size)
         return urllib.parse.unquote(decrypted.decode("utf-8"))
 
-    def brute_force_decrypt(self, encrypted_data: str) -> str:
+    async def brute_force_decrypt(self, encrypted_data: str) -> str:
         """并发暴力破解 AES 加密密码（4 位数字）"""
         strategy = CharsetPasswordStrategy(
             length=4,
             charset="0123456789",
         )
-        result = brute_force_password(
+        result = await brute_force_password(
             max_workers=default_config.collector.http_password_workers,
             password_strategy=strategy,
             try_password=lambda pwd: self.decrypt(encrypted_data, pwd),

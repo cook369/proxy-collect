@@ -1,8 +1,9 @@
-"""README 生成服务
+"""README 生成服务（异步版本）
 
 负责生成和维护 README.md 中的采集状态表格与订阅链接。
 """
 
+import asyncio
 import logging
 import os
 import re
@@ -17,7 +18,7 @@ DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 
 
 class ReadmeService:
-    """README 生成服务"""
+    """README 生成服务（异步）"""
 
     def __init__(
         self,
@@ -31,14 +32,14 @@ class ReadmeService:
         self.github_prefix = github_prefix
         self.output_dir = output_dir
 
-    def update(self) -> None:
+    async def update(self) -> None:
         """更新 README.md"""
-        github_repository = self.get_github_repository()
-        github_branch = self.get_current_branch()
+        github_repository = await self.get_github_repository()
+        github_branch = await self.get_current_branch()
 
         lines = self._build_status_section(github_repository, github_branch)
 
-        self._write_readme(lines)
+        await self._write_readme(lines)
 
     def _build_status_section(
         self, repository: str, branch: str
@@ -54,21 +55,17 @@ class ReadmeService:
             status_icon = {"success": "✅", "partial": "⚠️", "failed": "❌"}.get(
                 site.status, "❓"
             )
-            # 耗时
             if site.duration_seconds is not None:
                 duration = f"{site.duration_seconds:.1f}s"
             else:
                 duration = "-"
-            # 采集时间
             collected = site.collected_at[:16] if site.collected_at else "-"
-            # 订阅文件状态（含链接）
             clash_cell = self._file_cell(
                 site, site_name, "clash.yaml", repository, branch
             )
             v2ray_cell = self._file_cell(
                 site, site_name, "v2ray.txt", repository, branch
             )
-            # 来源
             source_parts = []
             if site.today_page:
                 source_parts.append(f"[链接]({site.today_page})")
@@ -101,17 +98,21 @@ class ReadmeService:
             return f"[✅]({url})"
         return "❌"
 
-    def _write_readme(self, lines: list[str]) -> None:
+    async def _write_readme(self, lines: list[str]) -> None:
         """写入 README 文件，保留已有内容的前半部分"""
         if self.readme_file.exists():
-            content = self.readme_file.read_text(encoding="utf-8")
+            content = await asyncio.to_thread(
+                self.readme_file.read_text, encoding="utf-8"
+            )
             if "## 采集状态" in content:
                 content = content.split("## 采集状态")[0].rstrip()
             content += "\n" + "\n".join(lines)
         else:
             content = "\n".join(lines)
 
-        self.readme_file.write_text(content, encoding="utf-8")
+        await asyncio.to_thread(
+            self.readme_file.write_text, content, encoding="utf-8"
+        )
 
     # -------------------- 静态工具方法 -------------------- #
 
@@ -131,12 +132,11 @@ class ReadmeService:
         )
 
     @staticmethod
-    def get_current_branch() -> str:
+    async def get_current_branch() -> str:
         """获取用于 README 链接的分支名
 
         优先级：TARGET_BRANCH > GITHUB_HEAD_REF > GITHUB_REF_NAME > git 检测 > main
         """
-        # TARGET_BRANCH：CI 中采集结果推送的目标分支
         target = os.getenv("TARGET_BRANCH")
         if target:
             return target
@@ -146,14 +146,14 @@ class ReadmeService:
             return env_branch
 
         try:
-            result = subprocess.run(
-                ["git", "rev-parse", "--abbrev-ref", "HEAD"],
+            result = await asyncio.create_subprocess_exec(
+                "git", "rev-parse", "--abbrev-ref", "HEAD",
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
                 cwd=Path(__file__).resolve().parent.parent.parent,
-                capture_output=True,
-                text=True,
-                check=True,
             )
-            branch = result.stdout.strip()
+            stdout, _ = await result.communicate()
+            branch = stdout.decode().strip()
             if branch and branch != "HEAD":
                 return branch
         except Exception:
@@ -162,21 +162,21 @@ class ReadmeService:
         return "main"
 
     @staticmethod
-    def get_github_repository() -> str:
+    async def get_github_repository() -> str:
         """获取 GitHub owner/repo"""
         env_repository = os.getenv("GITHUB_REPOSITORY")
         if env_repository:
             return env_repository
 
         try:
-            result = subprocess.run(
-                ["git", "config", "--get", "remote.origin.url"],
+            result = await asyncio.create_subprocess_exec(
+                "git", "config", "--get", "remote.origin.url",
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE,
                 cwd=Path(__file__).resolve().parent.parent.parent,
-                capture_output=True,
-                text=True,
-                check=True,
             )
-            remote_url = result.stdout.strip()
+            stdout, _ = await result.communicate()
+            remote_url = stdout.decode().strip()
             match = re.search(
                 r"github\.com[:/](?P<repo>[^/\s]+/[^/\s]+?)(?:\.git)?$",
                 remote_url,
