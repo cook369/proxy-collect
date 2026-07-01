@@ -347,16 +347,22 @@ cd src && uv run pytest tests/test_utils_paste_to.py tests/test_paste_to_service
 ### collect.yml - 采集工作流
 
 - **触发条件**:
-  - 推送到任意分支
+  - 推送到 `main` / `develop` 分支（源码更新）
   - 定时任务（每 2 小时整点 + 凌晨加密时段）
-  - 手动触发
-- **执行流程**: 安装依赖 → 运行采集（带代理）→ 智能提交
-- **输出**: 更新 `dist/` 目录和 `README.md`
+  - 手动触发（可选指定源码分支 `source-branch`）
+- **执行流程**: 检出源码 → 从 `dist` 分支恢复缓存 → 安装依赖 → 运行采集（带代理）→ 将结果提交到独立的 `dist` 分支
+- **输出**: `dist` 分支包含 `dist/` 目录和 `README.md`，源码分支完全不受影响
 
-**智能 Commit 策略**：
-- 检测上一个 commit 是否为 CI 提交（author: `github-actions[bot]`）
-- 如果是，使用 `--amend` 合并到上一个 commit 并 `--force` 推送
-- 避免产生大量重复的 CI commit
+**分支隔离策略**：
+- 采集器和 Python 代码始终来自触发分支（`main` / `develop`）
+- 运行前从 `dist` 分支恢复 `dist/` 目录（含 `manifest.json`、`proxy_cache.json` 等缓存文件）
+- 采集结果提交到孤儿 `dist` 分支，不影响源码分支
+- 源码分支保持干净的代码历史
+
+**Commit 策略**：
+- `dist` 分支不保留历史，每次通过 `git checkout --orphan dist` 创建干净的无历史分支
+- 全量覆盖推送（`git push origin dist --force`），始终保持单一 commit
+- 源码分支 (`main` / `develop`) 完全不受影响
 
 ### clean.yml - 清理工作流
 

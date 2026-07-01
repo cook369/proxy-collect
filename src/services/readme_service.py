@@ -132,7 +132,15 @@ class ReadmeService:
 
     @staticmethod
     def get_current_branch() -> str:
-        """获取当前 git 分支名"""
+        """获取用于 README 链接的分支名
+
+        优先级：TARGET_BRANCH > GITHUB_HEAD_REF > GITHUB_REF_NAME > git 检测 > main
+        """
+        # TARGET_BRANCH：CI 中采集结果推送的目标分支
+        target = os.getenv("TARGET_BRANCH")
+        if target:
+            return target
+
         env_branch = os.getenv("GITHUB_HEAD_REF") or os.getenv("GITHUB_REF_NAME")
         if env_branch:
             return env_branch
