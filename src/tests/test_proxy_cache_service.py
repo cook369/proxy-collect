@@ -110,13 +110,14 @@ class TestProxyCacheService:
         assert len(healthy) == 1
         assert healthy[0].host == "1.2.3.4"
 
-    def test_update_proxies_merge(self, tmp_path):
+    @pytest.mark.asyncio
+    async def test_update_proxies_merge(self, tmp_path):
         """测试更新代理时合并统计"""
         cache_file = tmp_path / "cache.json"
         service = ProxyCacheService(cache_file)
 
         p1 = ProxyInfo(host="1.2.3.4", port=1080, success_count=5)
-        service.load()  # sync fallback
+        await service.load()
         service.update_proxies([p1])
 
         p2 = ProxyInfo(host="1.2.3.4", port=1080, success_count=3)

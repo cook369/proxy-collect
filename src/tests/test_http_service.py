@@ -38,9 +38,11 @@ class TestHttpService:
             mock_get.return_value.__aexit__ = AsyncMock(return_value=False)
 
             service = HttpService()
-            result = await service.get("http://example.com")
-
-            assert result == "test content"
+            try:
+                result = await service.get("http://example.com")
+                assert result == "test content"
+            finally:
+                await service.close()
 
     @pytest.mark.asyncio
     async def test_get_empty_response(self):
@@ -53,8 +55,11 @@ class TestHttpService:
             mock_get.return_value.__aexit__ = AsyncMock(return_value=False)
 
             service = HttpService()
-            with pytest.raises(ValueError, match="Empty response"):
-                await service.get("http://example.com")
+            try:
+                with pytest.raises(ValueError, match="Empty response"):
+                    await service.get("http://example.com")
+            finally:
+                await service.close()
 
 
 class TestProxyPool:

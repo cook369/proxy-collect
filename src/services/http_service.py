@@ -80,9 +80,7 @@ class HttpService:
         )
         session = aiohttp.ClientSession(
             connector=connector,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-            },
+            headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"},
         )
         return session
 
@@ -94,7 +92,7 @@ class HttpService:
             host=proxy_info.host,
             port=proxy_info.port,
             ssl=self.verify_ssl,
-            limit=1,
+            rdns=True,
         )
 
     async def close(self) -> None:
@@ -123,8 +121,8 @@ class HttpService:
                 "connector": connector,
                 "headers": headers or {},
                 "timeout": aiohttp.ClientTimeout(
+                    connect=15,
                     total=timeout,
-                    sock_connect=timeout,
                 ),
             }
             async with aiohttp.ClientSession(**kwargs) as session:
@@ -134,7 +132,10 @@ class HttpService:
         else:
             # 直连：使用共享 session
             req_kwargs: dict[str, Any] = {
-                "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+                "timeout": aiohttp.ClientTimeout(
+                    connect=15,
+                    total=timeout,
+                ),
             }
             if headers:
                 req_kwargs["headers"] = headers
@@ -152,7 +153,9 @@ class HttpService:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((aiohttp.ClientError, ValueError, asyncio.TimeoutError)),
+        retry=retry_if_exception_type(
+            (aiohttp.ClientError, ValueError, asyncio.TimeoutError)
+        ),
         reraise=True,
     )
     async def get(
@@ -179,7 +182,10 @@ class HttpService:
         """
         proxy_info = ProxyPool.parse_proxy_url(proxy) if proxy else None
         return await self._get(
-            url, timeout=timeout, headers=headers, check_html=check_html,
+            url,
+            timeout=timeout,
+            headers=headers,
+            check_html=check_html,
             proxy_info=proxy_info,
         )
 
@@ -216,7 +222,10 @@ class HttpService:
             connector = None
 
         kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+            "timeout": aiohttp.ClientTimeout(
+                connect=15,
+                total=timeout,
+            ),
         }
         if headers:
             kwargs["headers"] = headers
@@ -268,7 +277,10 @@ class HttpService:
             connector = None
 
         kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+            "timeout": aiohttp.ClientTimeout(
+                connect=15,
+                total=timeout,
+            ),
         }
         if headers:
             kwargs["headers"] = headers
@@ -436,37 +448,36 @@ class ProxyHttpService:
     ) -> Optional[str]:
         """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。"""
         tasks = {
-            asyncio.create_task(
-                self._try_fetch(url, proxy, timeout, headers)
-            ): proxy
+            asyncio.create_task(self._try_fetch(url, proxy, timeout, headers)): proxy
             for proxy in proxies
         }
 
-        done, pending = await asyncio.wait(
-            tasks.keys(), return_when=asyncio.FIRST_COMPLETED
-        )
+        while tasks:
+            done, pending = await asyncio.wait(
+                tasks.keys(),
+                return_when=asyncio.FIRST_COMPLETED,
+            )
 
-        # Cancel remaining tasks
-        for task in pending:
-            task.cancel()
+            for task in done:
+                proxy = tasks.pop(task)
+                try:
+                    result, response_time, _ = task.result()
+                    if check_html(result):
+                        await self.proxy_pool.record_success(proxy, response_time)
+                        logging.info(
+                            f"Successfully fetched {url} with proxy: {proxy.url}"
+                        )
 
-        # Check completed tasks
-        for task in done:
-            proxy = tasks[task]
-            try:
-                result, response_time, _ = task.result()
-                if check_html(result):
-                    await self.proxy_pool.record_success(proxy, response_time)
-                    logging.info(
-                        f"Successfully fetched {url} with proxy: {proxy.url}"
-                    )
-                    return result
-                else:
+                        for task in pending:
+                            task.cancel()
+
+                        return result
+                    else:
+                        await self.proxy_pool.record_failure(proxy)
+                        logging.info(f"Proxy {proxy.url} returned invalid content")
+                except Exception as e:
                     await self.proxy_pool.record_failure(proxy)
-                    logging.info(f"Proxy {proxy.url} returned invalid content")
-            except Exception as e:
-                await self.proxy_pool.record_failure(proxy)
-                logging.debug(f"Proxy {proxy.url} failed: {e}")
+                    logging.info(f"Proxy {proxy.url} failed: {e}")
 
         # Follow up with remaining results from cancelled tasks
         for task in pending:
@@ -489,7 +500,10 @@ class ProxyHttpService:
         start_time = time.time()
         connector = self.http_service._create_proxy_connector(proxy)
         req_kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+            "timeout": aiohttp.ClientTimeout(
+                connect=15,
+                total=timeout,
+            ),
         }
         if headers:
             req_kwargs["headers"] = headers
@@ -592,7 +606,10 @@ class ProxyHttpService:
         start_time = time.time()
         connector = self.http_service._create_proxy_connector(proxy)
         req_kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+            "timeout": aiohttp.ClientTimeout(
+                connect=15,
+                total=timeout,
+            ),
         }
         if headers:
             req_kwargs["headers"] = headers
@@ -626,7 +643,10 @@ class ProxyHttpService:
             try:
                 connector = self.http_service._create_proxy_connector(proxy_info)
                 req_kwargs: dict[str, Any] = {
-                    "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
+                    "timeout": aiohttp.ClientTimeout(
+                        connect=15,
+                        total=timeout,
+                    ),
                 }
                 if headers:
                     req_kwargs["headers"] = headers
@@ -644,3 +664,7 @@ class ProxyHttpService:
                 await self.proxy_pool.record_failure(proxy_info)
 
         raise ProxyError(f"All proxies failed to POST {url}")
+
+    async def close(self) -> None:
+        """关闭 HTTP 服务（清理内部 session）"""
+        await self.http_service.close()

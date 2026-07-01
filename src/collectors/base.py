@@ -17,7 +17,11 @@ from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
 from utils.check import default_check_html, check_html_contains
 from utils.extractors import create_download_tasks_from_regex_rules
-from utils.youtube import extract_youtube_redirect_url, find_latest_video_url, extract_video_title
+from utils.youtube import (
+    extract_youtube_redirect_url,
+    find_latest_video_url,
+    extract_video_title,
+)
 from services.paste_to_service import PasteToService
 
 # 内容验证常量
@@ -265,7 +269,9 @@ class BaseCollector(ABC):
             logging.info(f"[{self.name}] Already collected {self.today_page}, skip")
             raise CachedCollectorResult(cached_result)
 
-    async def run(self, output_dir: Path, timestamp: str | None = None) -> CollectorResult:
+    async def run(
+        self, output_dir: Path, timestamp: str | None = None
+    ) -> CollectorResult:
         """执行采集（异步）
 
         Args:
@@ -308,26 +314,12 @@ class BaseCollector(ABC):
         logging.info(f"[{self.name}] Collector finished in {duration}s")
 
         # 关闭 HTTP session（如果存在）
-        if (
-            hasattr(self, "_http_client")
-            and self._http_client is not None
-            and hasattr(self._http_client, "close")
-        ):
-            try:
-                await self._http_client.close()
-            except Exception:
-                pass
-        if (
-            hasattr(self, "http_client")
-            and self.http_client is not None
-            and hasattr(self.http_client, "http_service")
-            and self.http_client.http_service is not None
-            and hasattr(self.http_client.http_service, "close")
-        ):
-            try:
-                await self.http_client.http_service.close()
-            except Exception:
-                pass
+        if self._http_client is not None:
+            if hasattr(self._http_client, "close"):
+                try:
+                    await self._http_client.close()
+                except Exception:
+                    pass
 
         # 计算状态
         if error_msg and not files:
@@ -408,9 +400,7 @@ class YouTubeBaseCollector(BaseCollector):
         raise NotImplementedError
 
     @abstractmethod
-    async def resolve_tasks_from_redirect(
-        self, target_url: str
-    ) -> list[DownloadTask]:
+    async def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """处理重定向目标 URL 并提取下载任务（子类实现）"""
         raise NotImplementedError
 
@@ -450,9 +440,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
         """从 YouTube 视频页提取 paste.to 分享 URL（公开，供测试调用）"""
         return extract_youtube_redirect_url(video_html, self.redirect_target_host)
 
-    async def resolve_tasks_from_redirect(
-        self, target_url: str
-    ) -> list[DownloadTask]:
+    async def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """解密 paste.to 分享链接并提取订阅任务"""
         paste_to_service = PasteToService(
             http_client=self.http_client,
