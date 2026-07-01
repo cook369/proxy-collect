@@ -59,6 +59,7 @@ jobs:
 
           TMP=$(mktemp -d)
           cp -a dist README.md "$TMP/"
+          git reset --hard
           
           git switch --orphan "$TARGET_BRANCH"
           
