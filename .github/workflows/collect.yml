@@ -63,7 +63,7 @@ jobs:
           git reset --hard
           git switch --orphan "$TARGET_BRANCH"
           
-          rm -rf dist README.md
+          rm -rf *
           cp -a "$TMP"/. .
 
           git add -A
