@@ -122,7 +122,10 @@ class HttpService:
             kwargs: dict[str, Any] = {
                 "connector": connector,
                 "headers": headers or {},
-                "timeout": aiohttp.ClientTimeout(total=timeout),
+                "timeout": aiohttp.ClientTimeout(
+                    total=timeout,
+                    sock_connect=timeout,
+                ),
             }
             async with aiohttp.ClientSession(**kwargs) as session:
                 async with session.get(url) as resp:
@@ -131,7 +134,7 @@ class HttpService:
         else:
             # 直连：使用共享 session
             req_kwargs: dict[str, Any] = {
-                "timeout": aiohttp.ClientTimeout(total=timeout),
+                "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
             }
             if headers:
                 req_kwargs["headers"] = headers
@@ -213,7 +216,7 @@ class HttpService:
             connector = None
 
         kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout),
+            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
         }
         if headers:
             kwargs["headers"] = headers
@@ -265,7 +268,7 @@ class HttpService:
             connector = None
 
         kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout),
+            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
         }
         if headers:
             kwargs["headers"] = headers
@@ -486,7 +489,7 @@ class ProxyHttpService:
         start_time = time.time()
         connector = self.http_service._create_proxy_connector(proxy)
         req_kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout),
+            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
         }
         if headers:
             req_kwargs["headers"] = headers
@@ -589,7 +592,7 @@ class ProxyHttpService:
         start_time = time.time()
         connector = self.http_service._create_proxy_connector(proxy)
         req_kwargs: dict[str, Any] = {
-            "timeout": aiohttp.ClientTimeout(total=timeout),
+            "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
         }
         if headers:
             req_kwargs["headers"] = headers
@@ -623,7 +626,7 @@ class ProxyHttpService:
             try:
                 connector = self.http_service._create_proxy_connector(proxy_info)
                 req_kwargs: dict[str, Any] = {
-                    "timeout": aiohttp.ClientTimeout(total=timeout),
+                    "timeout": aiohttp.ClientTimeout(total=timeout, sock_connect=timeout),
                 }
                 if headers:
                     req_kwargs["headers"] = headers

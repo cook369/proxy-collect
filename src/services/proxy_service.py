@@ -38,6 +38,8 @@ class ProxyValidator:
             )
             response_time = time.time() - start_time
             return True, response_time
+        except asyncio.CancelledError:
+            return False, 0.0
         except Exception:
             return False, 0.0
 
@@ -86,6 +88,8 @@ class ProxyValidator:
                         t.cancel()
             try:
                 await coro
+            except asyncio.CancelledError:
+                pass
             except Exception:
                 pass
 
