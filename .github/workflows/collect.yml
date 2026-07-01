@@ -14,7 +14,7 @@ on:
         type: string
       target-branch:
         description: '目标分支（采集结果推送目标）'
-        default: 'dist'
+        default: 'dist-2'
         type: string
 env:
   TARGET_BRANCH: ${{ github.event.inputs.target-branch || 'dist' }}
