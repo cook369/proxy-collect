@@ -65,7 +65,8 @@ def test_extract_latest_video_url_from_playlist_selects_matching_title():
     html = f"<script>var ytInitialData = {json.dumps(data)};</script>"
 
     assert (
-        collector.get_today_url(html) == "https://www.youtube.com/watch?v=LN-Dgi_0_1I"
+        collector.get_today_url(html)
+        == ("https://www.youtube.com/watch?v=LN-Dgi_0_1I", "最新节点分享 免费节点")
     )
 
 

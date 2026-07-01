@@ -218,10 +218,11 @@ class _FakeHttpService:
             return action[2]
         raise requests.ConnectionError(f"fail via {proxy}")
 
-    def get(self, url, timeout=30, headers=None, check_html=default_check_html):
-        if self.direct is None:
-            raise requests.ConnectionError("no direct route")
-        return self.direct
+    def get(self, url, proxy=None, timeout=30, headers=None, check_html=default_check_html):
+        if self.direct is not None:
+            return self.direct
+        # 委托给 _get（保持代理竞速测试兼容）
+        return self._get(url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html)
 
 
 class TestProxyHttpService:

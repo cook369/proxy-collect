@@ -36,13 +36,15 @@ class ReadmeService:
         github_repository = self.get_github_repository()
         github_branch = self.get_current_branch()
 
-        lines = self._build_status_section()
-        lines.extend(self._build_subscription_section(github_repository, github_branch))
+        lines = self._build_status_section(github_repository, github_branch)
 
         self._write_readme(lines)
 
-    def _build_status_section(self) -> list[str]:
-        """构建采集状态表格"""
+    def _build_status_section(
+        self, repository: str, branch: str
+    ) -> list[str]:
+        """构建采集状态表格（含订阅链接）"""
+
         lines = ["\n## 采集状态\n"]
         lines.append("| 站点 | 状态 | 耗时 | 采集时间 | Clash | V2Ray | 来源 |")
         lines.append("|------|------|------|----------|-------|-------|------|")
@@ -59,66 +61,45 @@ class ReadmeService:
                 duration = "-"
             # 采集时间
             collected = site.collected_at[:16] if site.collected_at else "-"
-            # 订阅文件状态
-            clash_icon = self._file_status_icon(site, "clash.yaml")
-            v2ray_icon = self._file_status_icon(site, "v2ray.txt")
+            # 订阅文件状态（含链接）
+            clash_cell = self._file_cell(
+                site, site_name, "clash.yaml", repository, branch
+            )
+            v2ray_cell = self._file_cell(
+                site, site_name, "v2ray.txt", repository, branch
+            )
             # 来源
-            source = f"[链接]({site.today_page})" if site.today_page else "-"
+            source_parts = []
+            if site.today_page:
+                source_parts.append(f"[链接]({site.today_page})")
+            if site.title:
+                source_parts.append(f"*{site.title}*")
+            source = " - ".join(source_parts) if source_parts else "-"
             lines.append(
                 f"| {site_name} | {status_icon} | {duration} | {collected} "
-                f"| {clash_icon} | {v2ray_icon} | {source} |"
+                f"| {clash_cell} | {v2ray_cell} | {source} |"
             )
 
         lines.append(f"\n**最后运行**: {self.manifest.last_run}\n")
         lines.append("\n---\n")
         return lines
 
-    @staticmethod
-    def _file_status_icon(site: SiteManifest, filename: str) -> str:
-        """返回订阅文件在表格中的状态图标"""
+    def _file_cell(
+        self, site: SiteManifest, site_name: str, filename: str,
+        repository: str, branch: str
+    ) -> str:
+        """返回订阅文件在表格中的状态图标，成功时附带链接"""
         if site.status == "failed":
             return "-"
         file_info = site.files.get(filename)
         if file_info is None:
             return "-"
-        return "✅" if file_info.success else "❌"
-
-    def _build_subscription_section(
-        self, repository: str, branch: str
-    ) -> list[str]:
-        """构建订阅链接章节"""
-        lines = ["\n## 每日更新订阅\n"]
-
-        for site_name in sorted(self.manifest.sites.keys()):
-            site = self.manifest.sites[site_name]
-            if site.status == "failed":
-                continue
-
-            site_dir = self.output_dir / site_name
-            status_suffix = " ⚠️" if site.status == "partial" else ""
-            lines.append(f"### {site_name}{status_suffix}\n")
-            lines.append("| 类型 | 订阅链接 |")
-            lines.append("|:----:|----------|")
-
-            clash_path = site_dir / "clash.yaml"
-            v2ray_path = site_dir / "v2ray.txt"
-
-            if clash_path.exists():
-                url = self._build_raw_github_url(
-                    self.github_prefix, repository, branch, site_name, "clash.yaml"
-                )
-                lines.append(f"| Clash | {url} |")
-
-            if v2ray_path.exists():
-                url = self._build_raw_github_url(
-                    self.github_prefix, repository, branch, site_name, "v2ray.txt"
-                )
-                lines.append(f"| V2Ray | {url} |")
-
-            lines.append("")
-
-        lines.append("\n---\n")
-        return lines
+        if file_info.success:
+            url = self._build_raw_github_url(
+                self.github_prefix, repository, branch, site_name, filename
+            )
+            return f"[✅]({url})"
+        return "❌"
 
     def _write_readme(self, lines: list[str]) -> None:
         """写入 README 文件，保留已有内容的前半部分"""
@@ -126,8 +107,6 @@ class ReadmeService:
             content = self.readme_file.read_text(encoding="utf-8")
             if "## 采集状态" in content:
                 content = content.split("## 采集状态")[0].rstrip()
-            elif "## 每日更新订阅" in content:
-                content = content.split("## 每日更新订阅")[0].rstrip()
             content += "\n" + "\n".join(lines)
         else:
             content = "\n".join(lines)

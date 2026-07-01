@@ -27,7 +27,6 @@ class JCNodeCollector(BaseCollector):
     verification_code_strategy: (
         CharsetPasswordStrategy | DictionaryPasswordStrategy | None
     ) = None
-    verify_network_retry_rounds = 3
     verify_headers = {
         "content-type": "application/json",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
@@ -78,51 +77,26 @@ class JCNodeCollector(BaseCollector):
         """用单个口令请求 jcnode 验证接口。
 
         通过 self.http_client.post() 发送请求，代理池自动管理代理选择与重试。
-        当所有代理失败时，重试 verify_network_retry_rounds 轮（每轮代理池会重新排序）。
         """
-        last_error: Exception | None = None
-        failed_rounds = 0
-
         logging.debug(f"[{self.name}] trying password candidate")
 
-        while failed_rounds < self.verify_network_retry_rounds:
-            try:
-                response = self.http_client.post(
-                    self.verify_url,
-                    json={"code": password},
-                    timeout=default_config.collector.fetch_timeout,
-                    headers=self.verify_headers,
-                )
-            except ProxyError as e:
-                last_error = e
-                failed_rounds += 1
-                if failed_rounds < self.verify_network_retry_rounds:
-                    logging.info(
-                        f"[{self.name}] all proxies failed, retrying same password"
-                    )
-                continue
-            except Exception as e:
-                last_error = e
-                failed_rounds += 1
-                if failed_rounds < self.verify_network_retry_rounds:
-                    logging.info(
-                        f"[{self.name}] request failed, retrying same password: {e}"
-                    )
-                continue
-
-            if "口令错误" in response:
-                logging.debug(f"[{self.name}] password candidate rejected")
-                raise ValueError("password error")
-            if not response.strip():
-                failed_rounds += 1
-                logging.debug(
-                    f"[{self.name}] empty verification response, retrying"
-                )
-                continue
-            return response
-
-        if last_error:
+        try:
+            response = self.http_client.post(
+                self.verify_url,
+                json={"code": password},
+                timeout=default_config.collector.fetch_timeout,
+                headers=self.verify_headers,
+            )
+        except ProxyError as e:
             raise FatalPasswordAttemptError(
                 "jcnode verification network failed"
-            ) from last_error
-        raise FatalPasswordAttemptError("no proxy available for jcnode verification")
+            ) from e
+
+        if "口令错误" in response:
+            logging.debug(f"[{self.name}] password candidate rejected")
+            raise ValueError("password error")
+        if not response.strip():
+            raise FatalPasswordAttemptError(
+                "jcnode verification returned empty response"
+            )
+        return response

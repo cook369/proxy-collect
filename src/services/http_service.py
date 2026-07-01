@@ -52,11 +52,18 @@ class HttpService:
 
     def _create_session(self) -> requests.Session:
         """创建 HTTP 会话"""
+        from requests.adapters import HTTPAdapter
+
         session = requests.Session()
         session.verify = self.verify_ssl
         session.headers.update(
             {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
         )
+        # 默认连接池上限 10，多线程并发时会触发 "Connection pool is full"
+        # 将每个 host 的连接池大小提升到 60，覆盖并行度最高的场景。
+        adapter = HTTPAdapter(pool_connections=60, pool_maxsize=60)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)
         return session
 
     def _get(
@@ -372,7 +379,7 @@ class ProxyHttpService:
     ) -> tuple[str, float, ProxyInfo]:
         """尝试使用指定代理获取（单次，不重试）"""
         start_time = time.time()
-        result = self.http_service._get(
+        result = self.http_service.get(
             url, proxy=proxy.url, timeout=timeout, headers=headers
         )
         response_time = time.time() - start_time

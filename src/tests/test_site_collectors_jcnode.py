@@ -109,19 +109,16 @@ def test_verify_code_posts_with_timeout_and_returns_content():
     )
 
 
-def test_verify_code_retries_on_proxy_error():
+def test_verify_code_raises_fatal_error_on_proxy_error():
     collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
     collector.http_client.post = Mock(
-        side_effect=[
-            ProxyError("all proxies failed"),
-            '{"v2ray":"https://example.com/v2ray.txt"}',
-        ]
+        side_effect=ProxyError("all proxies failed")
     )
 
-    result = collector.verify_code("1234")
+    with pytest.raises(FatalPasswordAttemptError, match="network failed"):
+        collector.verify_code("1234")
 
-    assert result == '{"v2ray":"https://example.com/v2ray.txt"}'
-    assert collector.http_client.post.call_count == 2
+    collector.http_client.post.assert_called_once()
 
 
 def test_verify_code_rejects_wrong_password():
@@ -130,17 +127,6 @@ def test_verify_code_rejects_wrong_password():
 
     with pytest.raises(ValueError, match="password error"):
         collector.verify_code("0000")
-
-
-def test_verify_code_raises_fatal_error_after_all_rounds_fail():
-    collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
-    collector.verify_network_retry_rounds = 2
-    collector.http_client.post = Mock(side_effect=ProxyError("all proxies failed"))
-
-    with pytest.raises(FatalPasswordAttemptError, match="network failed"):
-        collector.verify_code("1234")
-
-    assert collector.http_client.post.call_count == 2
 
 
 def test_bruteforce_propagates_fatal_attempt_error():

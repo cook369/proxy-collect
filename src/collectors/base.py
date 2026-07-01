@@ -313,10 +313,59 @@ class CachedCollectorResult(Exception):
         self.result = result
 
 
+# -------------------- YouTube 采集器基类 -------------------- #
+
+
+class YouTubeBaseCollector(BaseCollector):
+    """YouTube 采集器基类
+
+    公共骨架: 首页 → 找最新视频 → 拉视频页 → 提取重定向 URL → 处理内容
+    子类实现 get_today_url / resolve_tasks_from_redirect。
+
+    子类需定义:
+        home_page: YouTube 首页/播放列表 URL
+        redirect_target_host: 重定向目标域名（如 "paste.to"、"drive.google.com"）
+        home_check_keyword: 首页 HTML 校验关键字（默认 "免费节点"）
+    """
+
+    redirect_target_host: str = ""
+    home_check_keyword: str = "免费节点"
+
+    def get_download_tasks(self) -> list[DownloadTask]:
+        """从 YouTube 最新视频中提取订阅任务"""
+        check_html = check_html_contains(self.home_check_keyword)
+        if not self.today_page:
+            home_html = self.fetch_html(self.home_page, check_html=check_html)
+            self.today_page, self.title = self.get_today_url(home_html)
+        self.skip_if_cached()
+
+        video_html = self.fetch_html(self.today_page)
+        target_url = self.extract_redirect_url(video_html)
+
+        logging.info(f"[{self.name}] processing redirect: {target_url}")
+        return self.resolve_tasks_from_redirect(target_url)
+
+    def extract_redirect_url(self, video_html: str) -> str:
+        """从 YouTube 视频页提取重定向目标 URL"""
+        return extract_youtube_redirect_url(video_html, self.redirect_target_host)
+
+    @abstractmethod
+    def get_today_url(self, home_html: str) -> tuple[str, str]:
+        """从首页 HTML 提取最新视频 (url, title)（子类实现）"""
+        raise NotImplementedError
+
+    @abstractmethod
+    def resolve_tasks_from_redirect(
+        self, target_url: str
+    ) -> list[DownloadTask]:
+        """处理重定向目标 URL 并提取下载任务（子类实现）"""
+        raise NotImplementedError
+
+
 # -------------------- YouTube + Paste.to 采集器基类 -------------------- #
 
 
-class YouTubePasteToCollector(BaseCollector):
+class YouTubePasteToCollector(YouTubeBaseCollector):
     """YouTube + Paste.to 采集器基类
 
     适用于从 YouTube 播放列表找最新视频，从视频描述提取 paste.to 分享链接，
@@ -324,28 +373,34 @@ class YouTubePasteToCollector(BaseCollector):
 
     子类需定义:
         home_page: YouTube 播放列表 URL
-        playlist_keywords: 匹配视频标题的关键字元组（首个同时用作页面校验关键字）
-        subscription_patterns: 从解密内容提取订阅链接的正则规则字典
+        playlist_keywords: 匹配视频标题的关键字元组
     """
 
+    redirect_target_host = "paste.to"
     playlist_keywords: tuple[str, ...] = ("免费节点",)
     paste_to_password: str | None = None
     paste_to_password_strategy: (
         "CharsetPasswordStrategy | DictionaryPasswordStrategy | None"
     ) = None
 
-    def get_download_tasks(self) -> list[DownloadTask]:
-        """从 YouTube 最新视频中的 paste.to 分享提取订阅任务"""
-        check_playlist = check_html_contains(self.playlist_keywords[0])
-        if not self.today_page:
-            playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
-            self.today_page = self.get_today_url(playlist_html)
-        self.skip_if_cached()
+    def get_today_url(self, home_html: str) -> tuple[str, str]:
+        """从 YouTube 播放列表页面提取最新视频 (url, title)"""
+        video, title = find_latest_video_url(
+            home_html,
+            self.playlist_keywords,
+            reverse=False,
+        )
+        logging.info(f"[{self.name}] find video {video}, title {title}")
+        return video, title
 
-        video_html = self.fetch_html(self.today_page)
-        paste_url = self.extract_paste_url(video_html)
+    def extract_paste_url(self, video_html: str) -> str:
+        """从 YouTube 视频页提取 paste.to 分享 URL（公开，供测试调用）"""
+        return extract_youtube_redirect_url(video_html, self.redirect_target_host)
 
-        logging.info(f"[{self.name}] try decrypt {paste_url} share")
+    def resolve_tasks_from_redirect(
+        self, target_url: str
+    ) -> list[DownloadTask]:
+        """解密 paste.to 分享链接并提取订阅任务"""
         paste_to_service = PasteToService(
             http_client=self.http_client,
             timeout=default_config.collector.fetch_timeout,
@@ -353,28 +408,15 @@ class YouTubePasteToCollector(BaseCollector):
             password_strategy=self.paste_to_password_strategy,
         )
         decrypt_result = paste_to_service.decrypt_url(
-            paste_url,
+            target_url,
             password=self.paste_to_password,
         )
         if not self.paste_to_password:
             logging.info(
-                f"[{self.name}] password decrypt {paste_url} with {decrypt_result.password} share"
+                f"[{self.name}] password decrypt {target_url} "
+                f"with {decrypt_result.password} share"
             )
         return self.parse_subscription_tasks(decrypt_result.content)
-
-    def get_today_url(self, home_html: str) -> str:
-        """从 YouTube 播放列表页面提取最新视频 URL"""
-        video, title = find_latest_video_url(
-            home_html,
-            self.playlist_keywords,
-            reverse=False,
-        )
-        logging.info(f"[{self.name}] find video {video}, title {title}")
-        return video
-
-    def extract_paste_url(self, video_html: str) -> str:
-        """从 YouTube 视频页提取 paste.to 分享 URL"""
-        return extract_youtube_redirect_url(video_html, "paste.to")
 
     @abstractmethod
     def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
@@ -429,6 +471,7 @@ def get_collector(name: str) -> type[BaseCollector]:
 
 __all__ = [
     "BaseCollector",
+    "YouTubeBaseCollector",
     "YouTubePasteToCollector",
     "CollectorResult",
     "register_collector",

@@ -64,7 +64,10 @@ def test_extract_latest_video_url_from_playlist_uses_current_order():
     }
     html = f"<script>var ytInitialData = {json.dumps(data)};</script>"
 
-    assert collector.get_today_url(html) == "https://www.youtube.com/watch?v=OLDER"
+    assert collector.get_today_url(html) == (
+        "https://www.youtube.com/watch?v=OLDER",
+        "节点分享 免费节点",
+    )
 
 
 def test_get_today_url_rejects_compact_playlist_html():
