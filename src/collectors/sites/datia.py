@@ -23,7 +23,7 @@ class DatiaCollector(TwoStepCollectorMixin, BaseCollector):
         """从今日页面解析下载任务"""
         parser = HtmlParser(today_html, self.name)
         rules = {
-            "v2ray.txt": 'string(//ol[contains(., "V2ray配置")]/following-sibling::pre[1])',
+            # "v2ray.txt": 'string(//ol[contains(., "V2ray配置")]/following-sibling::pre[1])',
             "clash.yaml": 'string(//ol[contains(., "Clash配置")]/following-sibling::pre[1])',
         }
 
