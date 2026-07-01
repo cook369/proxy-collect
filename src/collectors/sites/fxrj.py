@@ -26,7 +26,7 @@ class FXRJCollector(YouTubeBaseCollector):
         """从 YouTube 频道页提取最新视频 (url, title)"""
         video, title = find_latest_video_url_in_home(home_html)
         logging.info(f"[{self.name}] find video {video}, title {title}")
-        return video, title
+        return video, ""
 
     def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """从 Google Drive 下载 zip 并提取订阅任务"""

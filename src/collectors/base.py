@@ -15,7 +15,7 @@ from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
 from utils.check import default_check_html, check_html_contains
 from utils.extractors import create_download_tasks_from_regex_rules
-from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
+from utils.youtube import extract_youtube_redirect_url, find_latest_video_url, extract_video_title
 from services.paste_to_service import PasteToService
 
 # 内容验证常量
@@ -340,6 +340,10 @@ class YouTubeBaseCollector(BaseCollector):
         self.skip_if_cached()
 
         video_html = self.fetch_html(self.today_page)
+        # 用视频页面 HTML 重新提取标题，避免从首页/播放列表取到不准确的值
+        video_title = extract_video_title(video_html)
+        if video_title:
+            self.title = video_title
         target_url = self.extract_redirect_url(video_html)
 
         logging.info(f"[{self.name}] processing redirect: {target_url}")

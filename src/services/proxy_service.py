@@ -93,7 +93,6 @@ class ProxyValidator:
                     current_bucket = current_percent // 10
                     if current_bucket > last_reported_bucket:
                         last_reported_bucket = current_bucket
-                        pbar.update(len(available) - pbar.n)
                         pbar.set_postfix(
                             {
                                 "Available": f"{len(available)}/{target_available}",
@@ -101,13 +100,12 @@ class ProxyValidator:
                             },
                             refresh=False,
                         )
-                        pbar.refresh()
+                        pbar.update(len(available) - pbar.n)
 
                     if stop_checking:
                         break
 
                 if pbar.n < len(available):
-                    pbar.update(len(available) - pbar.n)
                     pbar.set_postfix(
                         {
                             "Available": f"{len(available)}/{target_available}",
@@ -115,7 +113,7 @@ class ProxyValidator:
                         },
                         refresh=False,
                     )
-                    pbar.refresh()
+                    pbar.update(len(available) - pbar.n)
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available
