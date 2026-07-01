@@ -21,4 +21,6 @@ class QFZYFXCollector(YouTubePasteToCollector):
             "v2ray.txt": r"v2ray.*?(https?://[^\s<>'\"，）)]+)(?:\\n|\n|$)",
             "clash.yaml": r"clash.*?(https?://[^\s<>'\"，）)]+)(?:\\n|\n|$)",
         }
-        return create_download_tasks_from_regex_rules(content, patterns)
+        tasks = create_download_tasks_from_regex_rules(content, patterns)
+        tasks[1].url = tasks[0].url + '&clash'
+        return tasks

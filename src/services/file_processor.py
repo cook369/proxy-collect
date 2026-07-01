@@ -112,6 +112,9 @@ class FileProcessor:
         names = FileProcessor._build_subscription_info_names(result, timestamp)
 
         data = yaml.safe_load(content)
+        if not isinstance(data, dict):
+            logging.warning(f"[{result.site}] Unexpected YAML format, skipping timestamp injection")
+            return content
         FileProcessor._remove_existing_subscription_info(data)
 
         for name in names:
