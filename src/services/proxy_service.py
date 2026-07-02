@@ -137,16 +137,13 @@ class ProxyService:
         """
         sources = []
         for item in self.config.proxy_sources:
-            if isinstance(item, str):
-                sources.append(ProxySourceConfig(url=item))
-            elif isinstance(item, dict):
-                sources.append(
-                    ProxySourceConfig(
-                        url=item["url"],
-                        weight=item.get("weight", 1.0),
-                        proxy_type=ProxyType(item.get("proxy_type", "socks5")),
-                    )
+            sources.append(
+                ProxySourceConfig(
+                    url=item["url"],
+                    weight=item.get("weight", 1.0),
+                    proxy_type=ProxyType(item.get("proxy_type", "socks5")),
                 )
+            )
         return sources
 
     def _parse_proxy_line(

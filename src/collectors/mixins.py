@@ -9,6 +9,7 @@ from typing import Optional
 
 from core.exceptions import ParseError
 from core.models import DownloadTask
+from utils.html_utils import extract_text_by_xpath
 
 
 class HtmlParser:
@@ -104,8 +105,6 @@ class TwoStepCollectorMixin:
     # 由 BaseCollector 提供的依赖属性（此处声明以消除隐式耦合）
     name: str
     home_page: str
-    fetch_html: callable
-    skip_if_cached: callable
 
     today_page: str | None = None  # 保存今日页面 URL
     title: str | None = None  # 保存今日页面标题，作为采集标题
@@ -151,9 +150,7 @@ class TwoStepCollectorMixin:
         """
         if not self.title_xpath:
             return None
-        parser = HtmlParser(today_html, self.name)
-        title = parser.xpath(self.title_xpath, default=None)
-        return title.strip() if title and title.strip() else None
+        return extract_text_by_xpath(today_html, self.title_xpath)
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """两步采集流程
@@ -165,7 +162,8 @@ class TwoStepCollectorMixin:
             ParseError: 无法获取今日链接或解析失败
         """
         # 步骤1：获取首页
-        home_html = self.fetch_html(self.home_page)
+        if hasattr(self, "fetch_html"):
+            home_html = self.fetch_html(self.home_page)
 
         # 步骤2：获取今日链接（带错误处理）
         try:
@@ -193,7 +191,8 @@ class TwoStepCollectorMixin:
             self.skip_if_cached()
 
         # 步骤3：获取今日页面
-        today_html = self.fetch_html(today_url)
+        if hasattr(self, "fetch_html"):
+            today_html = self.fetch_html(today_url)
 
         # 提取今日页面标题（按站点规则，失败时为 None，不阻断采集）
         try:

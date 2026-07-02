@@ -5,8 +5,6 @@ import json
 import re
 from urllib.parse import unquote
 
-from lxml import etree
-
 from core.exceptions import ParseError
 from core.interfaces import HttpClient
 from utils.check import check_html_contains
@@ -93,7 +91,9 @@ def find_latest_video_url_in_home(
     """从 YouTube 主页页面提取匹配关键词的视频 URL"""
     match = re.search(r"\[Daily Update\].*?\"", home_html)
     if not match:
-        raise ParseError("YouTube home not find videos")
+        match = re.search(r"【每日更新】.*?\"", home_html)
+        if not match:
+            raise ParseError("YouTube home not find videos")
     title = match.group(0)
     st_index = home_html.index(title)
     match = re.search(r"/watch\?v=(.*?)\"", home_html[st_index:])
@@ -121,26 +121,6 @@ def extract_youtube_redirect_url(
 
 
 check_playlist = check_html_contains("lockupViewModel")
-
-
-def extract_video_title(video_html: str) -> str | None:
-    """从 YouTube 视频页面 HTML 中提取视频标题
-
-    Args:
-        video_html: YouTube 视频页面 HTML
-
-    Returns:
-        视频标题，提取失败返回 None
-    """
-    try:
-        tree = etree.HTML(video_html)
-        result = tree.xpath('string(//div[@id="title"]/h1/yt-formatted-string)')
-        if not result:
-            return None
-        title = str(result).strip()
-        return title if title else None
-    except Exception:
-        return None
 
 
 def get_playlist_html(http_client: HttpClient, url: str) -> str:

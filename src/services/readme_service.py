@@ -40,9 +40,7 @@ class ReadmeService:
 
         self._write_readme(lines)
 
-    def _build_status_section(
-        self, repository: str, branch: str
-    ) -> list[str]:
+    def _build_status_section(self, repository: str, branch: str) -> list[str]:
         """构建采集状态表格（含订阅链接）"""
 
         lines = ["\n## 采集状态\n"]
@@ -85,8 +83,12 @@ class ReadmeService:
         return lines
 
     def _file_cell(
-        self, site: SiteManifest, site_name: str, filename: str,
-        repository: str, branch: str
+        self,
+        site: SiteManifest,
+        site_name: str,
+        filename: str,
+        repository: str,
+        branch: str,
     ) -> str:
         """返回订阅文件在表格中的状态图标，成功时附带链接"""
         if site.status == "failed":

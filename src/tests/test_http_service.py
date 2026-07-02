@@ -9,12 +9,18 @@ import requests
 
 from services.http_service import HttpService, ProxyHttpService, ProxyPool
 from core.exceptions import ProxyError
+from core.interfaces import HttpClient
 from core.models import ProxyInfo, ProxyType
 from utils.check import default_check_html
 
 
 class TestHttpService:
     """HttpService 测试类"""
+
+    def test_http_service_satisfies_http_client_protocol(self):
+        """HttpService 应满足 HttpClient 协议"""
+        service = HttpService()
+        assert isinstance(service, HttpClient)
 
     def test_create_session_with_ssl_verification(self):
         """测试创建带 SSL 验证的会话"""
@@ -199,7 +205,7 @@ class _FakeHttpService:
         #                      | ("slow", seconds, content)
         self.behavior = behavior or {}
         self.direct = direct
-        self.calls: list[str | None] = []
+        self.calls = []
         self._lock = threading.Lock()
 
     def _get(
@@ -218,15 +224,36 @@ class _FakeHttpService:
             return action[2]
         raise requests.ConnectionError(f"fail via {proxy}")
 
-    def get(self, url, proxy=None, timeout=30, headers=None, check_html=default_check_html):
+    def get(
+        self,
+        url,
+        timeout=30,
+        headers=None,
+        check_html=default_check_html,
+        *,
+        proxy=None,
+    ):
         if self.direct is not None:
             return self.direct
         # 委托给 _get（保持代理竞速测试兼容）
-        return self._get(url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html)
+        return self._get(
+            url, proxy=proxy, timeout=timeout, headers=headers, check_html=check_html
+        )
+
+    def get_raw(self, url, proxy=None, timeout=30, headers=None):
+        raise NotImplementedError
+
+    def post(self, url, json=None, timeout=30, headers=None, *, proxy=None):
+        raise NotImplementedError
 
 
 class TestProxyHttpService:
     """ProxyHttpService 小批次竞速与线程池生命周期测试"""
+
+    def test_proxy_http_service_satisfies_http_client_protocol(self):
+        """ProxyHttpService 应满足 HttpClient 协议"""
+        service = ProxyHttpService(HttpService(), ProxyPool())
+        assert isinstance(service, HttpClient)
 
     def _pool(self, n: int) -> tuple[list[ProxyInfo], ProxyPool]:
         proxies = [ProxyInfo(host=f"10.0.0.{i}", port=1000 + i) for i in range(n)]

@@ -5,7 +5,7 @@ import logging
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Union, Callable
+from typing import Optional, Protocol, Union, Callable
 
 import yaml
 
@@ -14,9 +14,13 @@ from core.interfaces import HttpClient
 from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
 from utils.check import default_check_html, check_html_contains
-from utils.extractors import create_download_tasks_from_regex_rules
-from utils.youtube import extract_youtube_redirect_url, find_latest_video_url, extract_video_title
+from utils.html_utils import extract_text_by_xpath
+from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
 from services.paste_to_service import PasteToService
+from utils.passwords import (
+    CharsetPasswordStrategy,
+    DictionaryPasswordStrategy,
+)
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -26,6 +30,22 @@ MIN_FILE_SIZE = 100  # 100 bytes
 COLLECTOR_REGISTRY: dict[str, type["BaseCollector"]] = {}
 
 
+class CollectorProtocol(Protocol):
+    name: str
+    home_page: str
+    today_page: str | None = None  # 今日页面 URL（由 mixin 设置）
+    _current_output_dir: Path | None = None
+    http_client: HttpClient
+
+    def fetch_html(
+        self,
+        url: str,
+        timeout: int = default_config.collector.fetch_timeout,
+        check_html: Callable[[str], bool] = default_check_html,
+    ) -> str: ...
+    def skip_if_cached(self, output_dir: Path | None = None) -> None: ...
+
+
 class BaseCollector(ABC):
     """采集器基类"""
 
@@ -33,6 +53,7 @@ class BaseCollector(ABC):
     home_page: str
     today_page: str | None = None  # 今日页面 URL（由 mixin 设置）
     _current_output_dir: Path | None = None
+    http_client: HttpClient
 
     def __init__(
         self,
@@ -46,6 +67,7 @@ class BaseCollector(ABC):
             http_client: HTTP 客户端（新方式，依赖注入）
         """
         self.proxy_pool = None
+
         if http_client is None:
             from services.http_service import HttpService, ProxyPool, ProxyHttpService
 
@@ -341,7 +363,7 @@ class YouTubeBaseCollector(BaseCollector):
 
         video_html = self.fetch_html(self.today_page)
         # 用视频页面 HTML 重新提取标题，避免从首页/播放列表取到不准确的值
-        video_title = extract_video_title(video_html)
+        video_title = extract_text_by_xpath(video_html, "//title/text()")
         if video_title:
             self.title = video_title
         target_url = self.extract_redirect_url(video_html)
@@ -359,9 +381,7 @@ class YouTubeBaseCollector(BaseCollector):
         raise NotImplementedError
 
     @abstractmethod
-    def resolve_tasks_from_redirect(
-        self, target_url: str
-    ) -> list[DownloadTask]:
+    def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """处理重定向目标 URL 并提取下载任务（子类实现）"""
         raise NotImplementedError
 
@@ -384,7 +404,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
     playlist_keywords: tuple[str, ...] = ("免费节点",)
     paste_to_password: str | None = None
     paste_to_password_strategy: (
-        "CharsetPasswordStrategy | DictionaryPasswordStrategy | None"
+        CharsetPasswordStrategy | DictionaryPasswordStrategy | None
     ) = None
 
     def get_today_url(self, home_html: str) -> tuple[str, str]:
@@ -401,9 +421,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
         """从 YouTube 视频页提取 paste.to 分享 URL（公开，供测试调用）"""
         return extract_youtube_redirect_url(video_html, self.redirect_target_host)
 
-    def resolve_tasks_from_redirect(
-        self, target_url: str
-    ) -> list[DownloadTask]:
+    def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """解密 paste.to 分享链接并提取订阅任务"""
         paste_to_service = PasteToService(
             http_client=self.http_client,

@@ -100,10 +100,11 @@ class HttpService:
     def get(
         self,
         url: str,
-        proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
         check_html: Callable[[str], bool] = default_check_html,
+        *,
+        proxy: Optional[str] = None,
     ) -> str:
         """发送 GET 请求（带重试）
 
@@ -133,9 +134,10 @@ class HttpService:
         self,
         url: str,
         json: Optional[dict[str, Any]] = None,
-        proxy: Optional[str] = None,
         timeout: int = 30,
         headers: Optional[dict[str, str]] = None,
+        *,
+        proxy: Optional[str] = None,
     ) -> str:
         """发送 POST 请求（带重试）
 
@@ -362,11 +364,13 @@ class ProxyHttpService:
                     if not check_html(result):
                         logging.info(f"Proxy {proxy.url} returned invalid content")
                         raise ValueError("Response content failed validation")
-                    self.proxy_pool.record_success(proxy, response_time)
+                    if self.proxy_pool:
+                        self.proxy_pool.record_success(proxy, response_time)
                     logging.info(f"Successfully fetched {url} with proxy: {proxy.url}")
                     return result
                 except Exception as e:
-                    self.proxy_pool.record_failure(proxy)
+                    if self.proxy_pool:
+                        self.proxy_pool.record_failure(proxy)
                     logging.debug(f"Proxy {proxy.url} failed: {e}")
         return None
 
@@ -438,13 +442,15 @@ class ProxyHttpService:
                 proxy = futures[future]
                 try:
                     result, response_time, _ = future.result()
-                    self.proxy_pool.record_success(proxy, response_time)
+                    if self.proxy_pool:
+                        self.proxy_pool.record_success(proxy, response_time)
                     logging.info(
                         f"Successfully fetched (raw) {url} with proxy: {proxy.url}"
                     )
                     return result
                 except Exception as e:
-                    self.proxy_pool.record_failure(proxy)
+                    if self.proxy_pool:
+                        self.proxy_pool.record_failure(proxy)
                     logging.debug(f"Proxy {proxy.url} failed (raw): {e}")
         return None
 

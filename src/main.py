@@ -124,7 +124,7 @@ def main():
     file_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
-    proxy_list: list[ProxyInfo] = []
+    proxy_list = []
     cache_service = None
 
     if args.proxy:
@@ -159,7 +159,7 @@ def main():
     logging.info(f"Get available proxy: {len(proxy_list)}")
 
     # 使用 ThreadPoolExecutor 并发运行采集器
-    results: list[CollectorResult] = []
+    results = []
     with ThreadPoolExecutor(max_workers=args.workers) as executor:
         futures = {
             executor.submit(

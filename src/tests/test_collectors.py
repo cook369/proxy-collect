@@ -164,9 +164,7 @@ class TestCollectorRun:
         mock_http_client = Mock(spec=HttpClient)
         # 带且内容足够长（>=100 bytes）通过验证
         mock_http_client.get.return_value = (
-            "<html><head><title>T</title></head><body>"
-            + "x" * 200
-            + "</body></html>"
+            "<html><head><title>T</title></head><body>" + "x" * 200 + "</body></html>"
         )
 
         class TestCollector(TwoStepCollectorMixin, BaseCollector):

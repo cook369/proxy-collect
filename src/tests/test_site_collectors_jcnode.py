@@ -111,9 +111,7 @@ def test_verify_code_posts_with_timeout_and_returns_content():
 
 def test_verify_code_raises_fatal_error_on_proxy_error():
     collector = JCNodeCollector(http_client=Mock(spec=HttpClient))
-    collector.http_client.post = Mock(
-        side_effect=ProxyError("all proxies failed")
-    )
+    collector.http_client.post = Mock(side_effect=ProxyError("all proxies failed"))
 
     with pytest.raises(FatalPasswordAttemptError, match="network failed"):
         collector.verify_code("1234")

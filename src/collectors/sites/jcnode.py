@@ -7,6 +7,7 @@ from core.exceptions import ProxyError
 from core.models import DownloadTask
 from utils.check import check_html_contains
 from utils.extractors import create_download_tasks_from_regex_rules
+from utils.html_utils import extract_text_by_xpath
 from utils.passwords import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,
@@ -37,6 +38,9 @@ class JCNodeCollector(BaseCollector):
         check_playlist = check_html_contains("免费节点")
         if not self.today_page:
             playlist_html = self.fetch_html(self.home_page, check_html=check_playlist)
+            video_title = extract_text_by_xpath(playlist_html, "//title/text()")
+            if video_title:
+                self.title = video_title
             self.today_page = self.get_today_url(playlist_html)
         self.skip_if_cached()
 
@@ -88,9 +92,7 @@ class JCNodeCollector(BaseCollector):
                 headers=self.verify_headers,
             )
         except ProxyError as e:
-            raise FatalPasswordAttemptError(
-                "jcnode verification network failed"
-            ) from e
+            raise FatalPasswordAttemptError("jcnode verification network failed") from e
 
         if "口令错误" in response:
             logging.debug(f"[{self.name}] password candidate rejected")

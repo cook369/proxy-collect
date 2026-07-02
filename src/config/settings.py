@@ -5,9 +5,14 @@
 
 from pathlib import Path
 import os
-from typing import Optional, Union
+from typing import Optional, TypedDict
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+class SiteConfig(TypedDict):
+    url: str
+    weight: float
 
 
 def get_project_root() -> Path:
@@ -28,7 +33,10 @@ class AppConfig(BaseSettings):
     )
 
     # Manifest 文件
-    manifest_file: Optional[Path] = Field(default=None, description="Manifest 文件路径")
+    manifest_file: Path = Field(
+        default_factory=lambda: get_project_root() / "dist" / "manifest.json",
+        description="Manifest 文件路径",
+    )
 
     # README 文件
     readme_file: Path = Field(
@@ -45,10 +53,6 @@ class AppConfig(BaseSettings):
     @model_validator(mode="after")
     def set_default_files(self):
         """设置默认的 manifest 文件路径"""
-        if self.manifest_file is None:
-            self.manifest_file = self.output_dir / "manifest.json"
-        else:
-            self.manifest_file = self.manifest_file.resolve()
 
         # 创建输出目录
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -112,8 +116,8 @@ class ProxyConfig(BaseSettings):
     )
 
     # 代理源列表（支持字符串或字典格式）
-    proxy_sources: list[Union[str, dict]] = Field(
-        default_factory=lambda: [
+    proxy_sources: list[SiteConfig] = Field(
+        default=[
             {
                 "url": "https://raw.githubusercontent.com/hookzof/socks5_list/refs/heads/master/proxy.txt",
                 "weight": 2.0,
