@@ -12,6 +12,7 @@ from urllib.parse import quote
 
 from core.models import SiteManifest
 from services.manifest_service import ManifestService
+from datetime import datetime
 
 DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 
@@ -67,12 +68,14 @@ class ReadmeService:
                 site, site_name, "v2ray.txt", repository, branch
             )
             # 来源
-            source_parts = []
-            if site.today_page:
-                source_parts.append(f"[链接]({site.today_page})")
+            source = "-"
+            data_title = "链接"
             if site.title:
-                source_parts.append(f"*{site.title}*")
-            source = " - ".join(source_parts) if source_parts else "-"
+                new_title = self.get_data_from_title(site.title)
+                if new_title:
+                    data_title = new_title
+            if site.today_page:
+                source = f"[{data_title}]({site.today_page})"
             lines.append(
                 f"| {site_name} | {status_icon} | {duration} | {collected} "
                 f"| {clash_cell} | {v2ray_cell} | {source} |"
@@ -189,3 +192,41 @@ class ReadmeService:
             logging.debug("Failed to detect GitHub repository", exc_info=True)
 
         return DEFAULT_GITHUB_REPOSITORY
+
+    def get_data_from_title(self, title):
+
+        DATE_RE = re.compile(
+            r"""
+            (
+                \d{4}[-/]\d{1,2}[-/]\d{1,2}      # 2026-07-01 / 2026/6/20
+                |
+                \d{4}年\d{1,2}月\d{1,2}日         # 2026年7月2日
+                |
+                \d{1,2}/\d{1,2}/\d{4}            # 20/6/2026
+            )
+            """,
+            re.VERBOSE,
+        )
+
+        FORMATS = [
+            "%Y-%m-%d",
+            "%Y/%m/%d",
+            "%Y年%m月%d日",
+            "%d/%m/%Y",
+        ]
+
+        def extract_date(text):
+            m = DATE_RE.search(text)
+            if not m:
+                return None
+
+            s = m.group(1)
+
+            for fmt in FORMATS:
+                try:
+                    return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+                except ValueError:
+                    pass
+            return s
+
+        return extract_date(title)
