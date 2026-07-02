@@ -7,14 +7,32 @@ import logging
 import os
 import re
 import subprocess
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
 
 from core.models import SiteManifest
 from services.manifest_service import ManifestService
-from datetime import datetime
 
 DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
+CHINA_TIMEZONE = timezone(timedelta(hours=8))
+
+TITLE_DATE_RE = re.compile(
+    r"""
+    (
+        \d{4}[-/]\d{1,2}[-/]\d{1,2}      # 2026-07-01 / 2026/6/20
+        |
+        \d{4}年\d{1,2}月\d{1,2}日         # 2026年7月2日
+        |
+        \d{1,2}月\d{1,2}日                # 7月2日 / 07月2日
+        |
+        \d{1,2}/\d{1,2}/\d{4}            # 20/6/2026
+    )
+    """,
+    re.VERBOSE,
+)
+
+YEARLESS_CHINESE_DATE_RE = re.compile(r"^\d{1,2}月\d{1,2}日$")
 
 
 class ReadmeService:
@@ -59,7 +77,7 @@ class ReadmeService:
             else:
                 duration = "-"
             # 采集时间
-            collected = site.collected_at[:16] if site.collected_at else "-"
+            collected = self._format_china_time(site.collected_at, "%Y-%m-%d %H:%M")
             # 订阅文件状态（含链接）
             clash_cell = self._file_cell(
                 site, site_name, "clash.yaml", repository, branch
@@ -81,7 +99,10 @@ class ReadmeService:
                 f"| {clash_cell} | {v2ray_cell} | {source} |"
             )
 
-        lines.append(f"\n**最后运行**: {self.manifest.last_run}\n")
+        last_run = self._format_china_time(
+            self.manifest.last_run, "%Y-%m-%d %H:%M:%S"
+        )
+        lines.append(f"\n**最后运行**: {last_run}\n")
         lines.append("\n---\n")
         return lines
 
@@ -134,6 +155,25 @@ class ReadmeService:
             f"{github_prefix}/https://raw.githubusercontent.com/"
             f"{repository}/refs/heads/{encoded_branch}/dist/{site_name}/{filename}"
         )
+
+    @staticmethod
+    def _format_china_time(timestamp: str | None, output_format: str) -> str:
+        if not timestamp:
+            return "-"
+
+        try:
+            value = timestamp.strip()
+            if value.endswith("Z"):
+                value = f"{value[:-1]}+00:00"
+
+            parsed = datetime.fromisoformat(value)
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed.astimezone(CHINA_TIMEZONE).strftime(output_format)
+        except ValueError:
+            if output_format == "%Y-%m-%d %H:%M":
+                return timestamp[:16]
+            return timestamp
 
     @staticmethod
     def get_current_branch() -> str:
@@ -194,39 +234,33 @@ class ReadmeService:
         return DEFAULT_GITHUB_REPOSITORY
 
     def get_data_from_title(self, title):
+        date_token = self._match_title_date(title)
+        if not date_token:
+            return None
+        return self._normalize_title_date(date_token)
 
-        DATE_RE = re.compile(
-            r"""
-            (
-                \d{4}[-/]\d{1,2}[-/]\d{1,2}      # 2026-07-01 / 2026/6/20
-                |
-                \d{4}年\d{1,2}月\d{1,2}日         # 2026年7月2日
-                |
-                \d{1,2}/\d{1,2}/\d{4}            # 20/6/2026
-            )
-            """,
-            re.VERBOSE,
-        )
+    @staticmethod
+    def _match_title_date(title: str) -> str | None:
+        match = TITLE_DATE_RE.search(title)
+        if not match:
+            return None
+        return match.group(1)
 
-        FORMATS = [
+    @staticmethod
+    def _normalize_title_date(date_token: str) -> str:
+        if YEARLESS_CHINESE_DATE_RE.fullmatch(date_token):
+            date_token = f"{datetime.now().year}年{date_token}"
+
+        formats = [
             "%Y-%m-%d",
             "%Y/%m/%d",
             "%Y年%m月%d日",
             "%d/%m/%Y",
         ]
 
-        def extract_date(text):
-            m = DATE_RE.search(text)
-            if not m:
-                return None
-
-            s = m.group(1)
-
-            for fmt in FORMATS:
-                try:
-                    return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
-                except ValueError:
-                    pass
-            return s
-
-        return extract_date(title)
+        for date_format in formats:
+            try:
+                return datetime.strptime(date_token, date_format).strftime("%Y-%m-%d")
+            except ValueError:
+                pass
+        return date_token

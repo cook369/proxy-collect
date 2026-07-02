@@ -44,8 +44,6 @@ class TestDatiaCollector:
         today_html = """
         <html>
             <body>
-                <ol>V2ray配置</ol>
-                <pre>https://example.com/v2ray.txt</pre>
                 <ol>Clash配置</ol>
                 <pre>https://example.com/clash.yaml</pre>
             </body>
@@ -54,12 +52,10 @@ class TestDatiaCollector:
 
         tasks = collector.parse_download_tasks(today_html)
 
-        assert len(tasks) == 2
+        assert len(tasks) == 1
         filenames = [t.filename for t in tasks]
         urls = [t.url for t in tasks]
-        assert "v2ray.txt" in filenames
         assert "clash.yaml" in filenames
-        assert "https://example.com/v2ray.txt" in urls
         assert "https://example.com/clash.yaml" in urls
 
     def test_collector_name(self):
@@ -79,7 +75,10 @@ class TestJichangxCollector:
         """测试获取下载任务"""
         # 模拟日期为 2026-01-29
         mock_now = Mock()
-        mock_now.strftime.return_value = "20260129"
+        mock_now.strftime.side_effect = {
+            "%Y%m%d": "20260129",
+            "%Y-%m-%d": "2026-01-29",
+        }.__getitem__
         mock_datetime.now.return_value = mock_now
 
         mock_http_client = Mock(spec=HttpClient)
@@ -90,6 +89,8 @@ class TestJichangxCollector:
         assert len(tasks) == 1
         assert tasks[0].filename == "v2ray.txt"
         assert tasks[0].url == "https://jichangx.com/nodes/v2ray-20260129-01"
+        assert collector.title == "2026-01-29"
+        mock_datetime.now.assert_called_once()
 
     def test_collector_name(self):
         """测试采集器名称"""

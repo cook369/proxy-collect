@@ -5,14 +5,15 @@
 
 from pathlib import Path
 import os
-from typing import Optional, TypedDict
+from typing import NotRequired, Optional, TypedDict
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class SiteConfig(TypedDict):
     url: str
-    weight: float
+    weight: NotRequired[float]
+    proxy_type: NotRequired[str]
 
 
 def get_project_root() -> Path:
@@ -115,7 +116,7 @@ class ProxyConfig(BaseSettings):
         default=10, ge=1, le=100, description="缓存有效所需的最小健康代理数"
     )
 
-    # 代理源列表（支持字符串或字典格式）
+    # 代理源配置列表
     proxy_sources: list[SiteConfig] = Field(
         default=[
             {

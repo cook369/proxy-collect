@@ -55,7 +55,19 @@ class ProxyValidator:
         target_available = self.config.max_available
 
         with ThreadPoolExecutor(max_workers=self.config.check_workers) as executor:
-            futures = {executor.submit(self.validate, p): p for p in proxies}
+            proxy_iter = iter(proxies)
+            futures = {}
+
+            def submit_next_proxy() -> bool:
+                try:
+                    proxy = next(proxy_iter)
+                except StopIteration:
+                    return False
+                futures[executor.submit(self.validate, proxy)] = proxy
+                return True
+
+            for _ in range(min(self.config.check_workers, total)):
+                submit_next_proxy()
 
             with tqdm(
                 total=target_available,
@@ -65,9 +77,11 @@ class ProxyValidator:
             ) as pbar:
                 checked_count = 0
                 last_reported_bucket = 0
-                for future in as_completed(futures):
+                while futures:
                     stop_checking = False
+                    future = next(as_completed(futures))
                     proxy = futures[future]
+                    del futures[future]
                     try:
                         success, response_time = future.result()
                         if success:
@@ -77,6 +91,7 @@ class ProxyValidator:
                                 for f in futures:
                                     if not f.done():
                                         f.cancel()
+                                futures.clear()
                                 stop_checking = True
                         else:
                             proxy.record_failure()
@@ -101,9 +116,11 @@ class ProxyValidator:
                             refresh=False,
                         )
                         pbar.update(len(available) - pbar.n)
+                        pbar.refresh()
 
                     if stop_checking:
                         break
+                    submit_next_proxy()
 
                 if pbar.n < len(available):
                     pbar.set_postfix(
@@ -114,6 +131,7 @@ class ProxyValidator:
                         refresh=False,
                     )
                     pbar.update(len(available) - pbar.n)
+                    pbar.refresh()
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available

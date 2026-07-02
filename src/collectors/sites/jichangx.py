@@ -15,7 +15,9 @@ class JichangxCollector(BaseCollector):
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """构建下载任务"""
-        date_str = datetime.now().strftime("%Y%m%d")
+        now = datetime.now()
+        date_str = now.strftime("%Y%m%d")
+        self.title = now.strftime("%Y-%m-%d")
         return [
             DownloadTask(
                 filename="v2ray.txt",

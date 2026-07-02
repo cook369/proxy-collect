@@ -3,4 +3,5 @@ node_modules
 .ruff_cache
 .mypy_cache
 .vscode
+.coverage
 __pycache__

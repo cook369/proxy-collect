@@ -1,5 +1,6 @@
 """ProxyService 单元测试"""
 
+from concurrent.futures import Future
 from unittest.mock import Mock, patch
 
 from services.proxy_service import ProxyValidator, ProxyService
@@ -130,6 +131,40 @@ class TestProxyValidator:
         assert len(progress.updates) == 10
         assert reported_percentages == list(range(10, 101, 10))
 
+    def test_validate_batch_limits_submitted_work_after_target_met(self):
+        """Proxy validation should keep only a bounded set of futures in flight."""
+
+        class FakeExecutor:
+            instances = []
+
+            def __init__(self, max_workers):
+                self.max_workers = max_workers
+                self.submitted = []
+                FakeExecutor.instances.append(self)
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, exc_type, exc, tb):
+                return False
+
+            def submit(self, fn, proxy):
+                self.submitted.append(proxy)
+                future = Future()
+                future.set_result((True, 0.1))
+                return future
+
+        mock_http = Mock(spec=HttpService)
+        config = ProxyConfig(max_available=1, check_workers=2)
+        validator = ProxyValidator(mock_http, config)
+        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(10)]
+
+        with patch("services.proxy_service.ThreadPoolExecutor", FakeExecutor):
+            result = validator.validate_batch(proxies)
+
+        assert len(result) == 1
+        assert len(FakeExecutor.instances[0].submitted) == config.check_workers
+
 
 class TestProxyService:
     """ProxyService 测试类"""
@@ -198,19 +233,6 @@ class TestProxyService:
 
         assert len(result) == 1
         mock_validator.validate_batch.assert_called_once()
-
-    def test_parse_proxy_sources_string_format(self):
-        """测试解析字符串格式的代理源"""
-        mock_http = Mock(spec=HttpService)
-        mock_validator = Mock(spec=ProxyValidator)
-        config = ProxyConfig(proxy_sources=["http://example.com/proxies.txt"])
-
-        service = ProxyService(mock_http, mock_validator, config)
-        sources = service._parse_proxy_sources()
-
-        assert len(sources) == 1
-        assert sources[0].url == "http://example.com/proxies.txt"
-        assert sources[0].weight == 1.0
 
     def test_parse_proxy_sources_dict_format(self):
         """测试解析字典格式的代理源"""
