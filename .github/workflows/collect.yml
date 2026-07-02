@@ -17,6 +17,7 @@ on:
         default: 'dist'
         type: string
 env:
+  SOURCE_BRANCH: ${{ github.event.inputs.source-branch || 'develop' }}
   TARGET_BRANCH: ${{ github.event.inputs.target-branch || 'dist' }}
 jobs:
   collect:
@@ -26,6 +27,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          ref: ${{ env.SOURCE_BRANCH }}
           fetch-depth: 2
 
       - name: Restore dist cache from dist branch
@@ -58,12 +60,12 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           TMP=$(mktemp -d)
-          cp -a dist README.md "$TMP/"
+          cp -a dist README.md .github "$TMP/"
 
           git reset --hard
           git switch --orphan "$TARGET_BRANCH"
           
-          rm -rf *
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           cp -a "$TMP"/. .
 
           git add -A
