@@ -99,9 +99,7 @@ class ReadmeService:
                 f"| {clash_cell} | {v2ray_cell} | {source} |"
             )
 
-        last_run = self._format_china_time(
-            self.manifest.last_run, "%Y-%m-%d %H:%M:%S"
-        )
+        last_run = self._format_china_time(self.manifest.last_run, "%Y-%m-%d %H:%M:%S")
         lines.append(f"\n**最后运行**: {last_run}\n")
         lines.append("\n---\n")
         return lines

@@ -19,14 +19,15 @@ class FXRJCollector(YouTubeBaseCollector):
     """分享日记站点采集器"""
 
     name = "fxrj"
-    home_page = "https://www.youtube.com/@fxrj"
+    home_page = "https://www.youtube.com/@fxrj?hl=zh-CN"
     redirect_target_host = "drive.google.com"
 
     def get_today_url(self, home_html: str) -> tuple[str, str]:
         """从 YouTube 频道页提取最新视频 (url, title)"""
         video, title = find_latest_video_url_in_home(home_html)
+        video = video + "&hl=zh-CN"
         logging.info(f"[{self.name}] find video {video}, title {title}")
-        return video, ""
+        return video, title
 
     def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """从 Google Drive 下载 zip 并提取订阅任务"""

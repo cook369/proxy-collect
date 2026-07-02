@@ -363,9 +363,10 @@ class YouTubeBaseCollector(BaseCollector):
 
         video_html = self.fetch_html(self.today_page)
         # 用视频页面 HTML 重新提取标题，避免从首页/播放列表取到不准确的值
-        video_title = extract_text_by_xpath(video_html, "//title/text()")
-        if video_title:
-            self.title = video_title
+        if not getattr(self, "title", None):
+            video_title = extract_text_by_xpath(video_html, "//title/text()")
+            if video_title:
+                self.title = video_title
         target_url = self.extract_redirect_url(video_html)
 
         logging.info(f"[{self.name}] processing redirect: {target_url}")

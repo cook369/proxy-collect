@@ -89,11 +89,9 @@ def find_latest_video_url_in_home(
     home_html: str,
 ) -> tuple[str, str]:
     """从 YouTube 主页页面提取匹配关键词的视频 URL"""
-    match = re.search(r"\[Daily Update\].*?\"", home_html)
+    match = re.search(r"【每日更新】.*?\"", home_html)
     if not match:
-        match = re.search(r"【每日更新】.*?\"", home_html)
-        if not match:
-            raise ParseError("YouTube home not find videos")
+        raise ParseError("YouTube home not find videos")
     title = match.group(0)
     st_index = home_html.index(title)
     match = re.search(r"/watch\?v=(.*?)\"", home_html[st_index:])
