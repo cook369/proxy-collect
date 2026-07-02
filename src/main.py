@@ -36,6 +36,33 @@ async def run_collector(
     return await collector.run(output_dir)
 
 
+async def run_collectors_concurrently(
+    collector_names: list[str],
+    proxy_list: list[ProxyInfo],
+    output_dir: Path,
+    max_workers: int,
+) -> list[CollectorResult]:
+    """按最大并发数运行采集器，保持结果顺序与输入站点顺序一致。"""
+    semaphore = asyncio.Semaphore(max(1, max_workers))
+
+    async def run_one(name: str) -> CollectorResult:
+        async with semaphore:
+            try:
+                return await run_collector(name, proxy_list, output_dir)
+            except Exception as e:
+                logging.error(f"Collector {name} failed: {e}")
+                return CollectorResult(
+                    site=name,
+                    today_page=None,
+                    files={},
+                    status="failed",
+                    error=str(e),
+                )
+
+    tasks = [asyncio.create_task(run_one(name)) for name in collector_names]
+    return await asyncio.gather(*tasks)
+
+
 def should_process_downloaded_file(result: CollectorResult) -> bool:
     """判断采集结果是否需要执行本轮下载文件后处理。"""
     return result.status != "failed" and not result.from_cache
@@ -88,7 +115,10 @@ async def async_main(args: argparse.Namespace):
     logging.info(f"Collectors to run: {collectors_to_run}")
 
     # 初始化服务
-    manifest = ManifestService(config.app.manifest_file)
+    manifest_file = config.app.manifest_file
+    if manifest_file is None:
+        raise RuntimeError("manifest_file is not configured")
+    manifest = ManifestService(manifest_file)
     file_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
@@ -131,33 +161,12 @@ async def async_main(args: argparse.Namespace):
 
     logging.info(f"Get available proxy: {len(proxy_list)}")
 
-    # 使用 asyncio.TaskGroup 并发运行采集器
-    results: list[CollectorResult] = []
-
-    async with asyncio.TaskGroup() as tg:
-        tasks_map = {
-            tg.create_task(
-                run_collector(name, proxy_list, config.app.output_dir)
-            ): name
-            for name in collectors_to_run
-        }
-
-    # TaskGroup 完成后收集结果
-    for task, name in tasks_map.items():
-        try:
-            result = task.result()
-            results.append(result)
-        except Exception as e:
-            logging.error(f"Collector {name} failed: {e}")
-            results.append(
-                CollectorResult(
-                    site=name,
-                    today_page=None,
-                    files={},
-                    status="failed",
-                    error=str(e),
-                )
-            )
+    results = await run_collectors_concurrently(
+        collectors_to_run,
+        proxy_list,
+        config.app.output_dir,
+        args.workers,
+    )
 
     # 更新 manifest 并注入时间戳
     for result in results:

@@ -5,10 +5,13 @@
 
 from lxml import etree
 import logging
-from typing import Optional
+from typing import TYPE_CHECKING, Optional, cast
 
 from core.exceptions import ParseError
 from core.models import DownloadTask
+
+if TYPE_CHECKING:
+    from collectors.base import BaseCollector
 
 
 class HtmlParser:
@@ -104,8 +107,6 @@ class TwoStepCollectorMixin:
     # 由 BaseCollector 提供的依赖属性（此处声明以消除隐式耦合）
     name: str
     home_page: str
-    fetch_html: callable
-    skip_if_cached: callable
 
     today_page: str | None = None  # 保存今日页面 URL
     title: str | None = None  # 保存今日页面标题，作为采集标题
@@ -165,7 +166,8 @@ class TwoStepCollectorMixin:
             ParseError: 无法获取今日链接或解析失败
         """
         # 步骤1：获取首页
-        home_html = await self.fetch_html(self.home_page)
+        collector = cast("BaseCollector", self)
+        home_html = await collector.fetch_html(self.home_page)
 
         # 步骤2：获取今日链接（带错误处理）
         try:
@@ -189,11 +191,12 @@ class TwoStepCollectorMixin:
         # 保存今日页面 URL
         self.today_page = today_url
         logging.info(f"[{self.name}] Today URL: {today_url}")
-        if hasattr(self, "skip_if_cached"):
-            self.skip_if_cached()
+        skip_if_cached = getattr(self, "skip_if_cached", None)
+        if callable(skip_if_cached):
+            skip_if_cached()
 
         # 步骤3：获取今日页面
-        today_html = await self.fetch_html(today_url)
+        today_html = await collector.fetch_html(today_url)
 
         # 提取今日页面标题（按站点规则，失败时为 None，不阻断采集）
         try:

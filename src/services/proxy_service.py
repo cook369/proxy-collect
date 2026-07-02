@@ -56,56 +56,57 @@ class ProxyValidator:
         total = len(proxies)
         target_available = self.config.max_available
 
-        semaphore = asyncio.Semaphore(self.config.check_workers)
         stop_event = asyncio.Event()
+        available_lock = asyncio.Lock()
+        proxy_queue: asyncio.Queue[ProxyInfo] = asyncio.Queue()
+        checked_count = 0
+        last_reported_bucket = 0
 
-        async def _validate_one(proxy: ProxyInfo) -> None:
-            if stop_event.is_set():
-                return
-            async with semaphore:
-                success, response_time = await self.validate(proxy)
+        for proxy in proxies:
+            proxy_queue.put_nowait(proxy)
+
+        async def _worker() -> None:
+            nonlocal checked_count, last_reported_bucket
+            while not stop_event.is_set():
+                try:
+                    proxy = proxy_queue.get_nowait()
+                except asyncio.QueueEmpty:
+                    return
+
+                try:
+                    success, response_time = await self.validate(proxy)
+                finally:
+                    proxy_queue.task_done()
+
                 if success:
                     proxy.record_success(response_time)
-                    if not stop_event.is_set():
+                    async with available_lock:
+                        if len(available) >= target_available:
+                            stop_event.set()
+                            continue
                         available.append(proxy)
                         if len(available) >= self.config.max_available:
                             stop_event.set()
                 else:
                     proxy.record_failure()
 
-        # Create tasks for all proxies
-        tasks = [asyncio.create_task(_validate_one(p)) for p in proxies]
-
-        # Wait with progress tracking
-        checked_count = 0
-        last_reported_bucket = 0
-
-        for coro in asyncio.as_completed(tasks):
-            if stop_event.is_set():
-                # Cancel remaining
-                for t in tasks:
-                    if not t.done():
-                        t.cancel()
-            try:
-                await coro
-            except asyncio.CancelledError:
-                pass
-            except Exception:
-                pass
-
-            checked_count += 1
-            current_percent = (
-                int(len(available) * 100 / target_available)
-                if target_available
-                else 100
-            )
-            current_bucket = current_percent // 10
-            if current_bucket > last_reported_bucket:
-                last_reported_bucket = current_bucket
-                logging.debug(
-                    f"Proxy checking: {len(available)}/{target_available} available, "
-                    f"{checked_count}/{total} checked"
+                checked_count += 1
+                current_percent = (
+                    int(len(available) * 100 / target_available)
+                    if target_available
+                    else 100
                 )
+                current_bucket = current_percent // 10
+                if current_bucket > last_reported_bucket:
+                    last_reported_bucket = current_bucket
+                    logging.debug(
+                        f"Proxy checking: {len(available)}/{target_available} available, "
+                        f"{checked_count}/{total} checked"
+                    )
+
+        worker_count = min(self.config.check_workers, total)
+        tasks = [asyncio.create_task(_worker()) for _ in range(worker_count)]
+        await asyncio.gather(*tasks, return_exceptions=True)
 
         logging.info(f"Get available Proxy: {len(available)}")
         return available

@@ -5,7 +5,7 @@
 
 from pathlib import Path
 import os
-from typing import Optional, Union
+from typing import Any, Optional, Union
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -13,6 +13,36 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 def get_project_root() -> Path:
     """获取项目根目录（src 的父目录）"""
     return Path(__file__).parent.parent.parent.resolve()
+
+
+def default_proxy_sources() -> list[str | dict[str, Any]]:
+    """默认代理源配置。"""
+    return [
+        {
+            "url": "https://raw.githubusercontent.com/hookzof/socks5_list/refs/heads/master/proxy.txt",
+            "weight": 2.0,
+        },
+        {
+            "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/refs/heads/main/proxies/protocols/socks5/data.txt",
+            "weight": 1.5,
+        },
+        {
+            "url": "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/SOCKS5_RAW.txt",
+            "weight": 1.0,
+        },
+        {
+            "url": "https://raw.githubusercontent.com/sunny9577/proxy-scraper/refs/heads/master/generated/socks5_proxies.txt",
+            "weight": 1.0,
+        },
+        {
+            "url": "https://raw.githubusercontent.com/zloi-user/hideip.me/refs/heads/main/socks5.txt",
+            "weight": 1.5,
+        },
+        {
+            "url": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/refs/heads/master/socks5.txt",
+            "weight": 2.0,
+        },
+    ]
 
 
 class AppConfig(BaseSettings):
@@ -112,33 +142,8 @@ class ProxyConfig(BaseSettings):
     )
 
     # 代理源列表（支持字符串或字典格式）
-    proxy_sources: list[Union[str, dict]] = Field(
-        default_factory=lambda: [
-            {
-                "url": "https://raw.githubusercontent.com/hookzof/socks5_list/refs/heads/master/proxy.txt",
-                "weight": 2.0,
-            },
-            {
-                "url": "https://raw.githubusercontent.com/proxifly/free-proxy-list/refs/heads/main/proxies/protocols/socks5/data.txt",
-                "weight": 1.5,
-            },
-            {
-                "url": "https://raw.githubusercontent.com/roosterkid/openproxylist/refs/heads/main/SOCKS5_RAW.txt",
-                "weight": 1.0,
-            },
-            {
-                "url": "https://raw.githubusercontent.com/sunny9577/proxy-scraper/refs/heads/master/generated/socks5_proxies.txt",
-                "weight": 1.0,
-            },
-            {
-                "url": "https://raw.githubusercontent.com/zloi-user/hideip.me/refs/heads/main/socks5.txt",
-                "weight": 1.5,
-            },
-            {
-                "url": "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/refs/heads/master/socks5.txt",
-                "weight": 2.0,
-            },
-        ],
+    proxy_sources: list[str | dict[str, Any]] = Field(
+        default_factory=default_proxy_sources,
         description="代理源配置列表",
     )
 

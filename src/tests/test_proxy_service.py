@@ -1,5 +1,6 @@
 """ProxyService 单元测试（异步版本）"""
 
+import asyncio
 from unittest.mock import Mock, AsyncMock, patch
 import pytest
 
@@ -81,6 +82,32 @@ class TestProxyValidator:
         result = await validator.validate_batch(proxies)
 
         assert len(result) == 2
+
+    @pytest.mark.asyncio
+    async def test_validate_batch_uses_bounded_worker_tasks(self, monkeypatch):
+        mock_http = Mock(spec=HttpService)
+        mock_http.get = AsyncMock(return_value='{"origin": "1.2.3.4"}')
+        config = ProxyConfig(max_available=2, check_workers=3)
+        validator = ProxyValidator(mock_http, config)
+        proxies = [ProxyInfo(host=f"1.2.3.{i}", port=1080) for i in range(10)]
+
+        created_tasks = 0
+        original_create_task = asyncio.create_task
+
+        def counting_create_task(coro):
+            nonlocal created_tasks
+            created_tasks += 1
+            return original_create_task(coro)
+
+        monkeypatch.setattr(
+            "services.proxy_service.asyncio.create_task",
+            counting_create_task,
+        )
+
+        result = await validator.validate_batch(proxies)
+
+        assert len(result) == 2
+        assert created_tasks <= config.check_workers
 
 
 class TestProxyService:

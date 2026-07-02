@@ -83,9 +83,12 @@ class JCNodeCollector(BaseCollector):
         通过 self.http_client.post() 发送请求，代理池自动管理代理选择与重试。
         """
         logging.debug(f"[{self.name}] trying password candidate")
+        http_client = self.http_client
+        if http_client is None:
+            raise FatalPasswordAttemptError("HTTP client not initialized")
 
         try:
-            response = await self.http_client.post(
+            response = await http_client.post(
                 self.verify_url,
                 json={"code": password},
                 timeout=default_config.collector.fetch_timeout,

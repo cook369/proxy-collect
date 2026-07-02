@@ -1,6 +1,7 @@
 """通用密码/口令候选尝试工具（异步版本）"""
 
 import asyncio
+import inspect
 from collections.abc import Callable, Iterable, Iterator
 from dataclasses import dataclass
 from itertools import product
@@ -71,9 +72,12 @@ async def _try_password_worker(
 
         password = str(item)
         try:
-            result = try_password(password)
-            # 如果 try_password 是协程，需要 await
-            if asyncio.iscoroutine(result):
+            if inspect.iscoroutinefunction(try_password):
+                result = await try_password(password)
+            else:
+                result = await asyncio.to_thread(try_password, password)
+            # 兼容同步包装器返回协程对象的情况
+            if inspect.isawaitable(result):
                 result = await result
             stop_event.set()
             return password, result

@@ -5,9 +5,10 @@ import asyncio
 import inspect
 import logging
 import time
+from collections.abc import Awaitable
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Union, Callable
+from typing import TYPE_CHECKING, Optional, Union, Callable
 
 import yaml
 
@@ -23,6 +24,9 @@ from utils.youtube import (
     extract_video_title,
 )
 from services.paste_to_service import PasteToService
+
+if TYPE_CHECKING:
+    from utils.passwords import CharsetPasswordStrategy, DictionaryPasswordStrategy
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -137,7 +141,9 @@ class BaseCollector(ABC):
             raise NetworkError(msg, url, self.name) from e
 
     @abstractmethod
-    def get_download_tasks(self) -> list[DownloadTask]:
+    def get_download_tasks(
+        self,
+    ) -> list[DownloadTask] | Awaitable[list[DownloadTask]]:
         """获取下载任务列表（子类实现）
 
         子类可以返回同步或异步的实现。
@@ -244,7 +250,10 @@ class BaseCollector(ABC):
         output_dir = (
             output_dir or self._current_output_dir or default_config.app.output_dir
         )
-        manifest = ManifestService(default_config.app.manifest_file)
+        manifest_file = default_config.app.manifest_file
+        if manifest_file is None:
+            raise RuntimeError("manifest_file is not configured")
+        manifest = ManifestService(manifest_file)
         site = manifest.get_site(self.name)
         if not site or site.status != "success" or site.today_page != today_page:
             return None
@@ -442,8 +451,11 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
 
     async def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """解密 paste.to 分享链接并提取订阅任务"""
+        http_client = self.http_client
+        if http_client is None:
+            raise NetworkError("HTTP client not initialized", target_url, self.name)
         paste_to_service = PasteToService(
-            http_client=self.http_client,
+            http_client=http_client,
             timeout=default_config.collector.fetch_timeout,
             max_workers=default_config.collector.paste_to_password_workers,
             password_strategy=self.paste_to_password_strategy,

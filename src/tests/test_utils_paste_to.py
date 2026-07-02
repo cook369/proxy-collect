@@ -1,6 +1,8 @@
 """Paste.to 辅助函数测试（异步版本）"""
 
+import asyncio
 from unittest.mock import Mock, AsyncMock
+import time
 import pytest
 
 from core.exceptions import ParseError
@@ -123,6 +125,39 @@ async def test_brute_force_payload_uses_default_four_digit_numeric_strategy():
 
     assert result == PasswordAttemptResult(password="0002", content="decrypted content")
     assert attempts == ["0000", "0001", "0002"]
+
+
+@pytest.mark.asyncio
+async def test_brute_force_payload_offloads_sync_attempts_from_event_loop():
+    attempts = []
+
+    def slow_decrypt(password):
+        attempts.append(password)
+        time.sleep(0.05)
+        if password == "3":
+            return "decrypted content"
+        raise ValueError("bad password")
+
+    ticker_ran = False
+
+    async def ticker():
+        nonlocal ticker_ran
+        await asyncio.sleep(0.01)
+        ticker_ran = True
+
+    ticker_task = asyncio.create_task(ticker())
+    start = time.perf_counter()
+    result = await brute_force_payload(
+        max_workers=4,
+        password_strategy=CharsetPasswordStrategy(length=1, charset="0123"),
+        decrypt_prepared=slow_decrypt,
+    )
+    elapsed = time.perf_counter() - start
+    await ticker_task
+
+    assert result == PasswordAttemptResult(password="3", content="decrypted content")
+    assert ticker_ran is True
+    assert elapsed < 0.16
 
 
 @pytest.mark.asyncio

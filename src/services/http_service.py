@@ -447,6 +447,7 @@ class ProxyHttpService:
         check_html: Callable[[str], bool],
     ) -> Optional[str]:
         """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。"""
+        assert self.proxy_pool is not None
         tasks = {
             asyncio.create_task(self._try_fetch(url, proxy, timeout, headers)): proxy
             for proxy in proxies
@@ -558,6 +559,7 @@ class ProxyHttpService:
         headers: Optional[dict[str, str]],
     ) -> Optional[bytes]:
         """并发竞速一批代理获取二进制内容，返回首个成功结果；整批失败返回 None"""
+        assert self.proxy_pool is not None
         tasks = {
             asyncio.create_task(
                 self._try_fetch_raw(url, proxy, timeout, headers)
