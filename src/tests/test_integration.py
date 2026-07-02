@@ -9,7 +9,7 @@ from unittest.mock import Mock
 
 from collectors.base import BaseCollector
 from core.models import CollectorResult, FileManifest, DownloadTask
-from main import should_process_downloaded_file
+from main import process_downloaded_file_safely, should_process_downloaded_file
 from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
 from services.readme_service import ReadmeService
@@ -150,6 +150,41 @@ class TestCollectorWithFileProcessor:
             content = clash_file.read_text(encoding="utf-8")
             assert "更新时间 2026-01-30 10:00" in content
             assert "站点 test_site" in content
+
+    def test_file_processing_error_does_not_abort_next_result(self, monkeypatch):
+        """单个文件后处理异常不应中断后续站点处理"""
+        processed_sites = []
+
+        def fake_process(file_path, result, timestamp=None):
+            processed_sites.append(result.site)
+            if result.site == "bad_site":
+                raise ValueError("broken yaml")
+
+        monkeypatch.setattr(FileProcessor, "process_downloaded_file", fake_process)
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            output_dir = Path(tmpdir)
+            results = [
+                CollectorResult(
+                    site="bad_site",
+                    today_page="http://example.com/bad",
+                    files={},
+                    status="success",
+                ),
+                CollectorResult(
+                    site="good_site",
+                    today_page="http://example.com/good",
+                    files={},
+                    status="success",
+                ),
+            ]
+
+            for result in results:
+                process_downloaded_file_safely(
+                    result, output_dir, "2026-01-30 10:00"
+                )
+
+        assert processed_sites == ["bad_site", "good_site"]
 
 
 class TestEndToEndCollector:

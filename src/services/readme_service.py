@@ -68,6 +68,7 @@ class ReadmeService:
 
         for site_name in sorted(self.manifest.sites.keys()):
             site = self.manifest.sites[site_name]
+            site_cell = self._site_cell(site_name)
             status_icon = {"success": "✅", "partial": "⚠️", "failed": "❌"}.get(
                 site.status, "❓"
             )
@@ -95,7 +96,7 @@ class ReadmeService:
             if site.today_page:
                 source = f"[{data_title}]({site.today_page})"
             lines.append(
-                f"| {site_name} | {status_icon} | {duration} | {collected} "
+                f"| {site_cell} | {status_icon} | {duration} | {collected} "
                 f"| {clash_cell} | {v2ray_cell} | {source} |"
             )
 
@@ -153,6 +154,19 @@ class ReadmeService:
             f"{github_prefix}/https://raw.githubusercontent.com/"
             f"{repository}/refs/heads/{encoded_branch}/dist/{site_name}/{filename}"
         )
+
+    @staticmethod
+    def _site_cell(site_name: str) -> str:
+        try:
+            from collectors.base import get_collector
+
+            home_page = getattr(get_collector(site_name), "home_page", None)
+        except Exception:
+            home_page = None
+
+        if home_page:
+            return f"[{site_name}]({home_page})"
+        return site_name
 
     @staticmethod
     def _format_china_time(timestamp: str | None, output_format: str) -> str:

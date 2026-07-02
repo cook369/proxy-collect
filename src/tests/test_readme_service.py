@@ -87,3 +87,30 @@ def test_build_status_section_displays_timestamps_in_china_timezone():
 
     assert any("2026-07-03 00:30" in line for line in lines)
     assert any("**最后运行**: 2026-07-03 00:35:00" in line for line in lines)
+
+
+def test_build_status_section_links_site_name_to_collector_home_page():
+    manifest = cast(
+        ManifestService,
+        SimpleNamespace(
+            last_run=None,
+            sites={
+                "jichangx": SiteManifest(
+                    today_page=None,
+                    status="failed",
+                    updated_at=None,
+                    files={},
+                )
+            },
+        ),
+    )
+    service = ReadmeService(
+        manifest=manifest,
+        readme_file=Path("README.md"),
+        github_prefix="https://ghproxy.net",
+        output_dir=Path("dist"),
+    )
+
+    lines = service._build_status_section("owner/repo", "main")
+
+    assert any("| [jichangx](https://jichangx.com) |" in line for line in lines)

@@ -17,6 +17,8 @@ class JichangxCollector(BaseCollector):
         """构建下载任务"""
         now = datetime.now()
         date_str = now.strftime("%Y%m%d")
+        page_date = now.strftime("%Y-%m-%d")
+        self.today_page = f"{self.home_page}/free-nodes-{page_date}/"
         self.title = now.strftime("%Y年%m月%d日")
         return [
             DownloadTask(

@@ -78,6 +78,7 @@ class TestJichangxCollector:
         mock_now.strftime.side_effect = {
             "%Y%m%d": "20260129",
             "%Y-%m-%d": "2026-01-29",
+            "%Y年%m月%d日": "2026年01月29日",
         }.__getitem__
         mock_datetime.now.return_value = mock_now
 
@@ -89,7 +90,8 @@ class TestJichangxCollector:
         assert len(tasks) == 1
         assert tasks[0].filename == "v2ray.txt"
         assert tasks[0].url == "https://jichangx.com/nodes/v2ray-20260129-01"
-        assert collector.title == "2026-01-29"
+        assert collector.today_page == "https://jichangx.com/free-nodes-2026-01-29/"
+        assert collector.title == "2026年01月29日"
         mock_datetime.now.assert_called_once()
 
     def test_collector_name(self):

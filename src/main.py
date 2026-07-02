@@ -41,6 +41,28 @@ def should_process_downloaded_file(result: CollectorResult) -> bool:
     return result.status != "failed" and not result.from_cache
 
 
+def process_downloaded_file_safely(
+    result: CollectorResult,
+    output_dir: Path,
+    timestamp: str,
+) -> None:
+    """安全执行单个站点的下载文件后处理，避免坏文件中断整体流程。"""
+    if not should_process_downloaded_file(result):
+        return
+
+    clash_path = output_dir / result.site / "clash.yaml"
+    try:
+        FileProcessor.process_downloaded_file(clash_path, result, timestamp)
+    except Exception as e:
+        logging.warning(
+            "[%s] Failed to process downloaded file %s: %s",
+            result.site,
+            clash_path,
+            e,
+            exc_info=True,
+        )
+
+
 def print_report(results: list[CollectorResult]):
     """打印控制台报告"""
     print("\n" + "=" * 60)
@@ -187,11 +209,7 @@ def main():
     # 更新 manifest 并注入时间戳
     for result in results:
         manifest.update_from_result(result)
-
-        # 注入时间戳到 clash.yaml
-        if should_process_downloaded_file(result):
-            clash_path = config.app.output_dir / result.site / "clash.yaml"
-            FileProcessor.process_downloaded_file(clash_path, result, file_timestamp)
+        process_downloaded_file_safely(result, config.app.output_dir, file_timestamp)
 
     # 保存 manifest
     manifest.save()
