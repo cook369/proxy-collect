@@ -3,7 +3,7 @@
 import pytest
 from pydantic import ValidationError
 
-from config.settings import AppConfig, ProxyConfig, CollectorConfig, Config
+from config.settings import AppConfig, CollectorConfig, Config, ProxyConfig
 
 
 class TestAppConfig:

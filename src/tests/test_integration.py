@@ -8,10 +8,10 @@ from pathlib import Path
 from unittest.mock import Mock
 
 from collectors.base import BaseCollector
-from core.models import CollectorResult, FileManifest, DownloadTask
+from core.models import CollectorResult, DownloadTask, FileManifest
 from main import process_downloaded_file_safely, should_process_downloaded_file
-from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
+from services.manifest_service import ManifestService
 from services.readme_service import ReadmeService
 
 
@@ -180,9 +180,7 @@ class TestCollectorWithFileProcessor:
             ]
 
             for result in results:
-                process_downloaded_file_safely(
-                    result, output_dir, "2026-01-30 10:00"
-                )
+                process_downloaded_file_safely(result, output_dir, "2026-01-30 10:00")
 
         assert processed_sites == ["bad_site", "good_site"]
 

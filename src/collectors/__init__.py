@@ -1,5 +1,6 @@
-import pkgutil
 import importlib
+import pkgutil
+
 import collectors.sites
 
 # 自动导入 sites 目录下的所有采集器

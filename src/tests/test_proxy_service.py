@@ -3,10 +3,10 @@
 from concurrent.futures import Future
 from unittest.mock import Mock, patch
 
-from services.proxy_service import ProxyValidator, ProxyService
-from services.http_service import HttpService
 from config.settings import ProxyConfig
 from core.models import ProxyInfo, ProxyType
+from services.http_service import HttpService
+from services.proxy_service import ProxyService, ProxyValidator
 
 
 class TestProxyValidator:
@@ -81,7 +81,7 @@ class TestProxyValidator:
         """Progress should track available proxy target and refresh every 10%."""
 
         class FakeTqdm:
-            instances = []
+            instances = []  # noqa: RUF012
 
             def __init__(self, total, desc, unit, miniters=None):
                 self.n = 0
@@ -135,7 +135,7 @@ class TestProxyValidator:
         """Proxy validation should keep only a bounded set of futures in flight."""
 
         class FakeExecutor:
-            instances = []
+            instances = []  # noqa: RUF012
 
             def __init__(self, max_workers):
                 self.max_workers = max_workers

@@ -1,26 +1,27 @@
 """采集器基类和注册表"""
 
-from abc import ABC, abstractmethod
 import logging
 import time
-from datetime import datetime
+from abc import ABC, abstractmethod
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Optional, Protocol, Union, Callable
+from typing import Protocol
 
 import yaml
 
-from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
-from core.interfaces import HttpClient
-from core.exceptions import NetworkError, DownloadError, ValidationError
 from config.settings import default_config
-from utils.check import default_check_html, check_html_contains
-from utils.html_utils import extract_text_by_xpath
-from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
+from core.exceptions import DownloadError, NetworkError, ValidationError
+from core.interfaces import HttpClient
+from core.models import CollectorResult, DownloadTask, FileManifest, ProxyInfo
 from services.paste_to_service import PasteToService
+from utils.check import check_html_contains, default_check_html
+from utils.html_utils import extract_text_by_xpath
 from utils.passwords import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,
 )
+from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
 
 # 内容验证常量
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB
@@ -28,6 +29,7 @@ MIN_FILE_SIZE = 100  # 100 bytes
 
 # 采集器注册表
 COLLECTOR_REGISTRY: dict[str, type["BaseCollector"]] = {}
+logger = logging.getLogger(__name__)
 
 
 class CollectorProtocol(Protocol):
@@ -57,8 +59,8 @@ class BaseCollector(ABC):
 
     def __init__(
         self,
-        proxies_list: Optional[Union[list[str], list[ProxyInfo]]] = None,
-        http_client: Optional[HttpClient] = None,
+        proxies_list: list[str] | list[ProxyInfo] | None = None,
+        http_client: HttpClient | None = None,
     ):
         """初始化采集器
 
@@ -69,7 +71,7 @@ class BaseCollector(ABC):
         self.proxy_pool = None
 
         if http_client is None:
-            from services.http_service import HttpService, ProxyPool, ProxyHttpService
+            from services.http_service import HttpService, ProxyHttpService, ProxyPool
 
             http_service = HttpService()
             if proxies_list:
@@ -100,7 +102,7 @@ class BaseCollector(ABC):
         if not self.http_client:
             raise NetworkError("HTTP client not initialized", url, self.name)
 
-        logging.info(f"[{self.name}] Fetching: {url}")
+        logger.info(f"[{self.name}] Fetching: {url}")
         try:
             return self.http_client.get(
                 url,
@@ -129,7 +131,7 @@ class BaseCollector(ABC):
         if not self.http_client:
             raise NetworkError("HTTP client not initialized", url, self.name)
 
-        logging.info(f"[{self.name}] Fetching: {url}")
+        logger.info(f"[{self.name}] Fetching: {url}")
         try:
             return self.http_client.get_raw(
                 url,
@@ -214,14 +216,14 @@ class BaseCollector(ABC):
             file_path.parent.mkdir(parents=True, exist_ok=True)
             file_path.write_text(content, encoding="utf-8")
 
-            logging.info(f"[{self.name}] Saved to: {file_path}")
+            logger.info(f"[{self.name}] Saved to: {file_path}")
             return True
 
         except ValidationError as e:
-            logging.warning(f"[{self.name}] Validation failed for {task.filename}: {e}")
+            logger.warning(f"[{self.name}] Validation failed for {task.filename}: {e}")
             return False
         except NetworkError as e:
-            logging.error(f"[{self.name}] Network error downloading {task.url}: {e}")
+            logger.error(f"[{self.name}] Network error downloading {task.url}: {e}")
             return False
         except Exception as e:
             raise DownloadError(str(e), task.url, task.filename, self.name) from e
@@ -261,7 +263,7 @@ class BaseCollector(ABC):
         """如果当前 today_page 已成功采集过，则中断当前采集并复用缓存结果"""
         cached_result = self.get_cached_result(output_dir)
         if cached_result:
-            logging.info(f"[{self.name}] Already collected {self.today_page}, skip")
+            logger.info(f"[{self.name}] Already collected {self.today_page}, skip")
             raise CachedCollectorResult(cached_result)
 
     def run(self, output_dir: Path, timestamp: str | None = None) -> CollectorResult:
@@ -273,7 +275,7 @@ class BaseCollector(ABC):
         Returns:
             采集结果
         """
-        logging.info(f"[{self.name}] Start collector")
+        logger.info(f"[{self.name}] Start collector")
         start_time = time.time()
         files: dict[str, FileManifest] = {}
         error_msg: str | None = None
@@ -281,7 +283,7 @@ class BaseCollector(ABC):
 
         try:
             tasks = self.get_download_tasks()
-            logging.info(f"[{self.name}] Found {len(tasks)} tasks")
+            logger.info(f"[{self.name}] Found {len(tasks)} tasks")
 
             for task in tasks:
                 success = self.download_file(task, output_dir)
@@ -291,16 +293,16 @@ class BaseCollector(ABC):
                     error=None if success else "Download failed",
                 )
         except CachedCollectorResult as e:
-            logging.info(f"[{self.name}] Collector skipped by cache")
+            logger.info(f"[{self.name}] Collector skipped by cache")
             e.result.duration_seconds = round(time.time() - start_time, 1)
             return e.result
 
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             error_msg = str(e)
-            logging.error(f"[{self.name}] Error: {e}")
+            logger.error(f"[{self.name}] Error: {e}")
 
         duration = round(time.time() - start_time, 1)
-        logging.info(f"[{self.name}] Collector finished in {duration}s")
+        logger.info(f"[{self.name}] Collector finished in {duration}s")
 
         # 计算状态
         if error_msg and not files:
@@ -313,7 +315,7 @@ class BaseCollector(ABC):
             status = "failed"
 
         # 每个采集器使用自己完成时的实际时间
-        ts = timestamp or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        ts = timestamp or datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
 
         return CollectorResult(
             site=self.name,
@@ -369,7 +371,7 @@ class YouTubeBaseCollector(BaseCollector):
                 self.title = video_title
         target_url = self.extract_redirect_url(video_html)
 
-        logging.info(f"[{self.name}] processing redirect: {target_url}")
+        logger.info(f"[{self.name}] processing redirect: {target_url}")
         return self.resolve_tasks_from_redirect(target_url)
 
     def extract_redirect_url(self, video_html: str) -> str:
@@ -415,7 +417,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
             self.playlist_keywords,
             reverse=False,
         )
-        logging.info(f"[{self.name}] find video {video}, title {title}")
+        logger.info(f"[{self.name}] find video {video}, title {title}")
         return video, title
 
     def extract_paste_url(self, video_html: str) -> str:
@@ -435,7 +437,7 @@ class YouTubePasteToCollector(YouTubeBaseCollector):
             password=self.paste_to_password,
         )
         if not self.paste_to_password:
-            logging.info(
+            logger.info(
                 f"[{self.name}] password decrypt {target_url} "
                 f"with {decrypt_result.password} share"
             )
@@ -494,10 +496,10 @@ def get_collector(name: str) -> type[BaseCollector]:
 
 __all__ = [
     "BaseCollector",
+    "CollectorResult",
     "YouTubeBaseCollector",
     "YouTubePasteToCollector",
-    "CollectorResult",
-    "register_collector",
-    "list_collectors",
     "get_collector",
+    "list_collectors",
+    "register_collector",
 ]

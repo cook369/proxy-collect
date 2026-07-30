@@ -5,8 +5,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import cast
 
-import services.readme_service as readme_service
 from core.models import SiteManifest
+from services import readme_service
 from services.manifest_service import ManifestService
 from services.readme_service import ReadmeService
 

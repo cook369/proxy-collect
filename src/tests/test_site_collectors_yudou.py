@@ -1,7 +1,8 @@
 """Yudou 采集器测试 - 包含 AES 解密功能"""
 
-import pytest
 from unittest.mock import Mock
+
+import pytest
 
 from collectors.sites.yudou import YudouCollector
 from core.interfaces import HttpClient

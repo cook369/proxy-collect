@@ -1,9 +1,7 @@
 """OneClash 采集器"""
 
-from typing import Optional
-
 from collectors.base import BaseCollector, register_collector
-from collectors.mixins import TwoStepCollectorMixin, HtmlParser
+from collectors.mixins import HtmlParser, TwoStepCollectorMixin
 from core.models import DownloadTask
 
 
@@ -14,7 +12,7 @@ class OneclashCollector(TwoStepCollectorMixin, BaseCollector):
     name = "oneclash"
     home_page = "https://oneclash.cc"
 
-    def get_today_url(self, home_html: str) -> Optional[str]:
+    def get_today_url(self, home_html: str) -> str | None:
         """从首页获取今日链接"""
         parser = HtmlParser(home_html, self.name)
         return parser.xpath('//a[text()[contains(., "免费节点高速订阅链接")]]/@href')

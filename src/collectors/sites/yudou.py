@@ -3,13 +3,13 @@
 import base64
 import re
 import urllib.parse
-from typing import Optional
+
 from Crypto.Cipher import AES
 from Crypto.Hash import MD5
 from Crypto.Util.Padding import unpad
 
 from collectors.base import BaseCollector, register_collector
-from collectors.mixins import TwoStepCollectorMixin, HtmlParser
+from collectors.mixins import HtmlParser, TwoStepCollectorMixin
 from config.settings import default_config
 from core.models import DownloadTask
 from utils.passwords import CharsetPasswordStrategy, brute_force_password
@@ -66,7 +66,7 @@ class YudouCollector(TwoStepCollectorMixin, BaseCollector):
 
     # ── TwoStep 采集流程 ──
 
-    def get_today_url(self, home_html: str) -> Optional[str]:
+    def get_today_url(self, home_html: str) -> str | None:
         """从首页获取今日链接"""
         parser = HtmlParser(home_html, self.name)
         return parser.xpath('//a[text()[contains(., "免费精选节点")]]/@href')

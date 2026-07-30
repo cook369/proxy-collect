@@ -5,11 +5,12 @@
 
 import json
 import logging
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Optional
 
 from core.models import CollectorResult, FileManifest, SiteManifest
+
+logger = logging.getLogger(__name__)
 
 
 class ManifestService:
@@ -17,7 +18,7 @@ class ManifestService:
 
     def __init__(self, manifest_file: Path):
         self.manifest_file = manifest_file
-        self.last_run: Optional[str] = None
+        self.last_run: str | None = None
         self.sites: dict[str, SiteManifest] = {}
         self._load()
 
@@ -49,8 +50,8 @@ class ManifestService:
                     files=files,
                     error=site_data.get("error"),
                 )
-        except Exception as e:
-            logging.warning(f"Failed to load manifest: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"Failed to load manifest: {e}")
 
     def should_download(self, site: str, url: str) -> bool:
         """判断是否需要下载
@@ -78,7 +79,7 @@ class ManifestService:
         Args:
             result: 采集结果
         """
-        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        now = datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
         existing = self.sites.get(result.site)
 
         if result.from_cache and existing is not None:
@@ -107,7 +108,7 @@ class ManifestService:
 
     def save(self):
         """保存 manifest 到文件"""
-        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        now = datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
         self.last_run = now
 
         data = {"last_run": self.last_run, "sites": {}}
@@ -141,6 +142,6 @@ class ManifestService:
             json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8"
         )
 
-    def get_site(self, site: str) -> Optional[SiteManifest]:
+    def get_site(self, site: str) -> SiteManifest | None:
         """获取站点信息"""
         return self.sites.get(site)

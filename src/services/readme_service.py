@@ -7,7 +7,7 @@ import logging
 import os
 import re
 import subprocess
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import quote
 
@@ -18,6 +18,8 @@ DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 CHINA_TIMEZONE = timezone(timedelta(hours=8))
 
 YEARLESS_CHINESE_DATE_RE = re.compile(r"^\d{1,2}月\d{1,2}日$")
+
+logger = logging.getLogger(__name__)
 
 
 class ReadmeService:
@@ -146,7 +148,7 @@ class ReadmeService:
             from collectors.base import get_collector
 
             home_page = getattr(get_collector(site_name), "home_page", None)
-        except Exception:
+        except Exception:  # noqa: BLE001
             home_page = None
 
         if home_page:
@@ -165,7 +167,7 @@ class ReadmeService:
 
             parsed = datetime.fromisoformat(value)
             if parsed.tzinfo is None:
-                parsed = parsed.replace(tzinfo=timezone.utc)
+                parsed = parsed.replace(tzinfo=UTC)
             return parsed.astimezone(CHINA_TIMEZONE).strftime(output_format)
         except ValueError:
             if output_format == "%Y-%m-%d %H:%M":
@@ -199,7 +201,7 @@ class ReadmeService:
             if branch and branch != "HEAD":
                 return branch
         except Exception:
-            logging.debug("Failed to detect current git branch", exc_info=True)
+            logger.debug("Failed to detect current git branch", exc_info=True)
 
         return "main"
 
@@ -226,7 +228,7 @@ class ReadmeService:
             if match:
                 return match.group("repo")
         except Exception:
-            logging.debug("Failed to detect GitHub repository", exc_info=True)
+            logger.debug("Failed to detect GitHub repository", exc_info=True)
 
         return DEFAULT_GITHUB_REPOSITORY
 
@@ -256,10 +258,16 @@ class ReadmeService:
                 continue
 
             date_str = m.group(0)
+            if YEARLESS_CHINESE_DATE_RE.fullmatch(date_str):
+                date_str = f"{datetime.now(tz=UTC).year}年{date_str}"
 
             for fmt in formats:
                 try:
-                    return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+                    return (
+                        datetime.strptime(date_str, fmt)
+                        .replace(tzinfo=UTC)
+                        .strftime("%Y-%m-%d")
+                    )
                 except ValueError:
                     continue
 

@@ -4,8 +4,8 @@ import json
 import tempfile
 from pathlib import Path
 
-from services.manifest_service import ManifestService
 from core.models import CollectorResult, FileManifest, SiteManifest
+from services.manifest_service import ManifestService
 
 
 class TestManifestServiceInit:

@@ -3,9 +3,10 @@
 集中管理所有配置项，支持环境变量、.env 文件和配置验证。
 """
 
-from pathlib import Path
 import os
-from typing import NotRequired, Optional, TypedDict
+from pathlib import Path
+from typing import NotRequired, TypedDict
+
 from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -99,7 +100,7 @@ class ProxyConfig(BaseSettings):
         default=3600, ge=60, le=86400, description="缓存有效期（秒）"
     )
 
-    cache_file: Optional[str] = Field(default=None, description="缓存文件路径")
+    cache_file: str | None = Field(default=None, description="缓存文件路径")
 
     # 健康度配置
     min_health_score: float = Field(

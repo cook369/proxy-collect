@@ -25,5 +25,5 @@ def extract_text_by_xpath(html: str, xpath: str) -> str | None:
         value = result[0] if isinstance(result, list) else result
         text = str(value).strip()
         return text or None
-    except Exception:
+    except Exception:  # noqa: BLE001
         return None

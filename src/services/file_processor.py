@@ -3,14 +3,16 @@
 处理下载文件的后处理，包括时间戳注入。
 """
 
-from datetime import datetime
-from pathlib import Path
-from typing import Optional
 import logging
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import ClassVar
 
 import yaml
 
 from core.models import CollectorResult
+
+logger = logging.getLogger(__name__)
 
 
 class FileProcessor:
@@ -18,7 +20,7 @@ class FileProcessor:
 
     INFO_LABELS = ("更新时间", "站点", "采集地址")
     INFO_GROUP_NAME = "订阅信息"
-    INFO_PROXY_TEMPLATE = {
+    INFO_PROXY_TEMPLATE: ClassVar[dict[str, str | int | bool]] = {
         "type": "vless",
         "server": "127.0.0.1",
         "port": 0,
@@ -94,7 +96,7 @@ class FileProcessor:
 
     @staticmethod
     def inject_timestamp_to_clash(
-        content: str, result: CollectorResult, timestamp: Optional[str] = None
+        content: str, result: CollectorResult, timestamp: str | None = None
     ) -> str:
         """注入时间戳节点到 clash.yaml
 
@@ -107,13 +109,13 @@ class FileProcessor:
             处理后的 YAML 内容
         """
         if timestamp is None:
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+            timestamp = datetime.now(UTC).strftime("%Y-%m-%d %H:%M")
 
         names = FileProcessor._build_subscription_info_names(result, timestamp)
 
         data = yaml.safe_load(content)
         if not isinstance(data, dict):
-            logging.warning(
+            logger.warning(
                 f"[{result.site}] Unexpected YAML format, skipping timestamp injection"
             )
             return content
@@ -138,7 +140,7 @@ class FileProcessor:
 
     @staticmethod
     def process_downloaded_file(
-        file_path: Path, result: CollectorResult, timestamp: Optional[str] = None
+        file_path: Path, result: CollectorResult, timestamp: str | None = None
     ):
         """处理下载的文件
 
@@ -152,10 +154,10 @@ class FileProcessor:
 
         filename = file_path.name
 
-        if filename.endswith(".yaml") or filename.endswith(".yml"):
+        if filename.endswith((".yaml", ".yml")):
             content = file_path.read_text(encoding="utf-8")
             processed = FileProcessor.inject_timestamp_to_clash(
                 content, result, timestamp
             )
             file_path.write_text(processed, encoding="utf-8")
-            logging.info(f"[{result.site}] Injected timestamp to {filename}")
+            logger.info(f"[{result.site}] Injected timestamp to {filename}")

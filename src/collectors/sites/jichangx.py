@@ -1,6 +1,6 @@
 """Jichangx 采集器"""
 
-from datetime import datetime
+from datetime import UTC, datetime
 
 from collectors.base import BaseCollector, register_collector
 from core.models import DownloadTask
@@ -15,7 +15,7 @@ class JichangxCollector(BaseCollector):
 
     def get_download_tasks(self) -> list[DownloadTask]:
         """构建下载任务"""
-        now = datetime.now()
+        now = datetime.now(tz=UTC)
         date_str = now.strftime("%Y%m%d")
         page_date = now.strftime("%Y-%m-%d")
         self.today_page = f"{self.home_page}/free-nodes-{page_date}/"

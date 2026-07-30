@@ -1,6 +1,7 @@
 """Paste.to 解密服务"""
 
 from functools import partial
+
 from core.interfaces import HttpClient
 from utils.paste_to import (
     CharsetPasswordStrategy,

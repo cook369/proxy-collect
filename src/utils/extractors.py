@@ -3,19 +3,20 @@
 提供可复用的内容提取函数，用于处理下载的原始内容。
 """
 
-import re
 import logging
-from collections.abc import Mapping
-from typing import Callable, Optional
+import re
+from collections.abc import Callable, Mapping
 
 from core.models import DownloadTask
+
+logger = logging.getLogger(__name__)
 
 
 def extract_by_regex(
     content: str,
     pattern: str,
     flags: int = re.DOTALL,
-) -> Optional[str]:
+) -> str | None:
     """使用正则表达式提取内容
 
     Args:
@@ -62,7 +63,7 @@ def create_regex_extractor(
     def extractor(content: str) -> str:
         result = extract_by_regex(content, pattern, flags)
         if result is None:
-            logging.warning(f"Regex pattern not matched: {pattern[:50]}...")
+            logger.warning(f"Regex pattern not matched: {pattern[:50]}...")
             return content
         if unescape:
             result = unescape_backslashes(result)

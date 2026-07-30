@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 
 def default_check_html(html: str) -> bool:

@@ -7,12 +7,14 @@ import logging
 import random
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import Optional
+
 from tqdm import tqdm
 
 from config.settings import ProxyConfig
-from core.models import ProxyInfo, ProxyType, ProxySourceConfig
+from core.models import ProxyInfo, ProxySourceConfig, ProxyType
 from services.http_service import HttpService
+
+logger = logging.getLogger(__name__)
 
 
 class ProxyValidator:
@@ -38,7 +40,7 @@ class ProxyValidator:
             )
             response_time = time.time() - start_time
             return True, response_time
-        except Exception:
+        except Exception:  # noqa: BLE001
             return False, 0.0
 
     def validate_batch(self, proxies: list[ProxyInfo]) -> list[ProxyInfo]:
@@ -95,9 +97,9 @@ class ProxyValidator:
                                 stop_checking = True
                         else:
                             proxy.record_failure()
-                    except Exception:
+                    except Exception:  # noqa: BLE001
                         proxy.record_failure()
-                        logging.debug(f"Proxy failed: {proxy.url}")
+                        logger.debug(f"Proxy failed: {proxy.url}")
 
                     checked_count += 1
                     current_percent = (
@@ -133,7 +135,7 @@ class ProxyValidator:
                     pbar.update(len(available) - pbar.n)
                     pbar.refresh()
 
-        logging.info(f"Get available Proxy: {len(available)}")
+        logger.info(f"Get available Proxy: {len(available)}")
         return available
 
 
@@ -166,7 +168,7 @@ class ProxyService:
 
     def _parse_proxy_line(
         self, line: str, proxy_type: ProxyType, source_url: str
-    ) -> Optional[ProxyInfo]:
+    ) -> ProxyInfo | None:
         """解析代理行
 
         Args:
@@ -216,15 +218,15 @@ class ProxyService:
                     if proxy:
                         proxies.append(proxy)
 
-                logging.info(f"Fetched {len(proxies)} proxies from {source.url}")
+                logger.info(f"Fetched {len(proxies)} proxies from {source.url}")
 
                 # 按权重采样
                 sample_size = int(self.config.base_sample_size * source.weight)
                 sample_size = min(sample_size, len(proxies))
                 all_proxies.extend(random.sample(proxies, sample_size))
 
-            except Exception as e:
-                logging.error(f"Failed to fetch from {source.url}: {e}")
+            except Exception as e:  # noqa: BLE001
+                logger.error(f"Failed to fetch from {source.url}: {e}")
 
         # 去重
         seen = set()
@@ -244,9 +246,9 @@ class ProxyService:
             可用的代理列表
         """
         proxies = self.fetch_proxies()
-        logging.info(f"Total proxies fetched: {len(proxies)}")
+        logger.info(f"Total proxies fetched: {len(proxies)}")
 
         validated = self.validator.validate_batch(proxies)
-        logging.info(f"Validated proxies: {len(validated)}")
+        logger.info(f"Validated proxies: {len(validated)}")
 
         return validated

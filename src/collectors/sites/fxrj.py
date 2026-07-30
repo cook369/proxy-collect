@@ -12,6 +12,7 @@ from utils.youtube import find_latest_video_url_in_home
 # zip 安全限制
 MAX_ZIP_ENTRIES = 50
 MAX_ZIP_ENTRY_SIZE = 10 * 1024 * 1024  # 10MB 单文件
+logger = logging.getLogger(__name__)
 
 
 @register_collector
@@ -26,13 +27,13 @@ class FXRJCollector(YouTubeBaseCollector):
         """从 YouTube 频道页提取最新视频 (url, title)"""
         video, title = find_latest_video_url_in_home(home_html)
         video = video + "&hl=zh-CN"
-        logging.info(f"[{self.name}] find video {video}, title {title}")
+        logger.info(f"[{self.name}] find video {video}, title {title}")
         return video, title
 
     def resolve_tasks_from_redirect(self, target_url: str) -> list[DownloadTask]:
         """从 Google Drive 下载 zip 并提取订阅任务"""
         download_url = self._convert_gdriver_download_url(target_url)
-        logging.info(f"[{self.name}] try decrypt {target_url} share")
+        logger.info(f"[{self.name}] try decrypt {target_url} share")
         return self.parse_subscription_tasks(download_url)
 
     @staticmethod
@@ -77,7 +78,7 @@ class FXRJCollector(YouTubeBaseCollector):
 
                 info = zf.getinfo(name)
                 if info.file_size > MAX_ZIP_ENTRY_SIZE:
-                    logging.warning(
+                    logger.warning(
                         f"[{self.name}] Skipping oversized file "
                         f"{name} ({info.file_size} bytes)"
                     )
@@ -95,7 +96,7 @@ class FXRJCollector(YouTubeBaseCollector):
                 if key not in result:
                     result[key] = content.decode("utf-8", errors="ignore")
                 else:
-                    logging.warning(
+                    logger.warning(
                         f"[{self.name}] Skipping duplicate file {name}, "
                         f"already have {key}"
                     )

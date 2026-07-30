@@ -3,10 +3,10 @@
 纯数据模型，不包含业务逻辑。
 """
 
+import time
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Optional, Callable
-import time
 
 
 @dataclass
@@ -16,7 +16,7 @@ class DownloadTask:
     filename: str
     url: str = ""
     data: str = ""
-    processor: Optional[Callable[[str], str]] = None
+    processor: Callable[[str], str] | None = None
 
 
 @dataclass
@@ -25,21 +25,21 @@ class FileManifest:
 
     url: str
     success: bool
-    error: Optional[str] = None
+    error: str | None = None
 
 
 @dataclass
 class SiteManifest:
     """站点清单"""
 
-    today_page: Optional[str]
+    today_page: str | None
     status: str  # "success" / "partial" / "failed"
-    updated_at: Optional[str]
+    updated_at: str | None
     files: dict[str, FileManifest] = field(default_factory=dict)
-    error: Optional[str] = None
-    title: Optional[str] = None  # 采集标题
-    collected_at: Optional[str] = None  # 真实采集时间
-    duration_seconds: Optional[float] = None  # 采集耗时（秒）
+    error: str | None = None
+    title: str | None = None  # 采集标题
+    collected_at: str | None = None  # 真实采集时间
+    duration_seconds: float | None = None  # 采集耗时（秒）
 
 
 @dataclass
@@ -47,14 +47,14 @@ class CollectorResult:
     """采集器执行结果"""
 
     site: str
-    today_page: Optional[str]
+    today_page: str | None
     files: dict[str, FileManifest]
     status: str  # "success" / "partial" / "failed"
-    error: Optional[str] = None
+    error: str | None = None
     from_cache: bool = False
-    title: Optional[str] = None  # 采集标题（today_html <title>）
-    collected_at: Optional[str] = None  # 首次采集时间（缓存命中时保留）
-    duration_seconds: Optional[float] = None  # 采集耗时（秒）
+    title: str | None = None  # 采集标题（today_html <title>）
+    collected_at: str | None = None  # 首次采集时间（缓存命中时保留）
+    duration_seconds: float | None = None  # 采集耗时（秒）
 
 
 class ProxyType(Enum):
@@ -76,9 +76,9 @@ class ProxyInfo:
     success_count: int = 0
     fail_count: int = 0
     total_response_time: float = 0.0
-    last_check_time: Optional[float] = None
-    last_success_time: Optional[float] = None
-    source_url: Optional[str] = None
+    last_check_time: float | None = None
+    last_success_time: float | None = None
+    source_url: str | None = None
 
     @property
     def url(self) -> str:
@@ -219,8 +219,8 @@ class ProxyCache:
     """代理缓存"""
 
     proxies: list[ProxyInfo] = field(default_factory=list)
-    created_at: Optional[float] = None
-    updated_at: Optional[float] = None
+    created_at: float | None = None
+    updated_at: float | None = None
 
     def is_expired(self, ttl: int) -> bool:
         """检查缓存是否过期"""

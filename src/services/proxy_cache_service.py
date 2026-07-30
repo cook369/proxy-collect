@@ -7,9 +7,10 @@ import json
 import logging
 import time
 from pathlib import Path
-from typing import Optional
 
-from core.models import ProxyInfo, ProxyCache
+from core.models import ProxyCache, ProxyInfo
+
+logger = logging.getLogger(__name__)
 
 
 class ProxyCacheService:
@@ -26,7 +27,7 @@ class ProxyCacheService:
         self.cache_file = cache_file
         self.ttl = ttl
         self.min_cache_proxies = min_cache_proxies
-        self._cache: Optional[ProxyCache] = None
+        self._cache: ProxyCache | None = None
 
     @property
     def cache(self) -> ProxyCache:
@@ -42,18 +43,18 @@ class ProxyCacheService:
             缓存实例
         """
         if not self.cache_file.exists():
-            logging.info(f"Cache file not found: {self.cache_file}")
+            logger.info(f"Cache file not found: {self.cache_file}")
             self._cache = ProxyCache(created_at=time.time())
             return self._cache
 
         try:
-            with open(self.cache_file, "r", encoding="utf-8") as f:
+            with open(self.cache_file, encoding="utf-8") as f:
                 data = json.load(f)
             self._cache = ProxyCache.from_dict(data)
-            logging.info(f"Loaded {len(self._cache.proxies)} proxies from cache")
+            logger.info(f"Loaded {len(self._cache.proxies)} proxies from cache")
             return self._cache
         except (json.JSONDecodeError, KeyError) as e:
-            logging.warning(f"Failed to load cache: {e}")
+            logger.warning(f"Failed to load cache: {e}")
             self._cache = ProxyCache(created_at=time.time())
             return self._cache
 
@@ -71,9 +72,9 @@ class ProxyCacheService:
         try:
             with open(self.cache_file, "w", encoding="utf-8") as f:
                 json.dump(self._cache.to_dict(), f, indent=2)
-            logging.info(f"Saved {len(self._cache.proxies)} proxies to cache")
-        except IOError as e:
-            logging.error(f"Failed to save cache: {e}")
+            logger.info(f"Saved {len(self._cache.proxies)} proxies to cache")
+        except OSError as e:
+            logger.error(f"Failed to save cache: {e}")
 
     def is_valid(self, min_health_score: float = 30.0) -> bool:
         """检查缓存是否有效
@@ -88,12 +89,12 @@ class ProxyCacheService:
             self._cache = self.load()
 
         if self._cache.is_expired(self.ttl):
-            logging.info("Cache expired")
+            logger.info("Cache expired")
             return False
 
         healthy = self._cache.get_healthy_proxies(min_health_score)
         if len(healthy) < self.min_cache_proxies:
-            logging.info(f"Not enough healthy proxies: {len(healthy)}")
+            logger.info(f"Not enough healthy proxies: {len(healthy)}")
             return False
 
         return True
@@ -157,4 +158,4 @@ class ProxyCacheService:
         self._cache = ProxyCache(created_at=time.time())
         if self.cache_file.exists():
             self.cache_file.unlink()
-            logging.info("Cache cleared")
+            logger.info("Cache cleared")

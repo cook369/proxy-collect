@@ -5,7 +5,7 @@ from unittest.mock import Mock
 import pytest
 
 from core.exceptions import ParseError
-import utils.paste_to as paste_to
+from utils import paste_to
 from utils.paste_to import (
     CharsetPasswordStrategy,
     DictionaryPasswordStrategy,

@@ -3,8 +3,8 @@
 import json
 import time
 
-from services.proxy_cache_service import ProxyCacheService
 from core.models import ProxyInfo
+from services.proxy_cache_service import ProxyCacheService
 
 
 class TestProxyCacheService:

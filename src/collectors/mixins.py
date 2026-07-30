@@ -3,13 +3,15 @@
 提取采集器中的通用模式，消除重复代码。
 """
 
-from lxml import etree
 import logging
-from typing import Optional
+
+from lxml import etree
 
 from core.exceptions import ParseError
 from core.models import DownloadTask
 from utils.html_utils import extract_text_by_xpath
+
+logger = logging.getLogger(__name__)
 
 
 class HtmlParser:
@@ -34,8 +36,8 @@ class HtmlParser:
         self._tree = None
         try:
             self._tree = etree.HTML(html)
-        except Exception as e:
-            logging.warning(f"[{collector_name}] Failed to parse HTML: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[{collector_name}] Failed to parse HTML: {e}")
 
     def xpath(self, xpath_expr: str, default: str | None = None) -> str | None:
         """执行 XPath 查询，返回第一个匹配结果
@@ -58,12 +60,10 @@ class HtmlParser:
                 return result[0] if result else default
             return str(result) if result else default
         except etree.XPathError as e:
-            logging.warning(
-                f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}"
-            )
+            logger.warning(f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}")
             return default
-        except Exception as e:
-            logging.warning(f"[{self.collector_name}] XPath query failed: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[{self.collector_name}] XPath query failed: {e}")
             return default
 
     def xpath_all(self, xpath_expr: str) -> list:
@@ -81,12 +81,10 @@ class HtmlParser:
         try:
             return self._tree.xpath(xpath_expr) or []
         except etree.XPathError as e:
-            logging.warning(
-                f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}"
-            )
+            logger.warning(f"[{self.collector_name}] Invalid XPath '{xpath_expr}': {e}")
             return []
-        except Exception as e:
-            logging.warning(f"[{self.collector_name}] XPath query failed: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[{self.collector_name}] XPath query failed: {e}")
             return []
 
 
@@ -113,7 +111,7 @@ class TwoStepCollectorMixin:
     # 设为 None 表示该站点不提取标题。复杂规则可改为覆盖 extract_title()。
     title_xpath: str | None = "//title/text()"
 
-    def get_today_url(self, home_html: str) -> Optional[str]:
+    def get_today_url(self, home_html: str) -> str | None:
         """从首页获取今日链接（子类实现）
 
         Args:
@@ -186,7 +184,7 @@ class TwoStepCollectorMixin:
 
         # 保存今日页面 URL
         self.today_page = today_url
-        logging.info(f"[{self.name}] Today URL: {today_url}")
+        logger.info(f"[{self.name}] Today URL: {today_url}")
         if hasattr(self, "skip_if_cached"):
             self.skip_if_cached()
 
@@ -197,8 +195,8 @@ class TwoStepCollectorMixin:
         # 提取今日页面标题（按站点规则，失败时为 None，不阻断采集）
         try:
             self.title = self.extract_title(today_html)
-        except Exception as e:
-            logging.warning(f"[{self.name}] Failed to extract title: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"[{self.name}] Failed to extract title: {e}")
             self.title = None
 
         # 步骤4：解析下载任务（带错误处理）
@@ -214,6 +212,6 @@ class TwoStepCollectorMixin:
             ) from e
 
         if not tasks:
-            logging.warning(f"[{self.name}] No download tasks found on today page")
+            logger.warning(f"[{self.name}] No download tasks found on today page")
 
         return tasks

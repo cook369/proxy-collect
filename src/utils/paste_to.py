@@ -1,13 +1,13 @@
 """Paste.to 分享解密辅助函数"""
 
 import base64
+import hashlib
+import json
+import zlib
 from collections.abc import Callable
 from dataclasses import dataclass
 from functools import partial
-import hashlib
-import json
 from urllib.parse import urlparse
-import zlib
 
 from Crypto.Cipher import AES
 

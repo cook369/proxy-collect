@@ -1,15 +1,16 @@
 """采集器基类单元测试"""
 
-import pytest
+import tempfile
 from pathlib import Path
 from unittest.mock import Mock
-import tempfile
+
+import pytest
 
 from collectors.base import BaseCollector, register_collector
 from collectors.mixins import TwoStepCollectorMixin
-from core.models import CollectorResult, DownloadTask
-from core.interfaces import HttpClient
 from core.exceptions import NetworkError
+from core.interfaces import HttpClient
+from core.models import CollectorResult, DownloadTask
 from utils.check import default_check_html
 
 
@@ -219,7 +220,7 @@ class TestCollectorRun:
             home_page = "http://example.com"
 
             def get_download_tasks(self):
-                raise Exception("Failed to get tasks")
+                raise Exception("Failed to get tasks")  # noqa: TRY002
 
         collector = TestCollector(http_client=mock_http_client)
 

@@ -1,11 +1,11 @@
 """通用密码/口令候选尝试工具"""
 
+import threading
 from collections.abc import Callable, Iterable, Iterator
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from itertools import product
 from queue import Empty, Full, Queue
-import threading
 
 from core.exceptions import ParseError
 
@@ -79,7 +79,7 @@ def _try_password_queue(
         except FatalPasswordAttemptError:
             stop_event.set()
             raise
-        except Exception:
+        except Exception:  # noqa: BLE001,S112
             continue
 
 
@@ -154,7 +154,7 @@ def brute_force_password(
                     if pending != future:
                         pending.cancel()
                 raise
-            except Exception:
+            except Exception:  # noqa: BLE001,S112
                 continue
 
             if not found:

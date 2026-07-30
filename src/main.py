@@ -3,26 +3,26 @@
 import argparse
 import logging
 import os
-from datetime import datetime
-from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import UTC, datetime
+from pathlib import Path
 
+from collectors.base import get_collector, list_collectors
 from config.settings import Config
 from core.models import CollectorResult, ProxyInfo
-from services.http_service import HttpService
-from services.proxy_service import ProxyValidator, ProxyService
-from services.proxy_cache_service import ProxyCacheService
-from services.manifest_service import ManifestService
 from services.file_processor import FileProcessor
+from services.http_service import HttpService
+from services.manifest_service import ManifestService
+from services.proxy_cache_service import ProxyCacheService
+from services.proxy_service import ProxyService, ProxyValidator
 from services.readme_service import ReadmeService
-from collectors.base import get_collector, list_collectors
 from utils.logging_config import setup_logging
-
 
 config = Config()
 
 log_level = os.getenv("LOG_LEVEL", "INFO")
 setup_logging(level=log_level)
+logger = logging.getLogger(__name__)
 
 
 def run_collector(
@@ -54,7 +54,7 @@ def process_downloaded_file_safely(
     try:
         FileProcessor.process_downloaded_file(clash_path, result, timestamp)
     except Exception as e:
-        logging.warning(
+        logger.warning(
             "[%s] Failed to process downloaded file %s: %s",
             result.site,
             clash_path,
@@ -138,12 +138,12 @@ def main():
     else:
         collectors_to_run = list_collectors()
 
-    logging.info(f"Collectors to run: {collectors_to_run}")
+    logger.info(f"Collectors to run: {collectors_to_run}")
 
     # 初始化服务
     manifest = ManifestService(config.app.manifest_file)
     # 用于 YAML 文件头注入的时间戳（统一使用运行开始时间作为标签）
-    file_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    file_timestamp = datetime.now(tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
 
     # 获取代理列表
     proxy_list = []
@@ -170,7 +170,7 @@ def main():
             cache_service.load()
             if cache_service.is_valid(config.proxy.min_health_score):
                 proxy_list = cache_service.get_proxies(config.proxy.min_health_score)
-                logging.info(f"Using {len(proxy_list)} proxies from cache")
+                logger.info(f"Using {len(proxy_list)} proxies from cache")
 
         if not proxy_list:
             proxy_list = proxy_service.get_validated_proxies()
@@ -178,7 +178,7 @@ def main():
                 cache_service.update_proxies(proxy_list)
                 cache_service.save()
 
-    logging.info(f"Get available proxy: {len(proxy_list)}")
+    logger.info(f"Get available proxy: {len(proxy_list)}")
 
     # 使用 ThreadPoolExecutor 并发运行采集器
     results = []
@@ -194,8 +194,8 @@ def main():
             try:
                 result = future.result()
                 results.append(result)
-            except Exception as e:
-                logging.error(f"Collector {name} failed: {e}")
+            except Exception as e:  # noqa: BLE001
+                logger.error(f"Collector {name} failed: {e}")
                 results.append(
                     CollectorResult(
                         site=name,

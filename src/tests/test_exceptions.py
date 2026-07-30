@@ -2,10 +2,10 @@
 
 from core.exceptions import (
     CollectorError,
-    NetworkError,
-    ProxyError,
-    ParseError,
     DownloadError,
+    NetworkError,
+    ParseError,
+    ProxyError,
     ValidationError,
 )
 

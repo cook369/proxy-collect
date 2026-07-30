@@ -148,6 +148,7 @@ cd src && uv run pytest --cov=. --cov-report=term-missing
 from collectors.base import BaseCollector, register_collector
 from core.models import DownloadTask
 
+
 @register_collector
 class SimpleCollector(BaseCollector):
     name = "simple"
@@ -171,6 +172,7 @@ from collectors.base import BaseCollector, register_collector
 from collectors.mixins import TwoStepCollectorMixin, safe_xpath, safe_xpath_all
 from core.models import DownloadTask
 
+
 @register_collector
 class TwoStepCollector(TwoStepCollectorMixin, BaseCollector):
     name = "twosite"
@@ -178,16 +180,22 @@ class TwoStepCollector(TwoStepCollectorMixin, BaseCollector):
 
     def get_today_url(self, home_html: str) -> Optional[str]:
         """从首页获取今日链接"""
-        links = safe_xpath_all(home_html, '//a[contains(text(), "今日")]/@href', self.name)
+        links = safe_xpath_all(
+            home_html, '//a[contains(text(), "今日")]/@href', self.name
+        )
         return links[0] if links else None
 
     def parse_download_tasks(self, today_html: str) -> list[DownloadTask]:
         """从今日页面解析下载任务"""
         tasks = []
-        clash_url = safe_xpath(today_html, '//a[contains(@href, "clash")]/@href', self.name)
+        clash_url = safe_xpath(
+            today_html, '//a[contains(@href, "clash")]/@href', self.name
+        )
         if clash_url:
             tasks.append(DownloadTask(filename="clash.yaml", url=clash_url))
-        v2ray_url = safe_xpath(today_html, '//a[contains(@href, "v2ray")]/@href', self.name)
+        v2ray_url = safe_xpath(
+            today_html, '//a[contains(@href, "v2ray")]/@href', self.name
+        )
         if v2ray_url:
             tasks.append(DownloadTask(filename="v2ray.txt", url=v2ray_url))
         return tasks
@@ -199,6 +207,7 @@ class TwoStepCollector(TwoStepCollectorMixin, BaseCollector):
 from collectors.base import BaseCollector, register_collector
 from collectors.mixins import DateBasedUrlMixin
 from core.models import DownloadTask
+
 
 @register_collector
 class DateCollector(DateBasedUrlMixin, BaseCollector):
@@ -212,7 +221,7 @@ class DateCollector(DateBasedUrlMixin, BaseCollector):
             extensions={
                 "clash.yaml": ".yaml",
                 "v2ray.txt": ".txt",
-            }
+            },
         )
 ```
 
@@ -232,13 +241,14 @@ CLASH_EXTRACTOR = create_regex_extractor(
     unescape=True,  # 将 \n 转换为真正的换行符
 )
 
+
 @register_collector
 class ProcessorCollector(TwoStepCollectorMixin, BaseCollector):
     name = "processor_example"
     home_page = "https://example.com"
 
     def get_today_url(self, home_html: str) -> Optional[str]:
-        return safe_xpath(home_html, '//a/@href', self.name)
+        return safe_xpath(home_html, "//a/@href", self.name)
 
     def parse_download_tasks(self, today_html: str) -> list[DownloadTask]:
         clash_url = safe_xpath(today_html, '//div[@class="clash"]', self.name)
@@ -264,6 +274,7 @@ from utils.check import check_html_contains
 from utils.extractors import create_download_tasks_from_regex_rules
 from utils.youtube import extract_youtube_redirect_url, find_latest_video_url
 
+
 @register_collector
 class YoutubePasteCollector(BaseCollector):
     name = "youtube_paste"
@@ -283,11 +294,15 @@ class YoutubePasteCollector(BaseCollector):
 
         video_html = self.fetch_html(self.today_page)
         paste_url = extract_youtube_redirect_url(video_html, "paste.to")
-        content = PasteToService(
-            http_client=self.http_client,
-            timeout=default_config.collector.fetch_timeout,
-            max_workers=default_config.collector.paste_to_password_workers,
-        ).decrypt_url(paste_url, password=self.paste_to_password).content
+        content = (
+            PasteToService(
+                http_client=self.http_client,
+                timeout=default_config.collector.fetch_timeout,
+                max_workers=default_config.collector.paste_to_password_workers,
+            )
+            .decrypt_url(paste_url, password=self.paste_to_password)
+            .content
+        )
 
         return create_download_tasks_from_regex_rules(
             content,

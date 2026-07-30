@@ -5,16 +5,18 @@
 
 import logging
 import time
-from typing import Any, Callable, Iterator, Optional, Union
+from collections.abc import Callable, Iterator
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import RLock
+from typing import Any
+
 import requests
 import urllib3
 from tenacity import (
     retry,
+    retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
-    retry_if_exception_type,
 )
 
 from core.exceptions import ProxyError
@@ -23,6 +25,7 @@ from utils.check import default_check_html
 
 # 代理竞速默认批大小：每批并发尝试的代理数
 DEFAULT_PROXY_BATCH_SIZE = 5
+logger = logging.getLogger(__name__)
 
 
 def _chunked(items: list, size: int) -> Iterator[list]:
@@ -35,7 +38,7 @@ class HttpService:
     """基础 HTTP 请求服务"""
 
     def __init__(
-        self, session: Optional[requests.Session] = None, verify_ssl: bool = False
+        self, session: requests.Session | None = None, verify_ssl: bool = False
     ):
         """初始化 HTTP 服务
 
@@ -69,9 +72,9 @@ class HttpService:
     def _get(
         self,
         url: str,
-        proxy: Optional[str] = None,
+        proxy: str | None = None,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """发送单次 GET 请求（不重试）
@@ -94,17 +97,17 @@ class HttpService:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type(requests.RequestException),
         reraise=True,
     )
     def get(
         self,
         url: str,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
         check_html: Callable[[str], bool] = default_check_html,
         *,
-        proxy: Optional[str] = None,
+        proxy: str | None = None,
     ) -> str:
         """发送 GET 请求（带重试）
 
@@ -127,17 +130,17 @@ class HttpService:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type(requests.RequestException),
         reraise=True,
     )
     def post(
         self,
         url: str,
-        json: Optional[dict[str, Any]] = None,
+        json: dict[str, Any] | None = None,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
         *,
-        proxy: Optional[str] = None,
+        proxy: str | None = None,
     ) -> str:
         """发送 POST 请求（带重试）
 
@@ -169,15 +172,15 @@ class HttpService:
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
-        retry=retry_if_exception_type((requests.RequestException)),
+        retry=retry_if_exception_type(requests.RequestException),
         reraise=True,
     )
     def get_raw(
         self,
         url: str,
-        proxy: Optional[str] = None,
+        proxy: str | None = None,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> bytes:
         """发送 GET 请求
 
@@ -194,7 +197,7 @@ class HttpService:
             ValueError: 响应内容为空
         """
         proxies = {"http": proxy, "https": proxy} if proxy else None
-        # logging.info(f"Fetching URL: {url} with proxy: {proxy}")
+        # logger.info(f"Fetching URL: {url} with proxy: {proxy}")
         resp = self.session.get(url, proxies=proxies, timeout=timeout, headers=headers)
         resp.raise_for_status()
 
@@ -207,7 +210,7 @@ class HttpService:
 class ProxyPool:
     """代理池管理"""
 
-    def __init__(self, proxies: Optional[Union[list[str], list[ProxyInfo]]] = None):
+    def __init__(self, proxies: list[str] | list[ProxyInfo] | None = None):
         self.lock = RLock()
         self._proxies: dict[str, ProxyInfo] = {}
 
@@ -215,7 +218,7 @@ class ProxyPool:
             for proxy in proxies:
                 self._add_proxy(proxy)
 
-    def _add_proxy(self, proxy: Union[str, ProxyInfo]) -> None:
+    def _add_proxy(self, proxy: str | ProxyInfo) -> None:
         """内部添加代理"""
         if isinstance(proxy, str):
             proxy_info = self._parse_proxy_string(proxy)
@@ -226,7 +229,7 @@ class ProxyPool:
             key = f"{proxy_info.host}:{proxy_info.port}"
             self._proxies[key] = proxy_info
 
-    def _parse_proxy_string(self, proxy_str: str) -> Optional[ProxyInfo]:
+    def _parse_proxy_string(self, proxy_str: str) -> ProxyInfo | None:
         """解析代理字符串"""
         try:
             # 格式: scheme://host:port
@@ -248,7 +251,7 @@ class ProxyPool:
             pass
         return None
 
-    def add(self, proxy: Union[str, ProxyInfo], priority: int = 0):
+    def add(self, proxy: str | ProxyInfo, priority: int = 0):
         """添加代理"""
         with self.lock:
             self._add_proxy(proxy)
@@ -263,21 +266,21 @@ class ProxyPool:
         with self.lock:
             return [p.url for p in self._proxies.values()]
 
-    def record_success(self, proxy: Union[str, ProxyInfo], response_time: float):
+    def record_success(self, proxy: str | ProxyInfo, response_time: float):
         """记录成功请求"""
         with self.lock:
             key = self._get_key(proxy)
             if key and key in self._proxies:
                 self._proxies[key].record_success(response_time)
 
-    def record_failure(self, proxy: Union[str, ProxyInfo]):
+    def record_failure(self, proxy: str | ProxyInfo):
         """记录失败请求"""
         with self.lock:
             key = self._get_key(proxy)
             if key and key in self._proxies:
                 self._proxies[key].record_failure()
 
-    def _get_key(self, proxy: Union[str, ProxyInfo]) -> Optional[str]:
+    def _get_key(self, proxy: str | ProxyInfo) -> str | None:
         """获取代理的键"""
         if isinstance(proxy, ProxyInfo):
             return f"{proxy.host}:{proxy.port}"
@@ -302,7 +305,7 @@ class ProxyHttpService:
     def __init__(
         self,
         http_service: HttpService,
-        proxy_pool: Optional[ProxyPool] = None,
+        proxy_pool: ProxyPool | None = None,
         batch_size: int = DEFAULT_PROXY_BATCH_SIZE,
     ):
         self.http_service = http_service
@@ -315,7 +318,7 @@ class ProxyHttpService:
         self,
         url: str,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """使用代理池按健康度小批次竞速请求
@@ -344,9 +347,9 @@ class ProxyHttpService:
         url: str,
         proxies: list[ProxyInfo],
         timeout: int,
-        headers: Optional[dict[str, str]],
+        headers: dict[str, str] | None,
         check_html: Callable[[str], bool],
-    ) -> Optional[str]:
+    ) -> str | None:
         """并发竞速一批代理，返回首个通过校验的响应；整批失败返回 None。
 
         命中后从 ``with`` 块返回，executor 会确定性关闭（join 掉同批其余请求）。
@@ -362,16 +365,16 @@ class ProxyHttpService:
                 try:
                     result, response_time, _ = future.result()
                     if not check_html(result):
-                        logging.info(f"Proxy {proxy.url} returned invalid content")
+                        logger.info(f"Proxy {proxy.url} returned invalid content")
                         raise ValueError("Response content failed validation")
                     if self.proxy_pool:
                         self.proxy_pool.record_success(proxy, response_time)
-                    logging.info(f"Successfully fetched {url} with proxy: {proxy.url}")
+                    logger.info(f"Successfully fetched {url} with proxy: {proxy.url}")
                     return result
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     if self.proxy_pool:
                         self.proxy_pool.record_failure(proxy)
-                    logging.debug(f"Proxy {proxy.url} failed: {e}")
+                    logger.debug(f"Proxy {proxy.url} failed: {e}")
         return None
 
     def _try_fetch(
@@ -379,7 +382,7 @@ class ProxyHttpService:
         url: str,
         proxy: ProxyInfo,
         timeout: int,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> tuple[str, float, ProxyInfo]:
         """尝试使用指定代理获取（单次，不重试）"""
         start_time = time.time()
@@ -393,7 +396,7 @@ class ProxyHttpService:
         self,
         url: str,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
         check_html: Callable[[str], bool] = default_check_html,
     ) -> str:
         """获取 URL 内容（兼容 HttpService 接口）"""
@@ -402,9 +405,9 @@ class ProxyHttpService:
     def get_raw(
         self,
         url: str,
-        proxy: Optional[str] = None,
+        proxy: str | None = None,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> bytes:
         """获取二进制内容（兼容 HttpService 接口，使用分批竞速）"""
         if not self.proxy_pool:
@@ -428,8 +431,8 @@ class ProxyHttpService:
         url: str,
         proxies: list[ProxyInfo],
         timeout: int,
-        headers: Optional[dict[str, str]],
-    ) -> Optional[bytes]:
+        headers: dict[str, str] | None,
+    ) -> bytes | None:
         """并发竞速一批代理获取二进制内容，返回首个成功结果；整批失败返回 None"""
         with ThreadPoolExecutor(max_workers=len(proxies)) as executor:
             futures = {
@@ -444,14 +447,14 @@ class ProxyHttpService:
                     result, response_time, _ = future.result()
                     if self.proxy_pool:
                         self.proxy_pool.record_success(proxy, response_time)
-                    logging.info(
+                    logger.info(
                         f"Successfully fetched (raw) {url} with proxy: {proxy.url}"
                     )
                     return result
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     if self.proxy_pool:
                         self.proxy_pool.record_failure(proxy)
-                    logging.debug(f"Proxy {proxy.url} failed (raw): {e}")
+                    logger.debug(f"Proxy {proxy.url} failed (raw): {e}")
         return None
 
     def _try_fetch_raw(
@@ -459,7 +462,7 @@ class ProxyHttpService:
         url: str,
         proxy: ProxyInfo,
         timeout: int,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> tuple[bytes, float, ProxyInfo]:
         """尝试使用指定代理获取二进制内容（单次，不重试）"""
         start_time = time.time()
@@ -472,9 +475,9 @@ class ProxyHttpService:
     def post(
         self,
         url: str,
-        json: Optional[dict[str, Any]] = None,
+        json: dict[str, Any] | None = None,
         timeout: int = 30,
-        headers: Optional[dict[str, str]] = None,
+        headers: dict[str, str] | None = None,
     ) -> str:
         """发送 POST 请求（兼容 HttpService 接口，使用代理池）"""
         if not self.proxy_pool:
@@ -497,7 +500,7 @@ class ProxyHttpService:
                 )
                 self.proxy_pool.record_success(proxy_info, 1.0)
                 return result
-            except Exception:
+            except Exception:  # noqa: BLE001
                 self.proxy_pool.record_failure(proxy_info)
 
         raise ProxyError(f"All proxies failed to POST {url}")

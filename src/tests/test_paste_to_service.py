@@ -2,7 +2,7 @@
 
 from unittest.mock import Mock
 
-import services.paste_to_service as paste_to_service
+from services import paste_to_service
 from services.paste_to_service import PasteToService
 from utils.paste_to import DictionaryPasswordStrategy, PasswordAttemptResult
 

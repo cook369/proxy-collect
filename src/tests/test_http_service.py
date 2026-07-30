@@ -2,15 +2,15 @@
 
 import threading
 import time
+from unittest.mock import Mock, patch
 
 import pytest
-from unittest.mock import Mock, patch
 import requests
 
-from services.http_service import HttpService, ProxyHttpService, ProxyPool
 from core.exceptions import ProxyError
 from core.interfaces import HttpClient
 from core.models import ProxyInfo, ProxyType
+from services.http_service import HttpService, ProxyHttpService, ProxyPool
 from utils.check import default_check_html
 
 

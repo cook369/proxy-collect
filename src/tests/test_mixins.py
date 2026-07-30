@@ -2,11 +2,11 @@
 
 import pytest
 
-from collectors.mixins import (
-    TwoStepCollectorMixin,
-    HtmlParser,
-)
 from collectors.base import BaseCollector
+from collectors.mixins import (
+    HtmlParser,
+    TwoStepCollectorMixin,
+)
 from core.exceptions import ParseError
 from core.models import DownloadTask, FileManifest, SiteManifest
 
@@ -254,7 +254,7 @@ class TestTwoStepCollectorMixin:
         )
 
         class FakeManifest:
-            sites = {
+            sites = {  # noqa: RUF012
                 "test_cached": SiteManifest(
                     today_page=today_url,
                     status="success",

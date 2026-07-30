@@ -1,4 +1,5 @@
 import logging
+from typing import ClassVar
 
 from collectors.base import BaseCollector, register_collector
 from collectors.mixins import HtmlParser
@@ -16,6 +17,8 @@ from utils.passwords import (
     brute_force_password,
 )
 
+logger = logging.getLogger(__name__)
+
 
 @register_collector
 class JCNodeCollector(BaseCollector):
@@ -28,7 +31,7 @@ class JCNodeCollector(BaseCollector):
     verification_code_strategy: (
         CharsetPasswordStrategy | DictionaryPasswordStrategy | None
     ) = None
-    verify_headers = {
+    verify_headers: ClassVar[dict[str, str]] = {
         "content-type": "application/json",
         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
     }
@@ -44,7 +47,7 @@ class JCNodeCollector(BaseCollector):
             self.today_page = self.get_today_url(playlist_html)
         self.skip_if_cached()
 
-        logging.info(f"[{self.name}] preparing password verification")
+        logger.info(f"[{self.name}] preparing password verification")
 
         if self.verification_code:
             verification_result = PasswordAttemptResult(
@@ -57,7 +60,7 @@ class JCNodeCollector(BaseCollector):
                 password_strategy=self.verification_code_strategy,
                 try_password=self.verify_code,
             )
-        logging.info(
+        logger.info(
             f"[{self.name}] password decrypt {self.home_page} with {verification_result.password} share"
         )
         return self.parse_subscription_tasks(verification_result.content)
@@ -82,7 +85,7 @@ class JCNodeCollector(BaseCollector):
 
         通过 self.http_client.post() 发送请求，代理池自动管理代理选择与重试。
         """
-        logging.debug(f"[{self.name}] trying password candidate")
+        logger.debug(f"[{self.name}] trying password candidate")
 
         try:
             response = self.http_client.post(
@@ -95,7 +98,7 @@ class JCNodeCollector(BaseCollector):
             raise FatalPasswordAttemptError("jcnode verification network failed") from e
 
         if "口令错误" in response:
-            logging.debug(f"[{self.name}] password candidate rejected")
+            logger.debug(f"[{self.name}] password candidate rejected")
             raise ValueError("password error")
         if not response.strip():
             raise FatalPasswordAttemptError(

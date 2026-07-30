@@ -1,8 +1,7 @@
 """NodeFree 采集器"""
 
-from typing import Optional
 from collectors.base import BaseCollector, register_collector
-from collectors.mixins import TwoStepCollectorMixin, HtmlParser
+from collectors.mixins import HtmlParser, TwoStepCollectorMixin
 from core.models import DownloadTask
 
 
@@ -13,7 +12,7 @@ class NodefreeCollector(TwoStepCollectorMixin, BaseCollector):
     name = "nodefree"
     home_page = "https://nodefree.me"
 
-    def get_today_url(self, home_html: str) -> Optional[str]:
+    def get_today_url(self, home_html: str) -> str | None:
         """从首页获取今日链接"""
         parser = HtmlParser(home_html, self.name)
         return parser.xpath('//a[text()[contains(., "订阅链接免费节点")]]/@href')

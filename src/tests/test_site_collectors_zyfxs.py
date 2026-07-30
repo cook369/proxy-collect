@@ -196,7 +196,7 @@ def test_run_skips_when_latest_video_already_collected(tmp_path, monkeypatch):
     (site_dir / "clash.yaml").write_text("proxies:\n  - name: test\n", encoding="utf-8")
 
     class FakeManifest:
-        sites = {
+        sites = {  # noqa: RUF012
             "zyfxs": SiteManifest(
                 today_page=latest_url,
                 status="success",
