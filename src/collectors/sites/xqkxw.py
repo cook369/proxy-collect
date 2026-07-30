@@ -13,7 +13,7 @@ class XQKXWCollector(YouTubePasteToCollector):
     home_page = (
         "https://www.youtube.com/playlist?list=PLuUYvtnZVIVI79GPS7VvxhYYm0x2jjuOZ"
     )
-    playlist_keywords = ("节点分享", "免费节点")
+    playlist_keywords = ("Free Nodes", "免费节点")
 
     def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
         """从解密后的分享内容提取订阅链接"""

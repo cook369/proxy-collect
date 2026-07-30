@@ -78,7 +78,7 @@ def find_latest_video_url(
     if reverse:
         playlist = playlist[::-1]
     for video, title in playlist:
-        if all(keyword in title for keyword in keywords):
+        if any(keyword in title for keyword in keywords):
             return video, title
     raise ParseError(
         f"No matching YouTube playlist video found for keywords: {', '.join(keywords)}"

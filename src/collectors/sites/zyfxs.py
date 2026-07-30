@@ -13,7 +13,7 @@ class ZYFXSCollector(YouTubePasteToCollector):
     home_page = (
         "https://www.youtube.com/playlist?list=PLFF7T03a7nnF-5POF9QxmABrzSKGy8fhC"
     )
-    playlist_keywords = ("节点分享", "免费节点")
+    playlist_keywords = ("免费节点",)
 
     def parse_subscription_tasks(self, content: str) -> list[DownloadTask]:
         """从解密后的分享内容提取订阅链接"""

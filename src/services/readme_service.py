@@ -17,21 +17,6 @@ from services.manifest_service import ManifestService
 DEFAULT_GITHUB_REPOSITORY = "cook369/proxy-collect"
 CHINA_TIMEZONE = timezone(timedelta(hours=8))
 
-TITLE_DATE_RE = re.compile(
-    r"""
-    (
-        \d{4}[-/]\d{1,2}[-/]\d{1,2}      # 2026-07-01 / 2026/6/20
-        |
-        \d{4}年\d{1,2}月\d{1,2}日         # 2026年7月2日
-        |
-        \d{1,2}月\d{1,2}日                # 7月2日 / 07月2日
-        |
-        \d{1,2}/\d{1,2}/\d{4}            # 20/6/2026
-    )
-    """,
-    re.VERBOSE,
-)
-
 YEARLESS_CHINESE_DATE_RE = re.compile(r"^\d{1,2}月\d{1,2}日$")
 
 
@@ -246,33 +231,38 @@ class ReadmeService:
         return DEFAULT_GITHUB_REPOSITORY
 
     def get_data_from_title(self, title):
-        date_token = self._match_title_date(title)
-        if not date_token:
-            return None
-        return self._normalize_title_date(date_token)
-
-    @staticmethod
-    def _match_title_date(title: str) -> str | None:
-        match = TITLE_DATE_RE.search(title)
-        if not match:
-            return None
-        return match.group(1)
-
-    @staticmethod
-    def _normalize_title_date(date_token: str) -> str:
-        if YEARLESS_CHINESE_DATE_RE.fullmatch(date_token):
-            date_token = f"{datetime.now().year}年{date_token}"
-
-        formats = [
-            "%Y-%m-%d",
-            "%Y/%m/%d",
-            "%Y年%m月%d日",
-            "%d/%m/%Y",
+        DATE_PATTERNS = [
+            (
+                r"\d{4}[-/]\d{1,2}[-/]\d{1,2}",  # 2026-07-01 / 2026/6/20
+                ["%Y-%m-%d", "%Y/%m/%d"],
+            ),
+            (
+                r"\d{4}年\d{1,2}月\d{1,2}日",  # 2026年7月2日
+                ["%Y年%m月%d日"],
+            ),
+            (
+                r"\d{1,2}/\d{1,2}/\d{4}",  # 20/6/2026
+                ["%d/%m/%Y"],
+            ),
+            (
+                r"[A-Za-z]+\s+\d{1,2},\s*\d{4}",  # July 30, 2026
+                ["%B %d, %Y", "%b %d, %Y"],
+            ),
         ]
 
-        for date_format in formats:
-            try:
-                return datetime.strptime(date_token, date_format).strftime("%Y-%m-%d")
-            except ValueError:
-                pass
-        return date_token
+        for pattern, formats in DATE_PATTERNS:
+            m = re.search(pattern, title, re.IGNORECASE)
+            if not m:
+                continue
+
+            date_str = m.group(0)
+
+            for fmt in formats:
+                try:
+                    return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+                except ValueError:
+                    continue
+
+            return date_str
+
+        return None
