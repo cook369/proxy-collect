@@ -71,7 +71,7 @@ class ProxyConfig(BaseSettings):
 
     # GitHub 代理
     github_proxy: str = Field(
-        default="https://ghproxy.net", description="GitHub 代理地址"
+        default="https://gh-proxy.com", description="GitHub 代理地址"
     )
 
     # 测试 URL
