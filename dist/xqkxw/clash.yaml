@@ -1,0 +1,3862 @@
+allow-lan: false
+dns:
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  ipv6: false
+  listen: 127.0.0.1:1053
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+  nameserver-policy:
+    geosite:geolocation-!cn:
+    - https://1.1.1.1/dns-query#🚀 节点选择
+    - https://8.8.8.8/dns-query#🚀 节点选择
+  proxy-server-nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+external-controller: 127.0.0.1:9090
+ipv6: false
+log-level: info
+mixed-port: 7890
+mode: rule
+proxies:
+- name: 采集地址 https://www.youtube.com/watch?v=PDV1E5hu-ts
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 站点 xqkxw
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 更新时间 2026-09-05 08:10:36
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 加拿大  YouTube@小青科学网_31
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2083
+  server: 99.cdn.aewe.de
+  skip-cert-verify: true
+  sni: 17885848341367.168381.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848347513.168381.xyz
+    path: /tianboephth
+- name: 加拿大  YouTube@小青科学网_3
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2096
+  server: bestcdn2.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848344486.206356.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848343292.206356.xyz
+    path: /dmusicmuaawe
+- name: 加拿大  YouTube@小青科学网_14
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2053
+  server: bestcdn3.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848348133.168381.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848347656.168381.xyz
+    path: /tianboephth
+- name: 加拿大  YouTube@小青科学网_15
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2087
+  server: bestcdn3.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848346638.206352.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848343179.206352.xyz
+    path: /agraeabtegrrh
+- client-fingerprint: edge
+  name: 俄罗斯  YouTube@小青科学网_1
+  network: ws
+  port: 443
+  server: 45.9.15.206
+  servername: ru05.abvpn.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+  ws-opts:
+    headers:
+      Host: ru05.abvpn.ru
+    path: /websocket
+- name: 美国  YouTube@小青科学网_54
+  password: humanity
+  port: 443
+  server: 104.17.177.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alterId: 0
+  cipher: auto
+  name: 未知  YouTube@小青科学网_34
+  network: xhttp
+  port: 8443
+  server: cf3.2000601.xyz
+  servername: acckxg.2000601.xyz
+  skip-cert-verify: true
+  tls: true
+  type: vmess
+  udp: true
+  uuid: 0c655bc1-42d9-4f92-bf60-aec93087ea54
+- name: 加拿大  YouTube@小青科学网_2
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2053
+  server: bestcdn3.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848346433.206356.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848342373.206356.xyz
+    path: /dmusicmuaawe
+- name: 加拿大  YouTube@小青科学网_16
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2053
+  server: bestcdn0.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848344489.682637.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848341927.682637.xyz
+    path: /ahyrtuyjykl
+- name: 加拿大  YouTube@小青科学网_25
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 8443
+  server: bestcdn0.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848349992.682637.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848348401.682637.xyz
+    path: /ahyrtuyjykl
+- name: 加拿大  YouTube@小青科学网_1
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2083
+  server: bestcdn3.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848342917.206353.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848346674.206353.xyz
+    path: /agrbniuh
+- name: 加拿大  YouTube@小青科学网_10
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2096
+  server: bestcdn2.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848346845.206355.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848342237.206355.xyz
+    path: /videomuaawe
+- name: 加拿大  YouTube@小青科学网_18
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2087
+  server: bestcdn0.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848345591.682637.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848341041.682637.xyz
+    path: /ahyrtuyjykl
+- name: 美国  YouTube@小青科学网_176
+  password: humanity
+  port: 443
+  server: 104.18.152.108
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_62
+  password: humanity
+  port: 443
+  server: 104.16.174.72
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_126
+  password: humanity
+  port: 443
+  server: 104.16.174.46
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国  YouTube@小青科学网_12
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_5
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_4
+  network: ws
+  port: 2087
+  server: 178.95.170.83
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  ws-opts:
+    path: /4bc027a44532
+- name: 美国  YouTube@小青科学网_193
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_6
+  password: humanity
+  port: 443
+  server: 104.18.152.155
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 8443
+  server: 99.cdn.aewe.de
+  skip-cert-verify: true
+  sni: 17885848347755.206353.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848344796.206353.xyz
+    path: /agrbniuh
+- name: 美国  YouTube@小青科学网_159
+  password: humanity
+  port: 443
+  server: 104.16.174.46
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_29
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_9
+  network: ws
+  port: 2087
+  server: 188.220.67.245
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 90da514d-8888-4a53-912e-ac2981c8c6ee
+  ws-opts:
+    path: /8f2690e2d016
+- name: 加拿大  YouTube@小青科学网_32
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2096
+  server: 99.cdn.aewe.de
+  skip-cert-verify: true
+  sni: 17885848343322.206352.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848344995.206352.xyz
+    path: /agraeabtegrrh
+- name: 美国  YouTube@小青科学网
+  network: ws
+  port: 2087
+  server: 178.95.170.83
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  ws-opts:
+    headers:
+      Host: Telegram-Leviko_v2ray
+    path: /4bc027a44532
+- name: 未知  YouTube@小青科学网_2
+  password: humanity
+  port: 443
+  server: 104.18.152.140
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_30
+  password: humanity
+  port: 443
+  server: 104.16.174.117
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_135
+  password: humanity
+  port: 443
+  server: 104.16.174.117
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_37
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_44
+  password: humanity
+  port: 443
+  server: 104.16.174.12
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_132
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_105
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_35
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 德国  YouTube@小青科学网
+  network: ws
+  port: 2087
+  server: 163.8.195.241
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 56ba5d34-ef22-4ba6-8090-4188b807df54
+  ws-opts:
+    headers:
+      Host: /?–v2rayNplus–v2rayNplus–v2rayNplus–
+    path: /29c8fed7ca22
+- name: 加拿大  YouTube@小青科学网_11
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2053
+  server: bestcdn3.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848349029.206355.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848346286.206355.xyz
+    path: /videomuaawe
+- name: 美国  YouTube@小青科学网_41
+  password: humanity
+  port: 443
+  server: 104.18.152.229
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_181
+  password: humanity
+  port: 443
+  server: 104.18.152.73
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  - h2
+  - h3
+  name: 美国  YouTube@小青科学网_91
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_157
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_178
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_6
+  network: ws
+  port: 2087
+  server: 178.95.170.83
+  servername: Telegram-Leviko_v2ray
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  ws-opts:
+    path: /4bc027a44532
+- name: 美国  YouTube@小青科学网_23
+  password: humanity
+  port: 443
+  server: 104.16.174.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: //assignment
+- name: 未知  YouTube@小青科学网_23
+  password: humanity
+  port: 443
+  server: 104.16.174.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 英国  YouTube@小青科学网
+  port: 7443
+  reality-opts:
+    public-key: 8qUiIosG5-OQWo0tD29BQCbxb50neUg8BynxdAvDzB4
+    short-id: '132142'
+  server: 144.124.225.48
+  servername: setbacks.hb-website.ru-msk.vkcloud-storage.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: ecf789a5-edc3-4eef-bdea-837d048afd9a
+- name: 加拿大  YouTube@小青科学网_6
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2083
+  server: bestcdn2.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848343774.206352.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848342508.206352.xyz
+    path: /agraeabtegrrh
+- client-fingerprint: edge
+  name: 俄罗斯  YouTube@小青科学网
+  network: ws
+  port: 443
+  server: ru05.abvpn.ru
+  servername: ru05.abvpn.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: a289a3d3-5833-4b28-8809-ae72898a98d0
+  ws-opts:
+    headers:
+      Host: ru05.abvpn.ru
+    path: /websocket
+- name: 美国  YouTube@小青科学网_89
+  password: humanity
+  port: 443
+  server: 104.18.152.246
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_166
+  password: humanity
+  port: 443
+  server: 104.18.152.208
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_167
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 美国  YouTube@小青科学网_208
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- name: 美国  YouTube@小青科学网_25
+  password: humanity
+  port: 443
+  server: 104.18.152.50
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_4
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_56
+  password: humanity
+  port: 443
+  server: 104.18.152.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_103
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_30
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_20
+  password: humanity
+  port: 443
+  server: 104.16.174.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_214
+  password: humanity
+  port: 443
+  server: 104.16.174.37
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_74
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_146
+  password: humanity
+  port: 443
+  server: 104.16.73.213
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_160
+  password: humanity
+  port: 443
+  server: 104.16.174.44
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alterId: 0
+  cipher: auto
+  name: 未知  YouTube@小青科学网_41
+  network: xhttp
+  port: 8443
+  server: cf2.2000601.xyz
+  servername: acckxg.2000601.xyz
+  skip-cert-verify: true
+  tls: true
+  type: vmess
+  udp: true
+  uuid: 0c655bc1-42d9-4f92-bf60-aec93087ea54
+- name: 法国  YouTube@小青科学网_17
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_9
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 8443
+  server: bestcdn0.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848347704.682637.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848348674.682637.xyz
+    path: /ahyrtuyjykl
+- name: 美国  YouTube@小青科学网_19
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_70
+  password: humanity
+  port: 443
+  server: 104.18.152.229
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_21
+  password: humanity
+  port: 443
+  server: 104.16.174.185
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_133
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国  YouTube@小青科学网_148
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_153
+  password: humanity
+  port: 443
+  server: 104.16.174.121
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_64
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2053
+  server: bestcdn1.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848347958.206352.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848349984.206352.xyz
+    path: /agraeabtegrrh
+- alpn:
+  - http/1.1
+  name: 法国  YouTube@小青科学网_9
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_96
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_26
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2083
+  server: 99.cdn.aewe.de
+  skip-cert-verify: true
+  sni: 17885848342369.206355.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848345967.206355.xyz
+    path: /videomuaawe
+- name: 美国  YouTube@小青科学网_129
+  password: humanity
+  port: 443
+  server: 104.16.174.6
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_204
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_12
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2087
+  server: bestcdn0.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848346635.682637.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848346222.682637.xyz
+    path: /ahyrtuyjykl
+- name: 美国  YouTube@小青科学网_43
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 美国  YouTube@小青科学网_50
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_108
+  password: humanity
+  port: 443
+  server: 104.16.174.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 英国  YouTube@小青科学网_4
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_18
+  password: humanity
+  port: 443
+  server: 104.18.152.246
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_13
+  password: humanity
+  port: 443
+  server: 104.16.174.37
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_136
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_37
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_18
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_20
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: assignment
+- alpn:
+  - http/1.1
+  name: 法国  YouTube@小青科学网_13
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_134
+  password: humanity
+  port: 443
+  server: ip.myip2.qzz.io
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_44
+  password: humanity
+  port: 443
+  server: 104.16.174.44
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_207
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_5
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2083
+  server: 99.cdn.aewe.de
+  skip-cert-verify: true
+  sni: 17885848349079.206356.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848342792.206356.xyz
+    path: /dmusicmuaawe
+- name: 加拿大  YouTube@小青科学网_13
+  password: humanity
+  port: 443
+  server: 104.16.174.34
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_120
+  password: humanity
+  port: 443
+  server: 104.18.152.244
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_169
+  password: b3991a3b-c5e9-43d1-a98c-c58096060014
+  port: 2096
+  server: bestcdn1.868863.xyz
+  skip-cert-verify: true
+  sni: 17885848343390.206353.xyz
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17885848342110.206353.xyz
+    path: /agrbniuh
+- name: 美国  YouTube@小青科学网_205
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 西班牙  YouTube@小青科学网
+  network: ws
+  port: 2087
+  server: 188.220.67.245
+  servername: 188.220.67.245
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 90da514d-8888-4a53-912e-ac2981c8c6ee
+  ws-opts:
+    path: /8f2690e2d016
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 美国  YouTube@小青科学网_3
+  port: 443
+  reality-opts:
+    public-key: QMkh_UZF6wTVrYukjoZTbrRUziZxT-s0Oj8zVP_RuH0
+    short-id: b0ffeec3
+  server: sv9.jarvesitw.ru
+  servername: apiv91.jarvesitw.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: c6037cf7-d931-4027-af06-6bfb0f10684c
+- name: 西班牙  YouTube@小青科学网_1
+  network: ws
+  port: 2087
+  server: 178.95.170.83
+  servername: 178.95.170.83
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: bf443e4a-aa9e-4509-abf0-d0f6828d57be
+  ws-opts:
+    path: /4bc027a44532
+- name: 德国  YouTube@小青科学网_3
+  network: ws
+  port: 2087
+  server: 163.8.195.241
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 56ba5d34-ef22-4ba6-8090-4188b807df54
+  ws-opts:
+    headers:
+      Host: /?--v2rayNplus--v2rayNplus--v2rayNplus--
+    path: /29c8fed7ca22
+- name: 美国  YouTube@小青科学网_20
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_5
+  password: humanity
+  port: 443
+  server: 104.18.152.244
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_52
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_99
+  password: humanity
+  port: 443
+  server: 104.16.174.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_100
+  password: humanity
+  port: 443
+  server: 104.18.152.108
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_122
+  password: humanity
+  port: 443
+  server: 104.18.152.179
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国  YouTube@小青科学网_14
+  password: humanity
+  port: 443
+  server: 104.18.152.179
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_142
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_40
+  password: humanity
+  port: 443
+  server: 141.101.90.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_215
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 法国  YouTube@小青科学网_1
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_83
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_104
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_10
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_20
+  password: humanity
+  port: 443
+  server: 104.16.174.72
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_125
+  password: humanity
+  port: 443
+  server: 104.17.177.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_172
+  password: humanity
+  port: 443
+  server: 104.17.111.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_180
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_186
+  password: humanity
+  port: 443
+  server: 141.101.90.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_187
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: chrome
+  name: 美国  YouTube@小青科学网_211
+  network: ws
+  port: 443
+  server: 151.101.56.7
+  servername: ssl.fastly.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: d2299018-601d-488e-afd6-8f55b3f7439f
+  ws-opts:
+    headers:
+      Host: pan1.global.ssl.fastly.net
+    path: /TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER,TELEGRAM_NUFiLTER?ed=2053
+- name: 法国  YouTube@小青科学网_6
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_66
+  password: humanity
+  port: 443
+  server: 104.18.12.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_75
+  password: humanity
+  port: 443
+  server: 104.18.152.204
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_78
+  password: humanity
+  port: 443
+  server: 104.18.152.159
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_81
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 美国  YouTube@小青科学网_109
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_113
+  password: humanity
+  port: 443
+  server: 104.16.174.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: //assignment
+- name: 美国  YouTube@小青科学网_117
+  password: humanity
+  port: 443
+  server: 104.18.152.230
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_27
+  password: humanity
+  port: 443
+  server: 104.18.152.152
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_155
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_195
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 德国  YouTube@小青科学网_2
+  port: 443
+  reality-opts:
+    public-key: QMkh_UZF6wTVrYukjoZTbrRUziZxT-s0Oj8zVP_RuH0
+    short-id: b0ffeec3
+  server: 88.216.190.205
+  servername: apiv91.jarvesitw.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: c6037cf7-d931-4027-af06-6bfb0f10684c
+- name: 未知  YouTube@小青科学网_1
+  network: ws
+  port: 2087
+  server: 163.8.195.241
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 56ba5d34-ef22-4ba6-8090-4188b807df54
+  ws-opts:
+    path: /29c8fed7ca22
+- name: 美国  YouTube@小青科学网_30
+  password: humanity
+  port: 443
+  server: 104.16.174.6
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_58
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: assignment
+- name: 美国  YouTube@小青科学网_59
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_7
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_8
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_68
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_73
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_76
+  password: humanity
+  port: 443
+  server: 104.18.152.103
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_11
+  password: humanity
+  port: 443
+  server: 104.16.174.12
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_85
+  password: humanity
+  port: 443
+  server: 104.18.152.133
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_110
+  password: humanity
+  port: 443
+  server: 104.18.152.140
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_26
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_119
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_32
+  password: humanity
+  port: 443
+  server: 104.18.152.230
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_149
+  password: humanity
+  port: 443
+  server: ip.myip2.qzz.io
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_36
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 法国  YouTube@小青科学网_16
+  password: humanity
+  port: 443
+  server: 45.130.125.158
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: chrome
+  name: 英国  YouTube@小青科学网_1
+  network: ws
+  port: 2087
+  server: 188.220.67.245
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 90da514d-8888-4a53-912e-ac2981c8c6ee
+  ws-opts:
+    path: /8f2690e2d016
+- name: 美国  YouTube@小青科学网_14
+  password: humanity
+  port: 443
+  server: 104.18.152.159
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_17
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_29
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_32
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_38
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国  YouTube@小青科学网_7
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_61
+  password: humanity
+  port: 443
+  server: 104.16.174.36
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_69
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_10
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_77
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_80
+  password: humanity
+  port: 443
+  server: 104.18.152.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_86
+  password: humanity
+  port: 443
+  server: 104.16.174.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_16
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_22
+  password: humanity
+  port: 443
+  server: 104.18.152.155
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_130
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_31
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_22
+  password: humanity
+  port: 443
+  server: 104.16.174.71
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_170
+  password: humanity
+  port: 443
+  server: 188.114.97.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_183
+  password: humanity
+  port: 443
+  server: 104.18.152.133
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_42
+  password: humanity
+  port: 443
+  server: www.speedtest.org
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_18
+  password: humanity
+  port: 443
+  server: 104.18.152.155
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_46
+  password: humanity
+  port: 443
+  server: www.speedtest.org
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_210
+  password: humanity
+  port: 443
+  server: 104.18.12.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_16
+  password: humanity
+  port: 443
+  server: 104.16.174.71
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国  YouTube@小青科学网_2
+  password: humanity
+  port: 443
+  server: 104.18.152.97
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_27
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_3
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_42
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 未知  YouTube@小青科学网_12
+  password: humanity
+  port: 443
+  server: 104.18.152.77
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_14
+  password: humanity
+  port: 443
+  server: 104.16.174.148
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_98
+  password: humanity
+  port: 443
+  server: 104.18.152.113
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_102
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_106
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_111
+  password: humanity
+  port: 443
+  server: 104.18.152.204
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 英国  YouTube@小青科学网_2
+  port: 7443
+  server: fl.larpvpn.space
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 9fd994ad-d36c-476d-96c7-25f10bbdf2cb
+- name: 美国  YouTube@小青科学网_123
+  password: humanity
+  port: 443
+  server: 104.18.152.207
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 美国  YouTube@小青科学网_124
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_128
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_143
+  password: humanity
+  port: 443
+  server: 104.18.152.207
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_147
+  password: humanity
+  port: 443
+  server: 104.17.111.8
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国  YouTube@小青科学网_156
+  password: humanity
+  port: 443
+  server: 104.16.174.36
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 未知  YouTube@小青科学网_33
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_23
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 加拿大  YouTube@小青科学网_27
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_173
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国  YouTube@小青科学网_175
+  password: humanity
+  port: 443
+  server: 104.16.174.117
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 美国  YouTube@小青科学网_199
+  port: 5001
+  reality-opts:
+    public-key: HNjZe5pYUhcuE8sASYVVrVSMW_jFfekgLnrnO4xXIyQ
+    short-id: a1b2c3d4
+  server: 31.76.4.128
+  servername: fi.aeternavpn.space
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5a92a9d2-3067-49cd-bfc5-989bbdfc5d52
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国  YouTube@小青科学网_200
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 英国  YouTube@小青科学网_5
+  port: 5001
+  reality-opts:
+    public-key: HNjZe5pYUhcuE8sASYVVrVSMW_jFfekgLnrnO4xXIyQ
+    short-id: a1b2c3d4
+  server: 31.76.4.128
+  servername: fi.aeternavpn.space
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5a92a9d2-3067-49cd-bfc5-989bbdfc5d52
+proxy-groups:
+- name: 订阅信息
+  proxies:
+  - 更新时间 2026-09-05 08:10:36
+  - 站点 xqkxw
+  - 采集地址 https://www.youtube.com/watch?v=PDV1E5hu-ts
+  type: select
+- name: 🚀 节点选择
+  proxies:
+  - ♻️ 自动选择
+  - DIRECT
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+- interval: 300
+  name: ♻️ 自动选择
+  proxies:
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  tolerance: 50
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- name: 🌍 国外媒体
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+- name: 📲 电报信息
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+- name: Ⓜ️ 微软服务
+  proxies:
+  - 🎯 全球直连
+  - 🚀 节点选择
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+- name: 🍎 苹果服务
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+- name: 🎯 全球直连
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  type: select
+- name: 🛑 全球拦截
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🍃 应用净化
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🐟 漏网之鱼
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - ♻️ 自动选择
+  - 加拿大  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_14
+  - 加拿大  YouTube@小青科学网_15
+  - 俄罗斯  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_54
+  - 未知  YouTube@小青科学网_34
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_25
+  - 加拿大  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_18
+  - 美国  YouTube@小青科学网_176
+  - 美国  YouTube@小青科学网_62
+  - 美国  YouTube@小青科学网_126
+  - 法国  YouTube@小青科学网_12
+  - 法国  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_193
+  - 未知  YouTube@小青科学网_6
+  - 加拿大  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_159
+  - 加拿大  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_135
+  - 未知  YouTube@小青科学网_37
+  - 美国  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_132
+  - 美国  YouTube@小青科学网_105
+  - 未知  YouTube@小青科学网_35
+  - 德国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_41
+  - 美国  YouTube@小青科学网_181
+  - 美国  YouTube@小青科学网_91
+  - 美国  YouTube@小青科学网_157
+  - 美国  YouTube@小青科学网_178
+  - 美国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_23
+  - 未知  YouTube@小青科学网_23
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_6
+  - 俄罗斯  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_89
+  - 美国  YouTube@小青科学网_166
+  - 美国  YouTube@小青科学网_167
+  - 美国  YouTube@小青科学网_208
+  - 美国  YouTube@小青科学网_25
+  - 法国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_56
+  - 美国  YouTube@小青科学网_103
+  - 未知  YouTube@小青科学网_30
+  - 法国  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_214
+  - 美国  YouTube@小青科学网_74
+  - 美国  YouTube@小青科学网_146
+  - 美国  YouTube@小青科学网_160
+  - 未知  YouTube@小青科学网_41
+  - 法国  YouTube@小青科学网_17
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_19
+  - 美国  YouTube@小青科学网_70
+  - 未知  YouTube@小青科学网_21
+  - 美国  YouTube@小青科学网_133
+  - 美国  YouTube@小青科学网_148
+  - 美国  YouTube@小青科学网_153
+  - 美国  YouTube@小青科学网_64
+  - 法国  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_96
+  - 加拿大  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_129
+  - 美国  YouTube@小青科学网_204
+  - 加拿大  YouTube@小青科学网_12
+  - 美国  YouTube@小青科学网_43
+  - 美国  YouTube@小青科学网_50
+  - 美国  YouTube@小青科学网_108
+  - 英国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_136
+  - 美国  YouTube@小青科学网_37
+  - 未知  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_20
+  - 法国  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_134
+  - 未知  YouTube@小青科学网_44
+  - 美国  YouTube@小青科学网_207
+  - 加拿大  YouTube@小青科学网_5
+  - 加拿大  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_120
+  - 美国  YouTube@小青科学网_169
+  - 美国  YouTube@小青科学网_205
+  - 西班牙  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_3
+  - 西班牙  YouTube@小青科学网_1
+  - 德国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_20
+  - 未知  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_52
+  - 美国  YouTube@小青科学网_99
+  - 美国  YouTube@小青科学网_100
+  - 美国  YouTube@小青科学网_122
+  - 法国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_142
+  - 未知  YouTube@小青科学网_40
+  - 美国  YouTube@小青科学网_215
+  - 法国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_83
+  - 美国  YouTube@小青科学网_104
+  - 法国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_20
+  - 美国  YouTube@小青科学网_125
+  - 美国  YouTube@小青科学网_172
+  - 美国  YouTube@小青科学网_180
+  - 美国  YouTube@小青科学网_186
+  - 美国  YouTube@小青科学网_187
+  - 美国  YouTube@小青科学网_211
+  - 法国  YouTube@小青科学网_6
+  - 美国  YouTube@小青科学网_66
+  - 美国  YouTube@小青科学网_75
+  - 美国  YouTube@小青科学网_78
+  - 美国  YouTube@小青科学网_81
+  - 美国  YouTube@小青科学网_109
+  - 美国  YouTube@小青科学网_113
+  - 美国  YouTube@小青科学网_117
+  - 未知  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_155
+  - 美国  YouTube@小青科学网_195
+  - 德国  YouTube@小青科学网_2
+  - 未知  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_30
+  - 美国  YouTube@小青科学网_58
+  - 美国  YouTube@小青科学网_59
+  - 未知  YouTube@小青科学网_7
+  - 未知  YouTube@小青科学网_8
+  - 美国  YouTube@小青科学网_68
+  - 美国  YouTube@小青科学网_73
+  - 美国  YouTube@小青科学网_76
+  - 未知  YouTube@小青科学网_11
+  - 美国  YouTube@小青科学网_85
+  - 美国  YouTube@小青科学网_110
+  - 未知  YouTube@小青科学网_26
+  - 美国  YouTube@小青科学网_119
+  - 未知  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_149
+  - 未知  YouTube@小青科学网_36
+  - 法国  YouTube@小青科学网_16
+  - 英国  YouTube@小青科学网_1
+  - 美国  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_17
+  - 美国  YouTube@小青科学网_29
+  - 美国  YouTube@小青科学网_32
+  - 美国  YouTube@小青科学网_38
+  - 法国  YouTube@小青科学网_7
+  - 美国  YouTube@小青科学网_61
+  - 美国  YouTube@小青科学网_69
+  - 未知  YouTube@小青科学网_10
+  - 美国  YouTube@小青科学网_77
+  - 美国  YouTube@小青科学网_80
+  - 美国  YouTube@小青科学网_86
+  - 未知  YouTube@小青科学网_16
+  - 未知  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_130
+  - 未知  YouTube@小青科学网_31
+  - 加拿大  YouTube@小青科学网_22
+  - 美国  YouTube@小青科学网_170
+  - 美国  YouTube@小青科学网_183
+  - 未知  YouTube@小青科学网_42
+  - 法国  YouTube@小青科学网_18
+  - 未知  YouTube@小青科学网_46
+  - 美国  YouTube@小青科学网_210
+  - 美国  YouTube@小青科学网_16
+  - 法国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_27
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_42
+  - 未知  YouTube@小青科学网_12
+  - 未知  YouTube@小青科学网_14
+  - 美国  YouTube@小青科学网_98
+  - 美国  YouTube@小青科学网_102
+  - 美国  YouTube@小青科学网_106
+  - 美国  YouTube@小青科学网_111
+  - 英国  YouTube@小青科学网_2
+  - 美国  YouTube@小青科学网_123
+  - 美国  YouTube@小青科学网_124
+  - 美国  YouTube@小青科学网_128
+  - 美国  YouTube@小青科学网_143
+  - 美国  YouTube@小青科学网_147
+  - 美国  YouTube@小青科学网_156
+  - 未知  YouTube@小青科学网_33
+  - 加拿大  YouTube@小青科学网_23
+  - 加拿大  YouTube@小青科学网_27
+  - 美国  YouTube@小青科学网_173
+  - 美国  YouTube@小青科学网_175
+  - 美国  YouTube@小青科学网_199
+  - 美国  YouTube@小青科学网_200
+  - 英国  YouTube@小青科学网_5
+  type: select
+rule-providers:
+  Apple:
+    behavior: classical
+    path: ./rules/Apple.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
+  BanAD:
+    behavior: classical
+    path: ./rules/BanAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list
+  BanProgramAD:
+    behavior: classical
+    path: ./rules/BanProgramAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list
+  ChinaCompanyIp:
+    behavior: classical
+    path: ./rules/ChinaCompanyIp.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+  ChinaDomain:
+    behavior: classical
+    path: ./rules/ChinaDomain.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
+  GoogleCN:
+    behavior: classical
+    path: ./rules/GoogleCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/GoogleCN.list
+  LocalAreaNetwork:
+    behavior: classical
+    path: ./rules/LocalAreaNetwork.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list
+  Microsoft:
+    behavior: classical
+    path: ./rules/Microsoft.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
+  ProxyLite:
+    behavior: classical
+    path: ./rules/ProxyLite.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list
+  ProxyMedia:
+    behavior: classical
+    path: ./rules/ProxyMedia.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
+  SteamCN:
+    behavior: classical
+    path: ./rules/SteamCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
+  Telegram:
+    behavior: classical
+    path: ./rules/Telegram.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
+rules:
+- DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+- RULE-SET,LocalAreaNetwork,🎯 全球直连
+- RULE-SET,BanAD,🛑 全球拦截
+- RULE-SET,BanProgramAD,🍃 应用净化
+- RULE-SET,GoogleCN,🎯 全球直连
+- RULE-SET,SteamCN,🎯 全球直连
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,ProxyMedia,🌍 国外媒体
+- RULE-SET,Telegram,📲 电报信息
+- RULE-SET,ProxyLite,🚀 节点选择
+- RULE-SET,ChinaDomain,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
