@@ -250,6 +250,10 @@ class ReadmeService:
                 r"[A-Za-z]+\s+\d{1,2},\s*\d{4}",  # July 30, 2026
                 ["%B %d, %Y", "%b %d, %Y"],
             ),
+            (
+                r"\d{1,2}月\d{1,2}日",  # 7月2日
+                ["%Y年%m月%d日"],
+            ),
         ]
 
         for pattern, formats in DATE_PATTERNS:

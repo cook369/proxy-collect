@@ -67,7 +67,7 @@ class JCNodeCollector(BaseCollector):
 
     def get_today_url(self, home_html: str) -> str:
         parser = HtmlParser(home_html, self.name)
-        data = parser.xpath('//*[@id="top"]/main/article/div/p[5]/a/@href')
+        data = parser.xpath('(//*[@id="top"]/main/article/div/p/a[starts-with(@href,"https://youtu.be")]/@href)[1]')
         if not data:
             raise ValueError("invalid today url")
         return data
