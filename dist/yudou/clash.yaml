@@ -1,0 +1,5440 @@
+allow-lan: false
+dns:
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  ipv6: false
+  listen: 127.0.0.1:1053
+  nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+  nameserver-policy:
+    geosite:geolocation-!cn:
+    - https://1.1.1.1/dns-query#🚀 节点选择
+    - https://8.8.8.8/dns-query#🚀 节点选择
+  proxy-server-nameserver:
+  - https://dns.alidns.com/dns-query
+  - https://doh.pub/dns-query
+external-controller: 127.0.0.1:9090
+ipv6: false
+log-level: info
+mixed-port: 7890
+mode: rule
+proxies:
+- name: 采集地址 https://www.yudou789.top/1867.html
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 站点 yudou
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 更新时间 2026-09-13 03:54:21
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- client-fingerprint: firefox
+  http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 美国(yudou789.top 玉豆分享)
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- client-fingerprint: firefox
+  http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 香港(yudou789.top 玉豆分享)
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- name: 加拿大(yudou789.top 玉豆分享)
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_1
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 加拿大(yudou789.top 玉豆分享)_1
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 法国(yudou789.top 玉豆分享)
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_2
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_3
+  password: humanity
+  port: 443
+  server: 162.159.136.234
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_4
+  network: ws
+  port: 80
+  server: 208.103.161.249
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: a3c51f71-ffb5-4c80-a136-cee4b36d6e85
+  ws-opts:
+    headers:
+      Host: kAmRaN01-aFgmDQ-1.KaMRan-01.wOrkeRs.DEv
+    path: /
+- name: 法国(yudou789.top 玉豆分享)_1
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_5
+  network: ws
+  port: 8880
+  server: 50.62.198.30
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: vms.lifetime39.workers.dev
+    path: /
+- name: 美国(yudou789.top 玉豆分享)_6
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_7
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_8
+  port: 40443
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  server: aldebaran.yokkastars.com
+  servername: deepl.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+- name: 美国(yudou789.top 玉豆分享)_9
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_10
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_11
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_12
+  network: ws
+  port: 8880
+  server: 63.141.128.30
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: vms.lifetime42.workers.dev
+    path: /
+- name: 美国(yudou789.top 玉豆分享)_13
+  network: ws
+  port: 8880
+  server: 45.40.149.50
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  ws-opts:
+    headers:
+      Host: vms.lifetime39.workers.dev
+    path: /
+- name: 美国(yudou789.top 玉豆分享)_14
+  network: ws
+  port: 80
+  server: 50.62.195.4
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: e382b6dd-2dac-49c5-b16f-1cd0a6b73bf2
+  ws-opts:
+    headers:
+      Host: raspy-feather-12ec.137-257.workers.dev
+    path: /
+- name: 法国(yudou789.top 玉豆分享)_2
+  password: humanity
+  port: 443
+  server: 130.250.137.171
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_15
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- cipher: chacha20-ietf-poly1305
+  name: 荷兰(yudou789.top 玉豆分享)
+  password: c58d16e593d44f42
+  port: 11001
+  server: 158.173.221.214
+  skip-cert-verify: true
+  type: ss
+  udp: true
+- alpn:
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_16
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_17
+  password: humanity
+  port: 443
+  server: 104.18.23.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_18
+  password: humanity
+  port: 443
+  server: 165.215.250.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_19
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_20
+  network: ws
+  port: 443
+  server: 193.36.38.17
+  servername: eded-52n.pages.dev
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+  ws-opts:
+    headers:
+      Host: eded-52n.pages.dev
+    path: /
+- name: 美国(yudou789.top 玉豆分享)_21
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_3
+  password: humanity
+  port: 443
+  server: render.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_22
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 法国(yudou789.top 玉豆分享)_4
+  password: humanity
+  port: 443
+  server: 216.24.57.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_23
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 美国(yudou789.top 玉豆分享)_24
+  port: 443
+  reality-opts:
+    public-key: 9OV_GN4lgwY_4llPfYCGev-PPXLMj-hfYnveKF4tjws
+    short-id: f8
+  server: 31.76.64.248
+  servername: blog.api.www.cloudflare.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 0a322246-8c1a-47cd-9865-cccebbb2e5c1
+- name: 美国(yudou789.top 玉豆分享)_25
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_26
+  network: ws
+  port: 80
+  server: 91.206.71.8
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  udp: true
+  uuid: c20a0bcf-aa6f-4c35-9e62-a39b47b04e73
+  ws-opts:
+    headers:
+      Host: round-haze-8783.294.workers.dev
+    path: /pyip=Telegram🇨🇳+@WangCai2
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_27
+  network: ws
+  port: 2053
+  server: 104.17.221.54
+  servername: fq.jp188.dpdns.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 42c62a5a-cd31-4551-80ef-908732370287
+  ws-opts:
+    headers:
+      Host: fq.jp188.dpdns.org
+    path: /proxyip=154.17.22.207,69.63.210.157,134.195.211.13,172.236.245.153,209.146.115.209,64.186.224.194,149.28.94.52,107.151.188.57
+- name: 美国(yudou789.top 玉豆分享)_28
+  password: humanity
+  port: 443
+  server: 104.18.22.63
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_29
+  password: humanity
+  port: 443
+  server: 216.24.57.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_30
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_31
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: chrome
+  http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 荷兰(yudou789.top 玉豆分享)_1
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 美国(yudou789.top 玉豆分享)_32
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: a2e3c24ab3
+  name: 美国(yudou789.top 玉豆分享)_33
+  network: grpc
+  port: 8443
+  reality-opts:
+    public-key: HWI8KI1Xad87HFiZ7uJkl9GWNgdRuqlS2F6YfxIdhzQ
+    short-id: 37bd480ac3fdbc36
+  server: 144.31.40.96
+  servername: www.max.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7ab9fe4f-6699-427f-a828-9fcf2496d714
+- name: 美国(yudou789.top 玉豆分享)_34
+  password: humanity
+  port: 443
+  server: 172.67.221.242
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: firefox
+  http-opts:
+    headers:
+      Host:
+      - dey.lnmarketplace.net
+    path:
+    - /kavir
+  name: 荷兰(yudou789.top 玉豆分享)_2
+  network: http
+  port: 443
+  server: dey.lnmarketplace.net
+  servername: dey.lnmarketplace.net
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 3536e1fa-0850-44d1-b123-925ce12476cf
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_35
+  network: ws
+  port: 8443
+  server: 213.111.149.58
+  servername: eded-52n.pages.dev
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 2eadb97f-bba4-4471-8d55-bd461525a2dc
+  ws-opts:
+    headers:
+      Host: eded-52n.pages.dev
+    path: /
+- client-fingerprint: ios
+  grpc-opts:
+    grpc-service-name: grpc
+  name: 俄罗斯(yudou789.top 玉豆分享)
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: 8dPBbufX7ST4NrD8Etatp_FR_mbd38vXa2ZXCVLxjQ4
+    short-id: 0fc62d3cd3089adb
+  server: 188.68.218.205
+  servername: static-basket-01.wbbasket.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 6aaa7d1d-8b35-4fd2-ae60-0129ad624935
+- client-fingerprint: chrome
+  name: 德国(yudou789.top 玉豆分享)
+  network: ws
+  port: 443
+  server: 64.118.159.108
+  servername: decf.xzdq.eu.org
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4ec2c66e-becd-4c51-9d6d-9ef74b27c95a
+  ws-opts:
+    headers:
+      Host: decf.xzdq.eu.org
+    path: /api/v1/539e86
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 俄罗斯(yudou789.top 玉豆分享)_1
+  port: 443
+  reality-opts:
+    public-key: Nb9IwEEhUHEbHSc6e5uYTjxDgN4ZExhDckM3OgYhj2o
+    short-id: 52ccb3687fe0b7ec
+  server: 200.165.235.78
+  servername: api8.eaglors.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 238e492b-bc20-4380-92b6-135d39112ca4
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 俄罗斯(yudou789.top 玉豆分享)_2
+  port: 443
+  reality-opts:
+    public-key: Nb9IwEEhUHEbHSc6e5uYTjxDgN4ZExhDckM3OgYhj2o
+    short-id: 52ccb3687fe0b7ec
+  server: 200.165.235.78
+  servername: api8.eaglors.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 238e492b-bc20-4380-92b6-135d39112ca4
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_36
+  network: ws
+  port: 443
+  server: ccs2g.pai50288.uk
+  servername: ccs2g.pai50288.uk
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8be461cb-a0df-47cf-bc0d-4d9e6a22fa74
+  ws-opts:
+    path: /pai50288
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_37
+  network: ws
+  port: 14443
+  server: 95.163.232.171
+  servername: pr-media.pepro.site
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: fb67fd37-8d41-43a9-a093-c0b807fc5299
+  ws-opts:
+    path: /ws
+- name: 美国(yudou789.top 玉豆分享)_38
+  password: humanity
+  port: 443
+  server: 104.17.111.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: qq
+  name: 美国(yudou789.top 玉豆分享)_39
+  port: 40443
+  reality-opts:
+    public-key: dvx6zPztKbgHpYaW6J4OZQC74Uy0JS6HUVdDfbjG5V4
+    short-id: '7606'
+  server: aldebaran.yokkastars.com
+  servername: deepl.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: ed91e79c-f6bf-4fba-8cc0-6d45acaec22b
+- client-fingerprint: chrome
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+  name: 俄罗斯(yudou789.top 玉豆分享)_3
+  network: grpc
+  port: 9894
+  reality-opts:
+    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+    short-id: aa
+  server: 31.131.255.35
+  servername: dl.google.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+- client-fingerprint: chrome
+  name: 美国(yudou789.top 玉豆分享)_40
+  network: ws
+  port: 443
+  server: ccs2g.pai50288.uk
+  servername: ccs2g.pai50288.uk
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8be461cb-a0df-47cf-bc0d-4d9e6a22fa74
+  ws-opts:
+    path: /pai50288
+- name: 美国(yudou789.top 玉豆分享)_41
+  password: humanity
+  port: 443
+  server: 104.17.111.8
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_42
+  password: humanity
+  port: 443
+  server: 176.97.66.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_43
+  password: humanity
+  port: 443
+  server: 172.67.74.2
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_44
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_45
+  password: humanity
+  port: 443
+  server: 104.17.111.1
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: qq
+  name: 荷兰(yudou789.top 玉豆分享)_3
+  network: ws
+  port: 14443
+  server: pr-media.pepro.site
+  servername: pr-media.pepro.site
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: fb67fd37-8d41-43a9-a093-c0b807fc5299
+  ws-opts:
+    path: /ws
+- name: 美国(yudou789.top 玉豆分享)_46
+  password: humanity
+  port: 443
+  server: 104.17.177.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_47
+  network: ws
+  port: 443
+  server: 104.21.92.9
+  servername: 9-M13.35C73e3f-b0AE-4Ae0-b41F-62dFD753A988.KDnS.Fr
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 7700ff6d-cefb-4768-a806-ec4f63fe3b38
+  ws-opts:
+    headers:
+      Host: 9-M13.35c73E3F-B0aE-4Ae0-b41F-62dfD753a988.kDns.FR
+    path: /ED3ZQPu7lqyeDGD58KabZ
+- client-fingerprint: ios
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+  name: 俄罗斯(yudou789.top 玉豆分享)_4
+  network: grpc
+  port: 9894
+  reality-opts:
+    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+    short-id: aa
+  server: 31.131.255.35
+  servername: dl.google.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+- client-fingerprint: qq
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+  name: 俄罗斯(yudou789.top 玉豆分享)_5
+  network: grpc
+  port: 9894
+  reality-opts:
+    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+    short-id: aa
+  server: 31.131.255.35
+  servername: dl.google.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+- name: 美国(yudou789.top 玉豆分享)_48
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_49
+  password: humanity
+  port: 443
+  server: www.speedtest.org
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_50
+  password: humanity
+  port: 443
+  server: 172.67.149.60
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_51
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_52
+  password: humanity
+  port: 443
+  server: 104.17.111.8
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_53
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_54
+  password: humanity
+  port: 443
+  server: 104.18.152.246
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_55
+  password: humanity
+  port: 443
+  server: 104.18.152.161
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_56
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_57
+  password: humanity
+  port: 443
+  server: 104.18.12.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_58
+  password: humanity
+  port: 443
+  server: 104.18.152.50
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_59
+  password: humanity
+  port: 443
+  server: 104.16.174.185
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_60
+  password: humanity
+  port: 443
+  server: 104.18.152.208
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_61
+  password: humanity
+  port: 443
+  server: 104.18.152.210
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_62
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_63
+  password: humanity
+  port: 443
+  server: 104.16.174.37
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_64
+  password: humanity
+  port: 443
+  server: 104.21.8.107
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_65
+  password: humanity
+  port: 443
+  server: 104.18.152.50
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_5
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_6
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大(yudou789.top 玉豆分享)_2
+  password: humanity
+  port: 443
+  server: 104.16.174.12
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_66
+  password: humanity
+  port: 443
+  server: 104.18.152.73
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_67
+  password: humanity
+  port: 443
+  server: 104.18.152.152
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_68
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_69
+  password: humanity
+  port: 443
+  server: 104.18.152.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_70
+  password: humanity
+  port: 443
+  server: 172.67.188.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_71
+  password: humanity
+  port: 443
+  server: 104.18.152.155
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_72
+  password: humanity
+  port: 443
+  server: 104.18.152.152
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_73
+  password: humanity
+  port: 443
+  server: 104.18.152.207
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_74
+  password: humanity
+  port: 443
+  server: 104.18.152.103
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_75
+  password: humanity
+  port: 443
+  server: 104.16.174.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - http/1.1
+  name: 法国(yudou789.top 玉豆分享)_7
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_76
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_77
+  password: humanity
+  port: 443
+  server: 104.18.152.246
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_78
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_79
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_80
+  password: humanity
+  port: 443
+  server: 104.16.174.36
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_8
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_81
+  password: humanity
+  port: 443
+  server: 86.38.214.205
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_82
+  password: humanity
+  port: 443
+  server: 104.18.152.108
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_83
+  password: humanity
+  port: 443
+  server: 104.16.174.6
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_9
+  password: humanity
+  port: 443
+  server: 104.16.174.148
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_84
+  password: humanity
+  port: 443
+  server: 104.16.174.72
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_85
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_86
+  password: humanity
+  port: 443
+  server: 104.18.152.244
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_87
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_88
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_89
+  password: humanity
+  port: 443
+  server: 104.18.152.230
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_90
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_91
+  password: humanity
+  port: 443
+  server: 104.18.152.161
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_92
+  password: humanity
+  port: 443
+  server: 104.21.8.107
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_93
+  password: humanity
+  port: 443
+  server: 104.18.152.97
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_94
+  password: humanity
+  port: 443
+  server: 104.18.152.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_95
+  password: humanity
+  port: 443
+  server: 104.16.73.213
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_96
+  password: humanity
+  port: 443
+  server: 104.16.174.71
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_97
+  password: humanity
+  port: 443
+  server: 104.16.174.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: //assignment
+- name: 美国(yudou789.top 玉豆分享)_98
+  password: humanity
+  port: 443
+  server: 104.18.152.246
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_99
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 法国(yudou789.top 玉豆分享)_10
+  password: humanity
+  port: 443
+  server: 45.130.125.158
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_100
+  password: humanity
+  port: 443
+  server: 104.18.152.133
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_101
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_102
+  password: humanity
+  port: 443
+  server: 45.130.125.158
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_103
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_104
+  password: humanity
+  port: 443
+  server: 104.26.15.137
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_105
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_106
+  password: humanity
+  port: 443
+  server: 172.67.149.60
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_107
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_108
+  password: humanity
+  port: 443
+  server: 104.16.174.71
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_109
+  password: humanity
+  port: 443
+  server: 104.16.174.121
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: //assignment
+- name: 美国(yudou789.top 玉豆分享)_110
+  password: humanity
+  port: 443
+  server: 104.16.174.12
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_111
+  password: humanity
+  port: 443
+  server: 104.16.174.46
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_112
+  password: humanity
+  port: 443
+  server: 104.18.152.140
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_113
+  password: humanity
+  port: 443
+  server: 104.18.152.73
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_114
+  password: humanity
+  port: 443
+  server: 104.16.174.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: //assignment
+- name: 美国(yudou789.top 玉豆分享)_115
+  password: humanity
+  port: 443
+  server: 104.18.152.50
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_116
+  password: humanity
+  port: 443
+  server: 104.26.15.137
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_117
+  password: humanity
+  port: 443
+  server: 104.18.152.229
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_118
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_119
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_120
+  password: humanity
+  port: 443
+  server: 104.18.152.108
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_121
+  password: humanity
+  port: 443
+  server: 104.18.152.108
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_122
+  password: humanity
+  port: 443
+  server: 104.16.174.34
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_123
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: safari
+  grpc-opts:
+    grpc-service-name: grpc-tunnel
+  name: 俄罗斯(yudou789.top 玉豆分享)_6
+  network: grpc
+  port: 9894
+  reality-opts:
+    public-key: sm3E3hjmT6_Gmg_O9rBz4nfXYrHpnl6-LvcCp6T6_xc
+    short-id: aa
+  server: 31.131.255.35
+  servername: dl.google.com
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+- name: 美国(yudou789.top 玉豆分享)_124
+  password: humanity
+  port: 443
+  server: 104.18.152.210
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_125
+  password: humanity
+  port: 443
+  server: 188.114.97.7
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_126
+  password: humanity
+  port: 443
+  server: 172.67.74.2
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_127
+  password: humanity
+  port: 443
+  server: 104.16.174.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_128
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_129
+  password: humanity
+  port: 443
+  server: 104.16.174.33
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_130
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_131
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_132
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_133
+  password: Puj01Rc8UcA9IzcFcYOs8KMOhCz6aX2Q
+  port: 443
+  server: mfyousheng.nl.eu.org
+  skip-cert-verify: true
+  sni: mfyousheng.nl.eu.org
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /tjwsLhx0SFASG4l9FERJ1g
+- alpn:
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_134
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_135
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: assignment
+- name: 美国(yudou789.top 玉豆分享)_136
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_137
+  password: humanity
+  port: 443
+  server: 104.18.152.133
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_138
+  password: humanity
+  port: 443
+  server: 104.16.174.121
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_139
+  password: humanity
+  port: 443
+  server: 104.16.174.148
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_140
+  password: humanity
+  port: 443
+  server: 104.18.152.152
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_141
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: assignment
+- name: 美国(yudou789.top 玉豆分享)_142
+  password: humanity
+  port: 443
+  server: 104.16.174.37
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_143
+  password: humanity
+  port: 443
+  server: 104.16.174.22
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_144
+  password: humanity
+  port: 443
+  server: 104.18.152.73
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_145
+  password: humanity
+  port: 443
+  server: 104.16.174.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_146
+  password: humanity
+  port: 443
+  server: 104.18.152.103
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_147
+  password: humanity
+  port: 443
+  server: 104.18.152.159
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_148
+  password: humanity
+  port: 443
+  server: ip.myip2.qzz.io
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_149
+  password: humanity
+  port: 443
+  server: 104.18.152.244
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_150
+  password: humanity
+  port: 443
+  server: 172.67.188.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_151
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_152
+  password: humanity
+  port: 443
+  server: 104.16.174.72
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_153
+  password: humanity
+  port: 443
+  server: 104.16.73.213
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_154
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_155
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_156
+  password: humanity
+  port: 443
+  server: 104.16.174.71
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大(yudou789.top 玉豆分享)_3
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_157
+  password: humanity
+  port: 443
+  server: ip.myip2.qzz.io
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_158
+  password: humanity
+  port: 443
+  server: 104.16.174.34
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_159
+  password: humanity
+  port: 443
+  server: 104.18.152.207
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_160
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_161
+  password: humanity
+  port: 443
+  server: 104.16.174.46
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_162
+  password: humanity
+  port: 443
+  server: 104.18.152.210
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_163
+  password: humanity
+  port: 443
+  server: 104.18.152.230
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_164
+  password: humanity
+  port: 443
+  server: 104.18.152.175
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_165
+  password: humanity
+  port: 443
+  server: 104.16.174.121
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_166
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_167
+  password: humanity
+  port: 443
+  server: 104.16.174.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_168
+  password: humanity
+  port: 443
+  server: 104.18.152.229
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_169
+  password: humanity
+  port: 443
+  server: 104.18.152.233
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_170
+  password: humanity
+  port: 443
+  server: 104.18.152.207
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_171
+  password: humanity
+  port: 443
+  server: 104.16.73.213
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_172
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_11
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_173
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_174
+  password: humanity
+  port: 443
+  server: 104.21.8.107
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_175
+  password: humanity
+  port: 443
+  server: 104.16.174.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_176
+  password: humanity
+  port: 443
+  server: 104.18.152.159
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_177
+  password: humanity
+  port: 443
+  server: 172.67.149.60
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_178
+  password: humanity
+  port: 443
+  server: 104.16.174.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_12
+  password: humanity
+  port: 443
+  server: 104.19.229.21
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_13
+  password: humanity
+  port: 443
+  server: 104.18.152.155
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_179
+  password: humanity
+  port: 443
+  server: 104.18.152.77
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_180
+  password: humanity
+  port: 443
+  server: 104.16.174.46
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_181
+  password: humanity
+  port: 443
+  server: 104.18.152.179
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_182
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_14
+  password: humanity
+  port: 443
+  server: 104.18.152.97
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_183
+  password: humanity
+  port: 443
+  server: 104.18.152.230
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_184
+  password: humanity
+  port: 443
+  server: 104.18.152.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_185
+  password: humanity
+  port: 443
+  server: 104.16.174.148
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_15
+  password: humanity
+  port: 443
+  server: 104.18.152.179
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_186
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_187
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_188
+  password: humanity
+  port: 443
+  server: 104.16.174.117
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_189
+  password: humanity
+  port: 443
+  server: 104.17.177.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_190
+  password: humanity
+  port: 443
+  server: 104.16.174.12
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_191
+  password: humanity
+  port: 443
+  server: 8.6.112.0
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 美国(yudou789.top 玉豆分享)_192
+  port: 2053
+  reality-opts:
+    public-key: AKUQO-fKsD19FFBxNq5XTFCRXWDZfes4zJjRINY1KUI
+    short-id: beff3ff061a64cfd
+  server: 171.22.129.56
+  servername: fi-one.quiet-rogue.site
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 9f5b9ca7-d0bb-4e50-a3ca-acf5968027fc
+- name: 美国(yudou789.top 玉豆分享)_193
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 加拿大(yudou789.top 玉豆分享)_4
+  password: humanity
+  port: 443
+  server: 104.17.111.8
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_194
+  password: humanity
+  port: 443
+  server: 104.16.174.44
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_195
+  password: humanity
+  port: 443
+  server: 104.18.152.113
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_196
+  password: humanity
+  port: 443
+  server: 104.18.152.229
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_197
+  password: humanity
+  port: 443
+  server: 198.41.223.96
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_198
+  password: humanity
+  port: 443
+  server: 104.16.174.37
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_199
+  password: humanity
+  port: 443
+  server: 104.18.152.225
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_200
+  password: humanity
+  port: 443
+  server: 104.17.111.4
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_201
+  password: humanity
+  port: 443
+  server: 104.16.174.6
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_202
+  password: humanity
+  port: 443
+  server: 104.18.152.103
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_203
+  password: humanity
+  port: 443
+  server: 104.16.174.185
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_204
+  password: humanity
+  port: 443
+  server: 104.18.152.143
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_16
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_205
+  password: humanity
+  port: 443
+  server: 104.16.174.109
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_206
+  password: humanity
+  port: 443
+  server: ip.myip2.qzz.io
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_207
+  password: humanity
+  port: 443
+  server: 141.101.90.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_208
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_209
+  password: humanity
+  port: 443
+  server: 104.16.7.70
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_210
+  password: humanity
+  port: 443
+  server: 104.18.152.208
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_211
+  password: humanity
+  port: 443
+  server: 104.16.174.36
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_212
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_213
+  password: humanity
+  port: 443
+  server: 104.16.174.185
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_214
+  password: humanity
+  port: 443
+  server: 104.20.6.134
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_215
+  password: humanity
+  port: 443
+  server: 104.18.152.113
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯(yudou789.top 玉豆分享)_7
+  port: 443
+  reality-opts:
+    public-key: NsTRRl4ofT64w0VwmkpOWE8yfiXLcEqgwgi-9SGnXTA
+    short-id: a1b2c3d4
+  server: 78.159.247.170
+  servername: kinopoisk.ru
+  skip-cert-verify: true
+  tls: true
+  type: vless
+  udp: true
+  uuid: 92089155-6602-4122-86d4-fe6de20e8c4d
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_216
+  password: humanity
+  port: 443
+  server: 104.21.46.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_217
+  password: humanity
+  port: 443
+  server: 104.18.152.208
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_218
+  password: humanity
+  port: 443
+  server: 104.18.152.77
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_219
+  password: humanity
+  port: 443
+  server: 104.18.152.187
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_220
+  password: humanity
+  port: 443
+  server: 104.18.152.204
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_221
+  password: humanity
+  port: 443
+  server: 104.26.14.137
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 法国(yudou789.top 玉豆分享)_17
+  password: humanity
+  port: 443
+  server: 45.130.125.158
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_222
+  password: humanity
+  port: 443
+  server: 104.16.174.117
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_223
+  password: humanity
+  port: 443
+  server: 104.17.111.3
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_224
+  password: humanity
+  port: 443
+  server: 104.18.12.149
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_225
+  password: humanity
+  port: 443
+  server: 104.18.152.179
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_226
+  password: humanity
+  port: 443
+  server: 104.16.174.124
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_227
+  password: humanity
+  port: 443
+  server: 104.16.174.34
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_228
+  password: humanity
+  port: 443
+  server: 172.67.74.2
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_229
+  password: humanity
+  port: 443
+  server: 104.18.152.140
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_230
+  password: humanity
+  port: 443
+  server: 104.18.152.97
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_231
+  password: humanity
+  port: 443
+  server: 104.18.152.161
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_232
+  password: humanity
+  port: 443
+  server: 104.18.152.133
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_233
+  password: humanity
+  port: 443
+  server: www.speedtest.org
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_234
+  password: humanity
+  port: 443
+  server: 141.101.90.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_235
+  password: humanity
+  port: 443
+  server: 141.101.90.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 法国(yudou789.top 玉豆分享)_18
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_236
+  password: humanity
+  port: 443
+  server: 104.18.152.144
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_237
+  password: humanity
+  port: 443
+  server: 104.18.152.113
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_238
+  password: humanity
+  port: 443
+  server: 104.16.174.14
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_239
+  password: humanity
+  port: 443
+  server: 104.17.111.8
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_240
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_241
+  password: humanity
+  port: 443
+  server: join-telegram-channel.tirexnet.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_242
+  password: humanity
+  port: 443
+  server: www.ignitelimit.com
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_243
+  password: humanity
+  port: 443
+  server: 104.18.152.219
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_244
+  password: humanity
+  port: 443
+  server: www.speedtest.org
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_245
+  password: humanity
+  port: 443
+  server: 104.18.152.244
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_246
+  password: humanity
+  port: 443
+  server: 104.16.174.101
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    path: /assignment
+- alpn:
+  - h3
+  - h2
+  - http/1.1
+  name: 美国(yudou789.top 玉豆分享)_247
+  password: humanity
+  port: 443
+  server: join-telegram-channel-tirexnet.trex.kdns.fr
+  skip-cert-verify: true
+  sni: www.ignitelimit.com
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: www.ignitelimit.com
+    path: /assignment
+- name: 美国(yudou789.top 玉豆分享)_248
+  password: 018b8e7b-7813-4dcb-84a5-3c98f1521e00
+  port: 443
+  server: edu.ruangguru.com
+  skip-cert-verify: true
+  sni: id1.nathaya.web.id
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: id1.nathaya.web.id
+    path: /trojan
+proxy-groups:
+- name: 订阅信息
+  proxies:
+  - 更新时间 2026-09-13 03:54:21
+  - 站点 yudou
+  - 采集地址 https://www.yudou789.top/1867.html
+  type: select
+- name: 🚀 节点选择
+  proxies:
+  - ♻️ 自动选择
+  - DIRECT
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+- interval: 300
+  name: ♻️ 自动选择
+  proxies:
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  tolerance: 50
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- name: 🌍 国外媒体
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🎯 全球直连
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+- name: 📲 电报信息
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+- name: Ⓜ️ 微软服务
+  proxies:
+  - 🎯 全球直连
+  - 🚀 节点选择
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+- name: 🍎 苹果服务
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+- name: 🎯 全球直连
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  type: select
+- name: 🛑 全球拦截
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🍃 应用净化
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🐟 漏网之鱼
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - ♻️ 自动选择
+  - 美国(yudou789.top 玉豆分享)
+  - 香港(yudou789.top 玉豆分享)
+  - 加拿大(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_1
+  - 加拿大(yudou789.top 玉豆分享)_1
+  - 法国(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_4
+  - 法国(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_12
+  - 美国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_14
+  - 法国(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_15
+  - 荷兰(yudou789.top 玉豆分享)
+  - 美国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_19
+  - 美国(yudou789.top 玉豆分享)_20
+  - 美国(yudou789.top 玉豆分享)_21
+  - 法国(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_22
+  - 法国(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_23
+  - 美国(yudou789.top 玉豆分享)_24
+  - 美国(yudou789.top 玉豆分享)_25
+  - 美国(yudou789.top 玉豆分享)_26
+  - 美国(yudou789.top 玉豆分享)_27
+  - 美国(yudou789.top 玉豆分享)_28
+  - 美国(yudou789.top 玉豆分享)_29
+  - 美国(yudou789.top 玉豆分享)_30
+  - 美国(yudou789.top 玉豆分享)_31
+  - 荷兰(yudou789.top 玉豆分享)_1
+  - 美国(yudou789.top 玉豆分享)_32
+  - 美国(yudou789.top 玉豆分享)_33
+  - 美国(yudou789.top 玉豆分享)_34
+  - 荷兰(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_35
+  - 俄罗斯(yudou789.top 玉豆分享)
+  - 德国(yudou789.top 玉豆分享)
+  - 俄罗斯(yudou789.top 玉豆分享)_1
+  - 俄罗斯(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_36
+  - 美国(yudou789.top 玉豆分享)_37
+  - 美国(yudou789.top 玉豆分享)_38
+  - 美国(yudou789.top 玉豆分享)_39
+  - 俄罗斯(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_40
+  - 美国(yudou789.top 玉豆分享)_41
+  - 美国(yudou789.top 玉豆分享)_42
+  - 美国(yudou789.top 玉豆分享)_43
+  - 美国(yudou789.top 玉豆分享)_44
+  - 美国(yudou789.top 玉豆分享)_45
+  - 荷兰(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_46
+  - 美国(yudou789.top 玉豆分享)_47
+  - 俄罗斯(yudou789.top 玉豆分享)_4
+  - 俄罗斯(yudou789.top 玉豆分享)_5
+  - 美国(yudou789.top 玉豆分享)_48
+  - 美国(yudou789.top 玉豆分享)_49
+  - 美国(yudou789.top 玉豆分享)_50
+  - 美国(yudou789.top 玉豆分享)_51
+  - 美国(yudou789.top 玉豆分享)_52
+  - 美国(yudou789.top 玉豆分享)_53
+  - 美国(yudou789.top 玉豆分享)_54
+  - 美国(yudou789.top 玉豆分享)_55
+  - 美国(yudou789.top 玉豆分享)_56
+  - 美国(yudou789.top 玉豆分享)_57
+  - 美国(yudou789.top 玉豆分享)_58
+  - 美国(yudou789.top 玉豆分享)_59
+  - 美国(yudou789.top 玉豆分享)_60
+  - 美国(yudou789.top 玉豆分享)_61
+  - 美国(yudou789.top 玉豆分享)_62
+  - 美国(yudou789.top 玉豆分享)_63
+  - 美国(yudou789.top 玉豆分享)_64
+  - 美国(yudou789.top 玉豆分享)_65
+  - 法国(yudou789.top 玉豆分享)_5
+  - 法国(yudou789.top 玉豆分享)_6
+  - 加拿大(yudou789.top 玉豆分享)_2
+  - 美国(yudou789.top 玉豆分享)_66
+  - 美国(yudou789.top 玉豆分享)_67
+  - 美国(yudou789.top 玉豆分享)_68
+  - 美国(yudou789.top 玉豆分享)_69
+  - 美国(yudou789.top 玉豆分享)_70
+  - 美国(yudou789.top 玉豆分享)_71
+  - 美国(yudou789.top 玉豆分享)_72
+  - 美国(yudou789.top 玉豆分享)_73
+  - 美国(yudou789.top 玉豆分享)_74
+  - 美国(yudou789.top 玉豆分享)_75
+  - 法国(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_76
+  - 美国(yudou789.top 玉豆分享)_77
+  - 美国(yudou789.top 玉豆分享)_78
+  - 美国(yudou789.top 玉豆分享)_79
+  - 美国(yudou789.top 玉豆分享)_80
+  - 法国(yudou789.top 玉豆分享)_8
+  - 美国(yudou789.top 玉豆分享)_81
+  - 美国(yudou789.top 玉豆分享)_82
+  - 美国(yudou789.top 玉豆分享)_83
+  - 法国(yudou789.top 玉豆分享)_9
+  - 美国(yudou789.top 玉豆分享)_84
+  - 美国(yudou789.top 玉豆分享)_85
+  - 美国(yudou789.top 玉豆分享)_86
+  - 美国(yudou789.top 玉豆分享)_87
+  - 美国(yudou789.top 玉豆分享)_88
+  - 美国(yudou789.top 玉豆分享)_89
+  - 美国(yudou789.top 玉豆分享)_90
+  - 美国(yudou789.top 玉豆分享)_91
+  - 美国(yudou789.top 玉豆分享)_92
+  - 美国(yudou789.top 玉豆分享)_93
+  - 美国(yudou789.top 玉豆分享)_94
+  - 美国(yudou789.top 玉豆分享)_95
+  - 美国(yudou789.top 玉豆分享)_96
+  - 美国(yudou789.top 玉豆分享)_97
+  - 美国(yudou789.top 玉豆分享)_98
+  - 美国(yudou789.top 玉豆分享)_99
+  - 法国(yudou789.top 玉豆分享)_10
+  - 美国(yudou789.top 玉豆分享)_100
+  - 美国(yudou789.top 玉豆分享)_101
+  - 美国(yudou789.top 玉豆分享)_102
+  - 美国(yudou789.top 玉豆分享)_103
+  - 美国(yudou789.top 玉豆分享)_104
+  - 美国(yudou789.top 玉豆分享)_105
+  - 美国(yudou789.top 玉豆分享)_106
+  - 美国(yudou789.top 玉豆分享)_107
+  - 美国(yudou789.top 玉豆分享)_108
+  - 美国(yudou789.top 玉豆分享)_109
+  - 美国(yudou789.top 玉豆分享)_110
+  - 美国(yudou789.top 玉豆分享)_111
+  - 美国(yudou789.top 玉豆分享)_112
+  - 美国(yudou789.top 玉豆分享)_113
+  - 美国(yudou789.top 玉豆分享)_114
+  - 美国(yudou789.top 玉豆分享)_115
+  - 美国(yudou789.top 玉豆分享)_116
+  - 美国(yudou789.top 玉豆分享)_117
+  - 美国(yudou789.top 玉豆分享)_118
+  - 美国(yudou789.top 玉豆分享)_119
+  - 美国(yudou789.top 玉豆分享)_120
+  - 美国(yudou789.top 玉豆分享)_121
+  - 美国(yudou789.top 玉豆分享)_122
+  - 美国(yudou789.top 玉豆分享)_123
+  - 俄罗斯(yudou789.top 玉豆分享)_6
+  - 美国(yudou789.top 玉豆分享)_124
+  - 美国(yudou789.top 玉豆分享)_125
+  - 美国(yudou789.top 玉豆分享)_126
+  - 美国(yudou789.top 玉豆分享)_127
+  - 美国(yudou789.top 玉豆分享)_128
+  - 美国(yudou789.top 玉豆分享)_129
+  - 美国(yudou789.top 玉豆分享)_130
+  - 美国(yudou789.top 玉豆分享)_131
+  - 美国(yudou789.top 玉豆分享)_132
+  - 美国(yudou789.top 玉豆分享)_133
+  - 美国(yudou789.top 玉豆分享)_134
+  - 美国(yudou789.top 玉豆分享)_135
+  - 美国(yudou789.top 玉豆分享)_136
+  - 美国(yudou789.top 玉豆分享)_137
+  - 美国(yudou789.top 玉豆分享)_138
+  - 美国(yudou789.top 玉豆分享)_139
+  - 美国(yudou789.top 玉豆分享)_140
+  - 美国(yudou789.top 玉豆分享)_141
+  - 美国(yudou789.top 玉豆分享)_142
+  - 美国(yudou789.top 玉豆分享)_143
+  - 美国(yudou789.top 玉豆分享)_144
+  - 美国(yudou789.top 玉豆分享)_145
+  - 美国(yudou789.top 玉豆分享)_146
+  - 美国(yudou789.top 玉豆分享)_147
+  - 美国(yudou789.top 玉豆分享)_148
+  - 美国(yudou789.top 玉豆分享)_149
+  - 美国(yudou789.top 玉豆分享)_150
+  - 美国(yudou789.top 玉豆分享)_151
+  - 美国(yudou789.top 玉豆分享)_152
+  - 美国(yudou789.top 玉豆分享)_153
+  - 美国(yudou789.top 玉豆分享)_154
+  - 美国(yudou789.top 玉豆分享)_155
+  - 美国(yudou789.top 玉豆分享)_156
+  - 加拿大(yudou789.top 玉豆分享)_3
+  - 美国(yudou789.top 玉豆分享)_157
+  - 美国(yudou789.top 玉豆分享)_158
+  - 美国(yudou789.top 玉豆分享)_159
+  - 美国(yudou789.top 玉豆分享)_160
+  - 美国(yudou789.top 玉豆分享)_161
+  - 美国(yudou789.top 玉豆分享)_162
+  - 美国(yudou789.top 玉豆分享)_163
+  - 美国(yudou789.top 玉豆分享)_164
+  - 美国(yudou789.top 玉豆分享)_165
+  - 美国(yudou789.top 玉豆分享)_166
+  - 美国(yudou789.top 玉豆分享)_167
+  - 美国(yudou789.top 玉豆分享)_168
+  - 美国(yudou789.top 玉豆分享)_169
+  - 美国(yudou789.top 玉豆分享)_170
+  - 美国(yudou789.top 玉豆分享)_171
+  - 美国(yudou789.top 玉豆分享)_172
+  - 法国(yudou789.top 玉豆分享)_11
+  - 美国(yudou789.top 玉豆分享)_173
+  - 美国(yudou789.top 玉豆分享)_174
+  - 美国(yudou789.top 玉豆分享)_175
+  - 美国(yudou789.top 玉豆分享)_176
+  - 美国(yudou789.top 玉豆分享)_177
+  - 美国(yudou789.top 玉豆分享)_178
+  - 法国(yudou789.top 玉豆分享)_12
+  - 法国(yudou789.top 玉豆分享)_13
+  - 美国(yudou789.top 玉豆分享)_179
+  - 美国(yudou789.top 玉豆分享)_180
+  - 美国(yudou789.top 玉豆分享)_181
+  - 美国(yudou789.top 玉豆分享)_182
+  - 法国(yudou789.top 玉豆分享)_14
+  - 美国(yudou789.top 玉豆分享)_183
+  - 美国(yudou789.top 玉豆分享)_184
+  - 美国(yudou789.top 玉豆分享)_185
+  - 法国(yudou789.top 玉豆分享)_15
+  - 美国(yudou789.top 玉豆分享)_186
+  - 美国(yudou789.top 玉豆分享)_187
+  - 美国(yudou789.top 玉豆分享)_188
+  - 美国(yudou789.top 玉豆分享)_189
+  - 美国(yudou789.top 玉豆分享)_190
+  - 美国(yudou789.top 玉豆分享)_191
+  - 美国(yudou789.top 玉豆分享)_192
+  - 美国(yudou789.top 玉豆分享)_193
+  - 加拿大(yudou789.top 玉豆分享)_4
+  - 美国(yudou789.top 玉豆分享)_194
+  - 美国(yudou789.top 玉豆分享)_195
+  - 美国(yudou789.top 玉豆分享)_196
+  - 美国(yudou789.top 玉豆分享)_197
+  - 美国(yudou789.top 玉豆分享)_198
+  - 美国(yudou789.top 玉豆分享)_199
+  - 美国(yudou789.top 玉豆分享)_200
+  - 美国(yudou789.top 玉豆分享)_201
+  - 美国(yudou789.top 玉豆分享)_202
+  - 美国(yudou789.top 玉豆分享)_203
+  - 美国(yudou789.top 玉豆分享)_204
+  - 法国(yudou789.top 玉豆分享)_16
+  - 美国(yudou789.top 玉豆分享)_205
+  - 美国(yudou789.top 玉豆分享)_206
+  - 美国(yudou789.top 玉豆分享)_207
+  - 美国(yudou789.top 玉豆分享)_208
+  - 美国(yudou789.top 玉豆分享)_209
+  - 美国(yudou789.top 玉豆分享)_210
+  - 美国(yudou789.top 玉豆分享)_211
+  - 美国(yudou789.top 玉豆分享)_212
+  - 美国(yudou789.top 玉豆分享)_213
+  - 美国(yudou789.top 玉豆分享)_214
+  - 美国(yudou789.top 玉豆分享)_215
+  - 俄罗斯(yudou789.top 玉豆分享)_7
+  - 美国(yudou789.top 玉豆分享)_216
+  - 美国(yudou789.top 玉豆分享)_217
+  - 美国(yudou789.top 玉豆分享)_218
+  - 美国(yudou789.top 玉豆分享)_219
+  - 美国(yudou789.top 玉豆分享)_220
+  - 美国(yudou789.top 玉豆分享)_221
+  - 法国(yudou789.top 玉豆分享)_17
+  - 美国(yudou789.top 玉豆分享)_222
+  - 美国(yudou789.top 玉豆分享)_223
+  - 美国(yudou789.top 玉豆分享)_224
+  - 美国(yudou789.top 玉豆分享)_225
+  - 美国(yudou789.top 玉豆分享)_226
+  - 美国(yudou789.top 玉豆分享)_227
+  - 美国(yudou789.top 玉豆分享)_228
+  - 美国(yudou789.top 玉豆分享)_229
+  - 美国(yudou789.top 玉豆分享)_230
+  - 美国(yudou789.top 玉豆分享)_231
+  - 美国(yudou789.top 玉豆分享)_232
+  - 美国(yudou789.top 玉豆分享)_233
+  - 美国(yudou789.top 玉豆分享)_234
+  - 美国(yudou789.top 玉豆分享)_235
+  - 法国(yudou789.top 玉豆分享)_18
+  - 美国(yudou789.top 玉豆分享)_236
+  - 美国(yudou789.top 玉豆分享)_237
+  - 美国(yudou789.top 玉豆分享)_238
+  - 美国(yudou789.top 玉豆分享)_239
+  - 美国(yudou789.top 玉豆分享)_240
+  - 美国(yudou789.top 玉豆分享)_241
+  - 美国(yudou789.top 玉豆分享)_242
+  - 美国(yudou789.top 玉豆分享)_243
+  - 美国(yudou789.top 玉豆分享)_244
+  - 美国(yudou789.top 玉豆分享)_245
+  - 美国(yudou789.top 玉豆分享)_246
+  - 美国(yudou789.top 玉豆分享)_247
+  - 美国(yudou789.top 玉豆分享)_248
+  type: select
+rule-providers:
+  Apple:
+    behavior: classical
+    path: ./rules/Apple.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Apple.list
+  BanAD:
+    behavior: classical
+    path: ./rules/BanAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanAD.list
+  BanProgramAD:
+    behavior: classical
+    path: ./rules/BanProgramAD.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/BanProgramAD.list
+  ChinaCompanyIp:
+    behavior: classical
+    path: ./rules/ChinaCompanyIp.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaCompanyIp.list
+  ChinaDomain:
+    behavior: classical
+    path: ./rules/ChinaDomain.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ChinaDomain.list
+  GoogleCN:
+    behavior: classical
+    path: ./rules/GoogleCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/GoogleCN.list
+  LocalAreaNetwork:
+    behavior: classical
+    path: ./rules/LocalAreaNetwork.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/LocalAreaNetwork.list
+  Microsoft:
+    behavior: classical
+    path: ./rules/Microsoft.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Microsoft.list
+  ProxyLite:
+    behavior: classical
+    path: ./rules/ProxyLite.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyLite.list
+  ProxyMedia:
+    behavior: classical
+    path: ./rules/ProxyMedia.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/ProxyMedia.list
+  SteamCN:
+    behavior: classical
+    path: ./rules/SteamCN.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/SteamCN.list
+  Telegram:
+    behavior: classical
+    path: ./rules/Telegram.yaml
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Telegram.list
+rules:
+- DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+- RULE-SET,LocalAreaNetwork,🎯 全球直连
+- RULE-SET,BanAD,🛑 全球拦截
+- RULE-SET,BanProgramAD,🍃 应用净化
+- RULE-SET,GoogleCN,🎯 全球直连
+- RULE-SET,SteamCN,🎯 全球直连
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,ProxyMedia,🌍 国外媒体
+- RULE-SET,Telegram,📲 电报信息
+- RULE-SET,ProxyLite,🚀 节点选择
+- RULE-SET,ChinaDomain,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
