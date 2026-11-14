@@ -1,0 +1,1910 @@
+allow-lan: false
+dns:
+  default-nameserver:
+  - https://223.5.5.5/dns-query#DIRECT
+  - https://223.6.6.6/dns-query#DIRECT
+  direct-nameserver:
+  - https://223.5.5.5/dns-query#DIRECT
+  - https://doh.pub/dns-query#DIRECT
+  direct-nameserver-follow-policy: false
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+  - localhost
+  - +.localhost
+  - +.lan
+  - +.local
+  - +.home.arpa
+  fake-ip-filter-mode: blacklist
+  fake-ip-range: 198.18.0.1/16
+  ipv6: true
+  listen: 127.0.0.1:1053
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://1.0.0.1/dns-query
+  nameserver-policy:
+    geosite:cn:
+    - https://223.5.5.5/dns-query#DIRECT
+    - https://doh.pub/dns-query#DIRECT
+  prefer-h3: false
+  proxy-server-nameserver:
+  - https://223.5.5.5/dns-query#DIRECT
+  - https://223.6.6.6/dns-query#DIRECT
+  respect-rules: true
+  use-hosts: true
+  use-system-hosts: true
+ipv6: true
+log-level: warning
+mixed-port: 7890
+mode: rule
+proxies:
+- name: 采集地址 https://www.youtube.com/watch?v=QgUFZ6l6C5Q
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 站点 xqkxw
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 更新时间 2026-11-14 07:22:47
+  network: ws
+  port: 0
+  server: 127.0.0.1
+  skip-cert-verify: true
+  tls: false
+  type: vless
+  uuid: 00000000-0000-0000-0000-000000000000
+- name: 加拿大  YouTube@小青科学网_8
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2053
+  server: 162.159.140.116
+  servername: 17946194441624.206356.xyz
+  skip-cert-verify: false
+  sni: 17946194441624.206356.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194442525.206356.xyz
+    path: /dmusicmuaawe
+- name: 未知  YouTube@小青科学网_3
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2083
+  server: 99.cdn.aewe.de
+  servername: 17946194448372.206356.xyz
+  skip-cert-verify: false
+  sni: 17946194448372.206356.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445459.206356.xyz
+    path: /dmusicmuaawe
+- name: 美国  YouTube@小青科学网_24
+  network: ws
+  port: 443
+  server: 146.75.59.186
+  servername: cdn.akamai.steamstatic.com
+  skip-cert-verify: false
+  sni: cdn.akamai.steamstatic.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8d2cbffd-43d0-458d-906b-7c54b7b51f38
+  ws-opts:
+    headers:
+      Host: ukoijji.global.ssl.fastly.net
+    path: /?Telegram---MTMVPN---MTMVPN---MTMVPN---MTMVPN
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 德国  YouTube@小青科学网
+  port: 443
+  reality-opts:
+    public-key: 8ekBZQk5UXxYvELwhchzklwJ5H9-W3rkZ1eAVVF1xlI
+    short-id: b39ae58a4dcff57d
+  server: 86.107.179.250
+  servername: edge-5c4a0a8e13a6.eu-cdn391.com
+  skip-cert-verify: false
+  sni: edge-5c4a0a8e13a6.eu-cdn391.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
+- name: 未知  YouTube@小青科学网_11
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2083
+  server: 99.cdn.aewe.de
+  servername: 17946194449996.206355.xyz
+  skip-cert-verify: false
+  sni: 17946194449996.206355.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194447175.206355.xyz
+    path: /videomuaawe
+- name: 加拿大  YouTube@小青科学网_15
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2083
+  server: 99.cdn.aewe.de
+  servername: 17946194446930.168381.xyz
+  skip-cert-verify: false
+  sni: 17946194446930.168381.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445307.168381.xyz
+    path: /tianboephth
+- name: 未知  YouTube@小青科学网_7
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: 162.159.140.116
+  servername: 17946194448626.206352.xyz
+  skip-cert-verify: false
+  sni: 17946194448626.206352.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194444339.206352.xyz
+    path: /agraeabtegrrh
+- client-fingerprint: qq
+  flow: xtls-rprx-vision
+  name: 荷兰  YouTube@小青科学网_1
+  port: 8443
+  reality-opts:
+    public-key: bxCIwojWO_edyWgi_QS-BOEnbX-prYu5B1hN_7Skgnc
+    short-id: b6efdae4d829da97
+  server: 5.35.44.218
+  servername: nl17.blog-forme.ru
+  skip-cert-verify: false
+  sni: nl17.blog-forme.ru
+  tls: true
+  type: vless
+  udp: true
+  uuid: 549766c3-fa5f-471e-8031-ffc1f8d5064f
+- name: 加拿大  YouTube@小青科学网_13
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2053
+  server: 162.159.140.116
+  servername: 17946194447463.168381.xyz
+  skip-cert-verify: false
+  sni: 17946194447463.168381.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194443673.168381.xyz
+    path: /tianboephth
+- name: 加拿大  YouTube@小青科学网_24
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2083
+  server: 162.159.140.116
+  servername: 17946194445151.206353.xyz
+  skip-cert-verify: false
+  sni: 17946194445151.206353.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194441128.206353.xyz
+    path: /agrbniuh
+- name: 加拿大  YouTube@小青科学网_11
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2053
+  server: 162.159.140.116
+  servername: 17946194447772.206355.xyz
+  skip-cert-verify: false
+  sni: 17946194447772.206355.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194444485.206355.xyz
+    path: /videomuaawe
+- name: 加拿大  YouTube@小青科学网_5
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: 99.cdn.aewe.de
+  servername: 17946194443497.206352.xyz
+  skip-cert-verify: false
+  sni: 17946194443497.206352.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194447959.206352.xyz
+    path: /agraeabtegrrh
+- name: 未知  YouTube@小青科学网_14
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: 104.18.166.129
+  servername: 17946194445763.168381.xyz
+  skip-cert-verify: false
+  sni: 17946194445763.168381.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194441415.168381.xyz
+    path: /tianboephth
+- name: 未知  YouTube@小青科学网_2
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: 172.64.229.88
+  servername: 17946194447642.206356.xyz
+  skip-cert-verify: false
+  sni: 17946194447642.206356.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194444144.206356.xyz
+    path: /dmusicmuaawe
+- name: 加拿大  YouTube@小青科学网_10
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: bestcdn0.868863.xyz
+  servername: 17946194446989.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194446989.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445159.682637.xyz
+    path: /ahyrtuyjykl
+- name: 未知  YouTube@小青科学网_15
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: 104.18.166.129
+  servername: 17946194447748.206355.xyz
+  skip-cert-verify: false
+  sni: 17946194447748.206355.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194449096.206355.xyz
+    path: /videomuaawe
+- name: 加拿大  YouTube@小青科学网_18
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: bestcdn0.868863.xyz
+  servername: 17946194446057.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194446057.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194447562.682637.xyz
+    path: /ahyrtuyjykl
+- name: 加拿大  YouTube@小青科学网_23
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2053
+  server: 172.64.229.88
+  servername: 17946194443121.206352.xyz
+  skip-cert-verify: false
+  sni: 17946194443121.206352.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194449773.206352.xyz
+    path: /agraeabtegrrh
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯  YouTube@小青科学网
+  port: 443
+  reality-opts:
+    public-key: lews1n_fypGexd_dMofEO4Vy1ULsFeVIFa90MMY3pm4
+    short-id: 3992cc7fb9fcbe58
+  server: ru7e2bab87cc39.eu-cdn539.com
+  servername: ru7e2bab87cc39.eu-cdn539.com
+  skip-cert-verify: false
+  sni: ru7e2bab87cc39.eu-cdn539.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: e75ad2eb-6c1f-45ce-8023-f5f10875df66
+- name: 未知  YouTube@小青科学网_6
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: 104.18.166.129
+  servername: 17946194448906.206356.xyz
+  skip-cert-verify: false
+  sni: 17946194448906.206356.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194449785.206356.xyz
+    path: /dmusicmuaawe
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 英国  YouTube@小青科学网
+  port: 59130
+  reality-opts:
+    public-key: 6Lh48ni3w8oe9QW3xVzNMIE5LU-p5VPHPMCUtVMOmgo
+    short-id: '14'
+  server: 185.122.167.103
+  servername: nvplm.stg.nvidia.com
+  skip-cert-verify: false
+  sni: nvplm.stg.nvidia.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: b771804e-a62c-429f-a56c-9f0a452d8f6e
+- name: 加拿大  YouTube@小青科学网_16
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 8443
+  server: bestcdn0.868863.xyz
+  servername: 17946194445235.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194445235.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194443821.682637.xyz
+    path: /ahyrtuyjykl
+- name: 加拿大  YouTube@小青科学网_17
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: bestcdn0.868863.xyz
+  servername: 17946194448443.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194448443.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194443229.682637.xyz
+    path: /ahyrtuyjykl
+- name: 未知  YouTube@小青科学网_4
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2083
+  server: 104.18.166.129
+  servername: 17946194444583.206352.xyz
+  skip-cert-verify: false
+  sni: 17946194444583.206352.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194449648.206352.xyz
+    path: /agraeabtegrrh
+- name: 加拿大  YouTube@小青科学网_12
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: 172.64.229.88
+  servername: 17946194448698.168381.xyz
+  skip-cert-verify: false
+  sni: 17946194448698.168381.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194448612.168381.xyz
+    path: /tianboephth
+- name: 加拿大  YouTube@小青科学网_14
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: bestcdn0.868863.xyz
+  servername: 17946194447912.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194447912.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445679.682637.xyz
+    path: /ahyrtuyjykl
+- name: 未知  YouTube@小青科学网_21
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 8443
+  server: 99.cdn.aewe.de
+  servername: 17946194441436.206353.xyz
+  skip-cert-verify: false
+  sni: 17946194441436.206353.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445339.206353.xyz
+    path: /agrbniuh
+- client-fingerprint: unsafe
+  name: 香港  YouTube@小青科学网_1
+  network: ws
+  port: 443
+  server: 103.219.195.65
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 未知  YouTube@小青科学网_17
+  port: 443
+  reality-opts:
+    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
+    short-id: 42426c882c5fcd41
+  server: 196.199.122.2
+  servername: 7aa271t.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: 7aa271t.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 荷兰  YouTube@小青科学网_5
+  port: 443
+  reality-opts:
+    public-key: mpo4BIcoWiMXAQGt5a8IJ4MFkPJQyLC50dO_bXzC7z0
+  server: 104.171.135.229
+  servername: absolute-disaster.org
+  skip-cert-verify: false
+  sni: absolute-disaster.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: Fluffy_VPN-Oth8rOq3
+- client-fingerprint: unsafe
+  name: 美国  YouTube@小青科学网_19
+  network: ws
+  port: 443
+  server: 154.40.59.238
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- name: 加拿大  YouTube@小青科学网_7
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 8443
+  server: bestcdn0.868863.xyz
+  servername: 17946194443660.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194443660.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445978.682637.xyz
+    path: /ahyrtuyjykl
+- client-fingerprint: firefox
+  name: 西班牙  YouTube@小青科学网_4
+  port: 443
+  reality-opts:
+    public-key: l-GzBDuNuhnjxoRlZqKvT7jAt_sbVAxhGFsAttO5kXs
+    short-id: 361d0dd59c70516f
+  server: 196.196.148.85
+  servername: 5d0319t.nl7.h1clayd.click
+  skip-cert-verify: false
+  sni: 5d0319t.nl7.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: unsafe
+  name: 美国  YouTube@小青科学网_28
+  network: ws
+  port: 443
+  server: 38.207.162.122
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- name: 加拿大  YouTube@小青科学网_6
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: bestcdn0.868863.xyz
+  servername: 17946194442538.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194442538.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194446542.682637.xyz
+    path: /ahyrtuyjykl
+- client-fingerprint: firefox
+  name: 未知  YouTube@小青科学网_9
+  port: 443
+  reality-opts:
+    public-key: l-GzBDuNuhnjxoRlZqKvT7jAt_sbVAxhGFsAttO5kXs
+    short-id: 361d0dd59c70516f
+  server: 196.196.148.85
+  servername: 5d0319t.nl7.h1clayd.click
+  skip-cert-verify: false
+  sni: 5d0319t.nl7.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- name: 加拿大  YouTube@小青科学网_19
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: 172.64.229.88
+  servername: 17946194448699.206355.xyz
+  skip-cert-verify: false
+  sni: 17946194448699.206355.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445078.206355.xyz
+    path: /videomuaawe
+- client-fingerprint: chrome
+  name: 未知  YouTube@小青科学网_8
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  port: 20086
+  server: sclass-c1.catcat321.com
+  servername: hk.catxstar.com
+  skip-cert-verify: false
+  sni: hk.catxstar.com
+  tls: true
+  type: trojan
+  udp: true
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: 5b79e8a94241
+  name: 西班牙  YouTube@小青科学网_2
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: zbz--PMjcIC4Ggr3j-ibDf0fzXRTj0lM_HzjPJyMkVE
+    short-id: 50a749f0eccb628c
+  server: 196.245.52.183
+  servername: 15b171g.nl7.h1clayd.click
+  skip-cert-verify: false
+  sni: 15b171g.nl7.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: firefox
+  name: 西班牙  YouTube@小青科学网_3
+  port: 443
+  reality-opts:
+    public-key: l-GzBDuNuhnjxoRlZqKvT7jAt_sbVAxhGFsAttO5kXs
+    short-id: 361d0dd59c70516f
+  server: 196.196.148.85
+  servername: 5d0319t.nl7.h1clayd.click
+  skip-cert-verify: false
+  sni: 5d0319t.nl7.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- name: 未知  YouTube@小青科学网_10
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  port: 20103
+  server: sclass-00.catcat321.com
+  servername: hk.catxstar.com
+  skip-cert-verify: false
+  sni: hk.catxstar.com
+  tls: true
+  type: trojan
+  udp: true
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: 204adda7e3da
+  name: 尼日尔  YouTube@小青科学网
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+  server: 196.196.148.63
+  servername: 717252g.nl8.h1clayd.click
+  skip-cert-verify: false
+  sni: 717252g.nl8.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: unsafe
+  name: 加拿大  YouTube@小青科学网_20
+  network: ws
+  port: 443
+  server: 172.64.152.19
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- client-fingerprint: unsafe
+  name: 日本  YouTube@小青科学网
+  network: ws
+  port: 443
+  server: 45.153.245.181
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- client-fingerprint: android
+  name: 美国  YouTube@小青科学网_1
+  network: ws
+  port: 2087
+  server: 103.116.7.100
+  servername: proxy-1cu.pages.dev
+  skip-cert-verify: false
+  sni: proxy-1cu.pages.dev
+  tls: true
+  type: vless
+  udp: true
+  uuid: 40af9131-d540-448a-bc56-5bba147a1dc3
+  ws-opts:
+    headers:
+      Host: proxy-1cu.pages.dev
+    path: /
+- name: 加拿大  YouTube@小青科学网
+  network: ws
+  port: 443
+  server: 162.159.198.1
+  servername: fs.qicai99.com
+  skip-cert-verify: false
+  sni: fs.qicai99.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  ws-opts:
+    path: /?telegram---planb_net---planb_net---planb_net---planb_net
+- name: 加拿大  YouTube@小青科学网_1
+  network: ws
+  port: 443
+  server: 162.159.198.1
+  servername: fs.qicai99.com
+  skip-cert-verify: false
+  sni: fs.qicai99.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  ws-opts:
+    path: /
+- client-fingerprint: chrome
+  name: 未知  YouTube@小青科学网
+  network: ws
+  port: 443
+  server: 162.159.198.1
+  servername: fs.qicai99.com
+  skip-cert-verify: false
+  sni: fs.qicai99.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  ws-opts:
+    path: /
+- client-fingerprint: unsafe
+  name: 加拿大  YouTube@小青科学网_2
+  network: ws
+  port: 443
+  server: 172.64.149.88
+  servername: top-e4s.pages.dev
+  skip-cert-verify: false
+  sni: top-e4s.pages.dev
+  tls: true
+  type: vless
+  udp: true
+  uuid: d37a75db-76b6-4db8-b213-0d5b044d138d
+  ws-opts:
+    headers:
+      Host: top-e4s.pages.dev
+    path: /
+- client-fingerprint: chrome
+  name: 加拿大  YouTube@小青科学网_3
+  network: ws
+  port: 2083
+  server: 172.66.0.172
+  servername: wk1.f1w.de5.net
+  skip-cert-verify: false
+  sni: wk1.f1w.de5.net
+  tls: true
+  type: vless
+  udp: true
+  uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+  ws-opts:
+    headers:
+      Host: wk1.f1w.de5.net
+    path: /
+- client-fingerprint: chrome
+  name: 美国  YouTube@小青科学网_3
+  network: ws
+  port: 2087
+  server: 8.35.211.73
+  servername: d39333476.pages.dev
+  skip-cert-verify: false
+  sni: d39333476.pages.dev
+  tls: true
+  type: vless
+  udp: true
+  uuid: 9f534ac4-3c58-4a16-8b74-13dff09a0cf1
+  ws-opts:
+    headers:
+      Host: d39333476.pages.dev
+    path: /resource
+- name: 美国  YouTube@小青科学网_10
+  network: ws
+  port: 443
+  server: 104.18.39.33
+  servername: fs.qicai99.com
+  skip-cert-verify: false
+  sni: fs.qicai99.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 99c5b713-dedf-4a10-8070-916ff3f49b0e
+  ws-opts:
+    path: /
+- client-fingerprint: chrome
+  name: 加拿大  YouTube@小青科学网_4
+  network: ws
+  port: 443
+  server: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  servername: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  skip-cert-verify: false
+  sni: stf839dvvyog9d2qa4-b8z6ahgn7b7qi.pages.dev
+  tls: true
+  type: vless
+  udp: true
+  uuid: b2f2f9f2-1864-48ea-839b-22815faff1f1
+  ws-opts:
+    path: /
+- name: 未知  YouTube@小青科学网_5
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  port: 20086
+  server: sclass-c1.catcat321.com
+  servername: hk.catxstar.com
+  skip-cert-verify: false
+  sni: hk.catxstar.com
+  tls: true
+  type: trojan
+  udp: true
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 俄罗斯  YouTube@小青科学网_1
+  port: 443
+  reality-opts:
+    public-key: ZzIetLcQtENjIXQ9XZqFo8p3J81p8Emj0wi51Uy07n8
+  server: 72.56.38.83
+  servername: absolute-disaster.org
+  skip-cert-verify: false
+  sni: absolute-disaster.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: Fluffy_VPN-zKZUa4Ie
+- flow: xtls-rprx-vision
+  name: 英国  YouTube@小青科学网_1
+  port: 443
+  reality-opts:
+    public-key: 1iVMMhJZgXHRY7tRlR-1kypF0YeaBcB7EjcfHRsYZX4
+    short-id: 4ff31b18d1bd8227
+  server: 2.26.251.236
+  servername: mental-deprivation.ru
+  skip-cert-verify: false
+  sni: mental-deprivation.ru
+  tls: true
+  type: vless
+  udp: true
+  uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
+- client-fingerprint: firefox
+  grpc-opts:
+    grpc-service-name: 204adda7e3da
+  name: 荷兰  YouTube@小青科学网_6
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+  server: 79.182.39.131
+  servername: 717252g.nl8.h1clayd.click
+  skip-cert-verify: false
+  sni: 717252g.nl8.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 英国  YouTube@小青科学网_2
+  port: 443
+  reality-opts:
+    public-key: 1iVMMhJZgXHRY7tRlR-1kypF0YeaBcB7EjcfHRsYZX4
+    short-id: 4ff31b18d1bd8227
+  server: 2.26.251.236
+  servername: mental-deprivation.ru
+  skip-cert-verify: false
+  sni: mental-deprivation.ru
+  tls: true
+  type: vless
+  udp: true
+  uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 德国  YouTube@小青科学网_3
+  port: 443
+  reality-opts:
+    public-key: 1iVMMhJZgXHRY7tRlR-1kypF0YeaBcB7EjcfHRsYZX4
+    short-id: 4ff31b18d1bd8227
+  server: 2.26.251.236
+  servername: mental-deprivation.ru
+  skip-cert-verify: false
+  sni: mental-deprivation.ru
+  tls: true
+  type: vless
+  udp: true
+  uuid: c16e8cdb-65dd-4049-bc65-14c051b8a6c6
+- name: 加拿大  YouTube@小青科学网_9
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2053
+  server: bestcdn0.868863.xyz
+  servername: 17946194447924.682637.xyz
+  skip-cert-verify: false
+  sni: 17946194447924.682637.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194445282.682637.xyz
+    path: /ahyrtuyjykl
+- name: 美国  YouTube@小青科学网_25
+  network: ws
+  port: 443
+  server: 146.75.59.186
+  servername: cdn.akamai.steamstatic.com
+  skip-cert-verify: false
+  sni: cdn.akamai.steamstatic.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8d2cbffd-43d0-458d-906b-7c54b7b51f38
+  ws-opts:
+    headers:
+      Host: ukoijji.global.ssl.fastly.net
+    path: /?Telegram---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP
+- client-fingerprint: chrome
+  name: 德国  YouTube@小青科学网_4
+  network: ws
+  port: 443
+  server: 3.168.218.9
+  servername: d2ex4nxd2e01ub.cloudfront.net
+  skip-cert-verify: false
+  sni: d2ex4nxd2e01ub.cloudfront.net
+  tls: true
+  type: vless
+  udp: true
+  uuid: 67cd3349-f789-4cbb-8b91-4b6b1654ce7c
+  ws-opts:
+    path: /
+- client-fingerprint: chrome
+  name: 美国  YouTube@小青科学网_26
+  network: ws
+  port: 443
+  server: 146.75.59.186
+  servername: cdn.akamai.steamstatic.com
+  skip-cert-verify: false
+  sni: cdn.akamai.steamstatic.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8d2cbffd-43d0-458d-906b-7c54b7b51f38
+  ws-opts:
+    headers:
+      Host: ukoijji.global.ssl.fastly.net
+    path: /?Telegram---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP
+- client-fingerprint: chrome
+  grpc-opts:
+    grpc-service-name: 204adda7e3da
+  name: 未知  YouTube@小青科学网_13
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+  server: 79.182.39.131
+  servername: 717252g.nl8.h1clayd.click
+  skip-cert-verify: false
+  sni: 717252g.nl8.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: chrome
+  name: 美国  YouTube@小青科学网_27
+  network: ws
+  port: 443
+  server: 146.75.59.186
+  servername: cdn.akamai.steamstatic.com
+  skip-cert-verify: false
+  sni: cdn.akamai.steamstatic.com
+  tls: true
+  type: vless
+  udp: true
+  uuid: 8d2cbffd-43d0-458d-906b-7c54b7b51f38
+  ws-opts:
+    headers:
+      Host: looabomrhesamijji.global.ssl.fastly.net.
+    path: /?Telegram---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP---@pirozi_ArGaP
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 尼日利亚  YouTube@小青科学网
+  port: 443
+  reality-opts:
+    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
+    short-id: 42426c882c5fcd41
+  server: 196.196.149.81
+  servername: 7aa271t.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: 7aa271t.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- grpc-opts:
+    grpc-service-name: 204adda7e3da
+  name: 未知  YouTube@小青科学网_18
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: PD8Jdlg3xB9QY--jwQjp8PFPzCS8-Oryw6-HWBcHMFU
+    short-id: d3bd772514c87d28
+  server: 79.182.39.131
+  servername: 717252g.nl8.h1clayd.click
+  skip-cert-verify: false
+  sni: 717252g.nl8.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 西班牙  YouTube@小青科学网_5
+  port: 443
+  reality-opts:
+    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
+    short-id: 42426c882c5fcd41
+  server: 196.196.149.80
+  servername: 7aa271t.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: 7aa271t.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- client-fingerprint: chrome
+  flow: xtls-rprx-vision
+  name: 未知  YouTube@小青科学网_19
+  port: 443
+  reality-opts:
+    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
+    short-id: 42426c882c5fcd41
+  server: 196.196.149.80
+  servername: 7aa271t.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: 7aa271t.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- name: 加拿大  YouTube@小青科学网_21
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2096
+  server: 172.64.229.88
+  servername: 17946194447970.206353.xyz
+  skip-cert-verify: false
+  sni: 17946194447970.206353.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194444049.206353.xyz
+    path: /agrbniuh
+- name: 未知  YouTube@小青科学网_20
+  password: d9064589-74af-432a-9390-5d8a9da281bf
+  port: 20123
+  server: sclass-00.catcat321.com
+  servername: hk.catxstar.com
+  skip-cert-verify: false
+  sni: hk.catxstar.com
+  tls: true
+  type: trojan
+  udp: true
+- client-fingerprint: firefox
+  grpc-opts: {}
+  name: 西班牙  YouTube@小青科学网_7
+  network: grpc
+  port: 443
+  reality-opts:
+    public-key: 7efBhLzPwoTtEC1GlukCdiTllobUfa2_XuAKNSLJx30
+    short-id: e7cffac9f8cfb434
+  server: 196.196.149.80
+  servername: b3cd32g.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: b3cd32g.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- client-fingerprint: firefox
+  flow: xtls-rprx-vision
+  name: 西班牙  YouTube@小青科学网_8
+  port: 443
+  reality-opts:
+    public-key: ZSmetD4e9QG5CiXhniHg5HJB68L4kwbgAkJmMHtVwEE
+    short-id: 42426c882c5fcd41
+  server: 196.196.149.80
+  servername: 7aa271t.es1.h1clayd.click
+  skip-cert-verify: false
+  sni: 7aa271t.es1.h1clayd.click
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4201786b-d99b-4147-a5f0-20d47acddb81
+- alpn:
+  - h3
+  client-fingerprint: chrome
+  name: 加拿大  YouTube@小青科学网_22
+  network: ws
+  port: 443
+  server: 104.17.147.208
+  servername: b.rack.sxsc.dpdns.org
+  skip-cert-verify: false
+  sni: b.rack.sxsc.dpdns.org
+  tls: true
+  type: vless
+  udp: true
+  uuid: 258ca28a-d982-4a40-b620-7c1c81108060
+  ws-opts:
+    headers:
+      Host: b.rack.sxsc.dpdns.org
+    path: /?ed=2048
+- name: 未知  YouTube@小青科学网_22
+  network: ws
+  password: 23a6e4c3-d961-455f-80af-df2ab3cb95d1
+  port: 2087
+  server: 104.18.166.129
+  servername: 17946194443487.206353.xyz
+  skip-cert-verify: false
+  sni: 17946194443487.206353.xyz
+  tls: true
+  type: trojan
+  udp: true
+  ws-opts:
+    headers:
+      Host: 17946194444041.206353.xyz
+    path: /agrbniuh
+- client-fingerprint: chrome
+  name: 未知  YouTube@小青科学网_23
+  network: ws
+  port: 443
+  server: xray-piox09gf-calm-maple-6.cloady.io
+  servername: xray-piox09gf-calm-maple-6.cloady.io
+  skip-cert-verify: false
+  sni: xray-piox09gf-calm-maple-6.cloady.io
+  tls: true
+  type: vless
+  udp: true
+  uuid: 5633d1c3-fa8e-cd74-5b6b-6c464f36472a
+  ws-opts:
+    path: /0f6186ec3c6d8474
+- client-fingerprint: chrome
+  name: 德国  YouTube@小青科学网_5
+  network: ws
+  port: 443
+  server: 104.18.42.98
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  sni: jp3.yohototo.top
+  tls: true
+  type: vless
+  udp: true
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
+proxy-groups:
+- name: 订阅信息
+  proxies:
+  - 更新时间 2026-11-14 07:22:47
+  - 站点 xqkxw
+  - 采集地址 https://www.youtube.com/watch?v=QgUFZ6l6C5Q
+  type: select
+- name: 🚀 节点选择
+  proxies:
+  - ♻️ 自动选择
+  - DIRECT
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+- interval: 300
+  name: ♻️ 自动选择
+  proxies:
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  tolerance: 50
+  type: url-test
+  url: http://www.gstatic.com/generate_204
+- name: 🌍 国外媒体
+  proxies:
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+- name: 📲 电报信息
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+- name: Ⓜ️ 微软服务
+  proxies:
+  - 🎯 全球直连
+  - 🚀 节点选择
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+- name: 🍎 苹果服务
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+- name: 🎯 全球直连
+  proxies:
+  - DIRECT
+  - 🚀 节点选择
+  - ♻️ 自动选择
+  type: select
+- name: 🛑 全球拦截
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🍃 应用净化
+  proxies:
+  - REJECT
+  - DIRECT
+  type: select
+- name: 🐟 漏网之鱼
+  proxies:
+  - 🚀 节点选择
+  - 🎯 全球直连
+  - ♻️ 自动选择
+  - 加拿大  YouTube@小青科学网_8
+  - 未知  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_24
+  - 德国  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_15
+  - 未知  YouTube@小青科学网_7
+  - 荷兰  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网_13
+  - 加拿大  YouTube@小青科学网_24
+  - 加拿大  YouTube@小青科学网_11
+  - 加拿大  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_10
+  - 未知  YouTube@小青科学网_15
+  - 加拿大  YouTube@小青科学网_18
+  - 加拿大  YouTube@小青科学网_23
+  - 俄罗斯  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_16
+  - 加拿大  YouTube@小青科学网_17
+  - 未知  YouTube@小青科学网_4
+  - 加拿大  YouTube@小青科学网_12
+  - 加拿大  YouTube@小青科学网_14
+  - 未知  YouTube@小青科学网_21
+  - 香港  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网_17
+  - 荷兰  YouTube@小青科学网_5
+  - 美国  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_28
+  - 加拿大  YouTube@小青科学网_6
+  - 未知  YouTube@小青科学网_9
+  - 加拿大  YouTube@小青科学网_19
+  - 未知  YouTube@小青科学网_8
+  - 西班牙  YouTube@小青科学网_2
+  - 西班牙  YouTube@小青科学网_3
+  - 未知  YouTube@小青科学网_10
+  - 尼日尔  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_20
+  - 日本  YouTube@小青科学网
+  - 美国  YouTube@小青科学网_1
+  - 加拿大  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_1
+  - 未知  YouTube@小青科学网
+  - 加拿大  YouTube@小青科学网_2
+  - 加拿大  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_3
+  - 美国  YouTube@小青科学网_10
+  - 加拿大  YouTube@小青科学网_4
+  - 未知  YouTube@小青科学网_5
+  - 俄罗斯  YouTube@小青科学网_1
+  - 英国  YouTube@小青科学网_1
+  - 荷兰  YouTube@小青科学网_6
+  - 英国  YouTube@小青科学网_2
+  - 德国  YouTube@小青科学网_3
+  - 加拿大  YouTube@小青科学网_9
+  - 美国  YouTube@小青科学网_25
+  - 德国  YouTube@小青科学网_4
+  - 美国  YouTube@小青科学网_26
+  - 未知  YouTube@小青科学网_13
+  - 美国  YouTube@小青科学网_27
+  - 尼日利亚  YouTube@小青科学网
+  - 未知  YouTube@小青科学网_18
+  - 西班牙  YouTube@小青科学网_5
+  - 未知  YouTube@小青科学网_19
+  - 加拿大  YouTube@小青科学网_21
+  - 未知  YouTube@小青科学网_20
+  - 西班牙  YouTube@小青科学网_7
+  - 西班牙  YouTube@小青科学网_8
+  - 加拿大  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_22
+  - 未知  YouTube@小青科学网_23
+  - 德国  YouTube@小青科学网_5
+  type: select
+rule-providers:
+  Apple:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/Apple.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+  BanAD:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/BanAD.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+  BanProgramAD:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/BanProgramAD.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+  ChinaCompanyIp:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/ChinaCompanyIp.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+  ChinaDomain:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/ChinaDomain.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+  GoogleCN:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/GoogleCN.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+  LocalAreaNetwork:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/LocalAreaNetwork.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+  Microsoft:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/Microsoft.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+  ProxyLite:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/ProxyLite.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyLite.list
+  ProxyMedia:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/ProxyMedia.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
+  SteamCN:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/SteamCN.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+  Telegram:
+    behavior: classical
+    format: text
+    interval: 86400
+    path: ./rules/Telegram.list
+    type: http
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list
+rules:
+- DOMAIN-SUFFIX,nodebuf.com,🚀 节点选择
+- RULE-SET,LocalAreaNetwork,🎯 全球直连
+- RULE-SET,BanAD,🛑 全球拦截
+- RULE-SET,BanProgramAD,🍃 应用净化
+- RULE-SET,GoogleCN,🎯 全球直连
+- RULE-SET,SteamCN,🎯 全球直连
+- RULE-SET,Microsoft,Ⓜ️ 微软服务
+- RULE-SET,Apple,🍎 苹果服务
+- RULE-SET,ProxyMedia,🌍 国外媒体
+- RULE-SET,Telegram,📲 电报信息
+- RULE-SET,ProxyLite,🚀 节点选择
+- RULE-SET,ChinaDomain,🎯 全球直连
+- RULE-SET,ChinaCompanyIp,🎯 全球直连
+- GEOIP,CN,🎯 全球直连
+- MATCH,🐟 漏网之鱼
