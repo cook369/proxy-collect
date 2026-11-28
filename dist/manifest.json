@@ -1,0 +1,191 @@
+{
+  "last_run": "2026-11-28 10:03:20",
+  "sites": {
+    "datiya": {
+      "today_page": "https://free.datiya.com/post/20261128/",
+      "status": "success",
+      "updated_at": "2026-11-28 08:50:42",
+      "title": "【2026年11月28日】每日更新！高速免费节点，SSR/V2ray/Clash订阅链接 | 免费高速节点推荐|免费节点|免费SSR|免费V2ray|免费Clash|免费Trajon",
+      "collected_at": "2026-11-28 08:47:59",
+      "duration_seconds": 59.1,
+      "files": {
+        "clash.yaml": {
+          "url": "https://free.datiya.com/uploads/20261128-clash.yaml",
+          "success": true
+        }
+      }
+    },
+    "jichangx": {
+      "today_page": "https://jichangx.com/free-nodes-2026-11-28/",
+      "status": "success",
+      "updated_at": "2026-11-28 10:03:20",
+      "title": "2026年11月28日",
+      "collected_at": "2026-11-28 10:00:06",
+      "duration_seconds": 6.3,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://jichangx.com/nodes/v2ray-20261128-01",
+          "success": true
+        }
+      }
+    },
+    "cfmeme": {
+      "today_page": "https://www.cfmem.com/2026/11/20261128-30-hysteria-5-anytls-3-vless.html",
+      "status": "success",
+      "updated_at": "2026-11-28 01:28:54",
+      "title": "2026年11月28日 免费节点更新 | 30条 | HYSTERIA × 5 / ANYTLS × 3 / VLESS × 16 / HYSTERIA2 × 2 / VMESS × 3 / SS × 1",
+      "collected_at": "2026-11-28 01:22:10",
+      "duration_seconds": 53.8,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://nodebuf.com/node-sub/89a4ce2e49b2bcfc5c48ef9b30df400ffb73585051d1e6c69b8ad4bd2f560264/v2ray",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://nodebuf.com/node-sub/89a4ce2e49b2bcfc5c48ef9b30df400ffb73585051d1e6c69b8ad4bd2f560264/mihomo",
+          "success": true
+        }
+      }
+    },
+    "nodefree": {
+      "today_page": "https://nodefree.me/p/3589.html",
+      "status": "success",
+      "updated_at": "2026-11-27 07:31:59",
+      "title": "「11月27日」最高速度12.14M/S，2026年最新高速SSR/V2ray/Clash/Mihomo订阅链接免费节点 - NodeFree",
+      "collected_at": "2026-11-27 07:30:40",
+      "duration_seconds": 98.0,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://node.nodefree.me/2026/11/20261127.txt",
+          "success": true
+        }
+      }
+    },
+    "oneclash": {
+      "today_page": "https://oneclash.cc/a/3220.html",
+      "status": "success",
+      "updated_at": "2026-11-28 08:50:42",
+      "title": "11月28日 | 最高速度9.67M/S，最新SSR/V2ray/Clash/Shadowrocket/Mihomo免费节点高速订阅链接-oneClash",
+      "collected_at": "2026-11-28 08:50:12",
+      "duration_seconds": 133.5,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://oss.oneclash.cc/2026/11/20261128.txt",
+          "success": true
+        }
+      }
+    },
+    "jcnode": {
+      "today_page": "https://youtu.be/_2nsoI7ekF4",
+      "status": "success",
+      "updated_at": "2026-09-08 07:01:28",
+      "title": "2026年09月08日更新 601 个免费节点订阅 - Clash/Singbox/V2ray/Shadowrocket高速梯子 支持4K/解锁ChatGPT与流媒体 手机电脑科学上网 | JCNode 免费节点与实用教程",
+      "collected_at": "2026-09-08 07:01:28",
+      "duration_seconds": 143.6,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://shz.al/SpTh",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://shz.al/QM4h",
+          "success": true
+        }
+      }
+    },
+    "85la": {
+      "today_page": null,
+      "status": "failed",
+      "updated_at": null,
+      "title": null,
+      "collected_at": "2026-11-28 10:01:56",
+      "duration_seconds": 64.1,
+      "files": {},
+      "error": "[85la] No today URL found on homepage"
+    },
+    "xqkxw": {
+      "today_page": "https://www.youtube.com/watch?v=HEPmgqiWd7Y",
+      "status": "success",
+      "updated_at": "2026-11-28 01:28:54",
+      "title": "2026年11月28日，最新节点分享，免费节点，稳定4k，节点分享， V2ray节点，clash节点，节点订阅，机场节点，V2ray订阅，clash订阅，小火箭节点，免费机场",
+      "collected_at": "2026-11-28 01:28:54",
+      "duration_seconds": 405.9,
+      "files": {
+        "v2ray.txt": {
+          "url": "https://gist.githubusercontent.com/guidongone/cdb71b382bedf77773a12507559dc10c/raw/7170cd5c588d350195567ea57ed609df4d19d8f8/1128.txt",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "https://gist.githubusercontent.com/guidongone/df927cb1101a8e9f5032a18d11f7652f/raw/db628331df91dcb4e65562ea8ec17ed11f63fddd/1128.yaml",
+          "success": true
+        }
+      }
+    },
+    "yudou": {
+      "today_page": "https://www.yudou789.top/2321.html",
+      "status": "success",
+      "updated_at": "2026-11-28 08:50:42",
+      "title": "2026年11月28日免费精选节点126条 可看1080P/4K视频 v2ray|clash|小火箭订阅链接 手机电脑 科学上网|梯子|翻墙|代理|VPN|外网-玉豆分享",
+      "collected_at": "2026-11-28 08:49:20",
+      "duration_seconds": 6.8,
+      "files": {
+        "clash.yaml": {
+          "url": "https://uu.yudou226.top/202611/20261128mj4eta.yaml",
+          "success": true
+        },
+        "v2ray.txt": {
+          "url": "https://uu.yudou226.top/202611/20261128bag5se.txt",
+          "success": true
+        }
+      }
+    },
+    "fxrj": {
+      "today_page": "https://www.youtube.com/watch?v=QSIP98bpu4c&hl=zh-CN",
+      "status": "success",
+      "updated_at": "2026-11-28 01:28:54",
+      "title": "【每日更新】170个免费节点 | v2ray/Clash/SSR 稳定 · 极速 · 4K（2026/11/28）\"",
+      "collected_at": "2026-11-28 01:26:10",
+      "duration_seconds": 294.1,
+      "files": {
+        "v2ray.txt": {
+          "url": "",
+          "success": true
+        },
+        "clash.yaml": {
+          "url": "",
+          "success": true
+        }
+      }
+    },
+    "qfzyfx": {
+      "today_page": "https://www.youtube.com/watch?v=qMResZWaHTw",
+      "status": "failed",
+      "updated_at": null,
+      "title": "2026年11月12日高速免费节点 秒开4K/解锁ChatGPT V2rayN/Clash/Singbox/小火箭免费上网ss/vmess/VLESS/Hy2/科学上网",
+      "collected_at": "2026-11-28 10:02:15",
+      "duration_seconds": 128.3,
+      "files": {},
+      "error": "No paste.to URL found"
+    },
+    "zyfxs": {
+      "today_page": "https://www.youtube.com/watch?v=zXVVnCtkDDc",
+      "status": "failed",
+      "updated_at": null,
+      "title": "2026年11月28日最新高速稳定节点，稳定4k，最高8k，免费节点，节点分享，clash节点，V2ray节点，节点订阅，免费机场，clash订阅，机场节点，小火箭节点",
+      "collected_at": "2026-11-28 10:03:20",
+      "duration_seconds": 99.8,
+      "files": {},
+      "error": "No paste.to URL found"
+    },
+    "xz168": {
+      "today_page": null,
+      "status": "failed",
+      "updated_at": null,
+      "title": null,
+      "collected_at": "2026-11-28 10:01:33",
+      "duration_seconds": 6.3,
+      "files": {},
+      "error": "[xz168] No today URL found on homepage"
+    }
+  }
+}
